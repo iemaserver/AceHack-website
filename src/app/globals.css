@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'refinery25';
+  src: url('./fonts/Refinery-25-SemiBold.ttf') format('truetype');
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,8 +19,10 @@
   }
 }
 
+
+
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'refinery25', sans-serif;
 }
