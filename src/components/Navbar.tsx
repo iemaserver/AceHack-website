@@ -1,35 +1,31 @@
-"use client"
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="relative bg-black text-white px-4 md:px-8 lg:px-12 py-4 shadow-lg">
+    <nav className="relative title-font  bg-black text-white px-4 md:px-8 lg:px-12 py-3 shadow-lg border-b border-blue-500">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          {/* <img
-            src="/logo.png" // Replace with actual logo path
-            alt="AceHack Logo"
-            className="w-10 h-10"
-          /> */}
-          <h1 className="text-3xl font-bold text-gradient bg-clip-text bg-gradient-to-r from-cyan-400 to-yellow-500">
+          <h1 className="text-3xl font-extrabold text-gradient bg-clip-text bg-gradient-to-r from-yellow-400 to-cyan-500 drop-shadow-[0_0_10px_rgba(0,255,255,0.8)]">
             AceHack 4.0
           </h1>
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden md:flex space-x-6">
-          {['Home', 'About', 'Schedule', 'Sponsors', 'Contact'].map((item) => (
+        <div className="hidden md:flex space-x-8">
+          {["Home", "About", "Schedule", "Sponsors", "Contact"].map((item) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-xl text-gray-300 hover:text-pink-500 transition-all duration-300 relative group"
+              whileHover={{ scale: 1.1 }}
+              className="relative text-xl font-semibold text-gray-200 hover:text-yellow-300 transition-all duration-300 group"
             >
               {item}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
             </motion.a>
           ))}
         </div>
@@ -38,7 +34,7 @@ export default function Navbar() {
         <motion.a
           href="#register"
           whileHover={{ scale: 1.1 }}
-          className="hidden md:block px-6 py-2 text-white font-semibold text-xl bg-gradient-to-r from-pink-500 to-purple-600 rounded shadow-lg hover:shadow-pink-500/50 hover:from-yellow-400 hover:to-cyan-500 transition-all duration-300"
+          className="hidden md:block px-6 py-2 text-lg font-semibold text-black bg-gradient-to-r from-yellow-300 to-cyan-400 rounded-full shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:text-white"
         >
           Register Now
         </motion.a>
@@ -56,19 +52,19 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col space-y-4 py-4 md:hidden z-50">
-          {['Home', 'About', 'Schedule', 'Sponsors', 'Contact'].map((item) => (
+        <div className="absolute top-full left-0 w-full bg-black text-white flex flex-col space-y-4 py-4 md:hidden z-50 border-t border-blue-500">
+          {["Home", "About", "Schedule", "Sponsors", "Contact"].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-lg text-gray-300 px-4 hover:text-pink-500 transition-all duration-300"
+              className="text-lg font-semibold text-gray-200 px-4 hover:text-yellow-300 transition-all duration-300"
             >
               {item}
             </a>
           ))}
           <a
             href="#register"
-            className="px-6 py-2 mx-4 text-white font-semibold text-lg bg-gradient-to-r from-pink-500 to-purple-600 rounded shadow-lg hover:shadow-pink-500/50 hover:from-yellow-400 hover:to-cyan-500 transition-all duration-300"
+            className="px-6 py-2 mx-4 text-lg font-semibold text-black bg-gradient-to-r from-yellow-300 to-cyan-400 rounded-full shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:text-white"
           >
             Register Now
           </a>

@@ -7,6 +7,13 @@
   src: url('./fonts/Refinery-25-SemiBold.ttf') format('truetype');
 }
 
+@font-face{
+  font-family: 'title-font';
+  src: url('./fonts/Title-Font.ttf') format('truetype');
+}
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,6 +23,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@layer utilities{
+  .title-font {
+    font-family: 'title-font', sans-serif;
+    letter-spacing: 0.15rem;
   }
 }
 
