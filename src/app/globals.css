@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'refinery25';
+  src: url('./fonts/Refinery-25-SemiBold.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: 'title-font';
+  src: url('./fonts/Title-Font.ttf') format('truetype');
+}
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer utilities{
+  .title-font {
+    font-family: 'title-font', sans-serif;
+    letter-spacing: 0.15rem;
+  }
+}
+
+
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'refinery25', sans-serif;
+}
