@@ -1,84 +1,122 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track scroll position for dynamic background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Framer Motion variants
+  const mobileMenuVariants = {
+    closed: { height: 0, opacity: 0 },
+    open: { height: "auto", opacity: 1 },
+  };
+
+  const linkHoverEffect = {
+    whileHover: {
+      scale: 1.1,
+      color: "#000",
+      backgroundColor: "#FFED4A",
+      transition: { duration: 0.2 },
+    },
+  };
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md z-50">
-      <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-black/10 backdrop-blur-[1px] py-0 shadow-lg" : "bg-transparent"
+      }`}
+    >
+      <nav className="container mx-auto flex justify-between items-center px-4 md:px-6 py-3 ">
         {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <a
-            href="#"
-            className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-blue-500 hover:from-blue-500 hover:to-yellow-400 transition-colors duration-300"
-          >
-            AceHack 4.0
-          </a>
-        </motion.div>
+        <div className="flex items-center space-x-2">
+          {scrolled ? (
+            <img src="/images/logo.png" alt="AceHack Logo" className="h-12" />
+          ) : (
+            <img src="/images/logo-dark.png" alt="AceHack Logo" className="h-12" />
+          )}
+          {/* <h1 className="text-5xl title-font text-black antialiased font-extrabold">AceHack 4.0</h1> */}
+          {/* <img src="/images/logo-dark.png" alt="AceHack Logo" className="h-16" /> */}
+        </div>
 
-        {/* Menu Items */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Navigation */}
+        <div
+          className="hidden md:flex bg-black/60"
+          style={{
+            backdropFilter: "blur(10px)",
+            clipPath:
+              "polygon(16px 0, 100% 0, 100% 30px, calc(100% - 18px) 48px, calc(100% - 18px) 2000%, 0 2000%, 0 16px)",
+          }}
+        >
           {["Home", "About", "Schedule", "Sponsors", "FAQs", "Contact"].map(
-            (item, index) => (
+            (item) => (
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-lg font-medium text-gray-300 hover:text-yellow-400 relative"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-xl tracking-wide font-medium py-2 px-4 text-white"
+                {...linkHoverEffect}
               >
                 {item}
-                {/* Glowing Underline Effect */}
-                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
               </motion.a>
             )
           )}
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-300 focus:outline-none"
-          >
-            {isOpen ? (
-              <span className="text-xl">&times;</span> // Close Icon
-            ) : (
-              <span className="text-xl">&#9776;</span> // Hamburger Icon
-            )}
-          </button>
-        </div>
+        {/* Hamburger Menu for Mobile */}
+        <button
+          className="md:hidden flex flex-col items-center justify-center space-y-1 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <motion.div
+            className={`h-1 w-8 bg-yellow-400 transition-transform origin-center ${
+              isOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <motion.div
+            className={`h-1 w-8 bg-yellow-400 transition-opacity ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+          <motion.div
+            className={`h-1 w-8 bg-yellow-400 transition-transform origin-center ${
+              isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
       </nav>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <motion.div
-          initial={{ height: 0 }}
-          animate={{ height: "auto" }}
-          className="md:hidden bg-black bg-opacity-90 text-center py-4"
-        >
-          {["Home", "About", "Schedule", "Sponsors", "FAQs", "Contact"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block py-2 text-lg font-medium text-gray-300 hover:text-yellow-400"
-                onClick={() => setIsOpen(false)}
-              >
-                {item}
-              </a>
-            )
-          )}
-        </motion.div>
-      )}
+      <motion.div
+        variants={mobileMenuVariants}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        className="md:hidden bg-black/90 text-center"
+      >
+        {["Home", "About", "Schedule", "Sponsors", "FAQs", "Contact"].map(
+          (item) => (
+            <motion.a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="block py-4 text-lg font-medium text-gray-300 hover:text-yellow-400"
+              onClick={() => setIsOpen(false)}
+              {...linkHoverEffect}
+            >
+              {item}
+            </motion.a>
+          )
+        )}
+      </motion.div>
     </header>
   );
 }
