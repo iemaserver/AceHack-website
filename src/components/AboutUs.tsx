@@ -6,7 +6,7 @@ export default function AboutAceHack() {
   return (
     <section
       id="about"
-      className="relative py-16 pb-32 px-6 md:px-12 lg:px-20 bg-black text-white"
+      className="relative  py-16 pb-32 px-6 md:px-12 lg:px-20 bg-black text-white"
     >
       {/* Floating Neon Shapes */}
       <div className="absolute inset-0 pointer-events-none">
@@ -45,18 +45,18 @@ export default function AboutAceHack() {
           }}
         />
       </div>
-        <div className="absolute -top-[25rem] inset-0 flex justify-center items-center">
-            <h1 className="text-[9rem] font-extrabold text-white opacity-10">About Us</h1>
+        <div className="absolute -top-[48rem] sm:-top-[25rem] inset-0 flex justify-center items-center">
+            <h1 className="text-8xl sm:text-[9rem] font-extrabold text-white opacity-10">About Us</h1>
         </div>
         <div className="relative z-10 text-center mb-12">
-            <h2 className="text-4xl md:text-8xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
+            <h2 className="text-5xl md:text-8xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
                 What is AceHack?
             </h2>
         </div>
       <div className="relative z-10 container mx-auto flex flex-col md:flex-row items-center gap-12">
         {/* Left - Overlapping Angled Images */}
         <motion.div
-          className="w-full md:w-1/2  flex justify-center items-center"
+          className="w-full md:w-1/2   flex justify-center items-center"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -72,7 +72,7 @@ export default function AboutAceHack() {
           </div>
 
           {/* Image 2 */}
-          <div className="absolute transform rotate-[10deg] top-10 left-40 w-64 h-40 overflow-hidden rounded-lg shadow-lg hover:scale-105 transition border-2 border-[#fbff00] duration-300 z-10">
+          <div className="absolute transform rotate-[10deg] top-10 left-28 sm:left-40 w-64 h-40 overflow-hidden rounded-lg shadow-lg hover:scale-105 transition border-2 border-[#fbff00] duration-300 z-10">
             <img
               src="/images/website-bg.jpg"
               alt="AceHack Collaboration"
@@ -94,7 +94,7 @@ export default function AboutAceHack() {
 
         {/* Right - Text */}
         <motion.div
-          className="w-full md:w-1/2 space-y-6 text-center md:text-left"
+          className="w-full mt-72 sm:mt-0 md:w-1/2 space-y-6 text-center md:text-left"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
