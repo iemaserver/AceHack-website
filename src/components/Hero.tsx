@@ -54,7 +54,7 @@ export default function HeroSection() {
             AceHack 4.0
           </h2>
           <p className="text-lg md:text-2xl text-gray-200 font-medium antialiased">
-            36-Hour Hackathon | In-Person Event | Venue: UEM
+            24-Hour Hackathon | In-Person Event | Venue: UEM
           </p>
         </motion.div>
 
