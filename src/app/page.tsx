@@ -1,6 +1,7 @@
 // import Navbar from "@/components/Navbar2";
 import HeroSection from "../components/Hero";
 import AboutAceHack from "@/components/AboutUs";
+import Footer from "../components/Footer_01";
 
 export default function Home() {
   return (
@@ -12,6 +13,12 @@ export default function Home() {
       <div id="about" className="relative">
         <AboutAceHack />
       </div>
+
+      
+
+      <Footer/>
+
+      
     </>
   );
 }
