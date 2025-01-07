@@ -54,7 +54,7 @@ export default function HeroSection() {
             AceHack 4.0
           </h2>
           <p className="text-lg md:text-2xl text-gray-200 font-medium antialiased">
-            24-Hour Hackathon | In-Person Event | Venue: UEM
+            24-Hour Hackathon | In-Person Event | Venue: Jaipur , Rajasthan
           </p>
         </motion.div>
 
@@ -94,16 +94,16 @@ export default function HeroSection() {
           className="flex justify-center space-x-6"
         >
           <a
-            href="#register"
+            href="https://dorahacks.io/hackathon/acehack4/detail"
             className="px-6 py-3 bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-bold text-lg rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
           >
             Register Now
           </a>
           <a
-            href="#details"
+            href="https://linktr.ee/acehack4"
             className="px-6 py-3 border-2 border-[#fbff00] text-[#fbff00] hover:text-black font-bold text-lg rounded-md hover:bg-[#fbff00]/90 hover:scale-105 transition-transform duration-300"
           >
-            Learn More
+            Join our community
           </a>
         </motion.div>
       </div>
