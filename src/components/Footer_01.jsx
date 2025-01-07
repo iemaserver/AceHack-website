@@ -73,7 +73,7 @@ function Footer_01() {
                 </a>
               </li>
               <li>
-                Phone: <a href="tel:+9162964991370">+91 123 456 7890</a>
+                Phone: <a href="tel:+9162964991370">+916296499137</a>
               </li>
               <li>Location: UEM Jaipur, Rajasthan</li>
             </ul>
@@ -81,12 +81,16 @@ function Footer_01() {
 
           <div className="footer-contact-us">
             <h3>Contact With Us</h3>
+            
             <div className="footer-media">
-              <div className="linkedin"><FontAwesomeIcon icon={faLinkedin} /></div>
-              <div className="instra"><FontAwesomeIcon icon={faInstagram} /></div>
-              <div className="twitter"><FontAwesomeIcon icon={faXTwitter} /></div>
+            
+              <div className="linkedin"><a>1</a></div>
+              <div className="instra"><a>2</a></div>
+              <div className="twitter"><a>3</a></div>
             </div>
           </div>
+
+          
         </div>
       </div>
       <br></br>

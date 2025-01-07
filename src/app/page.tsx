@@ -2,6 +2,13 @@
 import HeroSection from "../components/Hero";
 import AboutAceHack from "@/components/AboutUs";
 import Footer from "../components/Footer_01";
+import Swag from "../components/Swag"
+import Themes from "../components/Themes"
+import Why from "../components/Why"
+import Prizes from "../components/Prizes"
+import Sponsor from "../components/Sponsor"
+import Speakers from "../components/Speakers"
+import Past from "../components/Past"
 
 export default function Home() {
   return (
@@ -14,6 +21,17 @@ export default function Home() {
         <AboutAceHack />
       </div>
 
+      <Swag/>
+
+      <Themes/>
+
+      <Why/>
+
+      <Prizes/>
+
+     
+      <Past/>
+      <Speakers/>
       
 
       <Footer/>

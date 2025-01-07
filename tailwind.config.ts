@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      boxShadow: {
+        'gradient': '0 5px 15px #00f0ff', // Adjust the gradient colors here
+      },
     },
   },
   plugins: [],
