@@ -38,7 +38,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.2, scale: 1 }}
           transition={{ duration: 1 }}
-          className="absolute inset-0 -z-10 flex items-center justify-center opacity-10"
+          className="absolute -top-28 md:-top-0 inset-0 -z-10 flex items-center justify-center opacity-10"
         >
           <img src="/images/logo.png" alt="AceHack Logo" className="h-auto w-[40rem]" />
         </motion.div>
@@ -48,13 +48,14 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-4"
+          className="space-y-4 "
         >
-          <h2 className="text-4xl md:text-[8rem] antialiased font-extrabold leading-none text-black drop-shadow-lg">
+          <h2 className="text-[5rem] md:text-[8rem] antialiased font-extrabold leading-none text-black drop-shadow-lg">
             AceHack 4.0
           </h2>
-          <p className="text-lg md:text-2xl text-gray-200 font-medium antialiased">
-            24-Hour Hackathon | In-Person Event | Venue: Jaipur , Rajasthan
+
+          <p className="text-xl md:text-2xl text-gray-200 font-medium antialiased">
+            24-Hour Hackathon | In-Person Event | Venue: UEM
           </p>
         </motion.div>
 
@@ -63,10 +64,10 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="bg-black/70 px-8 py-4 rounded-md shadow-md"
+          className="bg-black/70 px-8 sm:px-10 py-4 sm:py-6 rounded-md shadow-md"
         >
-          <h3 className="text-lg md:text-xl font-bold text-gray-300">Event Starts In</h3>
-          <div className="flex justify-center space-x-4 text-[#fbff00] text-3xl font-extrabold">
+          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Event Starts In</h3>
+          <div className="flex justify-center space-x-4 text-[#fbff00] text-5xl font-extrabold">
             <div>
               {timeLeft.days}
               <span className="block text-sm text-gray-300">Days</span>
@@ -94,12 +95,15 @@ export default function HeroSection() {
           className="flex justify-center space-x-6"
         >
           <a
+
+         
             href="https://dorahacks.io/hackathon/acehack4/detail"
             className="px-6 py-3 bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-bold text-lg rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
           >
             Register Now
           </a>
           <a
+
             href="https://linktr.ee/acehack4"
             className="px-6 py-3 border-2 border-[#fbff00] text-[#fbff00] hover:text-black font-bold text-lg rounded-md hover:bg-[#fbff00]/90 hover:scale-105 transition-transform duration-300"
           >
