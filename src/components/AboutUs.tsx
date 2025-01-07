@@ -110,7 +110,7 @@ export default function AboutAceHack() {
             boldest ideas to life!
           </p>
           <a
-            href="#"
+            href="https://linktr.ee/acehack4"
             className="inline-block text-lg font-semibold text-black bg-gradient-to-r from-[#00f0ff] to-[#fbff00] px-6 py-3 rounded-md shadow-lg hover:scale-105 transform transition duration-300"
           >
             Learn More
