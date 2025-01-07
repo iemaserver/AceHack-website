@@ -2,6 +2,7 @@
 import HeroSection from "../components/Hero";
 import AboutAceHack from "@/components/AboutUs";
 import Footer from "../components/Footer_01";
+import SponsorsSection from "@/components/sponsors";
 
 export default function Home() {
   return (
@@ -13,7 +14,9 @@ export default function Home() {
       <div id="about" className="relative">
         <AboutAceHack />
       </div>
-
+      <div id="sponsors" className="relative">
+        <SponsorsSection />
+      </div>
       
 
       <Footer/>
