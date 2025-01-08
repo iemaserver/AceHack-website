@@ -10,7 +10,7 @@ import Themes from "../components/Themes"
 import Why from "../components/Why"
 import SponsorsSection from "@/components/sponsors";
 import Prizes from "../components/Prizes"
-import Sponsor from "../components/Sponsor"
+// throws error in vercel // import Sponsor from "../components/Sponsor"
 import Speakers from "../components/Speakers"
 import Past from "../components/Past"
 import Faculty from "../components/Faculty"
