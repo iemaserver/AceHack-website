@@ -9,6 +9,7 @@ import Prizes from "../components/Prizes"
 import Sponsor from "../components/Sponsor"
 import Speakers from "../components/Speakers"
 import Past from "../components/Past"
+import Faculty from "../components/Faculty"
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
      
       <Past/>
       <Speakers/>
+      <Faculty/>
       
 
       <Footer/>

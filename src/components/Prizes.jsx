@@ -25,7 +25,7 @@ const Prizes = () => {
       <div className="flex flex-wrap justify-center  gap-24 px-4 margin-20p " >
         {/* 1st Prize */}
         <div className="relative bg-black/50 border border-4 border-green-300 rounded-lg text-center p-8 w-80 h-80  shadow-gradient">
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 border-1  w-32 h-32 flex items-center justify-center rounded-full">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 border-4 border-purple-500 w-32 h-32 flex items-center justify-center rounded-full">
             <div className="text-4xl text-yellow-400 w-24 h-24  absolute"><img
                 
                 src={first}

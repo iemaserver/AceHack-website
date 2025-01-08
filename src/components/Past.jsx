@@ -23,7 +23,7 @@ const Past = () => {
     >
       <div className="flex flex-col items-center text-center">
         <h1 className="text-5xl font-bold pb-10 flex-wrap text-black">
-          <span className="grad-text ">AceHack 3.0</span> Highlights!
+          <span className="grad-text ">AceHack 4.0</span> Highlights!
         </h1>
         
         <div className="flex sm:flex-row justify-evenly w-full p-10 flex-col text-black">
