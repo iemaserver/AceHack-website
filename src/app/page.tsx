@@ -2,7 +2,18 @@
 import HeroSection from "../components/Hero";
 import AboutAceHack from "@/components/AboutUs";
 import Footer from "../components/Footer_01";
+
+
+
+import Swag from "../components/Swag"
+import Themes from "../components/Themes"
+import Why from "../components/Why"
 import SponsorsSection from "@/components/sponsors";
+import Prizes from "../components/Prizes"
+import Sponsor from "../components/Sponsor"
+import Speakers from "../components/Speakers"
+import Past from "../components/Past"
+import Faculty from "../components/Faculty"
 
 export default function Home() {
   return (
@@ -14,9 +25,23 @@ export default function Home() {
       <div id="about" className="relative">
         <AboutAceHack />
       </div>
-      <div id="sponsors" className="relative">
+
+      <Swag/>
+
+      <Themes/>
+
+      <Why/>
+
+    <div id="sponsors" className="relative">
         <SponsorsSection />
       </div>
+
+      <Prizes/>
+     
+      <Past/>
+      <Speakers/>
+      <Faculty/>
+
       
 
       <Footer/>

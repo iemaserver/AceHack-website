@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AceHack 4.0",
   description: "AceHack | Rajasthan's Largest Student Run Hackathon | UEM Jaipur",
+ 
 };
 
 export default function RootLayout({
