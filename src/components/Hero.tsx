@@ -27,7 +27,7 @@ export default function HeroSection() {
   return (
     <div
       className="relative h-screen bg-cover bg-center text-black overflow-hidden"
-      style={{ backgroundImage: "url('/images/website-bg-1.png')" }}
+      style={{ backgroundImage: "url('https://i.ibb.co/BwCCPdp/website-bg-1.png')" }}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black opacity-90"></div>
@@ -55,7 +55,7 @@ export default function HeroSection() {
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-200 font-medium antialiased">
-            24-Hour Hackathon | In-Person Event | Venue: UEM
+            24-Hour Hackathon | In-Person Event | Venue: Jaipur , Rajasthan
           </p>
         </motion.div>
 
