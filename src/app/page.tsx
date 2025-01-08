@@ -15,7 +15,7 @@ import Past from "../components/Past";
 import Faculty from "../components/Faculty";
 import Faq from "../components/Faq";
 
-import Prizes from "../components/Prizes"
+// dekhe code kor ektu babu @subhayan import Prizes from "../components/Prizes"
 // throws error in vercel // import Sponsor from "../components/Sponsor"
 import Speakers from "../components/Speakers"
 import Past from "../components/Past"
