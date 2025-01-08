@@ -29,7 +29,7 @@ const Faculty = () => {
           /> */}
           <Member
             image={uma}
-            name="Prof. G. Uma Devi"
+            name="Prof. Dr. G. Uma Devi"
             role="Associate Dean & HOD, Dept. of CSE, UEM Jaipur"
           />
           <Member

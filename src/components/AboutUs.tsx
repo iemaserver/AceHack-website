@@ -50,7 +50,7 @@ export default function AboutAceHack() {
         </div>
         <div className="relative z-10 text-center mb-12">
             <h2 className="text-5xl md:text-8xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-                What is AceHack?
+                What is AceHack 4.0 ?
             </h2>
         </div>
       <div className="relative z-10 container mx-auto flex flex-col md:flex-row items-center gap-12">
@@ -101,9 +101,9 @@ export default function AboutAceHack() {
         >
           
           <p className="text-lg leading-relaxed text-gray-300">
-            AceHack 4.0 is a celebration of innovation and collaboration.
-            Explore cutting-edge technology, solve real-world challenges, and
-            network with like-minded creators in an electrifying environment.
+          AceHack 4.0 is Rajasthan’s biggest student-run hackathon, designed to bring together students, innovators, and tech enthusiasts from across the country. It’s a 24-hour event where participants collaborate, create, and solve real-world challenges through technology.
+
+This hackathon is more than just coding—it’s a space to explore ideas, learn new skills, and connect with a like-minded community. Whether you’re a beginner or an experienced hacker, AceHack 4.0 provides the perfect platform to showcase your talent and grow.
           </p>
           <p className="text-lg leading-relaxed text-gray-300">
             Join us as we redefine the future of technology and bring your

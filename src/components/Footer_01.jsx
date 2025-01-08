@@ -8,6 +8,7 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+const uem='/images/uem.png'
 
 function Footer_01() {
   const sponsors = [
@@ -69,7 +70,7 @@ function Footer_01() {
               <li>
                 Email:{" "}
                 <a href="mailto:technexus.community2024@gmail.com">
-                acehack@uem.edu.in
+                  acehack@uem.edu.in
                 </a>
               </li>
               <li>
@@ -81,16 +82,53 @@ function Footer_01() {
 
           <div className="footer-contact-us">
             <h3>Contact With Us</h3>
-            
+
             <div className="footer-media">
-            
-              <div className="linkedin"><a>1</a></div>
-              <div className="instra"><a>2</a></div>
-              <div className="twitter"><a>3</a></div>
+              <div className="linkedin">
+                <a
+                  href="https://linkedin.openinapp.co/acehack4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-10 h-10 p-1  "
+                >
+                  <img
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png"
+                    alt="LinkedIn"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
+              <div className="instra">
+                <a
+                  href="https://insta.openinapp.co/acehack4  "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-10 h-10 p-1 "
+                >
+                  <img
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png"
+                    alt="Instagram"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
+              <div className="twitter">
+                <a
+                  href="https://twtr.openinapp.co/acehack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-10 h-10 p-1 "
+                >
+                  <img
+                    src="https://img.icons8.com/ios7/600/FFFFFF/twitter.png"
+                    alt="Twitter"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
+              
             </div>
           </div>
-
-          
         </div>
       </div>
       <br></br>
