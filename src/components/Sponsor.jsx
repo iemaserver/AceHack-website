@@ -65,6 +65,7 @@ const Sponsor = () => {
       id="sponsor"
       className="py-16 text-white z-20 relative bg-gradient-to-br from-gray-900 via-purple-950 to-gray-900 w-full scroll-smooth"
     >
+      
       <div className="flex flex-col items-center text-center">
         <h1 className="text-5xl font-bold pb-10">
           <span className="grad-text">Organized </span>By
