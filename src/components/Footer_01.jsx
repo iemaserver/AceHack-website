@@ -41,7 +41,7 @@ function Footer_01() {
               border="0"
             />
           </h1>
-          <p className="footer-quote">"Innovate, Elevate and Transform."</p>
+          <p className="footer-quote">Innovate - Elevate - Transform</p>
         </div>
 
         <div className="footer-links">
@@ -89,7 +89,7 @@ function Footer_01() {
                   href="https://linkedin.openinapp.co/acehack4"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-10 h-10 p-1  "
+                  className="block w-8 h-8 p-1  "
                 >
                   <img
                     src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png"
@@ -103,7 +103,7 @@ function Footer_01() {
                   href="https://insta.openinapp.co/acehack4  "
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-10 h-10 p-1 "
+                  className="block w-8 h-8 p-1 "
                 >
                   <img
                     src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png"
@@ -112,12 +112,13 @@ function Footer_01() {
                   />
                 </a>
               </div>
-              <div className="twitter">
+             
+              <div className="discord">
                 <a
                   href="https://twtr.openinapp.co/acehack"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-10 h-10 p-1 "
+                  className="block w-8 h-8 p-1 "
                 >
                   <img
                     src="https://img.icons8.com/ios7/600/FFFFFF/twitter.png"
@@ -126,7 +127,53 @@ function Footer_01() {
                   />
                 </a>
               </div>
-              
+            </div>
+
+            <br></br>
+
+            <div className="footer-media">
+              <div className="discord">
+                <a
+                  href="https://discord.openinapp.co/acehack4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-8 h-8 p-1  "
+                >
+                  <img
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/discord-white-icon.png"
+                    alt="discord"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
+              <div className="telegram">
+                <a
+                  href="https://telegram.openinapp.co/acehack  "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-8 h-8 p-1 "
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDJRPRYY2G6qpLrKcwSXSq68-ciWW4OW45oQ&s"
+                    alt="Telegram"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
+              <div className="youtube">
+                <a
+                  href="https://yt.openinapp.co/acehack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-8 h-8 p-1 "
+                >
+                  <img
+                    src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png"
+                    alt="youtube"
+                    className="w-full h-full object-contain"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>

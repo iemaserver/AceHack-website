@@ -1,98 +1,82 @@
 "use client";
-import React from "react";
-import Collapsible from "../components/Collapsible";
+import React, { useState } from "react";
+
+const Collapsible = ({ label, children, isOpen, onClick, style }) => {
+  return (
+    <div
+      className={`transition-all duration-300 ${style} ${
+        isOpen ? "max-h-screen" : "max-h-10 overflow-hidden"
+      }`}
+      onClick={onClick}
+    >
+      <div className="px-4 py-2 cursor-pointer text-lg font-semibold">{label}</div>
+      {isOpen && <div className="px-4 py-2 text-sm">{children}</div>}
+    </div>
+  );
+};
 
 const Faq = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleQuestion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div
       id="faq"
-      className="relative scroll-smooth bg-[#230440] w-full text-white p-10"
+      className="relative scroll-smooth bg-black w-full text-white p-10"
     >
       <div className="my-10 flex flex-col gap-4">
-        <h1 className="text-4xl font-bold grad-text pl-1">FAQs</h1>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What is a Hackathon?"
-        >
-          <p className="faq-ans">
-            A hackathon is a design sprint-like event in which computer
-            programmers and others involved in software development, including
-            graphic designers, interface designers, project managers, domain
-            experts, and others, collaborate intensively on software projects. A
-            hackathon typically lasts between a day and a week.
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="Do I Need To Pay Any Money To Register ?"
-        >
-          <p className="faq-ans">
-            No, You do not have to pay anything to anyone to register yourself
-            for AceHack 4.0
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="Who can apply ?"
-        >
-          <p className="faq-ans">
-            Anyone (must be a college/School student or working professionals) having a knack of solving
-            real life problems can apply for the hackathon.
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What Is The Procedure Of Forming A Team ?"
-        >
-          <p className="faq-ans">
-            Firstly make sure all teammates have registered on DoraHacks. You can
-            create your team 
-            {/* from the devfolio dashboard. */} on the platform.
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What will be the problem statements ?"
-        >
-          <p className="faq-ans">
-            We will announce problem statements for each domain you need to
-            solve along with your mentors when the hackathon starts.{" "}
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="Will there be goodies and swag ?"
-        >
-          <p className="faq-ans">
-            Yes, we will be providing <i>t-shirt</i>, <i>goodies</i> and <i>swag</i> to all the participants.
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What Can Be The Size Of The Team ?"
-        >
-          <p className="faq-ans">A team can consist of 2 to 4 members. However, You can participate solo.</p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What Is The Criteria For Selection Of A Team?"
-        >
-          <p className="faq-ans">
-            If 75% members of a team have a decent profile, the team will get
-            shortlisted. In a rare case where a team is not shortlisted, that
-            team can contact us for the re-evaluation of their team.
-          </p>
-        </Collapsible>
-        <Collapsible
-          style="bg-purple-900/50 rounded-md py-1 ml-2"
-          label="What about the travel ?"
-        >
-          <p className="faq-ans">
-            {/* We will provide a bus to the participants, from Badi chaupar, Chomu
-            pulia and others too. */}
-            We will provide bus services in Jaipur ( <i>route will be announced later</i> ).
-          </p>
-        </Collapsible>
+        <div className="flex flex-row justify-center mb-6">
+        <h1 className="text-5xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">FAQs</h1>
+        </div>
+        
+        {[
+          {
+            question: "What is a Hackathon?",
+            answer:
+              "A hackathon is a design sprint-like event in which programmers and others collaborate intensively on software projects.",
+          },,
+          {
+            question: "Do I Need To Pay Any Money To Register?",
+            answer: "No, you do not need to pay...",
+          },
+          {
+            question: "Who can apply?",
+            answer: "Anyone having a knack for solving real-life problems...",
+          },
+          {
+            question: "What Is The Procedure Of Forming A Team?",
+            answer: "Firstly make sure all teammates have registered...",
+          },
+          {
+            question: "What will be the problem statements?",
+            answer: "Problem statements will be announced at the start of the hackathon.",
+          },
+          {
+            question: "Will there be goodies and swag?",
+            answer: "Yes, participants will receive t-shirts, goodies, and swag.",
+          },
+          {
+            question: "What Can Be The Size Of The Team?",
+            answer: "A team can consist of 2 to 4 members. Solo participation is also allowed.",
+          },
+          {
+            question: "Are there prizes for winners?",
+            answer: "Yes, exciting prizes will be awarded to the top-performing teams.",
+          },
+        ].map((item, index) => (
+          <Collapsible
+            key={index}
+            style={`bg-gradient-to-r from-[#fbff00] to-[#00f0ff] rounded-md  mx-auto w-10/12 text-black `}
+            label={item.question}
+            isOpen={openIndex === index}
+            onClick={() => toggleQuestion(index)}
+          >
+            <p className="text-black text-xl">{item.answer}</p>
+          </Collapsible>
+        ))}
       </div>
     </div>
   );

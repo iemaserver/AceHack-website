@@ -163,6 +163,8 @@ const Swag = () => {
             Get Your Digital Swag
           </h1>
         </div>
+        <br></br>
+        <br></br>
         <div className="flex flex-col md:flex-row justify-between items-center xl:mx-40">
           <div className="flex w-[60%] md:w-[80%] justify-center mb-5 md:mb-0 -10">
             {/* <canvas
@@ -224,7 +226,7 @@ const Swag = () => {
                 </a>
                 .
               </p>
-              <p className="text-sm lg:mb-3 mb-1 text-green-300">
+              <p className="text-sm lg:mb-3 mb-1 text-green-1000">
                 <i>
                   *Your privacy matters! We never store your images on our
                   servers.
