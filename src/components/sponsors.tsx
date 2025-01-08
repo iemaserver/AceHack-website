@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const sponsor = "/images/Acehack 4.0 Sponsorship Deck new.png";
 export default function Sponsors() {
   const currentSponsors = [
-    { id: 1, logo: "/images/dorahacks.png", name: "Dorahacks", desc: "Platform partner" },
+    { id: 1, logo: "/images/dorahacks.png", name: "DoraHacks", desc: "Platform partner" , url:"https://dorahacks.io/" },
   ];
 
 
@@ -16,9 +16,10 @@ export default function Sponsors() {
           Our Sponsors
         </h2>
       </div>
-
+      <a >
       <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
         {currentSponsors.map((sponsor) => (
+          <a href={sponsor.url} target="blank">
           <motion.div
             key={sponsor.id}
             className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
@@ -29,18 +30,23 @@ export default function Sponsors() {
             {/* Glow Effect */}
             <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
             {/* Card Content */}
+            
             <img
               src={sponsor.logo}
               alt={sponsor.name}
               className="w-32 mb-8 z-10 rounded-full shadow-md object-contain"
             />
+           
+            
             <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
               {sponsor.name}
             </div>
             
           </motion.div>
+          </a>
         ))}
       </div>
+      </a>
       <br></br>
       <br></br>
       <br></br>

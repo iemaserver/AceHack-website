@@ -3,18 +3,16 @@ import HeroSection from "../components/Hero";
 import AboutAceHack from "@/components/AboutUs";
 import Footer from "../components/Footer_01";
 
-
-
-import Swag from "../components/Swag"
-import Themes from "../components/Themes"
-import Why from "../components/Why"
+import Swag from "../components/Swag";
+import Themes from "../components/Themes";
+import Why from "../components/Why";
 import SponsorsSection from "@/components/sponsors";
-import Prizes from "../components/Prizes"
-import Sponsor from "../components/Sponsor"
-import Speakers from "../components/Speakers"
-import Past from "../components/Past"
-import Faculty from "../components/Faculty"
-
+import Prizes from "../components/Prizes";
+import Sponsor from "../components/Sponsor";
+import Speakers from "../components/Speakers";
+import Past from "../components/Past";
+import Faculty from "../components/Faculty";
+import Faq from "../components/Faq";
 
 export default function Home() {
   return (
@@ -27,29 +25,29 @@ export default function Home() {
         <AboutAceHack />
       </div>
 
-      <Swag/>
+      <Swag />
 
-      <Themes/>
+      <Themes />
 
-      <Why/>
+      <Why />
 
-    <div id="sponsors" className="relative">
+      <div id="sponsors" className="relative">
         <SponsorsSection />
       </div>
 
-   
+      <Prizes />
 
-      <Prizes/>
-     
-      <Past/>
-      <Speakers/>
-      <Faculty/>
+      <Past />
+      <Speakers />
+      <Faculty />
 
-      
+      <div id="faqs" className="relative">
+        <Faq />
+      </div>
 
-      <Footer/>
-
-      
+      <div id="contact" className="relative">
+        <Footer />
+      </div>
     </>
   );
 }

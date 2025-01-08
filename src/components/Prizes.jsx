@@ -12,7 +12,7 @@ const Prizes = () => {
     <div className="py-12 w-full bg-black text-white">
       {/* Heading */}
       <div className="text-center mb-10">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">Last Year Prize Pull</h1>
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">AceHack 3.0 Prize Pool</h1>
       <br></br>
       <br></br>
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide text-white   inline-block px-4 py-2">30,00,000+ INR</h2>

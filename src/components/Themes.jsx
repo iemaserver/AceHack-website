@@ -27,7 +27,7 @@ const Themes = () => {
           <Item img={vr} text="AR / VR" />
           <Item img={cloud} text="Cloud & DevOps" />
           {/* <Item img={doctor} text="Healthcare" /> */}
-          <Item img={doctor} text="Web & Mobile Development" />
+          <Item img={doctor} text="Web & App Development" />
           <Item img={development} text="Open Innovation" />
           {/* <Item img={book} text="Education" /> */}
         </div>
