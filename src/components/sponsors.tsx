@@ -7,12 +7,6 @@ export default function Sponsors() {
     { id: 1, logo: "/images/dorahacks.png", name: "Dorahacks", desc: "Platform partner" },
   ];
 
-  const previousSponsors = [
-    "/images/logo.png",
-    "/images/logo.png",
-    "/images/logo.png",
-    "/images/logo.png",
-  ];
 
   return (
     <section className="relative py-16 bg-black text-white">
