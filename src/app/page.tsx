@@ -15,12 +15,16 @@ import Past from "../components/Past";
 import Faculty from "../components/Faculty";
 import Faq from "../components/Faq";
 
+
+// throws error in vercel // import Sponsor from "../components/Sponsor"
+
 // dekhe code kor ektu babu eki jinis 4 bar import korchis @subhayan 
 //import Prizes from "../components/Prizes"
 // throws error in vercel // import Sponsor from "../components/Sponsor"
 //import Speakers from "../components/Speakers"
 //import Past from "../components/Past"
 //import Faculty from "../components/Faculty"
+
 
 
 

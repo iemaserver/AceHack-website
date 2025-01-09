@@ -17,11 +17,11 @@ export default function Sponsors() {
         </h2>
       </div>
       <a >
-      <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
+      <div  className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
         {currentSponsors.map((sponsor) => (
-          <a href={sponsor.url} target="blank">
+          <a  key={sponsor.id}   href={sponsor.url} target="blank">
           <motion.div
-            key={sponsor.id}
+            
             className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
