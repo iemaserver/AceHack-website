@@ -87,7 +87,10 @@
           flex: 2;
           flex-wrap: wrap;
         }
-        
+        .footer-location-section{
+          
+
+        }
        
         .footer-nav, .footer-contact , .footer-contact-us{
           flex: 1;
@@ -132,6 +135,14 @@
           color: gray;
         }
 
+        .footer-location-section{
+         
+        }
+        .footer-contact-us{
+          position: relative;
+          left: 50px;
+        }
+
         
         
     
@@ -143,7 +154,7 @@
           .footer-logo img{
             height: 6vh;
             position: relative;
-            left: 7rem;
+            left: 5rem;
           }
           .footer-quote {
             font-style: italic;
@@ -163,6 +174,10 @@
           .footer-nav, .footer-contact, .footer-contact-us {
             text-align: center;
             flex: 1;
+          }
+          .footer-contact-us{
+            position: relative;
+            left: 0px;
           }
         
           .footer-social {

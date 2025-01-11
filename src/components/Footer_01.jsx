@@ -8,8 +8,8 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-const uem='/images/uem.png'
-const acm='/images/acm-white.png'
+const uem = "/images/uem.png";
+const acm = "/images/acm-white.png";
 
 function Footer_01() {
   const sponsors = [
@@ -81,6 +81,22 @@ function Footer_01() {
             </ul>
           </div>
 
+          <div className="footer-location-section">
+            <h3>Location</h3>
+            <br></br>
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2128967462436!2d75.69766757544993!3d27.212464876469877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396cffc30dacc2db%3A0xb78e5c340c935a95!2sUniversity%20of%20Engineering%20%26%20Management%20(UEM)%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1736623921297!5m2!1sen!2sin"
+                width="100%"
+                height="100"
+                style={{ border: 0, borderRadius: 10 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
           <div className="footer-contact-us">
             <h3>Contact With Us</h3>
 
@@ -113,7 +129,7 @@ function Footer_01() {
                   />
                 </a>
               </div>
-             
+
               <div className="discord">
                 <a
                   href="https://twtr.openinapp.co/acehack"
@@ -129,6 +145,8 @@ function Footer_01() {
                 </a>
               </div>
             </div>
+
+            
 
             <br></br>
 
@@ -177,6 +195,7 @@ function Footer_01() {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
       <br></br>

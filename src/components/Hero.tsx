@@ -54,9 +54,10 @@ export default function HeroSection() {
             AceHack 4.0
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-200 font-medium antialiased">
-          24-Hour In-Person Hackathon | Venue: Jaipur, Rajasthan
-          </p>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-medium antialiased text-center sm:text-left">
+  24-Hour In-Person Hackathon | Venue: Jaipur, Rajasthan
+</p>
+
         </motion.div>
 
         {/* Timer */}
