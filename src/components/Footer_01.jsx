@@ -9,16 +9,17 @@ import {
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 const uem='/images/uem.png'
+const acm='/images/acm-white.png'
 
 function Footer_01() {
   const sponsors = [
     {
       name: "Sponsor 1",
-      logo: "https://i.ibb.co/6XmC9rX/17584377aa0a3eef5038cc007940328e-1.png",
+      logo: uem,
     },
     {
       name: "Sponsor 2",
-      logo: "https://acm-uemj.uem.edu.in/assets/img/logo-1.png",
+      logo: acm,
     },
     {
       name: "Sponsor 3",

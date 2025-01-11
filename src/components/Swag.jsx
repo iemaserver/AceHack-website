@@ -5,7 +5,6 @@ const template = "./images/swag/New pengu frame.png";
 const defaultAvatar = "/images/swag/pengu.png"; // Path to default avatar image
 import FancyButton from "../components/FancyButton";
 
-
 const Swag = () => {
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
@@ -174,7 +173,14 @@ const Swag = () => {
               style={{ display: "block", position: "relative" }}
               className="rounded-sm border-4 border-[#05002582] bg-purple-800"
             ></canvas> */}
-            <div className="md:w-[80%]" style={{  /* Adjust the percentage as needed */ }}>
+            <div
+              className="md:w-[80%]"
+              style={
+                {
+                  /* Adjust the percentage as needed */
+                }
+              }
+            >
               <canvas
                 ref={canvasRef}
                 width={900} // Set width of canvas (adjust as needed)
@@ -251,23 +257,22 @@ const Swag = () => {
                   ref={imageInputRef}
                   style={{ display: "none" }}
                 />
-               <button onClick={() => imageInputRef.current.click()} className="">
-  <FancyButton data="Upload your photo" id="upload" />
-</button>
+                <button
+                  onClick={() => imageInputRef.current.click()}
+                  className=""
+                >
+                  <FancyButton data="Upload your photo" id="upload" />
+                </button>
 
-<button onClick={handleDownloadSwag}>
-  <FancyButton data="Download" id="download" />
-</button>
+                <button onClick={handleDownloadSwag}>
+                  <FancyButton data="Download" id="download" />
+                </button>
 
-<a
-  href="https://ctt.ac/cxM88"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="button-link" // Optional: add a class for styling if needed
->
-  <FancyButton data="Share" id="share" />
-</a>
-                
+                <button onClick={handleDownloadSwag}>
+                  <a href="https://ctt.ac/cxM88">
+                    <FancyButton data="Share" id="share" />
+                  </a>
+                </button>
               </div>
             </div>
           </div>

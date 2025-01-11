@@ -49,7 +49,7 @@ const Speakers = () => {
     <div id="speaker" className="relative items-center justify-center bg-gray-900/30 backdrop-blur-lg w-full z-20 py-10 scroll-smooth">
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
         <div className="flex flex-row justify-center w-full">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">AceHack 3.0's Mentors & Judges</h1>
+          <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold pb-10 flex-wrap text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">AceHack 3.0's Mentors & Judges</h1>
         </div>
         <br></br>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
