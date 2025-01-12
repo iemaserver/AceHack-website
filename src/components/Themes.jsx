@@ -16,8 +16,9 @@ const Themes = () => {
     <div id="themes" className="py-24 text-white z-20 relative bg-[black] w-full scroll-smooth">
           
       <div className="flex justify-center my-2">
-        <h1 className="text-2xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">Previous Tracks</h1>
+        <h1 className=" text-4xl sm:text-4xl md:text-5xl font-bold pb-10 flex-wrap  text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">Previous Tracks</h1>
       </div>
+      
       <div className="flex flex-col items-center mx-6">
         <div className="flex flex-row flex-wrap justify-evenly items-center w-full max-h lg:w-4/5">
           <Item img={blockchain} text="Blockchain & Crypto" />
