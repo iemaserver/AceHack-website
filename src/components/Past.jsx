@@ -104,26 +104,27 @@ const Past = () => {
         </h1>
 
         <div className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
-          {/* Slider Container */}
-          <div
-            className="flex transition-transform duration-1000 ease-linear"
-            style={{ transform: `translateX(-${offset * (100 / 3)}%)` }}
-          >
-            {/* Duplicate images for seamless effect */}
-            {[...images, ...images].map((src, index) => (
-              <div
-                key={index}
-                className="w-1/3 px-2 flex-shrink-0 transform transition-transform  hover:scale-105"
-              >
-                <img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-full h-64 object-cover rounded-lg shadow-md"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+  {/* Slider Container */}
+  <div
+    className="flex transition-transform duration-1000 ease-linear"
+    style={{ transform: `translateX(-${offset * (100 / 1)}%)` }}
+  >
+    {/* Duplicate images for seamless effect */}
+    {[...images, ...images].map((src, index) => (
+      <div
+        key={index}
+        className="w-full sm:w-1/3 px-2 flex-shrink-0 transform transition-transform hover:scale-105"
+      >
+        <img
+          src={src}
+          alt={`Gallery ${index + 1}`}
+          className="w-full h-64 object-cover rounded-lg shadow-md"
+        />
+      </div>
+    ))}
+  </div>
+</div>
+
         <br></br>
 
         {/* Add Video Section */}
