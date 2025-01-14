@@ -31,10 +31,10 @@ const Past = () => {
   const images = [
     "/images/acehack/pic8.jpg",
     "/images/acehack/pic7.jpg",
-    "/images/acehack/pic10.jpg",
+    
     "/images/acehack/pic5.jpg",
-    "/images/acehack/pic6.jpg",
-    "/images/acehack/pic9.jpg",
+   
+   
     "/images/acehack/pic1.jpg",
     "/images/acehack/pic2.jpg",
     "/images/acehack/pic3.jpg",

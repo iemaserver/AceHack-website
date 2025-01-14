@@ -11,6 +11,7 @@ import {
 const uem = "/images/uem.png";
 const acm = "/images/acm-white.png";
 
+
 function Footer_01() {
   const sponsors = [
     {
@@ -24,6 +25,10 @@ function Footer_01() {
     {
       name: "Sponsor 3",
       logo: "https://ahalia.ac.in/wp-content/uploads/2020/01/iic-logo.png",
+    },
+    {
+      name: "Sponsor 4",
+      logo: "https://i.ibb.co/4sF3TTW/Techsoc-logo.jpg" ,
     },
   ];
   return (
