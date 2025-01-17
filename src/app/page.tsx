@@ -45,11 +45,13 @@ export default function Home() {
 
       <Why />
 
+      <Prizes />
+
       <div id="sponsors" className="relative">
         <SponsorsSection />
       </div>
 
-      <Prizes />
+      
 
       <Past />
       <Speakers />
