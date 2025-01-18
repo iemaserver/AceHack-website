@@ -8,7 +8,7 @@ export default function HeroSection() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date("2025-03-08T00:00:00"); // Set the event start date
+    const targetDate = new Date("2025-02-05T00:00:00"); // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
@@ -54,9 +54,10 @@ export default function HeroSection() {
             AceHack 4.0
           </h2>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 font-medium antialiased text-center sm:text-left">
-  24-Hour In-Person Hackathon | Venue: Jaipur, Rajasthan
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-200 font-medium antialiased text-center sm:text-left">
+    24-Hour In-Person Hackathon | 8-9th March | Jaipur, Rajasthan
 </p>
+
 
         </motion.div>
 
@@ -67,7 +68,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.5 }}
           className="bg-black/70 px-8 sm:px-10 py-4 sm:py-6 rounded-md shadow-md"
         >
-          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Hackathon Starts In</h3>
+          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Registration Ends In</h3>
           <div className="flex justify-center space-x-4 text-[#fbff00] text-5xl font-extrabold">
             <div>
               {timeLeft.days}

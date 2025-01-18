@@ -121,11 +121,31 @@
   
 }
 
+@keyframes slide-infinite {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-infinite {
+  animation: slide-infinite 6s linear infinite; /* Faster speed */
+}
+
+
+
+
+
+
+
 
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'refinery25', sans-serif;
+  max-width: 100%;
   
 }

@@ -1,511 +1,232 @@
-import React from "react";
-import Member from "../components/Member";
-import { FaXTwitter } from "react-icons/fa6";
+'use client';
 
-const abdallalit = "/images/mentors3/abdal lalit.jpeg";
-const abhinavrai = "/images/mentors3/abhinav rai.jpeg";
-const abhinav = "/images/mentors3/Abhinav.jpeg";
-const ayonroy = "/images/mentors3/ayon roy.jpeg";
-const chhavi = "/images/mentors3/chhavi.jpeg";
-const chinmay = "/images/mentors3/chinmay.jpeg";
-const devendra = "/images/mentors3/devendra.jpeg";
-const gurkirat = "/images/mentors3/gurkirat.jpeg";
-const jaskaran = "/images/mentors3/jaskaran.jpeg";
-const manav = "/images/mentors3/manav.jpeg";
-const himani = "/images/mentors3/himani.jpeg";
-const pankaj = "/images/mentors3/pankaj.jpeg";
-const pranav = "/images/mentors3/pranav.jpeg";
-const maninder = "/images/mentors3/Maninder.jpeg";
-const raajessh = "/images/mentors3/raajessh.jpg";
-const rishabh = "/images/mentors3/rishabh.jpeg";
-const rishika = "/images/mentors3/Rishika.jpeg";
-const rohan = "/images/mentors3/rohan.jpeg";
-const shambhavi = "/images/mentors3/shambhavi.jpeg";
-const shivam = "/images/mentors3/shivam.jpeg";
-// const srishti = "/images/mentors3/srishti.jpeg"; //from linkedin
-const srishti = "/images/mentors3/srishti.jpg";
-const aryan = "/images/mentors3/aryan.jpeg";
-const shyamal = "/images/mentors3/shyamal.jpeg";
-const sounak = "/images/mentors3/sounak.jpeg";
-const sunchit = "/images/mentors3/sunchit.jpeg";
-const abhimanyu = "/images/mentors3/abhimanyu.jpeg";
-const chanpreet = "/images/mentors3/chanpreet.jpeg";
-const piyush = "/images/mentors3/piyush.jpeg";
-const praveen = "/images/mentors3/praveen.jpeg";
-const pawan = "/images/mentors3/pawan.jpg";
-const nitesh = "/images/mentors3/nitesh.jpg";
-const anchal = "/images/mentors3/anchal.jpeg";
-const sri = "/images/mentors3/sri.jpeg";
-const hargovind = "/images/mentors3/hargovind.jpeg";
+import React  from 'react';
+import './Speaker.css';
 
 
 
+const Organizer = () => {
+  const organizerData = [
+    { name: 'Abdal Lalit', image: '/images/mentors3/abdal lalit.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Abhinav Rai', image: '/images/mentors3/abhinav rai.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Abhinav', image: '/images/mentors3/Abhinav.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Ayon Roy', image: '/images/mentors3/ayon roy.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Chhavi', image: '/images/mentors3/chhavi.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Chinmay', image: '/images/mentors3/chinmay.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Devendra', image: '/images/mentors3/devendra.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Gurkirat', image: '/images/mentors3/gurkirat.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Jaskaran', image: '/images/mentors3/jaskaran.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Manav', image: '/images/mentors3/manav.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Himani', image: '/images/mentors3/himani.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Pankaj', image: '/images/mentors3/pankaj.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Pranav', image: '/images/mentors3/pranav.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Maninder', image: '/images/mentors3/Maninder.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Raajessh', image: '/images/mentors3/raajessh.jpg', linkedin: 'https://linkedin.com' },
+    { name: 'Rishabh', image: '/images/mentors3/rishabh.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Rishika', image: '/images/mentors3/Rishika.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Rohan', image: '/images/mentors3/rohan.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Shambhavi', image: '/images/mentors3/shambhavi.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Shivam', image: '/images/mentors3/shivam.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Srishti', image: '/images/mentors3/srishti.jpg', linkedin: 'https://linkedin.com' },
+    { name: 'Aryan', image: '/images/mentors3/aryan.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Shyamal', image: '/images/mentors3/shyamal.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Sounak', image: '/images/mentors3/sounak.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Sunchit', image: '/images/mentors3/sunchit.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Abhimanyu', image: '/images/mentors3/abhimanyu.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Chanpreet', image: '/images/mentors3/chanpreet.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Piyush', image: '/images/mentors3/piyush.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Praveen', image: '/images/mentors3/praveen.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Pawan', image: '/images/mentors3/pawan.jpg', linkedin: 'https://linkedin.com' },
+    { name: 'Nitesh', image: '/images/mentors3/nitesh.jpg', linkedin: 'https://linkedin.com' },
+    { name: 'Anchal', image: '/images/mentors3/anchal.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Sri', image: '/images/mentors3/sri.jpeg', linkedin: 'https://linkedin.com' },
+    { name: 'Hargovind', image: '/images/mentors3/hargovind.jpeg', linkedin: 'https://linkedin.com' }
+];
 
 
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
-const Speakers = () => {
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+  // const [animationTime, setAnimationTime] = useState<number>(20);
+  // const [isIncreasing, setIsIncreasing] = useState<boolean>(true);
+
+
+  // useEffect(() => {
+  //   // Function to smoothly increase and decrease the animation time
+  //   const updateAnimationTime = () => {
+  //     if (isIncreasing) {
+  //       // Gradually increase the animation time
+  //       setAnimationTime((prev) => {
+  //         if (prev >= 40) {
+  //           setIsIncreasing(false); // Switch to decreasing when we reach max limit
+  //           return 40;
+  //         }
+  //         return prev + 1; // Increase by 0.5s each time
+  //       });
+  //     } else {
+  //       // Gradually decrease the animation time
+  //       setAnimationTime((prev) => {
+  //         if (prev <= 20) {
+  //           setIsIncreasing(true); // Switch to increasing when we reach min limit
+  //           return 20;
+  //         }
+  //         return prev - 1; // Decrease by 0.5s each time
+  //       });
+  //     }
+  //   };
+
+  //   // Update animation time every 100ms (for smoother transitions)
+  //   const interval = setInterval(updateAnimationTime, 1000);
+
+  //   return () => clearInterval(interval); // Cleanup interval on component unmount
+  // }, [isIncreasing]);
+
+
   return (
-    <div id="speaker" className="relative items-center justify-center bg-gray-900/30 backdrop-blur-lg w-full z-20 py-10 scroll-smooth">
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
-        <div className="flex flex-row justify-center w-full">
-          <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold pb-10 flex-wrap text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">AceHack 3.0's Mentors & Judges</h1>
-        </div>
-        <br></br>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Member
-            image={sunchit}
-            name="Sunchit Dudeja"
-            social={
-              <a
-                href="https://www.linkedin.com/in/sunchitdudeja/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          {/* <Member
-            image={aryan}
-            name="Aryan Singh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/singh1aryan/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor & Judge"
-          /> */}
-          <Member
-            image={praveen}
-            name="Praveen Thakur"
-            social={
-              <a
-                href="https://www.linkedin.com/in/thakurpraveen/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-                {/* <FaXTwitter /> */}
+    <div className='background'>
+      <br />
+      <br />
+      <br />
+      <div className='flex flex-col items-center text-center'>
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2 ">
+      Previous Mentors & Judges
+          </h1>
 
+      </div>
+      <br></br>
+      <br></br>
+      
+      <div className="organizer-slider">
+      
+      <div className="slider-row">
+        {shuffleArray(organizerData).map((item, index) => (
+          <div className="slider-item" key={index}>
+            <div className="profile-picture">
+              <img src={item.image} alt={item.name} />
+            </div>
+            <div className="profile-name">{item.name}</div>
+            <div className="social-icon">
+              <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  viewBox="0 0 512 509.64"
+                >
+                  <rect width="512" height="509.64" rx="115.61" ry="115.61" />
+                  <path
+                    fill="#fff"
+                    d="M204.97 197.54h64.69v33.16h.94c9.01-16.16 31.04-33.16 63.89-33.16 68.31 0 80.94 42.51 80.94 97.81v116.92h-67.46l-.01-104.13c0-23.81-.49-54.45-35.08-54.45-35.12 0-40.51 25.91-40.51 52.72v105.86h-67.4V197.54zm-38.23-65.09c0 19.36-15.72 35.08-35.08 35.08-19.37 0-35.09-15.72-35.09-35.08 0-19.37 15.72-35.08 35.09-35.08 19.36 0 35.08 15.71 35.08 35.08zm-70.17 65.09h70.17v214.73H96.57V197.54z"
+                  />
+                </svg>
               </a>
-            }
-            role="CTO & Co-Founder @ Nordek"
-          />
-          <Member
-            image={abdallalit}
-            name="Abdal Lalit"
-            social={
-              <a
-                href="https://www.linkedin.com/in/abdal-lalit/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
+            </div>
+          </div>
+        ))}
+
+        {/* Duplicate for seamless scrolling */}
+        {shuffleArray(organizerData).map((item, index) => (
+          <div className="slider-item" key={index}>
+            <div className="profile-picture">
+              <img src={item.image} alt={item.name} />
+            </div>
+            <div className="profile-name">{item.name}</div>
+            <div className="social-icon">
+              <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  viewBox="0 0 512 509.64"
+                >
+                  <rect width="512" height="509.64" rx="115.61" ry="115.61" />
+                  <path
+                    fill="#fff"
+                    d="M204.97 197.54h64.69v33.16h.94c9.01-16.16 31.04-33.16 63.89-33.16 68.31 0 80.94 42.51 80.94 97.81v116.92h-67.46l-.01-104.13c0-23.81-.49-54.45-35.08-54.45-35.12 0-40.51 25.91-40.51 52.72v105.86h-67.4V197.54zm-38.23-65.09c0 19.36-15.72 35.08-35.08 35.08-19.37 0-35.09-15.72-35.09-35.08 0-19.37 15.72-35.08 35.09-35.08 19.36 0 35.08 15.71 35.08 35.08zm-70.17 65.09h70.17v214.73H96.57V197.54z"
+                  />
+                </svg>
               </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={abhinavrai}
-            name="Abhinav Rai"
-            social={
-              <a
-                href="https://www.linkedin.com/in/abhinav-rai-6a7119154/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={abhinav}
-            name="Abhinav Sharma"
-            social={
-              <a
-                href="https://www.linkedin.com/in/abhinavsharma0/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={ayonroy}
-            name="Ayon Roy"
-            social={
-              <a
-                href="https://www.linkedin.com/in/ayon-roy/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={chhavi}
-            name="Chhavi Garg"
-            social={
-              <a
-                href="https://www.linkedin.com/in/chhaviGG/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={chinmay}
-            name="Chinmay Pant"
-            social={
-              <a
-                href="https://www.linkedin.com/in/chinmaypant/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={gurkirat}
-            name="Gurkirat Singh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/gurkirat-singh-87901a169/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={jaskaran}
-            name="Jaskaran Singh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/jaskaran-singh-9b3937169/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={manav}
-            name="Manav Gupta"
-            social={
-              <a
-                href="https://www.linkedin.com/in/--manav-gupta--/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={himani}
-            name="Himani Popli"
-            social={
-              <a
-                href="https://www.linkedin.com/in/himani-popli-2391b4146/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={pankaj}
-            name="Pankaj Prajapati"
-            social={
-              <a
-                href="https://www.linkedin.com/in/pankaj-prajapati-668982163/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={pranav}
-            name="Pranav Malik"
-            social={
-              <a
-                href="https://www.linkedin.com/in/candidatepstx-95adfsdk23/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={rishabh}
-            name="Rishabh Sharma"
-            social={
-              <a
-                href="https://www.linkedin.com/in/therishabhsh/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={rishika}
-            name="Rishika Gupta"
-            social={
-              <a
-                href="https://www.linkedin.com/in/rishikagupta-rg/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={rohan}
-            name="Rohan Kumar"
-            social={
-              <a
-                href="https://www.linkedin.com/in/rohan-kumar-a65a87175/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={shivam}
-            name="Shivam Goyal"
-            social={
-              <a
-                href="https://www.linkedin.com/in/shivamgoyall/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={srishti}
-            name="Srishti Gupta"
-            social={
-              <a
-                href="https://www.linkedin.com/in/srishti23/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Mentor, Judge"
-          />
+            </div>
+          </div>
+        ))}
+      </div>
+
           
-          
-          <Member
-            image={anchal}
-            name="Anchal Sharma"
-            social={
-              <a
-                href="https://www.linkedin.com/in/anchal-sharma-57a08714a/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
+        {/* Second Slider (Moving Right) */}
+      <div className="slider-container reverse"  >
+        <div className="slider" >
+        {shuffleArray(organizerData).reverse().map((item, index) => (
+          <div className="slider-item" key={index}>
+            <div className="profile-picture">
+              <img src={item.image} alt={item.name} />
+            </div>
+            <div className="profile-name">{item.name}</div>
+            <div className="social-icon">
+              <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  viewBox="0 0 512 509.64"
+                >
+                  <rect width="512" height="509.64" rx="115.61" ry="115.61" />
+                  <path
+                    fill="#fff"
+                    d="M204.97 197.54h64.69v33.16h.94c9.01-16.16 31.04-33.16 63.89-33.16 68.31 0 80.94 42.51 80.94 97.81v116.92h-67.46l-.01-104.13c0-23.81-.49-54.45-35.08-54.45-35.12 0-40.51 25.91-40.51 52.72v105.86h-67.4V197.54zm-38.23-65.09c0 19.36-15.72 35.08-35.08 35.08-19.37 0-35.09-15.72-35.09-35.08 0-19.37 15.72-35.08 35.09-35.08 19.36 0 35.08 15.71 35.08 35.08zm-70.17 65.09h70.17v214.73H96.57V197.54z"
+                  />
+                </svg>
               </a>
-            }
-            // role="Mentor, Judge"
-          />
-          <Member
-            image={shyamal}
-            name="Shyamal Tripathi"
-            // social={
-            //   <a
-            //     href="#"
-            //     className="text-2xl text-gray-400 pb-1"
-            //     target={"_blank"}
-            //   >
-            //     <FaLinkedin />
-            //   </a>
-            // }
-            role="Hackquest"
-          />
-          
-          <Member
-            image={maninder}
-            name="Maninder Singh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/manindersinghh/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
+            </div>
+          </div>
+        ))}
+          {/* Duplicate for seamless scrolling */}
+          {shuffleArray(organizerData).reverse().map((item, index) => (
+          <div className="slider-item" key={index}>
+            <div className="profile-picture">
+              <img src={item.image} alt={item.name} />
+            </div>
+            <div className="profile-name">{item.name}</div>
+            <div className="social-icon">
+              <a href={item.linkedin} target="_blank" rel="noopener noreferrer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shapeRendering="geometricPrecision"
+                  textRendering="geometricPrecision"
+                  imageRendering="optimizeQuality"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  viewBox="0 0 512 509.64"
+                >
+                  <rect width="512" height="509.64" rx="115.61" ry="115.61" />
+                  <path
+                    fill="#fff"
+                    d="M204.97 197.54h64.69v33.16h.94c9.01-16.16 31.04-33.16 63.89-33.16 68.31 0 80.94 42.51 80.94 97.81v116.92h-67.46l-.01-104.13c0-23.81-.49-54.45-35.08-54.45-35.12 0-40.51 25.91-40.51 52.72v105.86h-67.4V197.54zm-38.23-65.09c0 19.36-15.72 35.08-35.08 35.08-19.37 0-35.09-15.72-35.09-35.08 0-19.37 15.72-35.08 35.09-35.08 19.36 0 35.08 15.71 35.08 35.08zm-70.17 65.09h70.17v214.73H96.57V197.54z"
+                  />
+                </svg>
               </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={abhimanyu}
-            name="Abhimanyu Shekhawat"
-            social={
-              <a
-                href="https://www.linkedin.com/in/abhimanyu-shekhawat-886896168/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={devendra}
-            name="Devendra Parihar"
-            social={
-              <a
-                href="https://www.linkedin.com/in/devendra-parihar/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={sounak}
-            name="Sounak Ghosh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/sounak-ghosh/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={chanpreet}
-            name="Chanpreet Singh"
-            social={
-              <a
-                href="https://www.linkedin.com/in/chanpreet-singh-chugh-8004ab141/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={piyush}
-            name="Piyush Sharma "
-            social={
-              <a
-                href="https://www.linkedin.com/in/piyush-sharma-a5801813b/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={pawan}
-            name="Pawan choudhary"
-            role="National cyber crime investigator (CTF Mentor)"
-          />
-          <Member
-            image={nitesh}
-            name="Nitesh aka linuxroid"
-            role="Cyber security expert (CTF Mentor)"
-          />
-          <Member
-            image={sri}
-            name="Srividhya S Subramanian"
-            social={
-              <a
-                href="https://www.linkedin.com/in/sri-vidhya-s/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          <Member
-            image={hargovind}
-            name="Hargovind Bansal"
-            social={
-              <a
-                href="https://www.linkedin.com/in/hargovind-bansal-3783ba41/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          />
-          {/* <Member
-            image={sounak}
-            name="Saksham"
-            social={
-              <a
-                href="https://www.linkedin.com/in/sounak-ghosh/"
-                className="text-2xl text-gray-400 pb-1"
-                target={"_blank"}
-              >
-                <FaLinkedin />
-              </a>
-            }
-            // role="Nordek"
-          /> */}
+            </div>
+          </div>
+        ))}
         </div>
-      </section>
+      </div>
+        
+      </div>
+        
     </div>
+
+    
   );
 };
 
-export default Speakers;
+export default Organizer;

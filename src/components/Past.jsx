@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ImageSlider from "../components/ImageSlider";
 import { useState, useEffect } from "react";
 import {
   FaUsers,
@@ -28,28 +29,9 @@ const CircleIcon = ({
 };
 
 const Past = () => {
-  const images = [
-    "/images/acehack/pic8.jpg",
-    "/images/acehack/pic7.jpg",
-    
-    "/images/acehack/pic5.jpg",
-   
-   
-    "/images/acehack/pic1.jpg",
-    "/images/acehack/pic2.jpg",
-    "/images/acehack/pic3.jpg",
-    "/images/acehack/pic4.jpg",
-  ];
 
-  const [offset, setOffset] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setOffset((prevOffset) => (prevOffset + 1) % images.length);
-    }, 3000); // Adjust for a slower transition
 
-    return () => clearInterval(interval); // Cleanup interval
-  }, [images.length]);
 
   return (
     <div
@@ -103,27 +85,10 @@ const Past = () => {
           Glimpses of Previous Year
         </h1>
 
-        <div className="relative w-full max-w-6xl mx-auto overflow-hidden rounded-lg shadow-lg">
-  {/* Slider Container */}
-  <div
-    className="flex transition-transform duration-1000 ease-linear"
-    style={{ transform: `translateX(-${offset * (100 / 1)}%)` }}
-  >
-    {/* Duplicate images for seamless effect */}
-    {[...images, ...images].map((src, index) => (
-      <div
-        key={index}
-        className="w-full sm:w-1/3 px-2 flex-shrink-0 transform transition-transform hover:scale-105"
-      >
-        <img
-          src={src}
-          alt={`Gallery ${index + 1}`}
-          className="w-full h-64 object-cover rounded-lg shadow-md"
-        />
-      </div>
-    ))}
-  </div>
-</div>
+     
+
+<ImageSlider/>
+
 
         <br></br>
 

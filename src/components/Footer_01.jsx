@@ -26,10 +26,7 @@ function Footer_01() {
       name: "Sponsor 3",
       logo: "https://ahalia.ac.in/wp-content/uploads/2020/01/iic-logo.png",
     },
-    {
-      name: "Sponsor 4",
-      logo: "https://i.ibb.co/4sF3TTW/Techsoc-logo.jpg" ,
-    },
+    
   ];
   return (
     <footer className="footer">
@@ -83,6 +80,29 @@ function Footer_01() {
                 Phone: <a href="tel:+9162964991370">+916296499137</a>
               </li>
               <li>Location: UEM Jaipur, Rajasthan</li>
+            </ul>
+          </div>
+
+          <div className="footer-contact">
+            <h3>Archives</h3>
+            <ul>
+              <li>
+               
+                <a href="https://sahityaroy.github.io/ace-hack-uemj/" target="blank">
+                AceHack 1.0
+                </a>
+              </li>
+              <li>
+                 <a href="https://github.com/iemaserver/ace-hack-uem-jaipur/tree/5cddf98fe9a04ff6c083c86797f107fdeed4be9f" target="blank">
+                AceHack 2.0
+                </a>
+              </li>
+              <li>
+              <a href="https://github.com/iemaserver/Acehack3/tree/89f4e1c47c12d771c23b080976309a0d754ded1e" target="blank">
+                AceHack 3.0
+                </a>
+
+              </li>
             </ul>
           </div>
 

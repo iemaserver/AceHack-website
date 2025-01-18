@@ -11,7 +11,11 @@ const Collapsible = ({ label, children, isOpen, onClick, style }) => {
     >
       <div
         className="px-4 py-3 cursor-pointer text-base sm:text-lg md:text-xl font-semibold flex justify-between items-center"
-        onClick={onClick} // Toggle on click
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default behavior
+          e.stopPropagation(); // Stop event propagation
+          onClick(); // Trigger the toggle logic
+        }}
       >
         <span>{label}</span>
         <FaChevronDown
@@ -29,9 +33,14 @@ const Collapsible = ({ label, children, isOpen, onClick, style }) => {
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [showAll, setShowAll] = useState(false); // State to toggle the "See More" button
 
   const toggleQuestion = (index) => {
     setOpenIndex(openIndex === index ? null : index); // Toggle logic
+  };
+
+  const toggleShowAll = () => {
+    setShowAll(!showAll); // Toggle visibility of extra questions
   };
 
   const faqData = [
@@ -80,7 +89,7 @@ const Faq = () => {
     {
       question: "Are there predefined problem statements for the hackathon?",
       answer:
-        "Yes, the hackathon will feature problem statements from various tracks, allowing participants to select one that matches their interests. Participants also have the flexibility to choose the Open Innovation track, where they can work on unique ideas. Additionally, sponsors often reward participants with bounties for solving the problem statements they provide, offering exciting opportunities to earn additional recognition and rewards.",
+        "Yes, the hackathon will feature problem statements from various tracks, allowing participants to select one that matches their interests. Participants also have the flexibility to choose the Open Innovation track, where they can work on unique ideas.",
     },
     {
       question: "When will the problem statements for the hackathon be revealed?",
@@ -97,36 +106,9 @@ const Faq = () => {
       answer:
         "No, team members do not need to register individually. The team leader will fill out their details in the registration form.",
     },
-    {
-      question: "What is the shortlisting procedure?",
-      answer:
-        "Teams will be shortlisted based on the information and social links submitted in their registration forms.",
-    },
-    {
-      question: "Can we leave the venue during the hackathon?",
-      answer:
-        "No, participants are required to stay at the venue throughout the event. Leaving will result in disqualification.",
-    },
-    {
-      question: "Can we stay at the venue before or after the hackathon?",
-      answer:
-        "Participants can stay at the venue starting from the afternoon of 7th March until the morning of 10th March. Participants are required to vacate the venue by the morning of 10th March.",
-    },
-    {
-      question: "Will the organizers provide food during the hackathon?",
-      answer: "Yes, participants will be provided with free meals.",
-    },
-    {
-      question: "Will accommodation be provided to participants?",
-      answer:
-        "Yes, shared accommodation will be provided for all participants, with separate arrangements for female participants. Private rooms are not available.",
-    },
-    {
-      question: "I have an issue not listed here. How can I get help?",
-      answer:
-        "For any additional queries, feel free to email us at [mail id]. We’re happy to assist!",
-    },
   ];
+
+  const visibleFaqs = showAll ? faqData : faqData.slice(0, 6); // Show limited FAQs initially
 
   return (
     <div
@@ -140,7 +122,7 @@ const Faq = () => {
           </h1>
         </div>
 
-        {faqData.map((item, index) => (
+        {visibleFaqs.map((item, index) => (
           <Collapsible
             key={index}
             style={`bg-gradient-to-r from-[#fbff00] to-[#00f0ff] rounded-md mx-auto w-full sm:w-11/12 lg:w-9/12 text-black`}
@@ -153,6 +135,16 @@ const Faq = () => {
             </p>
           </Collapsible>
         ))}
+
+        {/* See More / See Less Button */}
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={toggleShowAll}
+            className="bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-700-bold py-4 px-8 rounded-lg transition-all duration-300 hover:brightness-90"
+          >
+            {showAll ? "See Less" : "See More"}
+          </button>
+        </div>
       </div>
     </div>
   );
