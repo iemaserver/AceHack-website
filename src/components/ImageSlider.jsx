@@ -7,8 +7,6 @@ const images = [
   "/images/acehack/pic1.jpg",
   "/images/acehack/pic2.jpg",
   "/images/acehack/pic3.jpg",
-  "/images/acehack/pic10.jpg",
-  "/images/acehack/pic4.jpg",
   "/images/acehack/pic4.jpg",
 ];
 

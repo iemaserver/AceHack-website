@@ -121,21 +121,18 @@
   
 }
 
-/* Add this CSS to your file */
 @keyframes slide-infinite {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
+  100% {
     transform: translateX(-100%);
   }
 }
 
 .animate-slide-infinite {
-  display: flex;
-  animation: slide-infinite 20s linear infinite; /* Adjust the duration here */
+  animation: slide-infinite 6s linear infinite; /* Faster speed */
 }
-
 
 
 
