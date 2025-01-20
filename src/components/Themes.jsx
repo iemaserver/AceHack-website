@@ -23,7 +23,7 @@ const Themes = () => {
         <div className="flex flex-row flex-wrap justify-evenly items-center w-full max-h lg:w-4/5">
           <Item img={blockchain} text="Blockchain & Crypto" />
           <Item img={ml} text="Data & Gen-AI" />
-          <Item img={server} text="CTF & Cyber Security" />
+          <Item img={server} text="Cyber Security" />
           <Item img={iot} text="Internet of Things" />
           <Item img={vr} text="AR / VR" />
           <Item img={cloud} text="Cloud & DevOps" />
