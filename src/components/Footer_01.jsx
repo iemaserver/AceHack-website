@@ -93,12 +93,12 @@ function Footer_01() {
                 </a>
               </li>
               <li>
-                 <a href="https://acehack2-0.vercel.app/" target="blank">
+                 <a href="https://github.com/iemaserver/ace-hack-uem-jaipur/tree/5cddf98fe9a04ff6c083c86797f107fdeed4be9f" target="blank">
                 AceHack 2.0
                 </a>
               </li>
               <li>
-              <a href="https://acehack3-0.vercel.app/" target="blank">
+              <a href="https://github.com/iemaserver/Acehack3/tree/89f4e1c47c12d771c23b080976309a0d754ded1e" target="blank">
                 AceHack 3.0
                 </a>
 

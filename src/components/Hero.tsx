@@ -68,7 +68,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.5 }}
           className="bg-black/70 px-8 sm:px-10 py-4 sm:py-6 rounded-md shadow-md"
         >
-          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Registration Closes In</h3>
+          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Registration Ends In</h3>
           <div className="flex justify-center space-x-4 text-[#fbff00] text-5xl font-extrabold">
             <div>
               {timeLeft.days}

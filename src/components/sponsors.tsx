@@ -13,20 +13,12 @@ export default function Sponsors() {
     },
   ];
 
-  const ecosystemPartner = [
+  const ecosystemPartner=[
     {
-      name: "TechSoc",
-      logo: "https://i.ibb.co/4sF3TTW/Techsoc-logo.jpg",
+      name: "Techsoc",
+      logo: "https://i.ibb.co/4sF3TTW/Techsoc-logo.jpg" ,
     },
-  ];
-
-  const InterviewBuddy = [
-    {
-      name: "InterviewBuddy",
-      logo: "https://interviewbuddy.net/assests/logos/IBlogo_light.svg",
-      url: "https://interviewbuddy.net/",
-    },
-  ];
+  ]
 
   const uem = "/images/uem.png";
 
@@ -34,73 +26,56 @@ export default function Sponsors() {
   // import acm from "/assets/images/acmlogo.png";
   const acm = "/images/acm-blu.png";
   const iic = "/images/iic.jfif";
-
-  const organizer = [
-    {
-      name: "UEMJ",
-      logo: uem,
-    },
-    {
-      name: "ACM",
-      logo: acm,
-    },
-
-    {
-      name: "IIC",
-      logo: iic,
-    },
-  ];
+  const eduhub = "/images/eduhub.png";
+  const rplLogo = "/images/rpLogo.jpg";
 
   return (
     <section className="relative py-1 bg-black text-white">
       {/* Current Sponsors */}
-
+     
       <a>
-        <section className="py-12 ">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-              Organized By
-            </h1>
-            <br></br>
-            <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
-              {organizer.map((partner) => (
-                <a key={partner.name} target="blank">
-                  <motion.div
-                    className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Glow Effect */}
-                    <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
-                    {/* Card Content */}
 
-                    <div className="w-32 h-32 mb-6 rounded-full bg-white flex items-center justify-center shadow-md">
-                      <img
-                        src={partner.logo}
-                        alt={partner.name}
-                        className="w-28 h-28 rounded-full object-contain z-10"
-                      />
-                    </div>
+      <section className="py-12 ">
+            <div className="flex flex-col items-center text-center">
+              <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
+                Organized By
+              </h1>
+              <br></br>
+              <div className="flex justify-center gap-10 flex-wrap">
+                <div className="w-2/4 sm:w-1/6 p-4">
+                  <img src={uem} alt="Logo 1" className="h-28 bg-white px-3 py-1" />
+                </div>
+                <div className="w-2/4 sm:w-1/6 p-4">
+                  <img src={acm} alt="Logo 2" className="h-28 bg-white px-2" />
+                </div>
+                <div className="w-2/4 sm:w-1/6 p-4">
+                  <img
+                    src={eduhub}
+                    alt="Logo 3"
+                    className="h-28 bg-white px-2"
+                  />
+                </div>
+                <div className="w-2/4 sm:w-1/6 p-4">
+                  <img src={iic} alt="Logo 4" className="h-28 bg-white" />
+                </div>
 
-                    <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
-                      {partner.name}
-                    </div>
-                  </motion.div>
-                </a>
-              ))}
+                <div className="w-2/4 sm:w-1/5 p-4">
+                  <img src={rplLogo} alt="Logo 5" className=" h-28 p-2 bg-white" />
+                </div>
+                {/* Add more logos as needed */}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* platform sponser */}
+          <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
+        Platform Sponsor
 
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-            Platform Sponsor
-          </h2>
-        </div>
+        </h2>
+      </div>
         <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
+          
+
           {currentSponsors.map((sponsor) => (
             <a key={sponsor.id} href={sponsor.url} target="blank">
               <motion.div
@@ -128,60 +103,22 @@ export default function Sponsors() {
         </div>
       </a>
       <br></br>
-      <br></br>
-
-      {/* In kind sponser */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-          In-Kind Sponsor
-        </h2>
-      </div>
-      <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
-        {InterviewBuddy.map((sponsor) => (
-          <a key={sponsor.name} href={sponsor.url} target="blank">
-            <motion.div
-              className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
-              {/* Card Content */}
-
-              <div className="w-32 h-32 mb-6 rounded-full bg-white flex items-center justify-center shadow-md">
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className="w-28 h-28 rounded-full object-contain z-10"
-                      />
-                    </div>
-
-              <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
-                {sponsor.name}
-              </div>
-            </motion.div>
-          </a>
-        ))}
-      </div>
-
-      <br></br>
-
+      
       <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold pt-10 text-center">
-        Become a{" "}
-        <span className="underline-offset-8 underline decoration-yellow-400">
-          sponsor
-        </span>{" "}
-        of{" "}
-        <b className="text-2xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-          {" "}
-          AceHack 4.0
-        </b>
-      </p>
+  Become a{" "}
+  <span className="underline-offset-8 underline decoration-yellow-400">
+    sponsor
+  </span>{" "}
+  of <b className="text-2xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2"> AceHack 4.0</b>
+</p>
 
-      <br></br>
+        <br></br>
+     
 
+      
       <div className="relative flex flex-wrap justify-center">
+      
+        
         <a
           href="https://drive.google.com/file/d/1zVtDsVrGbpHjZi5UXx9TMRDuGnDGHFw3/view?usp=sharing"
           target="blank"
@@ -198,36 +135,39 @@ export default function Sponsors() {
 
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-          Ecosystem Partner
+        Ecosystem Partner
+
         </h2>
       </div>
 
       <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
-        {ecosystemPartner.map((partner) => (
-          <a key={partner.name} target="blank">
-            <motion.div
-              className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Glow Effect */}
-              <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
-              {/* Card Content */}
+          
 
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="w-32 mb-8 z-10 rounded-full shadow-md object-contain"
-              />
+          {ecosystemPartner.map((partner) => (
+            <a key={partner.name}  target="blank">
+              <motion.div
+                className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Glow Effect */}
+                <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
+                {/* Card Content */}
 
-              <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
-                {partner.name}
-              </div>
-            </motion.div>
-          </a>
-        ))}
-      </div>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="w-32 mb-8 z-10 rounded-full shadow-md object-contain"
+                />
+
+                <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
+                  {partner.name}
+                </div>
+              </motion.div>
+            </a>
+          ))}
+        </div>
 
       {/* Divider */}
       <div className="relative my-12 flex flex-col items-center">
