@@ -10,11 +10,11 @@ const Collapsible = ({ label, children, isOpen, onClick, style }) => {
       }`}
     >
       <div
-        className="px-4 py-3 cursor-pointer text-base sm:text-lg md:text-xl font-semibold flex justify-between items-center"
+        className="px-4 py-3 cursor-pointer text-sm sm:text-base md:text-lg font-semibold flex justify-between items-center"
         onClick={(e) => {
-          e.preventDefault(); // Prevent default behavior
-          e.stopPropagation(); // Stop event propagation
-          onClick(); // Trigger the toggle logic
+          e.preventDefault();
+          e.stopPropagation();
+          onClick();
         }}
       >
         <span>{label}</span>
@@ -25,7 +25,9 @@ const Collapsible = ({ label, children, isOpen, onClick, style }) => {
         />
       </div>
       {isOpen && (
-        <div className="px-4 py-2 text-sm sm:text-base md:text-lg">{children}</div>
+        <div className="px-4 py-2 text-xs sm:text-sm md:text-base">
+          {children}
+        </div>
       )}
     </div>
   );
@@ -33,14 +35,14 @@ const Collapsible = ({ label, children, isOpen, onClick, style }) => {
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState(null);
-  const [showAll, setShowAll] = useState(false); // State to toggle the "See More" button
+  const [showAll, setShowAll] = useState(false);
 
   const toggleQuestion = (index) => {
-    setOpenIndex(openIndex === index ? null : index); // Toggle logic
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   const toggleShowAll = () => {
-    setShowAll(!showAll); // Toggle visibility of extra questions
+    setShowAll(!showAll);
   };
 
   const faqData = [
@@ -106,6 +108,35 @@ const Faq = () => {
       answer:
         "No, team members do not need to register individually. The team leader will fill out their details in the registration form.",
     },
+    {
+      question: "What is the shortlisting procedure?",
+      answer:
+        "Teams will be shortlisted based on the information and social links submitted in their registration forms.",
+    },
+    {
+      question: "Can we leave the venue during the hackathon?",
+      answer:
+        "No, participants are required to stay at the venue throughout the event. Leaving will result in disqualification.",
+    },
+    {
+      question: "Can we stay at the venue before or after the hackathon?",
+      answer:
+        "Participants can stay at the venue starting from the afternoon of 7th March until the morning of 10th March. Participants are required to vacate the venue by the morning of 10th March.",
+    },
+    {
+      question: "Will the organizers provide food during the hackathon?",
+      answer: "Yes, participants will be provided with free meals.",
+    },
+    {
+      question: "Will accommodation be provided to participants?",
+      answer:
+        "Yes, shared accommodation will be provided for all participants, with separate arrangements for female participants. Private rooms are not available.",
+    },
+    {
+      question: "I have an issue not listed here. How can I get help?",
+      answer:
+        "For any additional queries, feel free to email us at acehack@uem.edu.in. Alternatively, join our Discord server at https://discord.openinapp.co/acehack4 and raise a ticket to connect directly with the organizers. We’re here to help!",
+    },
   ];
 
   const visibleFaqs = showAll ? faqData : faqData.slice(0, 6); // Show limited FAQs initially
@@ -113,11 +144,11 @@ const Faq = () => {
   return (
     <div
       id="faq"
-      className="relative scroll-smooth bg-black w-full text-white p-5 sm:p-8 md:p-10"
+      className="relative bg-black w-full text-white p-4 sm:p-6 md:p-8 lg:p-10"
     >
-      <div className="my-10 flex flex-col gap-6">
-        <div className="flex flex-row justify-center mb-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff] px-4 py-2">
+      <div className="my-8 flex flex-col gap-6">
+        <div className="text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]">
             FAQs
           </h1>
         </div>
@@ -130,17 +161,14 @@ const Faq = () => {
             isOpen={openIndex === index}
             onClick={() => toggleQuestion(index)}
           >
-            <p className="text-black text-sm sm:text-base md:text-lg">
-              {item.answer}
-            </p>
+            <p className="text-black">{item.answer}</p>
           </Collapsible>
         ))}
 
-        {/* See More / See Less Button */}
         <div className="flex justify-center mt-6">
           <button
             onClick={toggleShowAll}
-            className="bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-700-bold py-4 px-8 rounded-lg transition-all duration-300 hover:brightness-90"
+            className="text-sm sm:text-base bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-semibold py-3 px-6 sm:py-4 sm:px-8 rounded-lg hover:brightness-90"
           >
             {showAll ? "See Less" : "See More"}
           </button>
