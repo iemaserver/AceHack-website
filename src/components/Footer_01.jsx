@@ -8,7 +8,7 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-const uem = "/images/uem_old.png";
+const uem = "https://i.ibb.co/JWB4Ldvq/17584377aa0a3eef5038cc007940328e-removebg-preview.jpg";
 const acm = "/images/acm-white.png";
 
 
