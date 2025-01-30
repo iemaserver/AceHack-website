@@ -86,6 +86,8 @@
           gap: 2rem;
           flex: 2;
           flex-wrap: wrap;
+          position: relative;
+          right: 5rem;
         }
         .footer-location-section{
           
@@ -169,6 +171,8 @@
           .footer-links {
             flex-direction: column;
             align-items: center;
+            position: relative;
+          right: 0rem;
           }
         
           .footer-nav, .footer-contact, .footer-contact-us {

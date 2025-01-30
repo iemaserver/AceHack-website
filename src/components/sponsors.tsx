@@ -20,11 +20,75 @@ export default function Sponsors() {
     },
   ];
 
-  const InterviewBuddy = [
+  const inKindSponseor = [
     {
       name: "InterviewBuddy",
       logo: "https://interviewbuddy.net/assests/logos/IBlogo_light.svg",
       url: "https://interviewbuddy.net/",
+    },
+    {
+      name: "Reskill_l",
+      logo: "https://reskilll.com/newui/img/blacklogo.png",
+      url: "https://reskilll.com/",
+    },
+    {
+      name: "Microsoft",
+      logo: "https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+      url: "https://www.microsoft.com/en-in",
+    },
+    {
+      name: "Commudle",
+      logo: "https://commudle.com/assets/images/commudle-logo192.png",
+      url: "https://www.commudle.com/",
+    },
+    {
+      name: "Appwrite",
+      logo: "https://marketplace-assets.digitalocean.com/logos/appwrite-20-04.svg",
+      url: "https://appwrite.io/",
+    },
+    {
+      name: "Zsecurity",
+      logo: "https://zsecurity.org/wp-content/uploads/2018/09/zs-top-left.png",
+      url: "https://zsecurity.org/",
+    },
+    {
+      name: "Flatlogic",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpYvR__2a_QgIN-6Fnv3D7ktpznczuGe9QQQ&s",
+      url: "https://flatlogic.com/",
+    },
+    {
+      name: "CodeCrafters",
+      logo: "https://codecrafters.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e38048e3.png&w=48&q=75",
+      url: "https://codecrafters.io/",
+    },
+    {
+      name: "Apos",
+      logo: "https://artofproblemsolving.com/assets/images/logos/aops-online.svg",
+      url: "https://artofproblemsolving.com/",
+    },
+  ];
+
+  const web3Sponsor = [
+    {
+      name: "Devdock",
+      logo: "https://devdock.ai/images/logo.png",
+      url: "https://devdock.ai/",
+    },
+  ];
+
+  const bronze = [
+    {
+      name: "Jonathan Chiang",
+      logo: "images/jonathan.jpg",
+      url: "https://www.instagram.com/jonny.chang.ceo/",
+    },
+  ];
+
+  const mediaPartner = [
+    {
+      name: "The Global Hues",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiJGUYsI48OexKz0ELLcYLyfddhqQxBF9VGw&s",
+      url: "https://theglobalhues.com/",
     },
   ];
 
@@ -129,15 +193,17 @@ export default function Sponsors() {
       </a>
       <br></br>
       <br></br>
+      {/* platform sponser */}
 
-      {/* In kind sponser */}
+      {/* Web3 Track Sponsor */}
+
       <div className="text-center mb-12">
         <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
-          In-Kind Sponsor
+          Web3 Track Sponsor
         </h2>
       </div>
       <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
-        {InterviewBuddy.map((sponsor) => (
+        {web3Sponsor.map((sponsor) => (
           <a key={sponsor.name} href={sponsor.url} target="blank">
             <motion.div
               className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
@@ -149,13 +215,13 @@ export default function Sponsors() {
               <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
               {/* Card Content */}
 
-              <div className="w-32 h-32 mb-6 rounded-full bg-white flex items-center justify-center shadow-md">
-                      <img
-                        src={sponsor.logo}
-                        alt={sponsor.name}
-                        className="w-28 h-28 rounded-full object-contain z-10"
-                      />
-                    </div>
+              <div className="w-32 h-32 mb-6 rounded-full bg-black flex items-center justify-center shadow-md">
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="w-28 h-28 rounded-full object-contain z-10"
+                />
+              </div>
 
               <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
                 {sponsor.name}
@@ -165,7 +231,132 @@ export default function Sponsors() {
         ))}
       </div>
 
+      {/* Web3 Track Sponsor */}
+
       <br></br>
+      <br></br>
+
+      {/* Bronze */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
+          Bronze
+        </h2>
+      </div>
+      <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
+        {bronze.map((sponsor) => (
+          <a key={sponsor.name} href={sponsor.url} target="blank">
+            <motion.div
+              className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Glow Effect */}
+              <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
+              {/* Card Content */}
+
+              <div className="w-32 h-32 mb-6 rounded-full bg-black flex items-center justify-center shadow-md">
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="w-28 h-28 rounded-full object-contain z-10"
+                />
+              </div>
+
+              <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
+                {sponsor.name}
+              </div>
+            </motion.div>
+          </a>
+        ))}
+      </div>
+
+      {/* Bronze */}
+      <br></br>
+      <br></br>
+
+      {/* In-Kind Sponsor */}
+      {/* In-Kind Sponsor */}
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff] inline-block px-4 py-2">
+          In-Kind Sponsor
+        </h2>
+      </div>
+
+      {/* Responsive Grid Layout for 2 cards on mobile, 5 on large screens */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 px-4 md:px-16 max-w-screen-lg mx-auto">
+        {inKindSponseor.map((sponsor) => (
+          <a key={sponsor.name} href={sponsor.url} target="_blank">
+            <motion.div
+              className="relative w-[150px] h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex flex-col items-center justify-center group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Glow Effect */}
+              <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
+
+              {/* Card Content */}
+              <div className="w-32 h-32 mb-6 rounded-full bg-white flex items-center justify-center shadow-md">
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="w-28 h-28 rounded-full object-contain z-10"
+                />
+              </div>
+
+              {/* Sponsor Name */}
+              <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
+                {sponsor.name}
+              </div>
+            </motion.div>
+          </a>
+        ))}
+      </div>
+
+      {/* in kind sponsor */}
+
+      <br></br>
+
+      <br></br>
+
+      {/* Media perner */}
+
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-6xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#fbff00] to-[#00f0ff]  inline-block px-4 py-2">
+          Media Partners
+        </h2>
+      </div>
+      <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
+        {mediaPartner.map((sponsor) => (
+          <a key={sponsor.name} href={sponsor.url} target="blank">
+            <motion.div
+              className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Glow Effect */}
+              <div className="absolute inset-0 rounded-lg blur-lg opacity-30 bg-gradient-to-br from-[#fbff00] to-[#00f0ff] group-hover:animate-pulse"></div>
+              {/* Card Content */}
+
+              <div className="w-32 h-32 mb-6 rounded-full bg-black flex items-center justify-center shadow-md">
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  className="w-28 h-28 rounded-full object-contain z-10"
+                />
+              </div>
+
+              <div className="absolute bottom-2 mt-2 text-center z-10 text-2xl text-[#fbff00] opacity-90">
+                {sponsor.name}
+              </div>
+            </motion.div>
+          </a>
+        ))}
+      </div>
+
+      {/* Media partner */}
 
       <p className="text-3xl sm:text-4xl md:text-5xl font-extrabold pt-10 text-center">
         Become a{" "}
