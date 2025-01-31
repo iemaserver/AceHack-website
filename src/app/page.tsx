@@ -14,7 +14,6 @@ import Speakers from "../components/Speakers";
 import Past from "../components/Past";
 import Faculty from "../components/Faculty";
 import Faq from "../components/Faq";
-import Team from "../components/Team";
 
 
 // throws error in vercel // import Sponsor from "../components/Sponsor"
@@ -56,7 +55,6 @@ export default function Home() {
 
       <Past />
       <Speakers />
-      <Team/>
       <Faculty />
 
       <div id="faqs" className="relative">
