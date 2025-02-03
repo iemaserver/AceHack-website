@@ -8,8 +8,10 @@ import {
   faLinkedin,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-const uem = "/images/uem_old.png";
-const acm = "/images/acm-white.png";
+// const uem = "/images/uem_old.png";
+// const acm = "/images/acm-white.png";
+const uem = "./images/Frame 234.png ";
+const acm = "./images/Frame 235.png";
 
 
 function Footer_01() {
