@@ -8,7 +8,8 @@ export default function HeroSection() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
-    const targetDate = new Date("2025-02-05T00:00:00"); // Set the event start date
+    const targetDate = new Date("2025-02-05T23:59:00");
+    // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
