@@ -21,25 +21,32 @@ export default function Sponsors() {
   ];
 
   const inKindSponseor = [
+  
     {
-      name: "InterviewBuddy",
-      logo: "https://interviewbuddy.net/assests/logos/IBlogo_light.svg",
-      url: "https://interviewbuddy.net/",
-    },
-    {
-      name: "Reskill_l",
+      name: "Reskill",
       logo: "https://reskilll.com/newui/img/blacklogo.png",
       url: "https://reskilll.com/",
     },
     {
-      name: "Microsoft",
-      logo: "https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+      name: "Microsoft Azure",
+      // logo: "https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
+      logo: "./images/sponsors/newMicrosoft-azure.png",
+      url: "https://www.microsoft.com/en-in",
+    },
+    {
+      name: "Microsoft Community",
+      logo: "./images/sponsors/newMicrosoft-community.png",
       url: "https://www.microsoft.com/en-in",
     },
     {
       name: "Commudle",
       logo: "https://commudle.com/assets/images/commudle-logo192.png",
       url: "https://www.commudle.com/",
+    },
+    {
+      name: "InterviewBuddy",
+      logo: "https://interviewbuddy.net/assests/logos/IBlogo_light.svg",
+      url: "https://interviewbuddy.net/",
     },
     {
       name: "Appwrite",
@@ -61,10 +68,26 @@ export default function Sponsors() {
       logo: "https://codecrafters.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.e38048e3.png&w=48&q=75",
       url: "https://codecrafters.io/",
     },
+    
     {
-      name: "Apos",
+      name: "Sybgen",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG_7g3mUgwgp1rgCUwbvAdfPZbeeZzSAXeOw&s",
+      url: "https://sybgen.com/",
+    },
+    {
+      name: "Interview Cake",
+      logo: "https://cdn.prod.website-files.com/66bc0319fce51f7e5568a809/66cccfa71415c8fe1322665f_63da686f8720100e177b4f40_Interview%2520Cake%2520main.webp",
+      url: "https://www.interviewcake.com/",
+    },
+    {
+      name: "AoPS Online",
       logo: "https://artofproblemsolving.com/assets/images/logos/aops-online.svg",
       url: "https://artofproblemsolving.com/",
+    },
+    {
+      name: "Balsamiq",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYjlMXiSjQu1YRDJsZp-jfMTEOFYlBh-mf_Q&s",
+      url: "https://balsamiq.com/",
     },
   ];
 
@@ -101,7 +124,7 @@ export default function Sponsors() {
 
   const organizer = [
     {
-      name: "UEMJ",
+      name: "UEM Jaipur",
       logo: uem,
     },
     {
@@ -288,7 +311,7 @@ export default function Sponsors() {
         {inKindSponseor.map((sponsor) => (
           <a key={sponsor.name} href={sponsor.url} target="_blank">
             <motion.div
-              className="relative w-[150px] h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex flex-col items-center justify-center group"
+              className="relative w-[150px] h-60 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex flex-col items-center justify-center group"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.3 }}
