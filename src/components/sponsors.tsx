@@ -23,7 +23,7 @@ export default function Sponsors() {
   const inKindSponseor = [
   
     {
-      name: "Reskill",
+      name: "Reskilll",
       logo: "https://reskilll.com/newui/img/blacklogo.png",
       url: "https://reskilll.com/",
     },
@@ -34,7 +34,7 @@ export default function Sponsors() {
       url: "https://www.microsoft.com/en-in",
     },
     {
-      name: "Microsoft Community",
+      name: "Azure Dev Community",
       logo: "./images/sponsors/newMicrosoft-community.png",
       url: "https://www.microsoft.com/en-in",
     },
@@ -88,6 +88,11 @@ export default function Sponsors() {
       name: "Balsamiq",
       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYjlMXiSjQu1YRDJsZp-jfMTEOFYlBh-mf_Q&s",
       url: "https://balsamiq.com/",
+    },
+    {
+      name: "gen.XYZ",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/.xyz_logo.svg/1280px-.xyz_logo.svg.png",
+      url: "https://gen.xyz/files",
     },
   ];
 
