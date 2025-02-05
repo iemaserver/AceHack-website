@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { difference } from "next/dist/build/utils";
+// import { difference } from "next/dist/build/utils";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
