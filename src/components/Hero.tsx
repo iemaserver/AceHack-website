@@ -18,7 +18,7 @@ export default function HeroSection() {
     // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
-      let difference = targetDate.getTime() - now.getTime();
+      const difference = targetDate.getTime() - now.getTime();
 
       let days = Math.floor(difference / (1000 * 60 * 60 * 24));
       let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
