@@ -90,7 +90,8 @@ export default function Sponsors() {
       url: "https://balsamiq.com/",
     },
     {
-      name: "gen.XYZ",
+      name: "XYZ Domains", 
+
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/.xyz_logo.svg/1280px-.xyz_logo.svg.png",
       url: "https://gen.xyz/files",
     },

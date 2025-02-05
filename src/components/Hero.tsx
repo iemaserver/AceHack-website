@@ -120,7 +120,7 @@ export default function HeroSection() {
             href="https://dorahacks.io/hackathon/acehack4/detail"
             className="px-6 py-3 bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-bold text-lg rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            Register Now
+            DoraHacks
           </a>
           <a
             href="https://linktr.ee/acehack4"
