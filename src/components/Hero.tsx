@@ -1,23 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
+// import { difference } from "next/dist/build/utils";
 import { useEffect, useState } from "react";
 
 export default function HeroSection() {
   // Countdown Timer Logic
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
-    const targetDate = new Date("2025-02-05T23:59:00");
+    const targetDate = new Date("2025-02-05T00:00:00");
     // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
 
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / (1000 * 60)) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
+      let days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      let minutes = Math.floor((difference / (1000 * 60)) % 60);
+      let seconds = Math.floor((difference / 1000) % 60);
+
+      if (difference <= 0) {
+        days = 0;
+        hours = 0;
+        minutes = 0;
+        seconds = 0;
+      }
 
       setTimeLeft({ days, hours, minutes, seconds });
     }, 1000);
@@ -28,7 +41,9 @@ export default function HeroSection() {
   return (
     <div
       className="relative h-screen bg-cover bg-center text-black overflow-hidden"
-      style={{ backgroundImage: "url('https://i.ibb.co/BwCCPdp/website-bg-1.png')" }}
+      style={{
+        backgroundImage: "url('https://i.ibb.co/BwCCPdp/website-bg-1.png')",
+      }}
     >
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black opacity-90"></div>
@@ -41,7 +56,11 @@ export default function HeroSection() {
           transition={{ duration: 1 }}
           className="absolute -top-28 md:-top-0 inset-0 -z-10 flex items-center justify-center opacity-10"
         >
-          <img src="/images/logo.png" alt="AceHack Logo" className="h-auto w-[40rem]" />
+          <img
+            src="/images/logo.png"
+            alt="AceHack Logo"
+            className="h-auto w-[40rem]"
+          />
         </motion.div>
 
         {/* Title and Description */}
@@ -56,10 +75,8 @@ export default function HeroSection() {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-200 font-medium antialiased text-center sm:text-left">
-    24-Hour In-Person Hackathon | 8-9th March | Jaipur, Rajasthan
-</p>
-
-
+            24-Hour In-Person Hackathon | 8-9th March | Jaipur, Rajasthan
+          </p>
         </motion.div>
 
         {/* Timer */}
@@ -69,7 +86,9 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.5 }}
           className="bg-black/70 px-8 sm:px-10 py-4 sm:py-6 rounded-md shadow-md"
         >
-          <h3 className="text-lg md:text-3xl font-bold text-gray-300">Registration Closes In</h3>
+          <h3 className="text-lg md:text-3xl font-bold text-gray-300">
+            Registration Closed
+          </h3>
           <div className="flex justify-center space-x-4 text-[#fbff00] text-5xl font-extrabold">
             <div>
               {timeLeft.days}
@@ -98,15 +117,12 @@ export default function HeroSection() {
           className="flex justify-center space-x-6"
         >
           <a
-
-         
             href="https://dorahacks.io/hackathon/acehack4/detail"
             className="px-6 py-3 bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-bold text-lg rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
           >
             Register Now
           </a>
           <a
-
             href="https://linktr.ee/acehack4"
             className="px-6 py-3 border-2 border-[#fbff00] text-[#fbff00] hover:text-black font-bold text-lg rounded-md hover:bg-[#fbff00]/90 hover:scale-105 transition-transform duration-300"
           >
