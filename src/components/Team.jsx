@@ -11,7 +11,7 @@ const Team = () => {
       <div className="mt-10 flex justify-center px-2 md:px-0">
         <div className="relative w-full max-w-6xl sm:max-w-5xl md:max-w-4xl lg:max-w-3xl overflow-hidden rounded-lg shadow-lg md:shadow-xl transition-all duration-300 hover:shadow-2xl mx-2 md:mx-0">
           <img
-            src="/images/team3.0.jpg" // Replace with actual team image path
+            src="/images/new_team.jpg" // Replace with actual team image path
             alt="AceHack Team"
             className="w-full h-auto max-h-[500px] md:max-h-[600px] object-cover transition-all duration-300 transform hover:scale-95"
           />

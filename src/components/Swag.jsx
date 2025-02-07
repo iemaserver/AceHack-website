@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-const template = "./images/swag/New pengu frame.png";
+const template = "./images/swag/new_version_frame.png";
 // import template from "/assets/images/swag/sample.png";
-const defaultAvatar = "/images/swag/pengu.png"; // Path to default avatar image
+const defaultAvatar = "/images/swag/NewDefault_gaming.png"; // Path to default avatar image
 import FancyButton from "../components/FancyButton";
 
 const Swag = () => {
@@ -140,10 +140,10 @@ const Swag = () => {
 
       // Draw the name text
       ctx.font = "bold 50px Arial";
-      ctx.fillStyle = "white";
+      ctx.fillStyle = "black";
       ctx.textAlign = "center";
       ctx.fillText(
-        name || "Hey, I'm Pengu",
+        name || "Your Name Here",
         canvas.width / 2,
         canvas.height - 158
       );
@@ -165,7 +165,7 @@ const Swag = () => {
         <br></br>
         <br></br>
         <div className="flex flex-col md:flex-row justify-between items-center xl:mx-40">
-          <div className="flex w-[60%] md:w-[80%] justify-center mb-5 md:mb-0 -10">
+          <div className="flex w-[60%] md:w-[80%] justify-center mb-5 md:mb-0 -10 ">
             {/* <canvas
               ref={canvasRef}
               width={2000} // Set width of canvas (adjust as needed)
@@ -189,6 +189,7 @@ const Swag = () => {
                   display: "block",
                   position: "relative",
                   width: "100%",
+                  backgroundColor:"black",
                 }}
                 className="rounded-sm border-4 border-[#05002582] bg-"
               ></canvas>
