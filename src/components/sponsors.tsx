@@ -17,6 +17,7 @@ export default function Sponsors() {
     {
       name: "TechSoc",
       logo: "https://i.ibb.co/4sF3TTW/Techsoc-logo.jpg",
+      url:"https://tech-soc.vercel.app/",
     },
   ];
 
@@ -31,12 +32,12 @@ export default function Sponsors() {
       name: "Microsoft Azure",
       // logo: "https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png",
       logo: "./images/sponsors/newMicrosoft-azure.png",
-      url: "https://www.microsoft.com/en-in",
+      url: "https://azure.microsoft.com/en-us/",
     },
     {
       name: "Azure Dev Community",
       logo: "./images/sponsors/newMicrosoft-community.png",
-      url: "https://www.microsoft.com/en-in",
+      url: "https://azdev.reskilll.com/",
     },
     {
       name: "Commudle",
@@ -93,7 +94,7 @@ export default function Sponsors() {
       name: "XYZ Domains", 
 
       logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/.xyz_logo.svg/1280px-.xyz_logo.svg.png",
-      url: "https://gen.xyz/files",
+      url: "https://gen.xyz/",
     },
   ];
 
@@ -424,7 +425,7 @@ export default function Sponsors() {
 
       <div className="relative flex flex-wrap justify-center gap-12 px-4 md:px-16">
         {ecosystemPartner.map((partner) => (
-          <a key={partner.name} target="blank">
+          <a key={partner.name} href={partner.url} target="blank">
             <motion.div
               className="relative w- h-52 bg-gradient-to-br from-[#fbff00]/20 to-[#00f0ff]/20 rounded-lg shadow-lg p-3 flex items-center justify-center group"
               whileHover={{ scale: 1.1 }}
