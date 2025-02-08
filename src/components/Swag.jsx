@@ -153,7 +153,7 @@ const Swag = () => {
 
   return (
     <div
-      id="digitalswags"
+      id="swags"
       className=" min-h-[100vh] flex items-center py-12 relative bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black"
     >
       <div className="container mx-auto px-4 md:px-0">
