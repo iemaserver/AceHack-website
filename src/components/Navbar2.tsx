@@ -59,7 +59,7 @@ export default function Navbar() {
               "polygon(16px 0, 100% 0, 100% 30px, calc(100% - 18px) 48px, calc(100% - 18px) 2000%, 0 2000%, 0 16px)",
           }}
         >
-          {["Home", "About", "Schedule", "Sponsors", "FAQs", "Contact"].map(
+          {["Home", "About", "Swags", "Sponsors", "FAQs", "Contact"].map(
             (item) => (
               <motion.a
                 key={item}
@@ -103,7 +103,7 @@ export default function Navbar() {
         animate={isOpen ? "open" : "closed"}
         className="md:hidden bg-black/90 text-center"
       >
-        {["Home", "About", "Schedule", "Sponsors", "FAQs", "Contact"].map(
+        {["Home", "About", "Digital_Swags", "Sponsors", "FAQs", "Contact"].map(
           (item) => (
             <motion.a
               key={item}

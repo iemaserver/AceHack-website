@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-const template = "./images/swag/new_version_frame.png";
+const template = "./images/swag/new_version_frame2.png";
 // import template from "/assets/images/swag/sample.png";
 const defaultAvatar = "/images/swag/NewDefault_gaming.png"; // Path to default avatar image
 import FancyButton from "../components/FancyButton";
@@ -142,10 +142,11 @@ const Swag = () => {
       ctx.font = "bold 50px Arial";
       ctx.fillStyle = "black";
       ctx.textAlign = "center";
+      
       ctx.fillText(
         name || "Your Name Here",
         canvas.width / 2,
-        canvas.height - 158
+        canvas.height - 190
       );
     };
     templateImage.src = template;
@@ -153,7 +154,7 @@ const Swag = () => {
 
   return (
     <div
-      id="digitalswags"
+      id="swags"
       className=" min-h-[100vh] flex items-center py-12 relative bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black"
     >
       <div className="container mx-auto px-4 md:px-0">

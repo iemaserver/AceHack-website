@@ -40,7 +40,12 @@ export default function Home() {
         <AboutAceHack />
       </div>
 
+      <div id="swags">
       <Swag />
+
+      </div>
+
+      
 
       <Themes />
 
