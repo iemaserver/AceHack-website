@@ -14,7 +14,7 @@ export default function HeroSection() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-02-05T00:00:00");
+    const targetDate = new Date("2025-03-08T00:00:00");
     // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
@@ -87,7 +87,7 @@ export default function HeroSection() {
           className="bg-black/70 px-8 sm:px-10 py-4 sm:py-6 rounded-md shadow-md"
         >
           <h3 className="text-lg md:text-3xl font-bold text-gray-300">
-            Registration Closed
+          Hackathon Starts In
           </h3>
           <div className="flex justify-center space-x-4 text-[#fbff00] text-5xl font-extrabold">
             <div>
@@ -120,7 +120,7 @@ export default function HeroSection() {
             href="https://dorahacks.io/hackathon/acehack4/detail"
             className="px-6 py-3 bg-gradient-to-r from-[#fbff00] to-[#00f0ff] text-black font-bold text-lg rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
           >
-            DoraHacks
+            Register Now!
           </a>
           <a
             href="https://linktr.ee/acehack4"
