@@ -14,7 +14,7 @@ export default function HeroSection() {
   });
 
   useEffect(() => {
-    const targetDate = new Date("2025-03-08T00:00:00");
+    const targetDate = new Date("2025-03-29T00:00:00");
     // Set the event start date
     const interval = setInterval(() => {
       const now = new Date();
@@ -75,7 +75,7 @@ export default function HeroSection() {
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-200 font-medium antialiased text-center sm:text-left">
-            24-Hour In-Person Hackathon | 8-9th March | Jaipur, Rajasthan
+            24-Hour In-Person Hackathon | 29-30th March | Jaipur, Rajasthan
           </p>
         </motion.div>
 
