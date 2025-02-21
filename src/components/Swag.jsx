@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-const template = "./images/swag/new_version_frame2.png";
+const template = "./images/swag/New_date_updated_frame.png";
 // import template from "/assets/images/swag/sample.png";
 const defaultAvatar = "/images/swag/NewDefault_gaming.png"; // Path to default avatar image
 import FancyButton from "../components/FancyButton";
