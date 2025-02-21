@@ -74,7 +74,7 @@ function Footer_01() {
             <ul>
               <li>
                 Email:{" "}
-                <a href="mailto:technexus.community2024@gmail.com">
+                <a href="mailto:acehack@uem.edu.in">
                   acehack@uem.edu.in
                 </a>
               </li>
