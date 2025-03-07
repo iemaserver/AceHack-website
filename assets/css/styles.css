@@ -362,12 +362,12 @@ section {
   width: 80vw;
 }
 
-.about-info div>p {
+.about-us-desc p {
   box-shadow: inset 8px 7px 20px 3px rgb(0, 0, 0);
   transition: all 0.3s ease-in-out;
 }
 
-.about-info div>p:hover {
+.about-us-desc p:hover {
   box-shadow: inset -3px 3px 20px 3px rgb(0, 0, 0);
 }
 
@@ -439,19 +439,27 @@ section {
   background: #fff;
 }
 
-.timeline .column {
+.timeline .timeline-event {
   margin: 40px 40px 40px 120px;
   padding: 0.5rem 1rem;
+  background: linear-gradient(165deg, var(--linear-gradiant1), var(--blue));
   width: 60%;
   border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
 }
 
-.timeline .column .title h3 {
+/* .timeline .timeline-event:hover {
+  background: linear-gradient(165deg, var(--linear-gradiant1), var(--dark));
+  color: var(--yellow) !important;
+  box-shadow: 5px 5px 5px var(--yellow);
+} */
+
+.timeline .timeline-event .title h3 {
   color: #fff;
   letter-spacing: 3px;
 }
 
-.timeline .column .title h3:before {
+.timeline .timeline-event .title h3:before {
   content: "";
   position: absolute;
   left: -4.5rem;
@@ -462,12 +470,12 @@ section {
   border: 3px solid #fff;
 }
 
-.timeline .column .title h6 {
+.timeline .timeline-event .title h6 {
   /* margin-top: -10px; */
   color: #fff;
 }
 
-.timeline .column .description p {
+.timeline .timeline-event .description p {
   font-size: 13px;
   line-height: 20px;
   margin-left: 20px;
@@ -475,7 +483,7 @@ section {
   color: #fff;
 }
 
-.timeline .column .description {
+.timeline .timeline-event .description {
   border-left: 1px solid #ffffff;
 }
 
@@ -575,6 +583,14 @@ section {
   background-position: center;
   color: var(--yellow);
   text-wrap: wrap;
+}
+
+.prize-row>.prize:hover {
+  background-image: url('box-frame-hover.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--yellow);
 }
 
 .prize-row .prize img {
@@ -851,7 +867,7 @@ section {
   padding: 0 2rem !important;
 }
 
-.perks-section h1{
+.perks-section h1 {
   text-align: center;
 }
 
@@ -899,10 +915,27 @@ section {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.7px);
   background-color: var(--dark-gray);
-  border: 1px solid var(--blue);
   background: linear-gradient(165deg, var(--linear-gradiant1), var(--linear-gradiant2)) !important;
-  border-radius: 16px;
+  border-radius: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.judges-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 16px;
+  background: linear-gradient(0deg, var(--yellow), var(--blue));
+  -webkit-mask:
+    linear-gradient(white 0 0) content-box,
+    linear-gradient(white 0 0);
+  mask:
+    linear-gradient(white 0 0) content-box,
+    linear-gradient(white 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .judges-container:hover {
@@ -923,7 +956,7 @@ section {
 
 .judges-profile::after {
   content: '';
-  background-image: url('mentor-frame.svg') !important;
+  background-image: url('mentor-frame.svg');
   background-position: start;
   background-size: contain;
   position: absolute;
@@ -955,67 +988,6 @@ section {
   color: var(--yellow) !important;
   scale: 1.25;
 }
-
-
-/* .judges-container {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem 1rem;
-  background: var(--dark);
-  border-radius: 16px;
-  width: 14rem;
-
-  place-self: start;
-  min-height: 20rem;
-}
-
-.judges-img {
-  height: 10rem;
-  width: fit-content;
-  scale: 1.15;
-
-}
-
-.desc {
-  background-color: var(--red) !important;
-  height: fit-content;
-}
-
-.desc h6,
-.desc p {
-  margin-bottom: 3px !important;
-}
-
-
-
-
-
-
-
-.judges-profile {
-  margin: 1.5rem 1rem 0.5rem;
-}
-
-
-
-.social-links {
-  font-size: 1.5rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly !important;
-}
-
-.social-links i {
-  margin: 0.5rem;
-  color: var(--dark-gray);
-  transition: all ease-in-out 0.2s;
-}
-
-.social-links i:hover {
-  color: var(--yellow);
-  scale: 1.05;
-} */
 
 .footer-content {
   min-height: 40vh;
@@ -1202,11 +1174,11 @@ section {
     margin-bottom: 0;
   }
 
-  .timeline .column {
+  .timeline .timeline-event {
     margin: 2rem 7rem;
   }
 
-  .timeline .column .title h3:before {
+  .timeline .timeline-event .title h3:before {
     left: -3.7rem;
     top: 1rem;
   }
