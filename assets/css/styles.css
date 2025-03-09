@@ -10,6 +10,8 @@
   --black: #000;
   --white: #fff;
   --dark: #333;
+  --platinum: #e5e4e2;
+  --gold: #ffd700;
   --bronze: #d47d25;
   --silver: #c0c0c0;
 
@@ -454,24 +456,27 @@ section {
   box-shadow: 5px 5px 5px var(--yellow);
 } */
 
-.timeline .timeline-event .title h3 {
-  color: #fff;
+.timeline .event{
+  padding: 0.25rem;
+}
+
+.timeline .timeline-event .event h3 {
+  color: #fff !important;
   letter-spacing: 3px;
 }
 
-.timeline .timeline-event .title h3:before {
+.timeline .timeline-event .event h3:before {
   content: "";
   position: absolute;
-  left: -4.5rem;
-  top: 25px;
+  left: -4.7rem;
+  top: 2rem;
   width: 1rem;
   height: 1rem;
   background: #000;
   border: 3px solid #fff;
 }
 
-.timeline .timeline-event .title h6 {
-  /* margin-top: -10px; */
+.timeline .timeline-event .event h6 {
   color: #fff;
 }
 
@@ -485,23 +490,6 @@ section {
 
 .timeline .timeline-event .description {
   border-left: 1px solid #ffffff;
-}
-
-.main {
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 80px;
-}
-
-.main h1 {
-  font-size: 80px;
-  line-height: 60px;
-}
-
-.main p {
-  font-size: 13px;
-  line-height: 20px;
-  text-align: right;
 }
 
 .timeline-h {
@@ -708,7 +696,7 @@ section {
 
 .first-prize {
   top: -2rem;
-  color: gold !important;
+  color: var(--gold) !important;
   transition: all 0.3s ease-in-out;
 }
 
@@ -936,7 +924,6 @@ section {
 
 .sponsor-box:hover {
   transform: scale(1.05);
-  color: var(--yellow) !important;
   background: linear-gradient(165deg, var(--linear-gradiant1), var(--linear-gradiant2)) !important;
 }
 
@@ -961,31 +948,47 @@ section {
 }
 
 .sponsor-box:hover img {
-  filter: drop-shadow(2px 2px 3px var(--yellow));
+  background-color: var(--yellow);
+  padding: 5px;
+}
+
+.platinum-sponsor {
+  background: linear-gradient(120deg, var(--platinum), var(--light-gray)) !important;
+}
+
+.platinum-sponsor:hover {
+  background: linear-gradient(135deg, var(--platinum), var(--light-gray)) !important;
+}
+
+.gold-sponsor {
+  background: linear-gradient(120deg, var(--gold), var(--light-gray)) !important;
+}
+
+.gold-sponsor:hover {
+  background: linear-gradient(135deg, var(--gold), var(--light-gray)) !important;
 }
 
 .silver-sponsor {
-  background: linear-gradient(120deg, var(--silver), var(--dark)) !important;
+  background: linear-gradient(120deg, var(--silver), var(--light-gray)) !important;
 }
 
 .silver-sponsor:hover {
-  background: linear-gradient(135deg, var(--silver), var(--dark)) !important;
-  filter: drop-shadow(2px 2px 3px var(--dark));
+  background: linear-gradient(135deg, var(--silver), var(--light-gray)) !important;
 }
 
 .bronze-sponsor {
-  background: linear-gradient(120deg, var(--bronze), var(--dark)) !important;
+  background: linear-gradient(120deg, var(--bronze), var(--light-gray)) !important;
 }
 
 .bronze-sponsor:hover {
-  background: linear-gradient(135deg, var(--bronze), var(--dark)) !important;
+  background: linear-gradient(135deg, var(--bronze), var(--light-gray)) !important;
 }
 
-
+/* .gold-sponsor:hover img,
 .silver-sponsor:hover img,
 .bronze-sponsor:hover img {
   filter: drop-shadow(2px 2px 3px var(--dark));
-}
+} */
 
 .sponsor-offer {
   margin: 4rem;
@@ -1186,11 +1189,11 @@ section {
   }
 
   .timeline .timeline-event {
-    margin: 2rem 7rem;
+    margin: 2rem 2rem 2rem 7rem;
   }
 
-  .timeline .timeline-event .title h3:before {
-    left: -3.7rem;
+  .timeline .timeline-event .event h3:before {
+    left: -4rem;
     top: 1rem;
   }
 
@@ -1664,7 +1667,7 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .sponsor-section .prize-row.silver-category {
+  .sponsor-section .prize-row.spl-category {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
   }
