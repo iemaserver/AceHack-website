@@ -456,7 +456,7 @@ section {
   box-shadow: 5px 5px 5px var(--yellow);
 } */
 
-.timeline .event{
+.timeline .event {
   padding: 0.25rem;
 }
 
@@ -703,7 +703,6 @@ section {
 .first-prize:hover {
   top: -3rem;
   scale: 0.95;
-  box-shadow: 5px 5px 5px var(--yellow);
 }
 
 .other-prize:hover img {
@@ -895,7 +894,8 @@ section {
 
 .sponsor-section,
 .judges-section,
-.perks-section {
+.perks-section,
+.faq-section {
   padding: 2rem;
   padding-bottom: 3rem;
 }
@@ -999,6 +999,102 @@ section {
   flex-direction: row;
   justify-content: center;
   margin: 1rem;
+}
+
+/* Faq */
+
+.accordions {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.accordions h3 {
+  text-align: center;
+}
+
+.accordion-item {
+  background: linear-gradient(165deg, var(--linear-gradiant1), var(--blue));
+  margin-bottom: 20px;
+  border: 20px solid #dfc12b;
+  border-radius: 15px;
+}
+
+.accordion-item .accordion-title {
+  cursor: pointer;
+  padding: 1.25rem;
+  transition: transform 0.4s ease-in-out;
+}
+
+.accordion-item .accordion-title.active-title {
+  background-color: var(--light-gray) !important;
+  color: #ffffff !important;
+}
+
+.accordion-item .accordion-title h4 {
+  font-weight: 700;
+  margin: 0;
+  font-size: 18px;
+  display: flex;
+  color: var(--yellow);
+  justify-content: space-between;
+}
+
+.accordion-item .accordion-title i.fa-chevron-down {
+  transform: rotate(0);
+  transition: 0.4s;
+}
+
+.accordion-item .accordion-title i.fa-chevron-down.chevron-top {
+  transform: rotate(-180deg);
+  color: var(--yellow);
+}
+
+.accordion-item .accordion-content {
+  display: none;
+  line-height: 1.7;
+  padding: 20px;
+  background-color: var(--linear-gradiant1);
+  border-radius: 0 0 5px 5px;
+  color: var(--white) !important;
+}
+
+.accordion-item .accordion-content.active {
+  display: block;
+}
+
+.accordion-item .accordion-content p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.details {
+  background: #11a50b;
+}
+
+.details .detailed_info {
+  margin: 50px auto;
+}
+
+.details img {
+  margin: 0 auto;
+  display: block;
+  /* margin-top: 120px; */
+}
+
+.details h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.details p {
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.details ul li {
+  font-size: 16px;
+  line-height: 1.7em;
 }
 
 /* Footer */
@@ -1112,13 +1208,22 @@ section {
   padding: 2rem;
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 2560px) {
   .d-flex {
     flex-wrap: wrap;
   }
 
   .about {
     background-size: contain;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-align: center;
   }
 }
 
@@ -1310,11 +1415,12 @@ section {
 
   .judges-container {
     margin: 0.5rem;
-    width: 12rem;
+    width: 13rem;
+    min-height: 20rem;
   }
 
   .judges-profile img {
-    width: 10rem;
+    width: 11rem;
   }
 
   .footer-logo img {
@@ -1482,12 +1588,10 @@ section {
   }
 
   .buttons {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     font-size: 0.75rem !important;
     flex-wrap: nowrap;
-    top: 70vh;
+    top: 80vh;
     place-self: center;
   }
 
@@ -1495,14 +1599,7 @@ section {
     padding: 1rem;
     text-wrap: nowrap;
     place-self: center;
-  }
-
-  .buttons button:first-child {
-    width: 60vw;
-  }
-
-  .buttons button:last-child {
-    width: 80vw;
+    margin: 0.25rem;
   }
 
   .cyber-title-box {
@@ -1667,11 +1764,6 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .sponsor-section .prize-row.spl-category {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .sponsor-box {
     padding-bottom: 0 !important;
     place-self: center;
@@ -1718,9 +1810,34 @@ section {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .judges-container {
+    width: 12rem;
+    height: 15rem;
+  }
+
   .footer-content h5,
   h4 {
     font-size: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 376px) {
+
+  .buttons {
+    top: 70vh;
+  }
+
+  .timer-box.cyber-tile {
+    bottom: 12vh;
+  }
+
+  .judges-container {
+    width: 10rem;
+    height: 12rem;
+  }
+
+  .judges-profile img {
+    width: 8rem;
   }
 }
 
