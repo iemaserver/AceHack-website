@@ -391,6 +391,10 @@ section {
   flex-wrap: wrap;
 }
 
+.center-text{
+  text-align: center;
+}
+
 .stat-info {
   margin: 1rem;
   padding: 1rem !important;
@@ -603,6 +607,7 @@ section {
 
 .prize-section {
   background-image: url("lines.svg");
+  flex-direction: column;
   padding: 2.5rem;
   padding-top: 0;
   align-content: center;
@@ -1216,19 +1221,9 @@ section {
   .about {
     background-size: contain;
   }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-align: center;
-  }
 }
 
 @media screen and (max-width: 768px) {
-
   .title-h1,
   h1 {
     font-size: 3rem !important;
