@@ -1039,7 +1039,7 @@ section {
 .accordion-item .accordion-title h4 {
   font-weight: 700;
   margin: 0;
-  font-size: 18px;
+  font-size: 1.2rem !important;
   display: flex;
   color: var(--yellow);
   justify-content: space-between;
@@ -1527,12 +1527,12 @@ section {
     width: 100vw;
   }
 
-  .prize{
+  .prize {
     margin: 0.25rem;
     padding: 0.5rem;
   }
 
-  .prize-row{
+  .prize-row {
     padding-bottom: 1rem;
   }
 
@@ -1575,6 +1575,23 @@ section {
     width: 13rem !important;
     height: fit-content !important;
   }
+
+  .faq h2{
+    text-align: center;
+  }
+
+  .accordions {
+    width: 100%;
+  }
+
+  .accordion-item .accordion-title h4 {
+    font-size: 0.9rem !important;
+  }
+
+  .accordion-item .accordion-content p {
+    margin: 0;
+    font-size: 0.8rem !important;
+  }
 }
 
 
@@ -1585,6 +1602,7 @@ section {
     scale: 1;
     top: 2rem;
   }
+
   p {
     font-size: 0.95rem;
   }
