@@ -1906,6 +1906,10 @@ section {
     height: 15rem;
   }
 
+  .footer-logo img {
+    height: 5rem;
+}
+
   .footer-content h5,
   h4 {
     font-size: 1.25rem !important;
