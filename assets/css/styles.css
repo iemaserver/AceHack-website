@@ -1532,6 +1532,11 @@ section {
     padding: 0.5rem;
   }
 
+  .prize-pool::after {
+    height: 70%;
+    width: 70%;
+  }
+
   .prize-row {
     padding-bottom: 1rem;
   }
@@ -1884,7 +1889,8 @@ section {
   .sponsor-line h2 {
     font-size: 1.45rem !important;
     width: fit-content;
-    text-wrap: nowrap;
+    text-wrap: wrap;
+    text-align: center;
   }
 
   .sponsor-img {
@@ -1904,6 +1910,11 @@ section {
   .judges-container {
     width: 12rem;
     height: 15rem;
+  }
+
+  .container{
+    padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .footer-logo img {
