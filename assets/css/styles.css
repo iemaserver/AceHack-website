@@ -391,6 +391,10 @@ section {
   flex-wrap: wrap;
 }
 
+.center-text {
+  text-align: center;
+}
+
 .stat-info {
   margin: 1rem;
   padding: 1rem !important;
@@ -472,12 +476,13 @@ section {
   top: 2rem;
   width: 1rem;
   height: 1rem;
-  background: #000;
-  border: 3px solid #fff;
+  background: var(--blue);
+  border: 3px solid var(--white);
 }
 
 .timeline .timeline-event .event h6 {
   color: #fff;
+  margin-bottom: 0;
 }
 
 .timeline .timeline-event .description p {
@@ -603,6 +608,7 @@ section {
 
 .prize-section {
   background-image: url("lines.svg");
+  flex-direction: column;
   padding: 2.5rem;
   padding-top: 0;
   align-content: center;
@@ -1033,7 +1039,7 @@ section {
 .accordion-item .accordion-title h4 {
   font-weight: 700;
   margin: 0;
-  font-size: 18px;
+  font-size: 1.2rem !important;
   display: flex;
   color: var(--yellow);
   justify-content: space-between;
@@ -1191,6 +1197,7 @@ section {
 .organiser-logo {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
@@ -1215,15 +1222,6 @@ section {
 
   .about {
     background-size: contain;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-align: center;
   }
 }
 
@@ -1272,7 +1270,6 @@ section {
   .about-stats-content {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
     grid-gap: 1rem;
     place-self: center;
   }
@@ -1370,6 +1367,7 @@ section {
   .sponsor-box,
   .cyber-tile-small {
     width: 11rem !important;
+    height: 12rem !important;
   }
 
   .sponsor-box {
@@ -1464,8 +1462,8 @@ section {
 
   .middle-layer {
     background-image: url("MOBILE\ website.png");
-    /* background-size: 200%; */
     scale: 1;
+    top: 4rem;
   }
 
   .front-layer {
@@ -1473,7 +1471,7 @@ section {
   }
 
   .buttons {
-    top: 70vh;
+    top: 80vh;
   }
 
   .navbar-section {
@@ -1514,12 +1512,96 @@ section {
   }
 
   .timer-box.cyber-tile {
-    width: 90vw;
+    width: 60vw;
+  }
+
+  .stat-info>p>svg {
+    width: 3rem;
+  }
+
+  .about-stats-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prize-section .prize-row {
+    width: 100vw;
+  }
+
+  .prize {
+    margin: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  .prize-row {
+    padding-bottom: 1rem;
+  }
+
+  .prize-row>.prize img {
+    padding-top: 0;
+  }
+
+  .prize-row>.prize h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .judges-container {
+    width: 10rem;
+    min-height: 15rem;
+  }
+
+  .judges-profile img {
+    width: 8rem;
+  }
+
+  .judges-container .position {
+    margin-bottom: 0.25rem;
+  }
+
+  .track-start::after,
+  .track-start::before {
+    bottom: 24rem !important;
+  }
+
+  .track-end::after,
+  .track-end::before {
+    top: 24rem;
+  }
+
+  .track-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .track-box.cyber-tile-clip-small {
+    width: 13rem !important;
+    height: fit-content !important;
+  }
+
+  .faq h2{
+    text-align: center;
+  }
+
+  .accordions {
+    width: 100%;
+  }
+
+  .accordion-item .accordion-title h4 {
+    font-size: 0.9rem !important;
+  }
+
+  .accordion-item .accordion-content p {
+    margin: 0;
+    font-size: 0.8rem !important;
   }
 }
 
 
 @media screen and (max-width: 426px) {
+
+  .middle-layer {
+    background-image: url("MOBILE\ website.png");
+    scale: 1;
+    top: 2rem;
+  }
 
   p {
     font-size: 0.95rem;
@@ -1573,7 +1655,7 @@ section {
   }
 
   .timer-box.cyber-tile {
-    max-width: 80vw;
+    width: 80vw;
     bottom: 5vh;
   }
 
@@ -1682,6 +1764,10 @@ section {
     margin: 0.5rem;
   }
 
+  .prize-row>.prize img {
+    padding-top: 1rem;
+  }
+
   .prize-section h3 {
     font-size: 1rem !important;
     margin-bottom: 0.2rem;
@@ -1759,6 +1845,11 @@ section {
     padding-bottom: 0;
   }
 
+  .track-box.cyber-tile-clip-small {
+    width: 9rem !important;
+    height: fit-content !important;
+  }
+
   .sponsor-section .prize-row.in-kind {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
@@ -1815,6 +1906,10 @@ section {
     height: 15rem;
   }
 
+  .footer-logo img {
+    height: 5rem;
+}
+
   .footer-content h5,
   h4 {
     font-size: 1.25rem !important;
@@ -1828,12 +1923,12 @@ section {
   }
 
   .timer-box.cyber-tile {
-    bottom: 12vh;
+    bottom: 8vh;
   }
 
   .judges-container {
     width: 10rem;
-    height: 12rem;
+    min-height: 19rem;
   }
 
   .judges-profile img {
