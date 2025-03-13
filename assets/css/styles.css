@@ -355,7 +355,10 @@ section {
   width: 100%;
 }
 
-.about-us,
+.about-us {
+  left: 1rem;
+}
+
 .about-stats {
   margin-left: 2rem;
 }
@@ -1274,6 +1277,10 @@ section {
     place-self: center;
   }
 
+  .about-us {
+    left: 2rem;
+  }
+
   .cyber-h::after {
     width: calc(45% + 10px) !important;
   }
@@ -1581,7 +1588,7 @@ section {
     height: fit-content !important;
   }
 
-  .faq h2{
+  .faq h2 {
     text-align: center;
   }
 
@@ -1694,8 +1701,9 @@ section {
     left: -11px;
   }
 
-  .about-us h2 {
-    left: -20px;
+  .about-us {
+    /* left: -20px; */
+    left: 2rem;
   }
 
   .about-info {
@@ -1912,14 +1920,14 @@ section {
     height: 15rem;
   }
 
-  .container{
+  .container {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
 
   .footer-logo img {
     height: 5rem;
-}
+  }
 
   .footer-content h5,
   h4 {

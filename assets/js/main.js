@@ -32,7 +32,7 @@ var x = setInterval(function () {
 
   // ===========need to fix the timer to display in the format of days:hours:minutes:seconds==========
 
-  console.log(document.querySelector("#days-count").textContent);
+  // console.log(document.querySelector("#days-count").textContent);
   document.querySelector("#days-count").textContent = days;
   document.querySelector("#hours-count").textContent = hours;
   document.querySelector("#mins-count").textContent = minutes;
@@ -141,6 +141,59 @@ $(document).ready(function () {
       .removeClass("chevron-top");
   });
 });
+
+// ====================== Sponsor Webiste ======================
+
+function SponsorSite(sponsorName) {
+  const sponsorLinks = {
+    "uemjaipur": "https://uem.edu.in/uem-jaipur/",
+    "zeroindex": "https://zeroindex.tech/",
+    "acm": "https://acm-uemj.uem.edu.in/",
+    "iic": "https://iic.mic.gov.in/",
+    "doitc": "https://doitc.rajasthan.gov.in/",
+    "istart": "https://istart.rajasthan.gov.in/",
+    "risein": "https://www.risein.com/",
+    "coredao": "https://coredao.org/",
+    "educhain": "https://opencampus.xyz/",
+    "devdockai": "https://devdock.ai/",
+    "github": "https://github.com/",
+    "nukhba": "https://www.nukhba.com/",
+    "jonathan": "https://www.instagram.com/jonny.chang.ceo/",
+    "dorahacks": "https://dorahacks.io/",
+    "securedapp": "https://securedapp.io/",
+    "reskilll": "https://reskilll.com/",
+    "msazure": "https://azure.microsoft.com/en-us/",
+    "azuredev": "https://azdev.reskilll.com/",
+    "commudle": "https://www.commudle.com/",
+    "xyzdomain": "https://gen.xyz/",
+    "interviewbuddy": "https://interviewbuddy.net/",
+    "appwrite": "https://appwrite.io/",
+    "flatlogic": "https://flatlogic.com/",
+    "zsecurity": "https://zsecurity.org/",
+    "codecrafters": "https://codecrafters.io/",
+    "sybgen": "https://sybgen.com/",
+    "interviewcake": "https://www.interviewcake.com/",
+    "aopsonline": "https://artofproblemsolving.com/",
+    "balsamiq": "https://balsamiq.com/",
+    "blockpen": "https://www.blockpen.xyz/",
+    "cssbattle": "https://cssbattle.dev/",
+    "oreilly": "https://www.oreilly.com/",
+    "offsec": "https://www.offsec.com/",
+    "orpuhus": "https://www.orphus.in/",
+    "theglobalhues": "https://theglobalhues.com/",
+    "techsoc": "https://tech-soc.vercel.app/",
+    "juverse": "https://linktr.ee/juverse",
+    "aryahackathon": "https://www.instagram.com/arya_hackathon_club/",
+    "hackclubjaipur": "https://forms.hackclub.com/scrapyard-signup?event=jaipur",
+  };
+
+  const link = sponsorLinks[sponsorName];
+  if (link) {
+    window.open(link, "_blank");
+  } else {
+    alert("Sponsor not found");
+  }
+}
 
 // ====================== Scroll Reveal ======================
 
