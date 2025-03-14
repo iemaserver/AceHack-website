@@ -179,7 +179,7 @@ function SponsorSite(sponsorName) {
     "cssbattle": "https://cssbattle.dev/",
     "oreilly": "https://www.oreilly.com/",
     "offsec": "https://www.offsec.com/",
-    "orpuhus": "https://www.orphus.in/",
+    "orphus": "https://www.orphus.in/",
     "theglobalhues": "https://theglobalhues.com/",
     "techsoc": "https://tech-soc.vercel.app/",
     "juverse": "https://linktr.ee/juverse",
@@ -192,6 +192,47 @@ function SponsorSite(sponsorName) {
     window.open(link, "_blank");
   } else {
     alert("Sponsor not found");
+  }
+}
+
+
+// ====================== sponsor Benefit ======================
+
+function openModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = "flex";
+  modal.classList.add("show");
+  modal.classList.remove("hide");
+  document.querySelector(`#${modalId} .modal-box-wrap`).classList.add("show");
+  document.querySelector(`#${modalId} .modal-box-wrap`).classList.remove("hide");
+  document.body.classList.add("modal-active");
+}
+
+function closeModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.classList.add("hide");
+  modal.classList.remove("show");
+  document.querySelector(`#${modalId} .modal-box-wrap`).classList.add("hide");
+  document.querySelector(`#${modalId} .modal-box-wrap`).classList.remove("show");
+  document.body.classList.remove("modal-active");
+
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 500);
+}
+
+// Attach event listeners to close buttons and modal buttons
+document.querySelectorAll('.modal-close').forEach(button => {
+  button.addEventListener('click', function() {
+    var modalId = this.closest('.modal-box').id;
+    closeModal(modalId);
+  });
+});
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal-box')) {
+    closeModal(event.target.id);
   }
 }
 
