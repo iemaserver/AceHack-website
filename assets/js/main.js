@@ -195,6 +195,50 @@ function SponsorSite(sponsorName) {
   }
 }
 
+// ====================== Timeline Shift ======================
+function showTimeline(day) {
+  var day1Timeline = document.getElementById("day1-timeline");
+  var day2Timeline = document.getElementById("day2-timeline");
+  var day1Btn = document.getElementById("day1-btn");
+  var day2Btn = document.getElementById("day2-btn");
+
+  if (day === "day1") {
+    day1Timeline.classList.add("show");
+    day1Timeline.classList.remove("hide");
+    day2Timeline.classList.add("hide");
+    day2Timeline.classList.remove("show");
+    day1Btn.classList.add("active");
+    day2Btn.classList.remove("active");
+  } else if (day === "day2") {
+    day1Timeline.classList.add("hide");
+    day1Timeline.classList.remove("show");
+    day2Timeline.classList.add("show");
+    day2Timeline.classList.remove("hide");
+    day1Btn.classList.remove("active");
+    day2Btn.classList.add("active");
+  }
+}
+
+// Initialize the default view
+document.addEventListener("DOMContentLoaded", function() {
+  showTimeline("day1");
+});
+
+// ====================== FAQs Read More/Hide ======================
+function toggleFAQs() {
+  var moreFAQs = document.getElementById("more-faqs");
+  var readMoreBtn = document.getElementById("read-more-btn");
+
+  if (moreFAQs.style.display === "none") {
+    moreFAQs.style.display = "block";
+    readMoreBtn.textContent = "Read Less";
+  } else {
+    moreFAQs.style.display = "none";
+    readMoreBtn.textContent = "Read More";
+  }
+}
+
+
 // ====================== Scroll Reveal ======================
 
 // Function to apply ScrollReveal to all elements with a specific class

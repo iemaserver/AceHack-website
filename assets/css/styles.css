@@ -34,12 +34,12 @@
   box-sizing: border-box;
   position: relative;
   user-select: none;
+  scrollbar-width: none !important;
 }
 
 body {
   font-family: "Oxanium" !important;
   background-color: var(--dark) !important;
-  scrollbar-width: none;
 }
 
 body.nav-open {
@@ -442,13 +442,67 @@ section {
   transition: all 0.5s ease-in-out;
 }
 
+.timeline-section .day-category button {
+  margin: 0 1rem !important;
+}
+
 .day {
   background-color: var(--black);
   color: #fff;
+  font-size: 2rem !important;
   border: 3px solid #fff;
   left: 2.5rem;
   padding: 0.5rem;
   display: inline;
+}
+
+.day1-timeline {
+  display: block;
+}
+
+.day2-timeline {
+  display: none;
+}
+
+/* Keyframe animations */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Timeline content styles */
+.timeline-content {
+  display: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.timeline-content.show {
+  display: block;
+  animation-name: slideInFromTop;
+}
+
+.timeline-content.hide {
+  animation-name: slideOutToTop;
 }
 
 /* .timeline .timeline-event:hover {
@@ -915,7 +969,8 @@ body.modal-active {
   text-decoration: underline !important;
 }
 
-.benefit-subcategory>p, .benefit-subcategory>h4 {
+.benefit-subcategory>p,
+.benefit-subcategory>h4 {
   padding-left: 1rem;
 }
 
@@ -1259,6 +1314,10 @@ body.modal-active {
 .details ul li {
   font-size: 16px;
   line-height: 1.7em;
+}
+
+#more-faqs {
+  display: none;
 }
 
 /* Footer */
