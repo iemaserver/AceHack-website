@@ -33,19 +33,13 @@
   padding: 0;
   box-sizing: border-box;
   position: relative;
+  user-select: none;
+  scrollbar-width: none !important;
 }
 
 body {
   font-family: "Oxanium" !important;
   background-color: var(--dark) !important;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-  background: transparent;
 }
 
 body.nav-open {
@@ -89,8 +83,8 @@ section {
 }
 
 .nav-menu.active {
-  height: 100vh;
-  width: 100%;
+  height: 110vh;
+  width: 100vw;
   max-width: 100vw;
   backdrop-filter: blur(10px);
   background-color: #00000084;
@@ -355,7 +349,10 @@ section {
   width: 100%;
 }
 
-.about-us,
+.about-us {
+  left: 1rem;
+}
+
 .about-stats {
   margin-left: 2rem;
 }
@@ -445,13 +442,67 @@ section {
   transition: all 0.5s ease-in-out;
 }
 
+.timeline-section .day-category button {
+  margin: 0 1rem !important;
+}
+
 .day {
   background-color: var(--black);
   color: #fff;
+  font-size: 2rem !important;
   border: 3px solid #fff;
   left: 2.5rem;
   padding: 0.5rem;
   display: inline;
+}
+
+.day1-timeline {
+  display: block;
+}
+
+.day2-timeline {
+  display: none;
+}
+
+/* Keyframe animations */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Timeline content styles */
+.timeline-content {
+  display: none;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.timeline-content.show {
+  display: block;
+  animation-name: slideInFromTop;
+}
+
+.timeline-content.hide {
+  animation-name: slideOutToTop;
 }
 
 /* .timeline .timeline-event:hover {
@@ -658,7 +709,8 @@ section {
   text-align: center;
 }
 
-.prize-row {
+.prize-row,
+.bounty-row {
   width: 100%;
   margin-top: 2rem;
 }
@@ -761,6 +813,167 @@ section {
   color: var(--yellow) !important;
   scale: 1.03;
 }
+
+.sponsor-benefit {
+  margin-top: 4rem;
+}
+
+.bounty-row {
+  display: grid;
+  grid: auto-flow dense 100px / repeat(3, 1fr);
+  gap: 1rem;
+  /* width: 90vw !important; */
+}
+
+.bounty-info {
+  padding: 1rem !important;
+  width: 30% !important;
+}
+
+.bounty-sponsor {
+  margin-top: 1rem;
+}
+
+.know-more {
+  margin-top: 1rem;
+}
+
+.bounty-detail {
+  z-index: 2;
+  margin: 1rem;
+  /* width: 8rem; */
+}
+
+/* Modal box styles */
+.modal-box {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 0;
+  color: var(--white);
+  background-color: rgba(0, 0, 0, 0.559);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal-box.show {
+  display: block;
+  animation: fadeIn 0.5s forwards;
+}
+
+.modal-box.hide {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.modal-box-wrap {
+  background-color: var(--dark-gray);
+  padding: 20px;
+  align-items: center;
+  place-self: center;
+  border: 1px solid var(--yellow);
+  width: 80%;
+  max-width: 70vw;
+  max-height: 90vh;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.modal-box-wrap.show {
+  animation: zoomIn 0.5s forwards;
+}
+
+.modal-box-wrap.hide {
+  animation: zoomOut 0.5s forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.7);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.25rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--yellow);
+  z-index: 3;
+  transition: all 1s ease-in-out;
+}
+
+/* Lock background scroll */
+body.modal-active {
+  overflow: hidden;
+}
+
+.prize-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: left;
+  flex-wrap: wrap;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.135);
+}
+
+.benefit-category {
+  text-align: justify;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.135);
+}
+
+.benefit-category a {
+  color: var(--yellow);
+  text-decoration: underline !important;
+}
+
+.benefit-subcategory>p,
+.benefit-subcategory>h4 {
+  padding-left: 1rem;
+}
+
 
 /* perks */
 
@@ -1103,6 +1316,10 @@ section {
   line-height: 1.7em;
 }
 
+#more-faqs {
+  display: none;
+}
+
 /* Footer */
 
 .footer-content {
@@ -1272,6 +1489,10 @@ section {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1rem;
     place-self: center;
+  }
+
+  .about-us {
+    left: 2rem;
   }
 
   .cyber-h::after {
@@ -1493,6 +1714,11 @@ section {
     align-self: center;
   }
 
+  .nav-list li.nav-item {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.135);
+    padding: 1.5rem;
+  }
+
   .nav-list.active {
     padding: 1rem;
     margin-top: 2.5rem;
@@ -1528,8 +1754,49 @@ section {
   }
 
   .prize {
-    margin: 0.25rem;
+    margin: 0.5rem;
     padding: 0.5rem;
+  }
+
+  .prize-row {
+    margin-top: 0;
+  }
+
+  .prize-section .prize-row.rank-prize {
+    display: grid !important;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+  }
+
+  .prize-row .prize.rank-1 {
+    order: 1 !important;
+  }
+
+  .prize-row .prize.rank-2 {
+    order: 2 !important;
+  }
+
+  .prize-row .prize.rank-3 {
+    order: 3 !important;
+  }
+
+  .first-prize,
+  .other-prize {
+    top: 0;
+  }
+
+  .first-prize:hover,
+  .other-prize:hover {
+    top: 0rem;
+    scale: 0.9;
+  }
+
+  .other-prize:hover img {
+    scale: 1.2 !important;
+  }
+
+  .prize-row .prize:hover img {
+    scale: 1.2;
   }
 
   .prize-pool::after {
@@ -1549,13 +1816,27 @@ section {
     font-size: 1.5rem !important;
   }
 
+  .bounty-info {
+    width: 50vw !important;
+    height: fit-content !important;
+  }
+
+  .modal-box-wrap {
+    max-width: 95vw !important;
+  }
+
+  .modal-close {
+    top: -0.5rem;
+    right: 1.75rem;
+  }
+
   .judges-container {
     width: 10rem;
     min-height: 15rem;
   }
 
   .judges-profile img {
-    width: 8rem;
+    width: 10rem;
   }
 
   .judges-container .position {
@@ -1581,7 +1862,7 @@ section {
     height: fit-content !important;
   }
 
-  .faq h2{
+  .faq h2 {
     text-align: center;
   }
 
@@ -1637,11 +1918,6 @@ section {
     font-size: 0.7rem !important;
   }
 
-  .nav-list li.nav-item {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.135);
-    padding: 1.5rem;
-  }
-
   .nav-list li.nav-item:last-child {
     border-bottom: none;
   }
@@ -1694,8 +1970,9 @@ section {
     left: -11px;
   }
 
-  .about-us h2 {
-    left: -20px;
+  .about-us {
+    /* left: -20px; */
+    left: 2rem;
   }
 
   .about-info {
@@ -1741,24 +2018,16 @@ section {
   }
 
   .prize p {
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
   }
 
   .prize-img {
-    width: 75% !important;
+    /* width: 75% !important; */
     margin-bottom: 0rem;
-  }
-
-  .prize-section .prize-row {
-    flex-wrap: nowrap;
   }
 
   .prize-row {
     width: 90vw;
-  }
-
-  .first-prize {
-    top: -0.5rem;
   }
 
   .prize-section .prize-row:last-child {
@@ -1769,26 +2038,27 @@ section {
     margin: 0.5rem;
   }
 
-  .prize-row>.prize img {
-    padding-top: 1rem;
-  }
-
   .prize-section h3 {
     font-size: 1rem !important;
     margin-bottom: 0.2rem;
   }
 
   .prize-section h4 {
-    font-size: 0.75rem !important;
+    font-size: 1rem !important;
+    text-wrap: wrap;
   }
 
   .prize-section h5 {
-    font-size: 0.5rem !important;
+    font-size: 0.8rem !important;
   }
 
   .prize h2 {
     font-size: 1.25rem !important;
     text-wrap: nowrap;
+  }
+
+  .bounty-info {
+    width: 40vw !important;
   }
 
   .tracks-section .prize-row {
@@ -1909,17 +2179,17 @@ section {
 
   .judges-container {
     width: 12rem;
-    height: 15rem;
+    min-height: 18rem;
   }
 
-  .container{
+  .container {
     padding-right: 0 !important;
     padding-left: 0 !important;
   }
 
   .footer-logo img {
     height: 5rem;
-}
+  }
 
   .footer-content h5,
   h4 {

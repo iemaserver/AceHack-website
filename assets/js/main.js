@@ -32,7 +32,7 @@ var x = setInterval(function () {
 
   // ===========need to fix the timer to display in the format of days:hours:minutes:seconds==========
 
-  console.log(document.querySelector("#days-count").textContent);
+  // console.log(document.querySelector("#days-count").textContent);
   document.querySelector("#days-count").textContent = days;
   document.querySelector("#hours-count").textContent = hours;
   document.querySelector("#mins-count").textContent = minutes;
@@ -141,6 +141,103 @@ $(document).ready(function () {
       .removeClass("chevron-top");
   });
 });
+
+// ====================== Sponsor Webiste ======================
+
+function SponsorSite(sponsorName) {
+  const sponsorLinks = {
+    "uemjaipur": "https://uem.edu.in/uem-jaipur/",
+    "zeroindex": "https://zeroindex.tech/",
+    "acm": "https://acm-uemj.uem.edu.in/",
+    "iic": "https://iic.mic.gov.in/",
+    "doitc": "https://doitc.rajasthan.gov.in/",
+    "istart": "https://istart.rajasthan.gov.in/",
+    "risein": "https://www.risein.com/",
+    "coredao": "https://coredao.org/",
+    "educhain": "https://opencampus.xyz/",
+    "devdockai": "https://devdock.ai/",
+    "github": "https://github.com/",
+    "nukhba": "https://www.nukhba.com/",
+    "jonathan": "https://www.instagram.com/jonny.chang.ceo/",
+    "dorahacks": "https://dorahacks.io/",
+    "securedapp": "https://securedapp.io/",
+    "reskilll": "https://reskilll.com/",
+    "msazure": "https://azure.microsoft.com/en-us/",
+    "azuredev": "https://azdev.reskilll.com/",
+    "commudle": "https://www.commudle.com/",
+    "xyzdomain": "https://gen.xyz/",
+    "interviewbuddy": "https://interviewbuddy.net/",
+    "appwrite": "https://appwrite.io/",
+    "flatlogic": "https://flatlogic.com/",
+    "zsecurity": "https://zsecurity.org/",
+    "codecrafters": "https://codecrafters.io/",
+    "sybgen": "https://sybgen.com/",
+    "interviewcake": "https://www.interviewcake.com/",
+    "aopsonline": "https://artofproblemsolving.com/",
+    "balsamiq": "https://balsamiq.com/",
+    "blockpen": "https://www.blockpen.xyz/",
+    "cssbattle": "https://cssbattle.dev/",
+    "oreilly": "https://www.oreilly.com/",
+    "offsec": "https://www.offsec.com/",
+    "orphus": "https://www.orphus.in/",
+    "theglobalhues": "https://theglobalhues.com/",
+    "techsoc": "https://tech-soc.vercel.app/",
+    "juverse": "https://linktr.ee/juverse",
+    "aryahackathon": "https://www.instagram.com/arya_hackathon_club/",
+    "hackclubjaipur": "https://forms.hackclub.com/scrapyard-signup?event=jaipur",
+  };
+
+  const link = sponsorLinks[sponsorName];
+  if (link) {
+    window.open(link, "_blank");
+  } else {
+    alert("Sponsor not found");
+  }
+}
+
+// ====================== Timeline Shift ======================
+function showTimeline(day) {
+  var day1Timeline = document.getElementById("day1-timeline");
+  var day2Timeline = document.getElementById("day2-timeline");
+  var day1Btn = document.getElementById("day1-btn");
+  var day2Btn = document.getElementById("day2-btn");
+
+  if (day === "day1") {
+    day1Timeline.classList.add("show");
+    day1Timeline.classList.remove("hide");
+    day2Timeline.classList.add("hide");
+    day2Timeline.classList.remove("show");
+    day1Btn.classList.add("active");
+    day2Btn.classList.remove("active");
+  } else if (day === "day2") {
+    day1Timeline.classList.add("hide");
+    day1Timeline.classList.remove("show");
+    day2Timeline.classList.add("show");
+    day2Timeline.classList.remove("hide");
+    day1Btn.classList.remove("active");
+    day2Btn.classList.add("active");
+  }
+}
+
+// Initialize the default view
+document.addEventListener("DOMContentLoaded", function() {
+  showTimeline("day1");
+});
+
+// ====================== FAQs Read More/Hide ======================
+function toggleFAQs() {
+  var moreFAQs = document.getElementById("more-faqs");
+  var readMoreBtn = document.getElementById("read-more-btn");
+
+  if (moreFAQs.style.display === "none") {
+    moreFAQs.style.display = "block";
+    readMoreBtn.textContent = "Read Less";
+  } else {
+    moreFAQs.style.display = "none";
+    readMoreBtn.textContent = "Read More";
+  }
+}
+
 
 // ====================== Scroll Reveal ======================
 
