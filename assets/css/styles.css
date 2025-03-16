@@ -427,6 +427,10 @@ section {
   width: 50%;
 }
 
+.web3button{
+  z-index: 3;
+}
+
 .slider {
   padding: 2rem;
   width: 100%;
@@ -890,11 +894,28 @@ section {
 
 .bounty-info {
   padding: 1rem !important;
-  width: 30% !important;
+}
+
+.bounty-info.cyber-tile-small {
+  height: 13rem !important;
+  min-width: 28vw !important;
+}
+
+.benefit-list {
+  flex-direction: column;
+  place-content: center;
 }
 
 .bounty-sponsor {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
+  padding: 1rem 0 !important;
+}
+
+.bounty-info .bounty-sponsor {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.135) !important;
+  height: 5rem;
+  place-content: center;
+  margin-bottom: 1rem;
 }
 
 .know-more {
@@ -1616,8 +1637,28 @@ body.modal-active {
     place-self: center;
   }
 
+  .prize p{
+    margin-bottom: 0.5rem;
+  }
+
+  .prize .prize-img{
+    padding-top: 0rem;
+  }
+
+  .prize h2{
+    margin-bottom: 0rem;
+  }
+
   .prize-row div {
     justify-self: center !important;
+  }
+
+  .bounty-info h2.bounty-sponsor{
+    font-size: 1.25rem !important;
+  }
+
+  .bounty-info.cyber-tile-small {
+    padding: 1rem !important;
   }
 
   .tracks-section {
