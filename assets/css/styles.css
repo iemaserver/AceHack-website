@@ -1466,6 +1466,25 @@ body.modal-active {
   padding: 2rem;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive */
+
 @media screen and (max-width: 2560px) {
   .d-flex {
     flex-wrap: wrap;
