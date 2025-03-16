@@ -26,6 +26,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
+  <!--FLICKITY SWIPER-->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 
   <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
   <script src="assets/js/scrollreveal.min.js"></script>
@@ -240,9 +243,32 @@
   <!-- Web 3 Carnival Section -->
   <section class="carnival-section cyber-razor-top bg-linear">
     <div class="d-flex justify-content-center">
-      <h1 class="cyber-title title-h1 fg-yellow">
-        Web 3 Carnival
-      </h1>
+      <!-----<h1 class="cyber-title title-h1 fg-yellow web3-head">
+      </h1>--->
+      <img src="assets/imgs/carnival/web3.svg" class="web3-heading">
+      <br>  
+      <div class="slider">
+            <!-- Flickity HTML init -->
+            <div class="gallery js-flickity"
+              data-flickity-options='{"wrapAround": true, "autoPlay": true }'>
+
+              <div class="slide">
+                <img src="assets/imgs/carnival/APTOS-BN.png" class="slide-img">
+                <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">Register Now</button>
+              </div>
+
+              <div class="slide">
+                <img src="assets/imgs/carnival/EDC-BN.jpg" class="slide-img">
+                <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">Register Now</button>
+              </div>
+
+              <div class="slide">
+                <img src="assets/imgs/carnival/core-bn.png" class="slide-img">
+                <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">Register Now</button>
+              </div> 
+
+            </div>
+      </div>
     </div>
   </section>
   <!--=============TIMELINE===================-->
@@ -2372,6 +2398,10 @@
 
   <!--=============== MAIN JS ===============-->
   <script src="assets/js/main.js"></script>
+
+  <!--FLICKITY JS-->
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
