@@ -196,7 +196,7 @@ function SponsorSite(sponsorName) {
 }
 
 // ====================== Timeline Shift ======================
-function showTimeline(day) {
+function showTimeline(day, scroll = true) {
   var day1Timeline = document.getElementById("day1-timeline");
   var day2Timeline = document.getElementById("day2-timeline");
   var day1Btn = document.getElementById("day1-btn");
@@ -218,14 +218,21 @@ function showTimeline(day) {
     day1Btn.classList.remove("active");
     day2Btn.classList.add("active");
   }
-
-  // Scroll to the timeline section
-  timelineSection.scrollIntoView({ behavior: 'smooth' });
+  if (scroll) {
+    timelineSection.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
-// Initialize the default view
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  showTimeline("day1", false);
+});
+
+document.getElementById("day1-btn").addEventListener("click", function () {
   showTimeline("day1");
+});
+
+document.getElementById("day2-btn").addEventListener("click", function () {
+  showTimeline("day2");
 });
 
 // ====================== FAQs Read More/Hide ======================

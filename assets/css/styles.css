@@ -423,29 +423,29 @@ section {
 
 }
 
-.web3-heading{
+.web3-heading {
   width: 50%;
 }
 
-.slider{
+.slider {
   padding: 2rem;
   width: 100%;
 }
 
-.slide{
+.slide {
   padding: 1rem;
   display: flex;
   flex-direction: column;
 }
 
-.slide-img{
+.slide-img {
   border-radius: 1rem;
   border: 1px solid var(--yellow);
   display: block;
 }
 
-.slide-btn{
-display: block;
+.slide-btn {
+  display: block;
 
 }
 
@@ -2090,11 +2090,11 @@ body.modal-active {
     font-size: 1.75rem !important;
   }
 
-  .web3-heading{
+  .web3-heading {
     width: 75%;
   }
 
-  .slide{
+  .slide {
     width: 100%;
   }
 
