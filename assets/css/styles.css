@@ -417,8 +417,38 @@ section {
 }
 
 .carnival-section {
-  background: linear-gradient(var(--linear-gradiant1), var(--linear-gradiant2));
+  background-image: url("web3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
+
+.web3-heading{
+  width: 50%;
+}
+
+.slider{
+  padding: 2rem;
+  width: 100%;
+}
+
+.slide{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-img{
+  border-radius: 1rem;
+  border: 1px solid var(--yellow);
+  display: block;
+}
+
+.slide-btn{
+display: block;
+
+}
+
 
 .timeline {
   padding: 40px 0px;
@@ -2039,6 +2069,14 @@ body.modal-active {
 
   .stat-info h2 {
     font-size: 1.75rem !important;
+  }
+
+  .web3-heading{
+    width: 75%;
+  }
+
+  .slide{
+    width: 100%;
   }
 
   .prize-pool::after {
