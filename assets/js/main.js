@@ -201,6 +201,7 @@ function showTimeline(day) {
   var day2Timeline = document.getElementById("day2-timeline");
   var day1Btn = document.getElementById("day1-btn");
   var day2Btn = document.getElementById("day2-btn");
+  var timelineSection = document.querySelector(".timeline-section");
 
   if (day === "day1") {
     day1Timeline.classList.add("show");
@@ -217,6 +218,9 @@ function showTimeline(day) {
     day1Btn.classList.remove("active");
     day2Btn.classList.add("active");
   }
+
+  // Scroll to the timeline section
+  timelineSection.scrollIntoView({ behavior: 'smooth' });
 }
 
 // Initialize the default view
