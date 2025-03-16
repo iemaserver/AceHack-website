@@ -29,7 +29,6 @@
 
   <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
   <script src="assets/js/scrollreveal.min.js"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
 
   <title>AceHack 4.0 | 29-30th March</title>
@@ -133,7 +132,7 @@
     <!-- <br> -->
   </section>
 
-  <section class="about" id="about">
+  <section class="about cyber-razor-top bg-linear" id="about">
     <!---<section class=" about d-flex flex-row">--->
 
     <!---<div class="about-picture col-5">
@@ -238,18 +237,28 @@
     </div>
   </section>
 
+  <!-- Web 3 Carnival Section -->
+  <section class="carnival-section cyber-razor-top bg-linear">
+    <div class="d-flex justify-content-center">
+      <h1 class="cyber-title title-h1 fg-yellow">
+        Web 3 Carnival
+      </h1>
+    </div>
+  </section>
   <!--=============TIMELINE===================-->
   <!--RED--->
 
-  <section class="timeline-section cyber-razor-top cyber-razor-bottom" id="timeline">
+  <section class="timeline-section cyber-razor-top bg-linear" id="timeline">
     <div class="d-flex justify-content-center">
       <h2 class="cyber-h cyber-h-small cyber-title title-h2 fg-yellow">
         Timeline
       </h2>
     </div>
     <div class="day-category d-flex justify-content-center">
-      <button class="button cyber-button-small bg-red fg-yellow" id="day1-btn" onclick="showTimeline('day1')">Day 1</button>
-      <button class="button cyber-button-small bg-red fg-yellow" id="day2-btn" onclick="showTimeline('day2')">Day 2</button>
+      <button class="fg-yellow" id="day1-btn" onclick="showTimeline('day1')">Day
+        1</button>
+      <button class="fg-yellow" id="day2-btn" onclick="showTimeline('day2')">Day
+        2</button>
     </div>
     <div class="timeline">
       <div class="timeline-content day1-timeline" id="day1-timeline">
@@ -457,7 +466,12 @@
         </div>
       </div>
 
-      <!-- <h1 class="day">Day O2</h1> -->
+      <div class="day-category d-flex justify-content-center">
+        <button class="fg-yellow" id="day1-btn" onclick="showTimeline('day1')">Day
+          1</button>
+        <button class="fg-yellow" id="day2-btn" onclick="showTimeline('day2')">Day
+          2</button>
+      </div>
     </div>
   </section>
 
@@ -530,12 +544,21 @@
 
       <div class="track-box d-inline justify-content-center fg-white cyber-tile-small cyber-tile-clip-small bg-yellow">
         <p class="d-flex justify-content-center">
+          <img src="assets/imgs/track/game-developement.svg" alt="" class="prize-img" />
+        </p>
+        <h5 class="d-flex justify-content-center">
+          Game Developemt
+        </h5>
+      </div>
+
+      <!-- <div class="track-box d-inline justify-content-center fg-white cyber-tile-small cyber-tile-clip-small bg-yellow">
+        <p class="d-flex justify-content-center">
           <img src="assets/imgs/track/open-innovation.svg" alt="" class="prize-img" />
         </p>
         <h5 class="d-flex justify-content-center">
           Open Innovation
         </h5>
-      </div>
+      </div> -->
     </div>
   </section>
 
@@ -2348,7 +2371,6 @@
   </section>
 
   <!--=============== MAIN JS ===============-->
-
   <script src="assets/js/main.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"

@@ -416,6 +416,10 @@ section {
   rotate: -2deg;
 }
 
+.carnival-section {
+  background: linear-gradient(var(--linear-gradiant1), var(--linear-gradiant2));
+}
+
 .timeline {
   padding: 40px 0px;
   width: 80%;
@@ -429,7 +433,7 @@ section {
   top: 40px;
   left: 65px;
   width: 3px;
-  height: calc(100% - 120px);
+  height: calc(100% - 200px);
   background: #fff;
 }
 
@@ -439,21 +443,52 @@ section {
   background: linear-gradient(165deg, var(--linear-gradiant1), var(--blue));
   width: 60%;
   border-radius: 1rem;
+  border: 1px solid var(--yellow);
   transition: all 0.5s ease-in-out;
 }
 
+.timeline-section {
+  background: linear-gradient(var(--linear-gradiant1), var(--linear-gradiant2));
+}
+
 .timeline-section .day-category button {
-  margin: 0 1rem !important;
+  margin: 1rem !important;
 }
 
 .day {
-  background-color: var(--black);
+  background-color: var(--dark-gray);
   color: #fff;
   font-size: 2rem !important;
   border: 3px solid #fff;
   left: 2.5rem;
+  border-radius: 0.25rem;
   padding: 0.5rem;
   display: inline;
+}
+
+/* #day1-btn,
+#day2-btn{
+  z-index: 5;
+} */
+
+#day1-btn,
+#day2-btn {
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  width: 7rem;
+  box-shadow: inset 0 0 10px 5px var(--blue);
+  background: linear-gradient(165deg, var(--dark-gray), var(--dark-gray));
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+}
+
+#day1-btn:hover,
+#day2-btn:hover {
+  background: linear-gradient(165deg, var(--linear-gradiant1), var(--linear-gradiant2));
+  color: var(--yellow);
+  box-shadow: 0 0 10px 5px var(--red);
+  scale: 1.05;
 }
 
 .day1-timeline {
@@ -464,7 +499,6 @@ section {
   display: none;
 }
 
-/* Keyframe animations */
 @keyframes slideInFromTop {
   from {
     opacity: 0;
@@ -489,7 +523,6 @@ section {
   }
 }
 
-/* Timeline content styles */
 .timeline-content {
   display: none;
   animation-duration: 0.5s;
@@ -524,7 +557,7 @@ section {
   content: "";
   position: absolute;
   left: -4.7rem;
-  top: 2rem;
+  top: 1.5rem;
   width: 1rem;
   height: 1rem;
   background: var(--blue);
@@ -1111,6 +1144,7 @@ body.modal-active {
 
 /* Sponsors */
 
+.carnival-section,
 .sponsor-section,
 .judges-section,
 .perks-section,
