@@ -418,6 +418,7 @@ section {
 
 .carnival-section {
   background-image: url("web3.png");
+  z-index: 1;
   background-repeat: no-repeat;
   background-position: center;
 }
