@@ -417,17 +417,24 @@ section {
 }
 
 .carnival-section {
-  background-image: url("web3.jpg");
+  background-image: url("web3.png");
   background-repeat: no-repeat;
   background-position: center;
+}
 
+.flickity-prev-next-button.previous {
+  left: -3.2rem !important;
+}
+
+.flickity-prev-next-button.next {
+  right: -3.2rem !important;
 }
 
 .web3-heading {
   width: 50%;
 }
 
-.web3button{
+.web3button {
   z-index: 3;
 }
 
@@ -437,9 +444,14 @@ section {
 }
 
 .slide {
-  padding: 1rem;
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  margin: 1rem !important;
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid var(--yellow);
 }
 
 .slide-img {
@@ -450,7 +462,6 @@ section {
 
 .slide-btn {
   display: block;
-
 }
 
 
@@ -873,6 +884,7 @@ section {
   border-radius: 10px;
   font-size: 1.2rem;
   transition: all 0.3s ease-in-out;
+  text-align: center;
 }
 
 .extra-prize:hover {
@@ -894,11 +906,16 @@ section {
 
 .bounty-info {
   padding: 1rem !important;
+  flex-direction: column !important;
 }
 
 .bounty-info.cyber-tile-small {
-  height: 13rem !important;
-  min-width: 28vw !important;
+  min-height: fit-content !important;
+  width: 28vw !important;
+}
+
+.bounty-info h2.bounty-sponsor {
+  padding: 0rem !important;
 }
 
 .benefit-list {
@@ -926,6 +943,19 @@ section {
   z-index: 2;
   margin: 1rem;
   /* width: 8rem; */
+}
+
+.bounty-info {
+  width: 60vw !important;
+}
+
+button.bounty-detail {
+  font-size: 1.2rem !important;
+}
+
+.tracks-section .prize-row {
+  justify-content: space-around;
+  width: 90%;
 }
 
 /* Modal box styles */
@@ -1637,15 +1667,15 @@ body.modal-active {
     place-self: center;
   }
 
-  .prize p{
+  .prize p {
     margin-bottom: 0.5rem;
   }
 
-  .prize .prize-img{
+  .prize .prize-img {
     padding-top: 0rem;
   }
 
-  .prize h2{
+  .prize h2 {
     margin-bottom: 0rem;
   }
 
@@ -1653,12 +1683,13 @@ body.modal-active {
     justify-self: center !important;
   }
 
-  .bounty-info h2.bounty-sponsor{
+  .bounty-info h2.bounty-sponsor {
     font-size: 1.25rem !important;
   }
 
   .bounty-info.cyber-tile-small {
     padding: 1rem !important;
+    min-height: 20rem !important;
   }
 
   .tracks-section {
@@ -1675,6 +1706,11 @@ body.modal-active {
 
   .track-box.cyber-tile-clip-small {
     width: 9rem !important;
+    height: 10rem !important;
+  }
+
+  .tracks-section p.open-innovation {
+    margin-top: 5rem !important;
   }
 
   .track-start::after,
@@ -1873,6 +1909,22 @@ body.modal-active {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .flickity-prev-next-button.previous {
+    left: -3.5rem !important;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -3.5rem !important;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .flickity-button svg {
+    font-size: 0.75rem !important;
+  }
+
   .prize-section .prize-row {
     width: 100vw;
   }
@@ -1940,6 +1992,11 @@ body.modal-active {
     font-size: 1.5rem !important;
   }
 
+  button.bounty-detail {
+    font-size: 1rem !important;
+    text-wrap: nowrap;
+  }
+
   .bounty-info {
     width: 50vw !important;
     height: fit-content !important;
@@ -1960,7 +2017,7 @@ body.modal-active {
   }
 
   .judges-profile img {
-    width: 10rem;
+    width: 8rem;
   }
 
   .judges-container .position {
@@ -2001,6 +2058,11 @@ body.modal-active {
   .accordion-item .accordion-content p {
     margin: 0;
     font-size: 0.8rem !important;
+  }
+
+  .bounty-info.cyber-tile-small {
+    min-height: 21rem !important;
+    width: 40vw !important;
   }
 }
 
@@ -2189,13 +2251,12 @@ body.modal-active {
     text-wrap: nowrap;
   }
 
-  .bounty-info {
-    width: 40vw !important;
+  p.extra-prize {
+    font-size: 1rem !important;
   }
 
-  .tracks-section .prize-row {
-    justify-content: space-around;
-    width: 90%;
+  button.bounty-detail {
+    font-size: 0.85rem !important;
   }
 
   .cyber-tile {
@@ -2257,6 +2318,11 @@ body.modal-active {
     height: fit-content !important;
   }
 
+  .bounty-info.cyber-tile-small {
+    min-height: fit-content !important;
+    width: 60vw !important;
+  }
+
   .sponsor-section .prize-row.in-kind {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr);
@@ -2314,6 +2380,10 @@ body.modal-active {
     min-height: 18rem;
   }
 
+  .judges-profile img {
+    width: 10rem;
+  }
+
   .container {
     padding-right: 0 !important;
     padding-left: 0 !important;
@@ -2337,6 +2407,18 @@ body.modal-active {
 
   .timer-box.cyber-tile {
     bottom: 8vh;
+  }
+
+  .slider {
+    padding: 1rem;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: -2.4rem !important;
+  }
+
+  .flickity-prev-next-button.next {
+    right: -2.4rem !important;
   }
 
   .judges-container {
