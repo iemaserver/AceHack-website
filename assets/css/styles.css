@@ -441,15 +441,23 @@ section {
 }
 
 .slider {
-  padding: 2rem;
   width: 100%;
+  padding: 1rem;
   align-items: center;
-  /* Vertically center the child elements */
   position: relative;
 }
 
 .splide {
   visibility: visible !important;
+  width: 100%;
+}
+
+.splide__track {
+  padding: 1rem 2rem !important;
+}
+
+.splide__list {
+  padding: 0 2rem !important;
 }
 
 .splide img {
@@ -477,27 +485,30 @@ section {
 }
 
 div.splide__arrows {
-  position: absolute; /* Keep it positioned relative to .slider */
-  top: 50%; /* Vertically center */
-  transform: translateY(-50%); /* Adjust for perfect centering */
-  width: 100%; /* Ensure arrows are positioned relative to the slider width */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 102vw;
   display: flex;
-  justify-content: space-between; /* Push arrows to either side */
-  pointer-events: none; /* Prevent blocking slider interactions */
+  justify-content: space-between;
   z-index: 10;
+  left: -3.8rem;
 }
 
-div.splide__arrow--prev,
+/* div.splide__arrow--prev,
 div.splide__arrow--next {
-  pointer-events: auto; /* Allow interaction with the arrows */
-}
+  pointer-events: auto;
+  cursor: pointer !important;
+} */
 
 div.splide__arrow--prev {
-  left: 2rem; /* Adjust the distance from the slider */
+  left: 2rem;
+  /* Adjust the distance from the slider */
 }
 
 div.splide__arrow--next {
-  right: 2rem; /* Adjust the distance from the slider */
+  right: 2rem;
+  /* Adjust the distance from the slider */
 }
 
 /* .carousel-item {
@@ -1702,6 +1713,23 @@ body.modal-active {
     margin-bottom: 0;
   }
 
+  .web3-heading {
+    width: 70%;
+  }
+
+  .splide img {
+    width: 50vw;
+  }
+
+  .splide__slide {
+    width: 60vw !important;
+  }
+
+  div.splide__arrows {
+    width: 102vw;
+    left: -3.7rem;
+  }
+
   .timeline .timeline-event {
     margin: 2rem 2rem 2rem 7rem;
   }
@@ -1941,6 +1969,19 @@ body.modal-active {
     margin-top: 2.5rem;
   }
 
+  .splide img {
+    width: 60vw;
+  }
+
+  .splide__slide {
+    width: 70vw !important;
+  }
+
+  div.splide__arrows {
+    width: 102vw;
+    left: -3.5rem;
+  }
+
   .timeline {
     width: 100%;
     margin-left: 0;
@@ -2096,7 +2137,7 @@ body.modal-active {
   }
 
   .track-box.cyber-tile-clip-small {
-    width: 13rem !important;
+    width: 12rem !important;
     height: fit-content !important;
   }
 
@@ -2251,7 +2292,28 @@ body.modal-active {
   }
 
   .web3-heading {
-    width: 75%;
+    width: 100%;
+  }
+
+  .splide__track{
+    padding: 0 2rem !important;
+  }
+
+  .splide img {
+    width: 60vw;
+  }
+
+  .splide__slide {
+    width: 70vw !important;
+  }
+
+  div.splide__arrows {
+    width: 102vw;
+    left: -3.3rem;
+  }
+
+  .web3button button {
+    margin: 0 !important;
   }
 
   .slide {
