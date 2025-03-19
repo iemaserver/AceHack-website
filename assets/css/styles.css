@@ -420,6 +420,7 @@ section {
   background-image: url("web3.png");
   z-index: 1;
   background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
 }
 
@@ -442,12 +443,28 @@ section {
 .slider {
   padding: 2rem;
   width: 100%;
+  align-items: center;
+  /* Vertically center the child elements */
+  position: relative;
 }
 
-.slide {
+.splide {
+  visibility: visible !important;
+}
+
+.splide img {
+  width: 30vw;
+  border-radius: 1rem;
+  border: 1px solid var(--yellow);
+  display: block;
+}
+
+.splide__slide {
   padding: 1rem 1.5rem;
   width: fit-content;
   margin: 1rem !important;
+  place-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
@@ -455,7 +472,48 @@ section {
   border: 1px solid var(--yellow);
 }
 
-.slide-img {
+.splide__slide a {
+  padding-top: 1rem;
+}
+
+div.splide__arrows {
+  position: absolute; /* Keep it positioned relative to .slider */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%); /* Adjust for perfect centering */
+  width: 100%; /* Ensure arrows are positioned relative to the slider width */
+  display: flex;
+  justify-content: space-between; /* Push arrows to either side */
+  pointer-events: none; /* Prevent blocking slider interactions */
+  z-index: 10;
+}
+
+div.splide__arrow--prev,
+div.splide__arrow--next {
+  pointer-events: auto; /* Allow interaction with the arrows */
+}
+
+div.splide__arrow--prev {
+  left: 2rem; /* Adjust the distance from the slider */
+}
+
+div.splide__arrow--next {
+  right: 2rem; /* Adjust the distance from the slider */
+}
+
+/* .carousel-item {
+  padding: 1rem 1.5rem;
+  width: fit-content;
+  margin: 1rem !important;
+  place-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  border: 1px solid var(--yellow);
+}  */
+
+/* .slide-img {
   border-radius: 1rem;
   border: 1px solid var(--yellow);
   display: block;
@@ -463,8 +521,7 @@ section {
 
 .slide-btn {
   display: block;
-}
-
+} */
 
 .timeline {
   padding: 40px 0px;
@@ -956,7 +1013,6 @@ button.bounty-detail {
 
 .tracks-section .prize-row {
   justify-content: space-around;
-  width: 90%;
 }
 
 /* Modal box styles */
@@ -2276,6 +2332,7 @@ body.modal-active {
   .track-row {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    width: 90%;
   }
 
   .track-start.track-row {

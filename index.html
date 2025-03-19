@@ -15,9 +15,6 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!--=============== SWIPER CSS ===============-->
-  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/cyberpunk/cyberpunk.css" />
@@ -26,12 +23,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
-  <!--FLICKITY SWIPER-->
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
 
-  <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
-  <script src="assets/js/scrollreveal.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
 
   <title>AceHack 4.0 | 29-30th March</title>
 </head>
@@ -246,224 +242,34 @@
       </h1>--->
       <img src="assets/imgs/carnival/web3.svg" class="web3-heading" />
       <br />
-      <!-- <div class="slider">
-        <div class="gallery js-flickity" data-flickity-options='{"wrapAround": true, "autoPlay": true }'>
-          <div class="slide">
-            <img src="assets/imgs/carnival/APTOS-BN.png" class="slide-img">
-            <a href="https://lu.ma/xqusrb0s" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
-          </div>
-
-          <div class="slide">
-            <img src="assets/imgs/carnival/EDC-BN.jpg" class="slide-img" />
-            <a href="https://lu.ma/0wh2lkpo" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
-          </div>
-
-          <div class="slide">
-            <img src="assets/imgs/carnival/core-bn.png" class="slide-img" />
-            <a href="https://lu.ma/40v82pfz" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
+      <div class="slider">
+        <div class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/core-bn.png" alt="" />
+                <a href="">
+                  <button class="cyber-button-small bg-red fg-dark">Register Now</button>
+                </a>
+              </li>
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/APTOS-BN.png" alt="" />
+                <a href="">
+                  <button class="cyber-button-small bg-red fg-dark">Register Now</button>
+                </a>
+              </li>
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/EDC-BN.jpg" alt="" />
+                <a href="">
+                  <button class="cyber-button-small bg-red fg-dark">Register Now</button>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div> -->
-
-      <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog1.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Feb 02, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">
-                      The Speech Society: <br />The Establishment
-                    </h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Pulkit Kumar Verma & Riddhi Agrawal</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog1.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog2.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Feb 23, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">Tech Talk with Ishan Sharma</h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Pulkit Kumar Verma & Riddhi Agrawal</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog2.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog3.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Mar 02, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">
-                      Empowering Women: Celebrating International Women's
-                      Day with Joy and purpose
-                    </h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Riddhi Agrawal</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog3.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog4.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Mar 18, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">
-                      Unveiling the Power of Words: A Recap of the Thrilling
-                      "Tech Debate"
-                    </h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Riddhi Agrawal</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog4.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog5.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Aug 07, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">
-                      Induction Event:<br />
-                      Unveiling New Potential
-                    </h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Pulkit Kumar Verma</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog5.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-
-          <div class="swiper-slide">
-            <div class="blog-wrap">
-              <div class="blog-item">
-                <div class="post-img position-relative overflow-hidden">
-                  <img src="assets/img/blog/blog6.jpg" class="img-fluid testim-img" alt="" />
-                  <span class="post-date">Dec 01, 2023</span>
-
-                  <div class="post-content d-flex flex-column">
-                    <h3 class="post-title">
-                      Introductory Session to Toastmasters: Embark on a
-                      Journey of Effective Communication and Leadership
-                    </h3>
-
-                    <div class="meta d-flex align-items-center">
-                      <div class="d-flex align-items-center">
-                        <i class="bi bi-person"></i>
-                        <span class="ps-2">Tanish Sunita Pareek</span>
-                      </div>
-                    </div>
-
-                    <hr />
-
-                    <a href="assets/blog/blog6.html" class="readmore stretched-link"><span>Read More</span><i
-                        class="bi bi-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- End blog item -->
-        </div>
-        <div class="swiper-pagination"></div>
       </div>
     </div>
+
     <a href="https://lu.ma/web3-carnival" class="d-flex justify-content-center web3button">
       <button class="register cyber-button-small bg-yellow ac-yellow fg-dark">
         Know More
@@ -885,7 +691,7 @@
     </div>
 
     <div class="bounty-row d-flex justify-content-center">
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-35-securedapp.jpeg" alt="" class="sponsor-img" />
         </div>
@@ -900,7 +706,7 @@
         </div>
       </div>
 
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-34-educhain.jpeg" alt="" class="sponsor-img" />
         </div>
@@ -915,13 +721,11 @@
         </div>
       </div>
 
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-37-magadhastudios.jpeg" alt="" class="sponsor-img" />
         </div>
-        <h2 class="bounty-sponsor fg-yellow">
-          Magadha Studios
-        </h2>
+        <h2 class="bounty-sponsor fg-yellow">Magadha Studios</h2>
         <div class="benefit-list d-flex justify-content-center">
           <h4 class="d-flex justify-content-center">
             Internship Opportunities
@@ -1194,7 +998,8 @@
               Aayush Meliodas
             </h6>
             <p class="position fg-white">
-              Founder of Magadha Studios | Ex-Glazer Games, Norian Games, Hidden Beyond
+              Founder of Magadha Studios | Ex-Glazer Games,
+              Norian Games, Hidden Beyond
             </p>
           </div>
         </div>
@@ -2695,9 +2500,22 @@
   <!--=============== MAIN JS ===============-->
   <script src="assets/js/main.js"></script>
 
-  <!--FLICKITY JS-->
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <!--=============== SPLIDE SLIDER ===============-->
 
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+  <script>
+    new Splide('.splide', {
+      perPage: 2,
+      type: 'loop',
+      focus: 'center',
+      autowidth: true
+    }).mount(window.splide.Extensions);
+  </script>
+
+  <!--=============== BOOTSTRAP JS ===============-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
