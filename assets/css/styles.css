@@ -1252,7 +1252,20 @@ body.modal-active {
   justify-content: space-between !important;
 }
 
-.judges-profile::after {
+p.mentor-name {
+  text-align: center;
+  margin: 0rem auto 1rem;
+}
+
+.judges-container.splide__slide {
+  width: 12rem !important;
+}
+
+.splide__slide {
+  border: none;
+}
+
+/* .judges-profile::after {
   content: '';
   background-image: url('mentor-frame.svg');
   background-position: start;
@@ -1262,12 +1275,11 @@ body.modal-active {
   width: 100%;
   height: 100%;
   filter: drop-shadow(2px 2px 3px var(--dark));
-}
+} */
 
 .judges-profile img {
-  width: 12rem;
+  width: 10rem;
   border-radius: 10px;
-  scale: 0.98;
 }
 
 .desc h6 {
@@ -1887,6 +1899,15 @@ body.modal-active {
     width: 11rem;
   }
 
+  #splide2 .splide__arrows {
+    width: 102vw;
+    left: -2.5rem;
+  }
+
+  #splide2 .splide{
+    width: 90vw !important;
+  }
+
   .footer-logo img {
     height: 7rem;
   }
@@ -2295,7 +2316,7 @@ body.modal-active {
     width: 100%;
   }
 
-  .splide__track{
+  .splide__track {
     padding: 0 2rem !important;
   }
 
