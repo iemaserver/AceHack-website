@@ -497,6 +497,17 @@ section {
   left: -3rem;
 }
 
+#splide2 div.splide__arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  left: -2rem;
+}
+
 #splide2 .splide__track {
   width: 90vw;
   margin: 0 auto !important;
@@ -1270,6 +1281,7 @@ p.mentor-name {
 
 .judges-container.splide__slide {
   width: 12rem !important;
+  margin: 0 1rem !important;
 }
 
 .splide__slide {
