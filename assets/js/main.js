@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
         gap: '.7rem',
       },
     },
-  }).mount();
+  }).mount(window.splide.Extensions);
 });
 
 // ====================== Scroll Reveal ======================

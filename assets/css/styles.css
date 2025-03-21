@@ -438,6 +438,8 @@ section {
 
 .web3button {
   z-index: 3;
+  width: fit-content !important;
+  display: block !important;
 }
 
 .slider {
@@ -467,7 +469,7 @@ section {
   display: block;
 }
 
-.splide__slide {
+#splide1 .splide__slide {
   padding: 1rem 1.5rem;
   width: fit-content;
   margin: 1rem !important;
@@ -480,19 +482,29 @@ section {
   border: 1px solid var(--yellow);
 }
 
-.splide__slide a {
+#splide1 .splide__slide a {
   padding-top: 1rem;
 }
 
-div.splide__arrows {
+#splide1 div.splide__arrows {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 102vw;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   z-index: 10;
-  left: -3.8rem;
+  left: -3rem;
+}
+
+#splide2 .splide__track {
+  width: 90vw;
+  margin: 0 auto !important;
+}
+
+#splide1 .splide__pagination,
+#splide2 .splide__pagination {
+  bottom: -1rem !important;
 }
 
 /* div.splide__arrow--prev,
@@ -1155,7 +1167,6 @@ body.modal-active {
 .benefit-subcategory>h4 {
   padding-left: 1rem;
 }
-
 
 /* perks */
 
@@ -1904,7 +1915,7 @@ p.mentor-name {
     left: -2.5rem;
   }
 
-  #splide2 .splide{
+  #splide2 .splide {
     width: 90vw !important;
   }
 
@@ -2523,6 +2534,21 @@ p.mentor-name {
 
   .judges-profile img {
     width: 10rem;
+  }
+
+  #splide2 .splide__track {
+    width: 80vw;
+    margin: 0 auto !important;
+  }
+
+  #splide2 .splide__pagination {
+    bottom: -2.5rem !important;
+    width: 70vw;
+    margin: 0 auto;
+  }
+
+  #splide2 div.splide__arrows {
+    display: none;
   }
 
   .container {
