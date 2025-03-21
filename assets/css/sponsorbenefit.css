@@ -35,7 +35,7 @@ p {
     margin-bottom: 0.25rem !important;
 }
 
-.sponsor-benefit-title{
+.sponsor-benefit-title {
     line-height: normal;
     text-align: center;
     padding-bottom: 1.5rem;
@@ -83,7 +83,7 @@ section.swag {
     background: linear-gradient(var(--linear-gradiant2), var(--linear-gradiant1));
 }
 
-.sponsor-benefit-box{
+.sponsor-benefit-box {
     flex-direction: column !important;
 }
 
@@ -107,6 +107,10 @@ section.swag {
     text-align: center;
     justify-content: space-between;
     box-shadow: inset 3px -4px 20px 3px rgb(0, 0, 0)
+}
+
+.offer .bounty-detail {
+    font-size: 0.8rem !important;
 }
 
 /* .sponsor-benefit-box>p{
@@ -141,7 +145,7 @@ section.swag {
     filter: drop-shadow(0 0 3px var(--red));
 }
 
-.sponsor-benefit-box:hover img{
+.sponsor-benefit-box:hover img {
     filter: drop-shadow(0 0 5px var(--yellow));
     scale: 0.9;
 }
@@ -210,21 +214,31 @@ section.swag {
 }
 
 @media screen and (max-width: 376px) {
-    .sponsor-benefit-box{
+    .sponsor-benefit-box {
         margin: 0.5rem !important;
     }
+
     .rewards .sponsor-benefit-box {
         max-height: fit-content !important;
+        width: 70vw !important;
     }
 
     .internship .sponsor-benefit-box {
         height: fit-content !important;
-        width: 11rem !important;
+        width: 14rem !important;
 
     }
 
     .swag .sponsor-benefit-box {
         min-height: fit-content !important;
         flex-direction: column;
+    }
+
+    .offer {
+        padding: auto 1rem;
+    }
+
+    .offer a button {
+        width: fit-content !important;
     }
 }

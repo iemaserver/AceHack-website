@@ -249,6 +249,49 @@ function toggleFAQs() {
   }
 }
 
+// ====================== Splide Sliders ======================
+
+document.addEventListener('DOMContentLoaded', function () {
+  //web 3 slider
+  new Splide('#splide1', {
+    perPage: 2,
+    type: 'loop',
+    focus: 'center',
+    autowidth: true,
+    breakpoints: {
+      640: {
+        perPage: 1,
+        gap: '.7rem',
+      },
+      480: {
+        perPage: 1,
+        gap: '.7rem',
+      },
+    },
+  }).mount(window.splide.Extensions);
+
+  //judges slider
+  new Splide('#splide2', {
+    perPage: 4,
+    type: 'loop',
+    focus: 'center',
+    drag: 'free',
+    breakpoints: {
+      769: {
+        perPage: 5,
+        gap: '.7rem',
+      },
+      640: {
+        perPage: 4,
+        gap: '.7rem',
+      },
+      480: {
+        perPage: 5,
+        gap: '.7rem',
+      },
+    },
+  }).mount(window.splide.Extensions);
+});
 
 // ====================== Scroll Reveal ======================
 

@@ -15,9 +15,6 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!--=============== SWIPER CSS ===============-->
-  <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css"> -->
-
   <!--=============== CSS ===============-->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/cyberpunk/cyberpunk.css" />
@@ -26,12 +23,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet" />
-  <!--FLICKITY SWIPER-->
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
 
-  <!-- <script src="https://unpkg.com/scrollreveal"></script> -->
-  <script src="assets/js/scrollreveal.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" charset="utf-8"></script>
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" />
 
   <title>AceHack 4.0 | 29-30th March</title>
 </head>
@@ -247,42 +243,41 @@
       <img src="assets/imgs/carnival/web3.svg" class="web3-heading" />
       <br />
       <div class="slider">
-        <!-- Flickity HTML init -->
-        <div class="gallery js-flickity" data-flickity-options='{"wrapAround": true, "autoPlay": true }'>
-          <div class="slide">
-            <img src="assets/imgs/carnival/APTOS-BN.png" class="slide-img">
-            <a href="https://lu.ma/xqusrb0s" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
-          </div>
-
-          <div class="slide">
-            <img src="assets/imgs/carnival/EDC-BN.jpg" class="slide-img" />
-            <a href="https://lu.ma/0wh2lkpo" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
-          </div>
-
-          <div class="slide">
-            <img src="assets/imgs/carnival/core-bn.png" class="slide-img" />
-            <a href="https://lu.ma/40v82pfz" class="justify-content-center d-flex">
-              <button class="register cyber-button-small bg-red ac-yellow fg-white slide-btn">
-                Register Now
-              </button>
-            </a>
+        <div class="splide" id="splide1">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/core-bn.png" alt="" />
+                <a href="https://lu.ma/40v82pfz" target="_blank">
+                  <button class="cyber-button-small bg-red fg-white">Register Now</button>
+                </a>
+              </li>
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/APTOS-BN.png" alt="" />
+                <a href="https://lu.ma/xqusrb0s" target="_blank">
+                  <button class="cyber-button-small bg-red fg-white">Register Now</button>
+                </a>
+              </li>
+              <li class="splide__slide d-flex justify-content-center">
+                <img src="assets/imgs/carnival/EDC-BN.jpg" alt="" />
+                <a href="https://lu.ma/xqusrb0s" target="_blank">
+                  <button class="cyber-button-small bg-red fg-white">Register Now</button>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    <a href="https://lu.ma/web3-carnival" class="d-flex justify-content-center web3button">
-      <button class="register cyber-button-small bg-yellow ac-yellow fg-dark">
-        Know More
-      </button>
-    </a>
+    <div class="d-flex justify-content-center">
+      <a href="https://lu.ma/web3-carnival" class="web3button">
+        <button class="register cyber-button-small bg-yellow ac-yellow fg-dark">
+          Know More
+        </button>
+      </a>
+    </div>
+
+
   </section>
   <!--=============TIMELINE===================-->
   <!--RED--->
@@ -699,7 +694,7 @@
     </div>
 
     <div class="bounty-row d-flex justify-content-center">
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-35-securedapp.jpeg" alt="" class="sponsor-img" />
         </div>
@@ -714,7 +709,7 @@
         </div>
       </div>
 
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-34-educhain.jpeg" alt="" class="sponsor-img" />
         </div>
@@ -729,13 +724,11 @@
         </div>
       </div>
 
-      <div class="bounty-info  fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
+      <div class="bounty-info fg-white cyber-tile-small cyber-tile-clip-small bg-blue">
         <div class="d-flex justify-content-center">
           <img src="assets/imgs/Organizer-sponsors/sponsors-37-magadhastudios.jpeg" alt="" class="sponsor-img" />
         </div>
-        <h2 class="bounty-sponsor fg-yellow">
-          Magadha Studios
-        </h2>
+        <h2 class="bounty-sponsor fg-yellow">Magadha Studios</h2>
         <div class="benefit-list d-flex justify-content-center">
           <h4 class="d-flex justify-content-center">
             Internship Opportunities
@@ -825,611 +818,643 @@
     <div class="d-flex justify-content-center">
       <h1 class="cyber-title title-h1 fg-yellow">Mentors & Judges</h1>
     </div>
-    <div class="prize-row d-flex justify-content-center">
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/manav_gupta.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Manav Gupta
-            </h6>
-            <p class="position fg-white">
-              aka tensor._.boy | AI Researcher @100xEngineers
-              | SIH'24 Judge
-            </p>
+
+    <div class="judges-slider">
+      <div class="splide" id="splide2">
+        <div class="splide__track">
+          <div class="splide__list">
+
+            <div class="judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/manav_gupta.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Manav Gupta
+                  </h6>
+                  <p class="position fg-white">
+                    aka tensor._.boy | AI Researcher @100xEngineers
+                    | SIH'24 Judge
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/--manav-gupta--/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/chintan_vatsa_jha.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Chintan Vatsa Jha
+                  </h6>
+                  <p class="position fg-white">
+                    India Head-RiseIn | ex-Masai
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/chintan-vatsa-jha-0a7496a8/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/chintanvatsajha" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/pranav_malik.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Pranav Malik
+                  </h6>
+                  <p class="position fg-white">
+                    SDE-II @Oracle | Ex-Microsoft, PayPal, DRDO
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/candidatepstx-95adfsdk23/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square -x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/abhimanyu_shekhawat.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Abhimanyu Shekhawat
+                  </h6>
+                  <p class="position fg-white">
+                    Co-founder @Epoch Protocol | Ex Co-founder
+                    @Slick Wallet
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://linkedin.com/in/abhimanyu-shekhawat-886896168" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/sokkkkaaa" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/aryan_bramhane.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Aryan Bramhane
+                  </h6>
+                  <p class="position fg-white">
+                    Devloper Relation Enginner- RiseIn
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/aryan-bramhane-9b93031b3/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/bhupendra_chouhan.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Bhupendra Chouhan
+                  </h6>
+                  <p class="position fg-white">
+                    Blockchain Developer Relations Engineer - Rise
+                    In
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/bhupendrachouhan/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/uday_sharma.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Uday Sharma
+                  </h6>
+                  <p class="position fg-white">
+                    Founder & CEO of DevnDez | 2x Hackathon Judge &
+                    Mentor | Community Head at HackShastra
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/uday-sharma-5566a82b8/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/udaysharmaaaaa" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/naman_badkul.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Naman Badkul
+                  </h6>
+                  <p class="position fg-white">
+                    Senior Engineer @Makemytrip | Ex-Nagarro
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/naman-badkul-2b3a58168/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/vansh_wadhwa.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Vansh Wadhwa
+                  </h6>
+                  <p class="position fg-white">
+                    SDE INDmoney | Ex-SDE Intern, Integrtr, YouLaundry, Chain Reality & YesBroker
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/vansh-wadhwa/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/VanshWadhwa_" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/shiti_sharma.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Shiti Sharma
+                  </h6>
+                  <p class="position fg-white">
+                    ML R&D Intern @DRDO | Ex-Intern @ONGC Ltd.
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/shitisharma/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/rajat_bansal.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Rajat Bansal
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @Simple Energy | Ex-Ola Electric, Ather Energy
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/rajat-bansal-aa4524133/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/arpit_rastogi.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Arpit Rastogi
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @HashedIn | Ex-Isourse, OneBanc
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/arpit-rastogi-/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/aayush_meliodas.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Aayush Meliodas
+                  </h6>
+                  <p class="position fg-white">
+                    Founder of Magadha Studios | Ex-Glazer Games,
+                    Norian Games, Hidden Beyond
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/aayush-meliodas-91533921a/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/devendra_parihar.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Devendra Parihar
+                  </h6>
+                  <p class="position fg-white">
+                    Research Scientist (AI/ML) @Sol BI | 3x Kaggle
+                    Expert
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/devendra-parihar/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/dev_parihar____" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/sristhi_gupta.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Srishti Gupta
+                  </h6>
+                  <p class="position fg-white">
+                    @PW | Ex-EY | Judge, Speaker & Mentor
+                    @topmate.io
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/srishti23" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/yash_chatrat.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Yash Chatrath
+                  </h6>
+                  <p class="position fg-white">
+                    Data Analyst @Sony | Founder Tech Holics |
+                    GSSocC24 Mentor
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="http://linkedin.com/in/chatrath-yash" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/iamyaxxhh?s=21" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/harshavardhan_bajoria.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Harshavardhan Bajoria
+                  </h6>
+                  <p class="position fg-white">
+                    Associate Product Manager @Unstop
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/harshavardhan-bajoria/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/hvbajoria" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/taranjot_singh.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Taranjot Singh
+                  </h6>
+                  <p class="position fg-white">
+                    SIH 2022 Winner | Mentor @SIH 2023 | Won 6+
+                    Hackathons
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://linkedin.com/in/taranjotsingh23" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/Taranjotsingh23" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/sanket_kalekar.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Sanket Kalekar
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @Digi BREAD | GSSOC'24 mentor
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://linkedin.com/in/sanket-kalekar-969770197/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/ooye_sanket" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/kamal_kashyap.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Kamal Kashyap
+                  </h6>
+                  <p class="position fg-white">
+                    Blockchain Developer @TeBlox Labs | Ex-Drifko
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/kamal-kashyap-393a6b1b7/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/Kamaltrons" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/shivam_goyal.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Shivam Goyal
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @Junglee Games | Ex-OneBanc
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/shivamgoyall/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/piyush_sharma.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Piyush Sharma
+                  </h6>
+                  <p class="position fg-white">
+                    Senior iOS Developer @BluSmart
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/piyush-sharma-a5801813b/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/chinmay_pant.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Chinmay Prawah Pant
+                  </h6>
+                  <p class="position fg-white">
+                    Software Engineer (Frontend) Gamezop |
+                    Ex-GrowAgro
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/chinmaypant" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/anadee.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Anadee
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @Equirus Wealth | Ex-Dreamboat.ai
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/anadee11/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://twitter.com/Anadee11_" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/rohan_kumar.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Rohan kumar
+                  </h6>
+                  <p class="position fg-white">
+                    Co-Founder at Teachomatrix | SDE at MIDAS |
+                    Ex-Intern at Ringover, IITB
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/rohan-kumar-a65a87175/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://twitter.com/Rohan__kumar_" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/karan_vaswani.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Karan Vaswani
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @NEC Corporation India Pvt Ltd. | Ex-Coding
+                    Ninjas
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://linkedin.com/in/karan-v-270102" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.x.com/karanvaswani16" target="_blank"><i
+                    class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/pawan_singhla.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Pawan Singhla
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @Zigram | Ex-zunroof
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/pawansinghla300/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <a href="https://x.com/singhlapawan" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+              </div>
+            </div>
+
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/chanpreet_singh.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Chanpreet Singh
+                  </h6>
+                  <p class="position fg-white">
+                    Ex-ZS Associates | Ex-AMEYO
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/chanpreet-singh-cp/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+            <div class="splide__slide judges-container fg-yellow">
+              <div class="judges-profile d-flex justify-content-center fg-yellow">
+                <p class="mentor-name">
+                  <img src="assets/imgs/acehack_mentors/baljinder_singh.png" alt="" class="judges-img" />
+                </p>
+                <div class="desc">
+                  <h6 class="d-flex justify-content-center">
+                    Baljinder Singh
+                  </h6>
+                  <p class="position fg-white">
+                    SDE @DXC Technology
+                  </p>
+                </div>
+              </div>
+              <div class="social-links justify-content-center d-flex">
+                <a href="https://www.linkedin.com/in/baljinderxd" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+                <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
+              </div>
+            </div>
+
+            <!-- <div class="prize-row d-flex justify-content-center">
+            </div> -->
+
           </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/--manav-gupta--/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
         </div>
       </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/chintan_vatsa_jha.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Chintan Vatsa Jha
-            </h6>
-            <p class="position fg-white">
-              India Head-RiseIn | ex-Masai
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/chintan-vatsa-jha-0a7496a8/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/chintanvatsajha" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/pranav_malik.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Pranav Malik
-            </h6>
-            <p class="position fg-white">
-              SDE-II @Oracle | Ex-Microsoft, PayPal, DRDO
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/candidatepstx-95adfsdk23/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square -x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/abhimanyu_shekhawat.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Abhimanyu Shekhawat
-            </h6>
-            <p class="position fg-white">
-              Co-founder @Epoch Protocol | Ex Co-founder
-              @Slick Wallet
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://linkedin.com/in/abhimanyu-shekhawat-886896168" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/sokkkkaaa" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/aryan_bramhane.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Aryan Bramhane
-            </h6>
-            <p class="position fg-white">
-              Devloper Relation Enginner- RiseIn
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/aryan-bramhane-9b93031b3/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/bhupendra_chouhan.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Bhupendra Chouhan
-            </h6>
-            <p class="position fg-white">
-              Blockchain Developer Relations Engineer - Rise
-              In
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/bhupendrachouhan/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/uday_sharma.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Uday Sharma
-            </h6>
-            <p class="position fg-white">
-              Founder & CEO of DevnDez | 2x Hackathon Judge &
-              Mentor | Community Head at HackShastra
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/uday-sharma-5566a82b8/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/udaysharmaaaaa" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/arpit_rastogi.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Arpit Rastogi
-            </h6>
-            <p class="position fg-white">
-              SDE @HashedIn | Ex-Isourse, OneBanc
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/arpit-rastogi-/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/aayush_meliodas.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Aayush Meliodas
-            </h6>
-            <p class="position fg-white">
-              Founder of Magadha Studios | Ex-Glazer Games, Norian Games, Hidden Beyond
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/aayush-meliodas-91533921a/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/devendra_parihar.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Devendra Parihar
-            </h6>
-            <p class="position fg-white">
-              Research Scientist (AI/ML) @Sol BI | 3x Kaggle
-              Expert
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/devendra-parihar/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/dev_parihar____" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/sristhi_gupta.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Srishti Gupta
-            </h6>
-            <p class="position fg-white">
-              @PW | Ex-EY | Judge, Speaker & Mentor
-              @topmate.io
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/srishti23" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/yash_chatrat.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Yash Chatrath
-            </h6>
-            <p class="position fg-white">
-              Data Analyst @Sony | Founder Tech Holics |
-              GSSocC24 Mentor
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="http://linkedin.com/in/chatrath-yash" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/iamyaxxhh?s=21" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/harshavardhan_bajoria.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Harshavardhan Bajoria
-            </h6>
-            <p class="position fg-white">
-              Associate Product Manager @Unstop
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/harshavardhan-bajoria/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/hvbajoria" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/taranjot_singh.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Taranjot Singh
-            </h6>
-            <p class="position fg-white">
-              SIH 2022 Winner | Mentor @SIH 2023 | Won 6+
-              Hackathons
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://linkedin.com/in/taranjotsingh23" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/Taranjotsingh23" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/sanket_kalekar.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Sanket Kalekar
-            </h6>
-            <p class="position fg-white">
-              SDE @Digi BREAD | GSSOC'24 mentor
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://linkedin.com/in/sanket-kalekar-969770197/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/ooye_sanket" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/kamal_kashyap.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Kamal Kashyap
-            </h6>
-            <p class="position fg-white">
-              Blockchain Developer @TeBlox Labs | Ex-Drifko
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/kamal-kashyap-393a6b1b7/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/Kamaltrons" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/shivam_goyal.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Shivam Goyal
-            </h6>
-            <p class="position fg-white">
-              SDE @Junglee Games | Ex-OneBanc
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/shivamgoyall/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/piyush_sharma.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Piyush Sharma
-            </h6>
-            <p class="position fg-white">
-              Senior iOS Developer @BluSmart
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/piyush-sharma-a5801813b/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/chinmay_pant.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Chinmay Prawah Pant
-            </h6>
-            <p class="position fg-white">
-              Software Engineer (Frontend) Gamezop |
-              Ex-GrowAgro
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/chinmaypant" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/anadee.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Anadee
-            </h6>
-            <p class="position fg-white">
-              SDE @Equirus Wealth | Ex-Dreamboat.ai
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/anadee11/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://twitter.com/Anadee11_" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/rohan_kumar.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Rohan kumar
-            </h6>
-            <p class="position fg-white">
-              Co-Founder at Teachomatrix | SDE at MIDAS |
-              Ex-Intern at Ringover, IITB
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/rohan-kumar-a65a87175/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://twitter.com/Rohan__kumar_" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/karan_vaswani.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Karan Vaswani
-            </h6>
-            <p class="position fg-white">
-              SDE @NEC Corporation India Pvt Ltd. | Ex-Coding
-              Ninjas
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://linkedin.com/in/karan-v-270102" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-          <a href="https://www.x.com/karanvaswani16" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/pawan_singhla.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Pawan Singhla
-            </h6>
-            <p class="position fg-white">
-              SDE @Zigram | Ex-zunroof
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/pawansinghla300/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <a href="https://x.com/singhlapawan" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div>
-
-      <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/chanpreet_singh.jpeg" alt="" class="judges-img" />
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">
-              Chanpreet Singh
-            </h6>
-            <p class="position fg-white">
-              Ex-ZS Associates | Ex-AMEYO
-            </p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/chanpreet-singh-cp/" target="_blank"><i
-              class="fa-brands fa-linkedin"></i></a>
-          <!-- <a href="" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a> -->
-        </div>
-      </div>
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/manindar_singh.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Maninder Singh</h6>
-            <p class="position fg-white">iOS Dev @Cars24 | Ex-Zomato</p>
-          </div>
-        </div>
-
-        <div class="social-links justify-content-center d-flex">
-          <a href="https://www.linkedin.com/in/manindersinghh?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/nakshatra_goel.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Nakshatra Goel</h6>
-            <p class="position fg-white">Data Scientist @NielsenIQ</p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href=""><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/shyaamal_tripathi.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Shyaamal Tripathi</h6>
-            <p class="position fg-white"></p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href=""><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/ayon_roy.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Ayon Roy</h6>
-            <p class="position fg-white">Data Scientist @NielsenIQ</p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href=""><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/shivank_kapur.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Shivank Kapur</h6>
-            <p class="position fg-white">Member @SuperteamDAO | Ex-Router Protocol</p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href=""><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
-
-      <!-- <div class="judges-container fg-yellow">
-        <div class="judges-profile d-flex justify-content-center fg-yellow">
-          <p class="mentor-name">
-            <img src="assets/imgs/acehack_mentors/soumen_paul.jpeg" alt="" class="judges-img">
-          </p>
-          <div class="desc">
-            <h6 class="d-flex justify-content-center">Soumen Paul</h6>
-            <p class="position fg-white">SDE-1 @Jar| Ex- Rooter, Spare8 | Winner - SIH'22</p>
-          </div>
-        </div>
-        <div class="social-links justify-content-center d-flex">
-          <a href=""><i class="fa-brands fa-linkedin"></i></a>
-          <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-        </div>
-      </div> -->
     </div>
   </section>
 
@@ -1464,7 +1489,7 @@
             <img src="assets/imgs/Organizer-sponsors/organiser-1-acmuemj.jpeg" alt="" class="sponsor-img" />
           </p>
           <h5 class="d-flex justify-content-center title-h5">
-            ACM
+            ACM UEMJ
           </h5>
         </div>
         <div class="sponsor-box d-inline justify-content-center fg-yellow bg-blue cyber-tile-small"
@@ -1626,7 +1651,7 @@
 
     <div class="d-flex justify-content-center">
       <h3 class="cyber-title title-h3 fg-yellow">
-        Web3 Security Partner
+        Web3 Partner
       </h3>
       <div class="prize-row d-flex justify-content-center">
         <div class="sponsor-box d-inline justify-content-center fg-yellow bg-blue cyber-tile-small"
@@ -1636,6 +1661,16 @@
           </p>
           <h5 class="d-flex justify-content-center title-h4">
             SecureDApp
+          </h5>
+        </div>
+
+        <div class="sponsor-box d-inline justify-content-center fg-yellow bg-blue cyber-tile-small"
+          onclick="SponsorSite('aptos')">
+          <p class="d-flex justify-content-center">
+            <img src="assets/imgs/Organizer-sponsors/sponsors-8-aptos.jpeg" alt="" class="sponsor-img" />
+          </p>
+          <h5 class="d-flex justify-content-center title-h4">
+            Aptos
           </h5>
         </div>
       </div>
@@ -2509,9 +2544,13 @@
   <!--=============== MAIN JS ===============-->
   <script src="assets/js/main.js"></script>
 
-  <!--FLICKITY JS-->
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <!--=============== SPLIDE SLIDER ===============-->
 
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+  <!--=============== BOOTSTRAP JS ===============-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
