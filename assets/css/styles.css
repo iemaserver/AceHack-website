@@ -1218,13 +1218,13 @@ body.modal-active {
   filter: drop-shadow(2px 2px 4px var(--light-gray));
 }
 
-/* Mentors & Judges */
+/* Mentors & guests */
 
-.judges-section {
+.guests-section {
   background: linear-gradient(#001517, var(--blue));
 }
 
-.judges-container {
+.guests-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between !important;
@@ -1240,7 +1240,7 @@ body.modal-active {
   transition: all 0.3s ease-in-out;
 }
 
-.judges-container::before {
+.guests-container::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1258,17 +1258,17 @@ body.modal-active {
   pointer-events: none;
 }
 
-.judges-container:hover {
+.guests-container:hover {
   filter: drop-shadow(2px 2px 3px var(--dark));
   transform: scale(1.05);
   color: var(--yellow) !important;
 }
 
-.judges-container:hover .social-links i {
+.guests-container:hover .social-links i {
   color: var(--green);
 }
 
-.judges-profile {
+.guests-profile {
   display: flex;
   flex-direction: column;
   justify-content: space-between !important;
@@ -1279,7 +1279,7 @@ p.mentor-name {
   margin: 0rem auto 1rem;
 }
 
-.judges-container.splide__slide {
+.guests-container.splide__slide {
   width: 12rem !important;
   margin: 0 1rem !important;
 }
@@ -1288,7 +1288,7 @@ p.mentor-name {
   border: none;
 }
 
-/* .judges-profile::after {
+/* .guests-profile::after {
   content: '';
   background-image: url('mentor-frame.svg');
   background-position: start;
@@ -1300,7 +1300,7 @@ p.mentor-name {
   filter: drop-shadow(2px 2px 3px var(--dark));
 } */
 
-.judges-profile img {
+.guests-profile img {
   width: 10rem;
   border-radius: 10px;
 }
@@ -1326,11 +1326,17 @@ p.mentor-name {
   scale: 1.25;
 }
 
+.role-flter button.active {
+  background-color: var(--yellow);
+  color: var(--black);
+  border: 2px solid var(--black);
+}
+
 /* Sponsors */
 
 .carnival-section,
 .sponsor-section,
-.judges-section,
+.guests-section,
 .perks-section,
 .faq-section {
   padding: 2rem;
@@ -1896,7 +1902,7 @@ p.mentor-name {
   }
 
   .perks-section>div h1,
-  .judges-section>div h1 {
+  .guests-section>div h1 {
     font-size: 2.5rem !important;
     text-align: center;
   }
@@ -1905,20 +1911,20 @@ p.mentor-name {
     width: 18rem !important;
   }
 
-  .judges-section .prize-row {
+  .guests-section .prize-row {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     place-self: center;
     width: 90vw;
   }
 
-  .judges-container {
+  .guests-container {
     margin: 0.5rem;
     width: 13rem;
     min-height: 20rem;
   }
 
-  .judges-profile img {
+  .guests-profile img {
     width: 11rem;
   }
 
@@ -2153,16 +2159,16 @@ p.mentor-name {
     right: 1.75rem;
   }
 
-  .judges-container {
+  .guests-container {
     width: 10rem;
     min-height: 15rem;
   }
 
-  .judges-profile img {
+  .guests-profile img {
     width: 8rem;
   }
 
-  .judges-container .position {
+  .guests-container .position {
     margin-bottom: 0.25rem;
   }
 
@@ -2530,21 +2536,21 @@ p.mentor-name {
     width: 5rem !important;
   }
 
-  .judges-section h2 {
+  .guests-section h2 {
     text-align: center;
     /* width: 90vw; */
   }
 
-  .judges-section .prize-row {
+  .guests-section .prize-row {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .judges-container {
+  .guests-container {
     width: 12rem;
     min-height: 18rem;
   }
 
-  .judges-profile img {
+  .guests-profile img {
     width: 10rem;
   }
 
@@ -2600,12 +2606,12 @@ p.mentor-name {
     right: -2.4rem !important;
   }
 
-  .judges-container {
+  .guests-container {
     width: 10rem;
     min-height: 19rem;
   }
 
-  .judges-profile img {
+  .guests-profile img {
     width: 8rem;
   }
 }
