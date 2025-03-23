@@ -188,6 +188,7 @@ function SponsorSite(sponsorName) {
     "magadhastudio": "https://magadhastudios.com/",
     "glazerlabs": "https://glazerlabs.com/",
     "aptos": "https://aptosfoundation.org/",
+    "raj-police": "https://www.police.rajasthan.gov.in/"
   };
 
   const link = sponsorLinks[sponsorName];

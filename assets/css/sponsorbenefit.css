@@ -52,6 +52,8 @@ section.sponsor-benefit-section {
 
 .sponsor-benefit-section .prize-row {
     width: 95vw;
+    place-content: center;
+    margin: 1rem auto;
 }
 
 .sponsor-benefit-section.rewards {
