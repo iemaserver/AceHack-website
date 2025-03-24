@@ -204,7 +204,20 @@ section.swag {
 
 }
 
+@media screen and (max-width: 576px) {
+    .sponsor-benefit-section .prize-row {
+        width: 100vw;
+        place-content: center;
+        margin: 0rem auto;
+    }
+
+    .sponsor-benefit-section.rewards {
+        background: linear-gradient(var(--linear-gradiant1), var(--linear-gradiant2));
+        padding: 2rem 0rem;
+    }
+}
 @media screen and (max-width: 426px) {
+
     .rewards .sponsor-benefit-box {
         min-height: 18rem;
         width: 12rem !important;
