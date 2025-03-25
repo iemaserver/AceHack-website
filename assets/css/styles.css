@@ -1274,9 +1274,50 @@ body.modal-active {
   justify-content: space-between !important;
 }
 
-p.mentor-name {
+div.mentor-name {
   text-align: center;
   margin: 0rem auto 1rem;
+  position: relative;
+}
+
+div.mentor-name p.tag {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  margin: 0.5rem auto;
+  padding: 0.1rem 1rem;
+  bottom: -1.25rem;
+  border-radius: 2rem;
+  font-size: 0.65rem;
+  color: #000;
+  background-color: rgba(255, 255, 0, 0.408);
+  border: 2px solid var(--yellow);
+  text-wrap: nowrap;
+}
+
+div.mentor-name p.tag.speaker {
+  border: 2px solid #19a8cb;
+  background-color: #012c00;
+  color: white;
+  min-width: fit-content;
+  max-width: 100%;
+}
+
+div.mentor-name p.tag.investor {
+  border: 2px solid #009a21;
+  background-color: #012c00;
+  color: white;
+  min-width: fit-content;
+  max-width: 100%;
+}
+
+div.mentor-name p.tag.mentor {
+  border: 2px solid var(--yellow);
+  background-color: #012c00;
+  color: white;
+  min-width: fit-content;
+  max-width: 100%;
 }
 
 .guests-container.splide__slide {
@@ -1556,7 +1597,7 @@ p.mentor-name {
 
 .footer-logo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
@@ -1565,6 +1606,50 @@ p.mentor-name {
 .footer-logo img {
   height: 4.5rem;
   margin-bottom: 2rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.social-icons {
+  line-height: 3;
+}
+
+.social-icons svg {
+  margin: 0.5rem 0.25rem;
+}
+
+.footer-social svg {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-social a#linktree svg:hover {
+  color: #43E660 !important;
+}
+
+.footer-social a#instagram svg:hover {
+  color: #e1306c !important;
+}
+
+.footer-social a#linkedin svg:hover {
+  color: #1B75BB !important;
+}
+
+.footer-social a#telegram svg:hover {
+  color: #299DCF !important;
+}
+
+.footer-social a#discord svg:hover {
+  color: #5361E4 !important;
+}
+
+.footer-social a#youtube svg:hover {
+  color: #F60000 !important;
 }
 
 .link-heading h5 {
@@ -1925,7 +2010,7 @@ p.mentor-name {
   }
 
   .guests-profile img {
-    width: 11rem;
+    width: 10rem;
   }
 
   #splide2 .splide__arrows {
@@ -2165,7 +2250,7 @@ p.mentor-name {
   }
 
   .guests-profile img {
-    width: 8rem;
+    width: 9rem;
   }
 
   .guests-container .position {
@@ -2468,13 +2553,13 @@ p.mentor-name {
   }
 
   .track-end::after {
-    top: 21rem;
+    top: 20rem;
     left: 2.5rem;
     height: 60px;
   }
 
   .track-end::before {
-    top: 21rem;
+    top: 20rem;
     right: 2.5rem;
     height: 60px;
   }
@@ -2552,6 +2637,10 @@ p.mentor-name {
 
   .guests-profile img {
     width: 10rem;
+  }
+
+  div.mentor-name p.tag {
+    border: 1px solid var(--yellow) !important;
   }
 
   #splide2 .splide__track {
