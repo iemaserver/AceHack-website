@@ -1305,7 +1305,7 @@ div.mentor-name p.tag.speaker {
 }
 
 div.mentor-name p.tag.investor {
-  border: 2px solid  #009a21;
+  border: 2px solid #009a21;
   background-color: #012c00;
   color: white;
   min-width: fit-content;
@@ -1597,7 +1597,7 @@ div.mentor-name p.tag.mentor {
 
 .footer-logo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0.5rem 2rem;
@@ -1606,6 +1606,50 @@ div.mentor-name p.tag.mentor {
 .footer-logo img {
   height: 4.5rem;
   margin-bottom: 2rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.social-icons {
+  line-height: 3;
+}
+
+.social-icons svg {
+  margin: 0.5rem 0.25rem;
+}
+
+.footer-social svg {
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-social a#linktree svg:hover {
+  color: #43E660 !important;
+}
+
+.footer-social a#instagram svg:hover {
+  color: #e1306c !important;
+}
+
+.footer-social a#linkedin svg:hover {
+  color: #1B75BB !important;
+}
+
+.footer-social a#telegram svg:hover {
+  color: #299DCF !important;
+}
+
+.footer-social a#discord svg:hover {
+  color: #5361E4 !important;
+}
+
+.footer-social a#youtube svg:hover {
+  color: #F60000 !important;
 }
 
 .link-heading h5 {
@@ -2595,7 +2639,7 @@ div.mentor-name p.tag.mentor {
     width: 10rem;
   }
 
-  div.mentor-name p.tag{
+  div.mentor-name p.tag {
     border: 1px solid var(--yellow) !important;
   }
 
