@@ -1372,6 +1372,7 @@ div.mentor-name p.tag.mentor {
   justify-content: center;
   background: linear-gradient(120deg, var(--linear-gradiant1), var(--linear-gradiant2)) !important;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .sponsor-box:hover {

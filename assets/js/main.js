@@ -189,7 +189,10 @@ function SponsorSite(sponsorName) {
     "glazerlabs": "https://glazerlabs.com/",
     "aptos": "https://aptosfoundation.org/",
     "raj-police": "https://www.police.rajasthan.gov.in/",
-    "wolfram": "https://www.wolfram.com/"
+    "wolfram": "https://www.wolfram.com/",
+    "avalanche":"",
+    "teamone":"",
+    "gfg":"",
   };
 
   const link = sponsorLinks[sponsorName];
