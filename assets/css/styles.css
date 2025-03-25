@@ -517,45 +517,13 @@ section {
 #splide2 .splide__pagination {
   bottom: -1rem !important;
 }
-
-/* div.splide__arrow--prev,
-div.splide__arrow--next {
-  pointer-events: auto;
-  cursor: pointer !important;
-} */
-
 div.splide__arrow--prev {
   left: 2rem;
-  /* Adjust the distance from the slider */
 }
 
 div.splide__arrow--next {
   right: 2rem;
-  /* Adjust the distance from the slider */
 }
-
-/* .carousel-item {
-  padding: 1rem 1.5rem;
-  width: fit-content;
-  margin: 1rem !important;
-  place-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  border: 1px solid var(--yellow);
-}  */
-
-/* .slide-img {
-  border-radius: 1rem;
-  border: 1px solid var(--yellow);
-  display: block;
-}
-
-.slide-btn {
-  display: block;
-} */
 
 .timeline {
   padding: 40px 0px;

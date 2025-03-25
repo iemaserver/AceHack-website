@@ -298,37 +298,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }).mount(window.splide.Extensions);
 });
 
-
-// ====================== Guest Category ======================
-
-// function roleSpecificView(role) {
-//   const slides = document.querySelectorAll('.splide__slide');
-//   const buttons = document.querySelectorAll('.role-filter button');
-
-//   // Find the clicked button
-//   const clickedButton = Array.from(buttons).find(button => button.textContent.trim().toLowerCase() === role);
-
-//   // Toggle the active state of the clicked button
-//   const isActive = clickedButton.classList.contains('active');
-//   buttons.forEach(button => button.classList.remove('active'));
-
-//   if (!isActive) {
-//     clickedButton.classList.add('active');
-//   }
-
-//   // Show or hide slides based on the role
-//   slides.forEach(slide => {
-//     const roles = slide.className.split(' ').filter(cls => cls.startsWith('role-')).map(cls => cls.replace('role-', ''));
-//     if (!isActive && roles.includes(role)) {
-//       slide.style.display = 'block';
-//     } else if (!isActive) {
-//       slide.style.display = 'none';
-//     } else {
-//       slide.style.display = 'block'; // Reset to show all slides when filter is removed
-//     }
-//   });
-// }
-
 // ====================== Scroll Reveal ======================
 
 // Function to apply ScrollReveal to all elements with a specific class
