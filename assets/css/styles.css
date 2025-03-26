@@ -307,6 +307,7 @@ section {
   background: url("title-box.svg") no-repeat;
   background-size: contain;
   height: 70px;
+  margin-left: 14px;
   padding: 1rem;
   width: fit-content;
   color: var(--yellow);
@@ -2073,6 +2074,10 @@ div.mentor-name p.tag.mentor {
     margin-top: 2.5rem;
   }
 
+  .cyber-title-box{
+    margin-left: -14px;
+  }
+
   .splide img {
     width: 60vw;
   }
@@ -2355,7 +2360,7 @@ div.mentor-name p.tag.mentor {
 
   .cyber-title-box {
     height: 40px;
-    left: -11px;
+    left: -14px;
   }
 
   .about-us {
