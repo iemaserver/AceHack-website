@@ -190,9 +190,9 @@ function SponsorSite(sponsorName) {
     "aptos": "https://aptosfoundation.org/",
     "raj-police": "https://www.police.rajasthan.gov.in/",
     "wolfram": "https://www.wolfram.com/",
-    "avalanche":"",
-    "teamone":"",
-    "gfg":"",
+    "avalanche":"https://www.avax.network/",
+    "teamone":"https://x.com/AvaxTeam1",
+    "gfg":"https://www.geeksforgeeks.org/",
   };
 
   const link = sponsorLinks[sponsorName];
