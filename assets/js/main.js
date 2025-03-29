@@ -12,7 +12,7 @@ document.addEventListener("scroll", () => {
 
 // =================TIMER================
 
-var countDownDate = new Date("Mar 29, 2025 09:00:00").getTime();
+var countDownDate = new Date("Mar 30, 2025 19:30:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function () {
