@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceHack 5.0 - Hackathon</title>
+    <link rel="icon" href="https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/fe/Grass_Block_JE7_BE6.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="[hero-background-url]">    
+    <link rel="preload" as="image" href="[logo-url]">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(to bottom, #0a0014 0%, #2d1b4e 45%, #1a0b2e 50%, #2d1b4e 75%,#1a0b2e 100%);
+            color: #FFF;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Full Screen Boot-up */
+        #bootup-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 99999;
+            overflow: hidden;
+            background: #000;
+            transition: opacity 0.4s ease;
+        }
+
+        .bootup-fullscreen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Fills entire screen */
+            display: block;
+        }
+
+        #bootup-screen.hidden {
+            display: none;
+            opacity: 0;
+            pointer-events: none;
+        }
+s
+        /* Animated Particle Background */
+        /* Minecraft End Sky Background */
+        .end-sky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: linear-gradient(to bottom, #0a0014 0%, #1a0b2e 50%, #2d1b4e 100%);
+            pointer-events: none;
+        }
+
+        /* Twinkling Stars */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle linear infinite;
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Purple Ambient Glow */
+        .purple-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(50px);
+            opacity: 0.4;
+            animation: float-glow linear infinite;
+        }
+
+        @keyframes float-glow {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-40px) translateX(30px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        /* Blocky Purple Clouds */
+        /* Blocky Purple Clouds - Minecraft Style */
+        .end-cloud {
+            position: absolute;
+            background: rgba(88, 28, 135, 0.4);
+            border: none;
+            animation: drift-cloud linear infinite;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            box-shadow: 
+                0 0 0 2px rgba(58, 18, 85, 0.6),
+                0 0 0 4px rgba(88, 28, 135, 0.4),
+                0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Create blocky layers for cloud structure */
+        .end-cloud::before,
+        .end-cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(88, 28, 135, 0.5);
+            image-rendering: pixelated;
+        }
+        
+        .end-cloud::before {
+            width: 60%;
+            height: 70%;
+            top: -15%;
+            left: 20%;
+            box-shadow: 0 0 0 2px rgba(58, 18, 85, 0.5);
+        }
+        
+        .end-cloud::after {
+            width: 50%;
+            height: 60%;
+            bottom: -10%;
+            right: 15%;
+            box-shadow: 0 0 0 2px rgba(58, 18, 85, 0.5);
+        }
+
+        @keyframes drift-cloud {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-150vw); }
+        }
+
+        /* Flying Entity (Ender Dragon/Enderman) */
+        .flying-entity {
+            position: fixed;
+            transform: translate3d(120vw, 30vh, 0);
+            width: 500px;
+            height: 500px;
+            z-index: -1;
+            animation: fly-across 10s ease-in-out infinite;
+        }
+
+        @keyframes fly-across {
+            0% {
+                transform: translate3d(120vw, 30vh, 0) rotate(-6deg) scale(0.9);
+                opacity: 0;
+            }
+            50% {
+                transform: translate3d(50vw, 10vh, 0) rotate(6deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate3d(-120vw, 90vh, 0) rotate(0deg) scale(0.9);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .flying-object {
+            animation:
+                fly-across 8s cubic-bezier(0.45, 0, 0.55, 1) infinite,
+                float 1.8s ease-in-out infinite;
+            will-change: transform, top, right;
+        }
+
+
+
+        /* Navbar - Transparent */
+        nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .nav-texture-bar {
+            width: 100%;
+            height: 14px;
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczPSZFithNMgw3p0NfejCpVSDTcs4uBveqBbFIQhIYpNpQmHtH3hdvbLKfEVlYf08kgjmMfhrvW6q5gTzl0wiluQnke2OSErtyz9RDP-R6-5-4TiPN9xICRt3IDNc5uoaUlRfsRDFyLXIzQh5_3BlLUQ=w16-h16-s-no-gm?authuser=0");
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            background-position: center;
+            box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5);
+        }
+
+        .nav-container {
+            height: 220px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 40px;
+            position: relative;
+            gap: 0;
+        }
+
+        /* Lantern with chain - Attached to nav bar */
+        .lantern-container {
+            width: 60px;
+            transform-origin: top center;
+            animation: pendulum-swing 4s ease-in-out infinite;
+            margin-top: -14px;
+        }
+
+        @keyframes pendulum-swing {
+            0%, 100% { transform: rotate(-8deg); }
+            50% { transform: rotate(8deg); }
+        }
+
+        .chain {
+            width: 4px;
+            height: 60px;
+            background: repeating-linear-gradient(
+                0deg,
+                #5C4033 0px,
+                #5C4033 8px,
+                #3E2723 8px,
+                #3E2723 16px
+            );
+            margin: 0 auto 0;
+            border-radius: 2px;
+        }
+
+        .lantern {
+            width: 50px;
+            height: 70px;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPOaiEMh44SO1C-USmJudCX__Wq50ckoHtpl0oa4lVsadJHNGPuZMvrrf_baOM2AXwYeOxZ209MfjCuoZVwQe-dptcdvy9FaTl2MKMgMsCezFO2hOnDfrbCznXVBuUw1Yj5C421BPF9ce-UK0IpqBL4=w74-h127-s-no-gm?authuser=0');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0 auto;
+            position: relative;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 10px #FFA500); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 20px #FFD700); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 80px;
+            position: absolute;  /* Add this */
+            left: 50%;  /* Add this */
+            transform: translateX(-50%);  /* Add this */
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-sign-container {
+            position: relative;
+            min-width: 140px;
+            margin-top: -14px;
+        }
+
+        .sign-chain {
+            width: 4px;
+            height: 30px;
+            background: transparent;
+            margin: 0 auto;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        /* Add chains on left and right of sign */
+        .sign-chain::before{
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 35.5px;
+            background: repeating-linear-gradient(
+                0deg,
+                #5C4033 0px,
+                #5C4033 6px,
+                #3E2723 6px,
+                #3E2723 12px
+            );
+            border-radius: 2px;
+            top: 0;
+        }
+
+        .sign-chain::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 35.5px;
+            background: repeating-linear-gradient(
+                0deg,
+                #5C4033 0px,
+                #5C4033 6px,
+                #3E2723 6px,
+                #3E2723 12px
+            );
+            border-radius: 2px;
+            top: 0;
+        }
+
+        .sign-chain::before {
+            left: -39px;
+        }
+
+        .sign-chain::after {
+            right: -39px;
+        }
+
+        .nav-sign {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+            background-size: cover;
+            border: 3px solid #2c231b;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #FFF;
+            font-size: 11px;
+            white-space: nowrap;
+            display: block;
+            text-align: center;
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .nav-sign:hover {
+            transform: translateY(5px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: -217px;
+            max-width: 1480px;
+            padding: 180px 20px 60px;
+            text-align: center;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPImIZLv30YQn4jXuTuzxyyzJTKYF965FS7xS3jjf_OexojHUI2PH0xMPuKaSmeIU5koTDoScACCQi08SZqPR0opNrWzyRvf5AI6WK9VcNhFVb5TJK0WgOBDpe5h-rl862CmDT1uqPZ2EJ84M0ALocs=w800-h450-s-no-gm?authuser=0');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Black fade overlay on hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.49) 0%,
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.49) 100%
+            );
+            z-index: 0;
+        }
+        
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            max-width: 1100px;
+            height: 440px;
+            margin: -72px auto 1px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9));
+            object-fit: contain;
+            will-change: transform;
+        }
+
+        .countdown-card {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPEriaY5PSmrTgJNQYqowfF7FXAGoqZTkInKkLrAid_5hHCUXzUo0y27FqjcFn2tlJzoNLjcbSNlT7j91x3kx5bgYPymMAdpB2DmPzuhJsf5xjsTfjP02x2o-GW4vvOin7xNSK2En-ZFz9u3nGXK8h8=w889-h287-s-no-gm?authuser=0');
+            background-size: cover;
+            height: 160px;
+            border: 2px solid #ffffff;
+            max-width: 665px;
+            margin: -80px auto;
+            padding: 22px 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        /* .countdown-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            z-index: 0;
+        } */
+
+        .countdown-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .countdown-card h2 {
+            font-size: 19px;
+            margin-bottom: 24px;
+            color: #ffffff;
+            text-shadow: 3px 3px 0 #000;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        .countdown div {
+            background: rgba(0,0,0,0.7);
+            padding: 10px 10px;
+            border: 2px solid #ffffff;
+            min-width: 70px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+        }
+
+        .countdown span {
+            display: block;
+            font-size: 12px;
+            margin-top: 12px;
+            color: #ffffff;
+        }
+
+        .stone-buttons {
+            display: flex;
+            gap: 100px;
+            justify-content: center;
+            margin-top: 118px;
+        }
+
+        .stone-btn {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMZ213EkYNghug2YDe5JlReDkV4NnHM3CGMcE9KqZfO3wC9E_mPF4fTCfvumT9HwnfLUKLq-QrhWvHSVF0b9jXjoA3SyMnZ25P4sEngOwiGw-gXURtMETzmtALESaDtVdos6rNA5r0Gn5hq25KXxsdU=w1731-h974-s-no-gm?authuser=0');
+            background-size: cover;
+            border: 3px solid #303030;
+            border-radius: 2px;
+            padding:26px 35px;
+            font-family: 'Press Start 2P', cursive;
+            color: #FFF;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+            text-shadow: 3px 3px #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stone-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.099), transparent);
+            transform: rotate(45deg);
+        }
+
+
+        .stone-btn:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow:
+                0 10px 25px rgba(114, 114, 114, 0.25),
+                inset 0 0 18px rgba(0, 0, 0, 0.507);
+            border-color: #575757;
+        }
+
+        .stone-btn:active {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow:
+                0 4px 10px rgba(255, 255, 255, 0.2),
+                inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .stone-btn-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .popup-image {
+            position: absolute;
+            width: 41.5px;
+            height: 41.5px;
+            top: 1%;
+            left: 94%;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+            image-rendering: pixelated;
+        }
+
+        .stone-btn-wrapper:hover .popup-image {
+            transform: translate(-50%, -50%) scale(1.5) rotate(15deg);
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .stone-btn-wrapper:hover .stone-btn {
+            z-index: 1;
+        }
+
+        /* Sections with backgrounds */
+        section {
+            padding: 120px 20px;
+            max-width: 1480px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-bg {
+            padding: 120px 20px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            position: relative;
+        }
+
+        .section-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+
+        .section-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* #about {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMcGS1yt1wT5BKt2RRvmacdjuSxybrIVbCmbPYNzpdJ23P7dmlD_alt51XhLJl9wuVCOuLxSnlutwWM5j9SCRyKY03sG_YdH_8flssVSPrANbg7GTYnIYdtjleg35W8sEejN2f2wffVYbmKJhWLYEgE=w1080-h483-s-no-gm?authuser=0');
+        } */
+
+        /* #tracks {
+            background-image: url('YOUR_TRACKS_BACKGROUND_URL.png');
+        }
+
+        #why-attend {
+            background-image: url('YOUR_WHY_ATTEND_BACKGROUND_URL.png');
+        }
+
+        #prizes {
+            background-image: url('YOUR_PRIZES_BACKGROUND_URL.png');
+        }
+
+        #sponsors {
+            background-image: url('YOUR_SPONSORS_BACKGROUND_URL.png');
+        } */
+
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 22px;
+            text-shadow: 4px 4px 0 #000;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 76px;
+            text-shadow: 5px 5px 0 #000;
+            color: #FFD700;
+        }
+
+        /* Image above heading */
+        h2::before {
+            content: '';
+            position: absolute;
+            top: -110px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 120px;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNanViXbxtTb4J6iI1DiyGtGlEA5n1FTMjXqKKobDwkyJfeEHp94FVfY5h1zxW4qxZ0G0YUZWaklrV5jurrL-YU3p25gC2TyosYluywv-IlU3PvNFPKgfQQV1flzFTOmvpJ0LaJYqaw-M12pKriI1BJ=w1865-h274-s-no-gm?authuser=0');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+            text-shadow: #000;
+        }
+
+        .about-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px auto 0px;
+            border-radius: 0px;
+            line-height: 2;
+            font-size: 12px;
+            text-shadow: 4px 4px 0 #000;
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.8); */
+            position: relative; 
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: rgba(0, 0, 0, 0.45);  */
+            z-index: 0;
+        }
+
+        .about-content > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-text {
+            margin-left: 50px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-image {
+            flex: 0 0 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            max-width: 200px;
+            image-rendering: pixelated;
+        }
+
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 42px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .stat-box {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNmZFAcs04y6XKd0kZtr4ZR529N34PqbTWJiY6jFkyuqXVk_q9mWIkPb4r09jucPeuQovOyNTBybyVXKfNlawAiB9ygYZc7LKhXAbGgsXJN0dcTGvDXAmsFysCwYzB-Gufh66aPcYbxM8DYSOm_fhWo=w640-h360-s-no-gm?authuser=0');
+            background-size: cover;
+            height: 135px;
+            border: 2px solid #000000;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+
+        .stat-box > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 42px;
+            display: block;
+            margin-bottom: 20px;
+            text-shadow: 4px 4px 0 #000;
+            color: #FFD700;
+        }
+
+        .stat-label {
+            font-size: 15px;
+            color: #FFF;
+        }
+
+        /* Tracks Container */
+        .tracks-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0px 20px;
+        }
+
+        .track-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px; /* REDUCED from 100px */
+            position: relative;
+            padding: 50px 0; /* INCREASED padding for larger minecarts */
+        }
+
+        /* Minecart Rail - Full Width */
+        .minecart-rail {
+            margin-top: 25px;
+            position: absolute;
+            width: 100%;
+            height: 80px; /* INCREASED from 40px */
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczObok46sVoyhzb7t683F3aoprm1__CM0rWoM3SUlcbLGjF7ZZ4wGNv-JbzdpWSoBOVL25v1EfD4K6yC9DrkWY748f58rT4Q5CcljA8V4weDuoKnwMpWiBzncLGTsjphJYdwWXS2CuZBTpS_4y0TCnpv=w301-h270-s-no-gm?authuser=0');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+            image-rendering: pixelated;
+        }
+
+        /* Minecart Card Container */
+        .minecart-card {
+            flex: 0 0 calc(25% - 30px);
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        /* Minecart Body with Background - INCREASED SIZE */
+        .minecart-body {
+            width: 260px; /* INCREASED from 180px */
+            height: 260px; /* INCREASED from 180px */
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM0PeHmA1W9pMt-V-tlsTUIY-U3NPU4htKmlTYkEwsJtRzLeMu7lvOVvjJZZ44Mq-JhRvudREzbo5kz6XUAVBZhwKQZ_sFN2k4MtN5FhSWuZswNAZ3Rp9aZKc2I5jyOGuGknwuxNKsFiotDCUoqz7Oy=w780-h478-s-no-gm?authuser=0');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .minecart-body:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        /* Track Logo inside Minecart - INCREASED SIZE */
+        .track-logo {
+            width: 180px; /* INCREASED from 80px */
+            height: auto; /* INCREASED from 80px */
+            image-rendering: pixelated;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,2.9));
+            position: relative;
+            z-index: 2;
+            margin-top: -140px; /* ADJUSTED for larger size */
+        }
+
+        /* Track Info Below Minecart */
+        .track-info {
+            margin-top: -30px;
+            text-align: center;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNMFDvRP2LUGTWyLqy8hyVod0E51GIN2puYcrchdkJt_JBzemnh4qkJ_6lTFyUwOvUuL6GmPuZov_TgZuwru6FuVzoz00hz_Nlj1cPuCKu_pK0da7BJQTjsA8_NESTnjmOlX2-QF2SFPgg0y2_3YUL-=w160-h160-s-no-gm?authuser=0');
+            background-size: contain;
+            text-shadow: #cecece 2px 1px 0;
+            padding: 9px 25px; /* INCREASED padding */
+            border: 3px solid #b0b0b0cd;  
+            border-radius: 1px;
+            width: 250px; /* INCREASED from 200px */
+            height: 57px;
+            border-radius: 8px;
+        }
+
+        .track-info::after {
+            content: '';
+            position: absolute;
+            background: rgb(1, 1, 1,10);
+            z-index: 100;
+        }
+
+        .track-info h3 {
+            margin-top: 2px;
+            font-size: 14px; /* INCREASED from 14px */
+            line-height: 1.2;
+            color: #000000;
+        }
+
+        .track-info p {
+            font-size: 10px; /* INCREASED from 9px */
+            line-height: 1.7;
+            color: #000000;
+            margin: 0;
+        }
+
+        /* Row 1 Animation - Right to Left (SLIDING, NO ROTATION) */
+        .track-row-1 .minecart-card {
+            transform: translateX(150px);
+        }
+
+        .track-row-1 .minecart-card.visible {
+            animation: slideInFromRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(150px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Row 2 Animation - Left to Right (SLIDING, NO ROTATION) */
+        .track-row-2 .minecart-card {
+            transform: translateX(-150px);
+        }
+
+        .track-row-2 .minecart-card.visible {
+            animation: slideInFromLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-150px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Stagger animation delays for ONE BY ONE effect */
+        .minecart-card[data-index="0"].visible { animation-delay: 0s; }
+        .minecart-card[data-index="1"].visible { animation-delay: 0.2s; }
+        .minecart-card[data-index="2"].visible { animation-delay: 0.4s; }
+        .minecart-card[data-index="3"].visible { animation-delay: 0.6s; }
+
+        .minecart-card.visible .minecart-body:hover {
+            animation: none;
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        /* ============================================
+        GHAST + BANNER SECTION
+        ============================================ */
+
+        .open-innovation-banner {
+            margin-top: -25px;
+            margin-left: 50px;
+            margin-bottom: -29px;
+            padding: 0 20px;
+            overflow: hidden;
+            min-height: 200px;
+            position: relative;
+            z-index: 3;
+            animation: simplefloat 4s ease-in-out infinite;
+            overflow: visible;
+        }
+
+        @keyframes simplefloat {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-9px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+
+        /* Wrapper for ghast + ropes + banner */
+        .ghast-banner-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            opacity: 0;
+            transform: translate3d(150%, 0, 0);
+            transition: none;
+            margin: 40px auto;
+            max-width: 1000px;
+            will-change: transform, opacity;
+        }
+
+        /* Ghast Image - REDUCED SIZE */
+        .ghast-img {
+            width: 180px;
+            height: 180px;
+            image-rendering: pixelated;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        /* Rope Container - HORIZONTAL */
+        .rope-container {
+            position: relative;
+            width: 100px;
+            height: 8px;
+            margin-left: -20px;
+            margin-right: -20px;
+            z-index: 1;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .rope {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #5C4033 0px,
+                #5C4033 10px,
+                #3E2723 10px,
+                #3E2723 20px
+            );
+            border-radius: 3px;
+            left: 0;
+        }
+
+        .rope-left {
+            top: 18px; /* Upper rope - fixed pixel position */
+        }
+
+        .rope-right {
+            bottom: 18px; /* Lower rope - fixed pixel position */
+        }
+
+        /* Banner Sign - REDUCED SIZE */
+        .banner-sign {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOg5faX00xxW8BweS_lac6WvAFtu32N7qFDiF1M02n1a6KEdmGrMAYKFcL2fccEVt5aHdOPOnrQwv5OF-X9AkjO74WyLx3yfwt0B0uscF2pqjMulLzOihrqj4s-aceDe__El0LYEgqVDELcwtig6h5w=w160-h160-s-no-gm?authuser=0');
+            background-size: cover;
+            border: 4px solid #5C4033;
+            padding: 9px 29px;
+            max-height: 65px;
+            text-align: center;
+            font-size: 10px;
+            background-size: contain;
+            z-index: 1;
+            max-width: 690px;
+            position: relative;
+
+        }
+
+        .banner-sign::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .banner-sign > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-sign p {
+            margin: 0;
+            font-size: 13px;
+            color: #000000;
+            text-shadow: 3px 3px 6px #ffffff;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        /* Slide-in Animation from Right to Left */
+        .ghast-banner-wrapper.visible {
+            animation: ghastSlideIn 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards;
+        }
+
+        @keyframes ghastSlideIn {
+            0% {
+                opacity: 0;
+                transform: translate3d(150%, 0, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        /* ============================================
+        WHY ATTEND SECTION - COMPLETE CSS
+        ============================================ */
+
+        /* Cards Grid Layout */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 2fr);
+            gap: 30px;
+            max-width: 1500px;
+            margin: 0 auto;
+            margin-top: -20px;
+            padding: 70px 1px 0px;
+            margin-bottom: -80px;
+        }
+
+        /* Card Wrapper - Contains bee and card */
+        .card-wrapper {
+            position: relative;
+            opacity: 0;
+            transform: translateX(0);
+            transition: none;
+        }
+
+        /* Initial positions for different flying directions */
+        .card-wrapper[data-direction="top-left"] {
+            transform: translate(-200px, -200px) rotate(-15deg);
+        }
+
+        .card-wrapper[data-direction="top-center"] {
+            transform: translate(0, -250px) rotate(0deg);
+        }
+
+        .card-wrapper[data-direction="top-right"] {
+            transform: translate(200px, -200px) rotate(15deg);
+        }
+
+        .card-wrapper[data-direction="bottom-left"] {
+            transform: translate(-200px, 200px) rotate(-15deg);
+        }
+
+        .card-wrapper[data-direction="bottom-center"] {
+            transform: translate(0, 250px) rotate(0deg);
+        }
+
+        .card-wrapper[data-direction="bottom-right"] {
+            transform: translate(200px, 200px) rotate(15deg);
+        }
+
+        /* Bee Image - Flies above card */
+        .bee-image {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: auto;
+            z-index: 10;
+            image-rendering: pixelated;
+        }
+
+        /* Card Design */
+        .card {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNW5_-Oc5G3NZQZJa0fDPnRt05fruIUvQZneOI-jjw-_XyzuyyEIpbI1hOaWoOLIjj3Nv8zqGfCvsQX6DyKz6AhltYA8sw_2fGSWCI1dDCAv06DD1ES2MPlSwWWazeWLUsHpe_JY0BMT2VzRaBYVmZD=w160-h160-s-no-gm?authuser=0');
+            background-size: cover;
+            margin-bottom: 90px;
+            margin-top: 35px;
+            border: 6px solid transparent;
+            border-image: repeating-linear-gradient(
+                90deg,
+                #8b5a2b 0px,
+                #8b5a2b 6px,
+                #7a4a1f 6px,
+                #7a4a1f 12px,
+                #9c6b3d 12px,
+                #9c6b3d 18px
+            ) 6;
+            border-radius: 1px;
+            padding: 20px 0px 20px;
+            min-width: 200px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card Logo */
+        .card-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
+        }
+
+        /* Card Title */
+        .card h3 {
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0 #b1b1b1;
+        }
+
+        /* Card Description */
+        .card p {
+            font-size: 11px;
+            line-height: 1.8;
+            color: #FFF;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Flying animation when visible */
+        .card-wrapper.visible {
+            animation: flyIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes flyIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* Stagger delays for each card */
+        .card-wrapper[data-index="0"].visible { animation-delay: 0.3s; }
+        .card-wrapper[data-index="1"].visible { animation-delay: 0.35s; }
+        .card-wrapper[data-index="2"].visible { animation-delay: 0.4s; }
+        .card-wrapper[data-index="3"].visible { animation-delay: 0.45s; }
+        .card-wrapper[data-index="4"].visible { animation-delay: 0.5s; }
+        .card-wrapper[data-index="5"].visible { animation-delay: 0.75s; }
+
+        /* Continuous float animation after landing - for the card */
+        .card-wrapper.visible .card {
+            animation: syncedFloat 3s ease-in-out 1s infinite;
+        }
+
+        @keyframes syncedFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Continuous float animation after landing - for the bee (maintains horizontal centering) */
+        .card-wrapper.visible .bee-image {
+            animation: syncedFloatBee 3s ease-in-out 1s infinite;
+        }
+
+        @keyframes syncedFloatBee {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+            50% {
+                transform: translate(-50%, -15px);
+            }
+        }
+
+        /* Prize Pool - 2 Rows of 3 */
+        .prizes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .prize-row {
+            display: flex;
+            margin-top: -50px;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 60px;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-bottom: -30px;
+        }
+
+        .prize-card {
+            text-align: center;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-800px);
+            transition: none;
+        }
+
+        /* 1st place elevated in middle */
+        .prize-card-elevated {
+            transform: translateY(-850px);
+            margin-bottom: 40px;
+        }
+
+        /* Soil/Brown particle colors for prize chests */
+        /* Particle burst effect - BEHIND the card */
+        /* ==================================================
+        BASE PARTICLE — SHARED BY ALL EFFECTS
+        ================================================== */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            z-index: 0;
+            image-rendering: pixelated;
+
+            /* image-based particles support */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            /* performance */
+            will-change: transform, opacity;
+        }
+
+
+        .particle-burst {
+            width: 10px;
+            height: 10px;
+            margin-top: 25px;
+            animation: particle-burst 1s ease-out forwards;
+        }
+        
+        .particle-fall {
+            width: 10px;
+            height: 10px;
+            margin-top: -10px;
+            animation: particle-burst-fall 3s ease-out forwards;
+        }
+
+        @keyframes particle-burst-fall {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.2);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty) + 150px)) scale(0.3); /* Falls down 150px */
+                opacity: 0;
+            }
+        }
+
+        .particle-soil-dark {
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczOnA70azawW6Kgofg25lPYoPyI9YJfV0bcBgFVfdMmkn3V5suVqcLR3BYYkRChqspLH2Qw2LMFvPBIKhQH5H7j_6YxVN8a_UCahp0RLnUaS6c0d7Z1xzzRmAiP_J_OnXsAQFmWwVL85d5fMUCjOcq6I=w144-h144-s-no-gm?authuser=0");
+        }
+
+        .particle-soil-medium {
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczOlFB2J4uL8wIqyT-ePz-J6HveRgkh14g43b0JYvF78NoEpu2r-EVc55cdpcVJkmSlOZLJ2X_M0kGLRfdMC86V6S-C1esbBIuiQLVCmheRKcKL7X56g71w1Jz6_wRmve04P2jTUJpXoydx7s4S_6co4=w160-h160-s-no-gm?authuser=0");
+        }
+
+        .particle-soil-light {
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczNIuou5hUOOdK_OjwM48qCj_BdFJDZA57COlvNmm6YYj2L8VeipvIGSUVR9r_P81oXGKY1WZry2t1ne4OrD2mAPO5ATlsVnKKB3xJbvcjqMJM7H-EDVmmM4SgfDFSLwlJsuNZQ4i24No1Qjob5ZF3G_=w160-h160-s-no-gm?authuser=0");
+        }
+
+        .particle-dirt {
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczMOqITyfzJKaORYdL6-TNKodIde6XDr5_KnpBE_q4oDinwB6uLaZSv5w8L1nw6HFxSzKZdU37IgASB3efTyb5fz2Z4p_rqtWYxLu9z6DErSz-rtjyLzAcMn4XxC8Y3rRY1JPcUZJfKQ3NptqnUFJjc8=w160-h160-s-no-gm?authuser=0");
+        }
+
+        .particle-brown {
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczO9O-Wkk6CGxvDysW9PB5WZyfEPDeprYSnMjxQ0BpVbTHDFrNpKlKeD_izK2aLJPRsrw9Mfoab-0bfYpAt1EOqXPWnr7F6fFqRFyNQ3MTnxIYGk_2ye4fBdbgtxoQv2zIVR6zQn_ss4pBdx3wF4Akj9=w160-h160-s-no-gm?authuser=0");
+        }
+
+        /* Chest wrapper for image swap on hover */
+        .chest-wrapper {
+            position: relative;
+            width: 205px;
+            height: 205px;
+            margin: 0 auto 25px;
+            z-index: 1;
+        }
+
+        .chest-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+            image-rendering: pixelated;
+        }
+
+        .chest-default {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .chest-hover {
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .chest-wrapper:hover .chest-default {
+            opacity: 0;
+        }
+
+        .chest-wrapper:hover .chest-hover {
+            opacity: 1;
+        }
+
+        .prize-label {
+            font-size: 13px;
+            margin-bottom: 12px;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px #000;
+        }
+
+        /* Prize amount with scramble effect */
+        .prize-amount {
+            font-size: 24px;
+            color: #FFF;
+            text-shadow: 4px 4px 0 #000;
+            font-family: 'Press Start 2P', cursive;
+            letter-spacing: 2px;
+            min-width: 200px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .prize-card:not(:hover) .prize-amount {
+            color: #888;
+            text-shadow: 2px 2px 0 #000;
+        }
+
+        /* Falling animation when visible */
+        .prize-card.visible {
+            animation: chestFall 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .prize-card-elevated.visible {
+            animation: chestFallElevated 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .chest-wrapper:hover .chest-hover {
+            opacity: 1;
+            transform: scale(1.25); /* ONLY expand the hover image */
+        }
+
+
+        @keyframes chestFall {
+            0% {
+                opacity: 0;
+                transform: translateY(-500px) rotate(0deg);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            75% {
+                transform: translateY(-15px) rotate(-2deg);
+            }
+            85% {
+                transform: translateY(5px) rotate(1deg);
+            }
+            95% {
+                transform: translateY(-5px) rotate(-0.5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes chestFallElevated {
+            0% {
+                opacity: 0;
+                transform: translateY(-550px) rotate(0deg);
+                margin-bottom: 40px;
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+                margin-bottom: 40px;
+            }
+            75% {
+                transform: translateY(-15px) rotate(-2deg);
+                margin-bottom: 40px;
+            }
+            85% {
+                transform: translateY(5px) rotate(1deg);
+                margin-bottom: 40px;
+            }
+            95% {
+                transform: translateY(-5px) rotate(-0.5deg);
+                margin-bottom: 40px;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+                margin-bottom: 40px;
+            }
+        }
+
+        /* Stagger delays for falling effect */
+        .prize-row-1 .prize-card[data-index="0"].visible { animation-delay: 0.1s; }
+        .prize-row-1 .prize-card[data-index="1"].visible { animation-delay: 0s; }
+        .prize-row-1 .prize-card[data-index="2"].visible { animation-delay: 0.2s; }
+
+        .prize-row-2 .prize-card[data-index="0"].visible { animation-delay: 0.4s; }
+        .prize-row-2 .prize-card[data-index="1"].visible { animation-delay: 0.5s; }
+        .prize-row-2 .prize-card[data-index="2"].visible { animation-delay: 0.6s; }
+
+        /* Particle container for ground impact */
+        .prize-card .particle-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            margin-top: -500px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Sponsors */
+        .sponsor-tier {
+            margin-bottom: 80px;
+        }
+
+        .sponsor-tier h3 {
+            font-size: 22px;
+            margin-bottom: 45px;
+            text-align: center;
+            color: #FFD700;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sponsor-box {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border: 5px solid #654321;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            transition: transform 0.3s;
+        }
+
+        .sponsor-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .sponsor-box img {
+            max-width: 100%;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        /* FAB */
+        .fab {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczP1lCeiQIfbd83eLG7d4f-uawftSIIHk4rpp8bQSiOR8KmmuLcCisWxTopkn-56BiB6wYDc7-qWvy0HRZyGEtrH84uz_cF9nsAcdOTuZ2ROvMVsFL4irkzZSVhIBBgpUWBvvbqa0emAaqC0yA_ekiov=w160-h160-s-no-gm?authuser=0');
+            background-size: cover;
+            border: 2px solid #fff700;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 0 40px rgba(234, 255, 7, 0.9);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 15px;
+        }
+
+        .fab img {
+            width: 120%;
+            height: 120%;
+            object-fit: contain;
+        }
+
+        /* Global Footer Styles */
+        footer#contact {
+            width: 100%;
+            font-family: 'Press Start 2P', cursive;
+            color: #FFFFFF;
+            image-rendering: pixelated;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .lava-border {
+            width: 100%;
+            height: 100px;
+            background: url('https://img.freepik.com/free-photo/detailed-structure-marble-natural-pattern-background-design_1258-79119.jpg?semt=ais_hybrid&w=740&q=80') repeat-x top center;
+            background-size: auto 100%;
+            image-rendering: pixelated;
+            animation: lavaFlow 40s linear infinite;
+            z-index: 10;
+            position: relative;
+        }
+
+        .map-overlay {
+            position: absolute;
+            right: 15px;
+            top: 65px;
+            transform: translateY(-50%);
+            width: clamp(220px, 22vw, 300px);
+            height: clamp(220px, 22vw, 300px);
+            border-radius: 12px;
+            overflow: visible;
+            z-index: 35;
+        }
+
+        .map-overlay::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            background: url('https://lh3.googleusercontent.com/pw/AP1GczOnN-03cUemuR5S0Kezbi3WDwAYgx8WVj4TCufy1LoTlc5X85lx_JPsGhs0l-K0vXTA7IB8AM9e5AguXr0i7qEzUtKd_gFAetjGmxYnswU8zXRrHeLKm8EWJZP3X-wC85a-WxYhyAvbVs67XkJLVhjH=w160-h160-s-no-gm?authuser=0') repeat;
+            background-size: 100px 100px;
+            image-rendering: pixelated;
+            z-index: 25;
+        }
+
+        .map-overlay iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            position: relative;
+            z-index: 25;
+        }
+
+        @keyframes lavaFlow {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        .footer-main {
+            height:240px;
+            width: 100%;
+            background: url('https://lh3.googleusercontent.com/pw/AP1GczOnN-03cUemuR5S0Kezbi3WDwAYgx8WVj4TCufy1LoTlc5X85lx_JPsGhs0l-K0vXTA7IB8AM9e5AguXr0i7qEzUtKd_gFAetjGmxYnswU8zXRrHeLKm8EWJZP3X-wC85a-WxYhyAvbVs67XkJLVhjH=w160-h160-s-no-gm?authuser=0') repeat;
+            background-size: 100px 100px;
+            image-rendering: pixelated;
+            padding: 45px 20px 50px;
+            margin-top: -50px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 15;
+        }   
+
+        .footer-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 25px;
+            z-index: 25;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            flex: 1 1 300px;
+            min-width: 240px;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .logo-bg {      
+            padding: 8px;
+            border-radius: 1px;
+            display: inline-flex;
+            width: fit-content;
+        }
+
+        .acehack-logo {
+            margin-top: -30px;
+            width: 320px;
+            max-width: 320px;
+            height: auto;
+            display: block;
+            image-rendering: pixelated;
+            align-content: center;
+        }
+
+        .follow-us {
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 10px;   
+            color: #FFFF00;
+            letter-spacing: 1px;
+        }
+
+        .socials {
+            display: flex;
+            gap: clamp(8px, 1.5vw, 12px);
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: clamp(30px, 3vw, 35px);
+            height: clamp(30px, 3vw, 35px);
+            background: transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Links Sections (Quick Links & Archives) */
+        .links-section {
+            flex: 1 1 160px;
+            min-width: 140px;
+        }
+
+        .links-section h3 {
+            color: #FFFF00;
+            font-size: clamp(11px, 1.8vw, 15px);
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px #000;
+            white-space: nowrap;
+        }
+
+        .links-section a {
+            display: block;
+            color: #FFFFFF;
+            font-size: clamp(9px, 1.5vw, 11px);
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px #000;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        /* Contact Us Section */
+        .contact-section {
+            flex: 1 1 250px;
+            min-width: 180px;
+        }
+
+        .contact-section h3 {
+            color: #FFFF00;
+            font-size: clamp(11px, 1.8vw, 15px);
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px #000;
+            white-space: nowrap;
+        }
+
+        .contact-info {
+            font-size: clamp(9px, 1.5vw, 11px);
+            line-height: 1.8;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 2px #000;
+            margin: 0;
+        }
+
+        /* Location Section */
+        .location-section {
+            flex: 1 1 280px;
+            min-width: 260px;
+            text-align: left;
+        }
+
+        .location-section h3 {
+            color: #FFFF00;
+            font-size: clamp(11px, 1.8vw, 15px);
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Separator & Copyright */
+        .footer-separator {
+            height: 5px;
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMJLO4QxuMypYpHFbsxpGiAs1u51MK4EyEI40Yj0M630JhLIz5XEZo43k6deeFcnpR1imTJPxsRSn7UQ7yJ3CTq9qBY0PeGah2Qt4xeihP-Vk-zxR3p8uQC5-z0GXja6g3fjK5Dpq-NUR0teUGsDPO1=w160-h67-s-no-gm?authuser=0');
+            image-rendering: pixelated;
+            background-size: 80px 80px;
+        }
+
+        .copyright {
+            background: #000000;
+            text-align: center;
+            padding: 20px 0;
+            font-size: clamp(11px, 0.4vw, 13px);
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        .mc-toast {
+            position: fixed;
+            bottom: 390px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            background: #2b2b2b;
+            color: #FFD700;
+            border: 3px solid #fff700;
+            padding: 14px 22px;
+            font-size: 22px;
+            text-shadow: 2px 2px 0 #000;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+
+        .mc-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
+        }
+
+        /* ============================================
+        PERFORMANCE OPTIMIZATION ADDITIONS
+        ============================================ */
+
+        /* FORCE GPU ACCELERATION - Add to ALL animated elements */
+        .hero-logo,
+        .stone-btn,
+        .minecart-card,
+        .card-wrapper,
+        .prize-card,
+        .ghast-banner-wrapper,
+        .lantern,
+        .nav-sign,
+        .stat-box,
+        .bee-image,
+        .card,
+        .chest-wrapper,
+        .particle,
+        .end-cloud,
+        .star,
+        .purple-glow,
+        .flying-entity,
+        .lantern-container {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        /* CONTAIN PROPERTY - Add to sections for layout isolation */
+        nav,
+        .hero,
+        section,
+        .end-sky {
+            contain: layout style paint;
+        }
+
+        /*  REDUCE BLUR INTENSITY - Replace existing purple-glow filter */
+        .purple-glow {
+            filter: blur(60px); /* Reduced from 100px */
+        }
+
+        /*  OPTIMIZE ANIMATIONS - Update all transform animations */
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: scale(1) translateZ(0); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.5) translateZ(0); 
+            }
+        }
+
+        @keyframes float-glow {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(30px, -40px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        @keyframes drift-cloud {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-150vw, 0, 0); }
+        }
+
+        @keyframes pendulum-swing {
+            0%, 100% { transform: rotate(-8deg) translateZ(0); }
+            50% { transform: rotate(8deg) translateZ(0); }
+        }
+
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translate3d(150px, 0, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translate3d(-150px, 0, 0);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes flyIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+        }
+
+        @keyframes syncedFloat {
+            0%, 100% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(0, -15px, 0);
+            }
+        }
+
+        @keyframes syncedFloatBee {
+            0%, 100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+            50% {
+                transform: translate3d(-50%, -15px, 0);
+            }
+        }
+
+        @keyframes chestFall {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, -500px, 0) rotate(0deg);
+            }
+            60% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            75% {
+                transform: translate3d(0, -15px, 0) rotate(-2deg);
+            }
+            85% {
+                transform: translate3d(0, 5px, 0) rotate(1deg);
+            }
+            95% {
+                transform: translate3d(0, -5px, 0) rotate(-0.5deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+        }
+
+        /* OPTIMIZE TRANSITIONS - Add hardware acceleration */
+        .stone-btn,
+        .nav-sign,
+        .minecart-body,
+        .stat-box,
+        .popup-image {
+            transition-property: transform, opacity, box-shadow;
+            transition-duration: 0.3s;
+            transition-timing-function: ease;
+        }
+
+        .particle {
+            pointer-events: none;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes particle-burst-fall {
+            0% {
+                transform: translate3d(-50%, -50%, 0) scale(1);
+                opacity: 1;
+            }
+            30% {
+                transform: translate3d(calc(-50% + var(--tx)), calc(-50% + var(--ty)), 0) scale(1.2);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            100% {
+                transform: translate3d(calc(-50% + var(--tx)), calc(-50% + var(--ty) + 150px), 0) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="bootup-screen">
+        <video id="bootup-video" class="bootup-fullscreen" autoplay muted playsinline preload="auto">
+            <source src="assets/vid/bootup.mov" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Animated Particles -->
+    <!-- Minecraft End Sky Background -->
+    <div class="end-sky" id="endSky"></div> 
+
+    <!-- Navbar -->
+    <nav>
+    <div class="nav-texture-bar"></div>
+
+    <div class="nav-container">
+        <div class="lantern-container">
+            <div class="chain"></div>
+            <div class="lantern"></div>
+        </div>
+
+        <div class="nav-links">
+            <div class="nav-sign-container" style="--index: 0">
+                <div class="sign-chain"></div>
+                <a href="#home" class="nav-sign">Home</a>
+            </div>
+
+            <div class="nav-sign-container" style="--index: 1">
+                <div class="sign-chain"></div>
+                <a href="#timeline" class="nav-sign" data-soon="true">Timeline</a>
+            </div>
+
+            <div class="nav-sign-container" style="--index: 2">
+                <div class="sign-chain"></div>
+                <a href="#guests" class="nav-sign" data-soon="true">Guests</a>
+            </div>
+
+            <!-- NEW TRACKS BUTTON -->
+            <div class="nav-sign-container" style="--index: 3">
+                <div class="sign-chain"></div>
+                <a href="#tracks" class="nav-sign">Tracks</a>
+            </div>
+
+            <div class="nav-sign-container" style="--index: 4">
+                <div class="sign-chain"></div>
+                <a href="#team" class="nav-sign" data-soon="true">DG Swags</a>
+            </div>
+
+            <div class="nav-sign-container" style="--index: 5">
+                <div class="sign-chain"></div>
+                <a href="#contact" class="nav-sign">Contact</a>
+            </div>
+        </div>
+
+        <div class="lantern-container">
+            <div class="chain"></div>
+            <div class="lantern"></div>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPxb-M-DbEfiTuCRNNuye1Hmi-tOO0co4dj9ABS6RA1i66QiECIi16ZzjfYl7oSQMfW1YAOwmKVxWvIVXN8grhpAIp4jP3FOJOXWgmIm8qsPDd4-iEHxVaIvujxAp-c-hdSH11bA5ISpRCiEX1FWEjJ=w929-h531-s-no-gm?authuser=0" alt="AceHack 5.0" class="hero-logo">
+        <div class="countdown-card">
+            <h1>Event Starts In</h1>
+            <div class="countdown" id="countdown">
+                <div><span id="days">00</span><span>Days</span></div>
+                <div><span id="hours">00</span><span>Hours</span></div>
+                <div><span id="mins">00</span><span>Mins</span></div>
+                <div><span id="secs">00</span><span>Secs</span></div>
+            </div>
+        </div>
+        
+        <div class="stone-buttons">
+            <div class="stone-btn-wrapper">
+                <a href="#" class="stone-btn">Register Now</a>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Diamond" class="popup-image">
+            </div>
+            <div class="stone-btn-wrapper">
+                <a href="https://chat.whatsapp.com/FC9DCKKTe61DD3SERneNV0" class="stone-btn">Join Community</a>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Golden Apple" class="popup-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-bg">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>About AceHack 5.0</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                    AceHack 5.0 is the next evolution of Rajasthan's biggest student-run hackathon—a 36-hour build space where students and innovators from across the country come together to create impactful, real-world tech solutions.
+                    </p>
+                    <p>
+                    More than just coding, it is a platform to explore ideas, sharpen skills, and grow with a driven community—whether you are just starting out or building complex systems.
+                    </p>
+                    <p>
+                    Enter AceHack 5.0 and shape the future, one idea at a time.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNWNWiQ4kQZeKYZNto0zbPYMNi0geP_jgBiH7dOCR10sFhgEeKMm5smK3O-FATAvxv35rkMSScR6NWfBQeRo7bNHTUUSqgtY_EeHkQ-w4iyNI2OoaI8rWmH5I5OvyUkdBgIEfqDyOwl9_iL_grP143S=w188-h200-s-no-gm?authuser=0" alt="AceHack">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Participants</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">$XXXX</span>
+                    <span class="stat-label">Prize Pool</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Mentors</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Inside #tracks section, replace everything inside the section -->
+    <section id="tracks" class="section-bg">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2>Hackathon Tracks</h2>
+            
+            <div class="tracks-container">
+                <!-- First Row - Right to Left -->
+                <div class="track-row track-row-1">
+                    <div class="minecart-rail"></div>
+                    
+                    <div class="minecart-card" data-index="0">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMoWBypRQPo_Tz9KOGKBN2AG_AyHKDjGC0a5WbbsRnV-IlFbr6Wd4ossdgQvbPjtyauuRXxZ7mZrmyvf_B_2x2KhR56ZsPbd1T6l4G6rsWsqYZ1X9d5lIYqHAj1pqH-YmqnRwFzISBUaWReKcFYV44w=w995-h995-s-no-gm?authuser=0" alt="AI/ML" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Blockchain &Crypto</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="1">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNA0KEXH391SwfOywrA1y_FUKGus3Ac8BK34XvFIUj93cGiEvyejU-ZbipzccYGMndcjADZBR9VNGrzkYToBg1wO22uLudysKp_hfFqQkf7NbVhfd9X6FQTWn52nyu488XRdvuKmrMMk2GdmXhTKRzQ=w995-h995-s-no-gm?authuser=0" alt="Web3" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Web & App Development</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="2">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNQo9-IVt55O552se1bvMf-zNy39sPMT88o4K0IIUxZCkuQCSXZ5lyuK9X0tXvmHOEj4ZLJpsszWK6jXupSVOZ54qTubp0OC_MyjmKZ34_Gn0p9bXRLbA-hSuq1L5YuL4AB-XT0swQGscps7o_4JeZ1=w995-h995-s-no-gm?authuser=0" alt="IoT" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Internet of Things</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="3">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczM5DT6Hqe5nUheJiVstIXg3GI-qfXCErJJa1nlicmKB9ka00FztYPF7aREc5X5mR_AuT5K_ZBjmsEQYzA-Z5iktTbxWdaYizScQnmg4eb_Unj1ZJtEJMM8zDdAUWwixIyyr9t-h_FRxvIop_LklyLuI=w995-h995-s-no-gm?authuser=0" alt="Healthcare" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>AR & VR Projects</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row - Left to Right -->
+                <div class="track-row track-row-2">
+                    <div class="minecart-rail"></div>
+                    
+                    <div class="minecart-card" data-index="0">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMyukZoEek6giXeNe6Rq9JhZNxykJbkaPcL7U3tH7G_NduFJ8VP59mGtUMtHP2QPBxumi8fONJo4vgeaAAwd71xagGVw91QE_sIc2VtR1m_AC4ylp1XNSpiZ-SYy2DAjVGxVKRVP7gzqj83j4yN_RPa=w995-h995-s-no-gm?authuser=0" alt="EdTech" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Game Development</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="1">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMkyzTV-3PuMKBpS5jED7OSLrCp1TMCnJAEC_YHuRcZP2qrgv_OQHDzpiHU5ckYgRxeknw1-2rFk-6907-ONLhkHVHS7niG9gSSSnSbgGaWg-Zh0Svit0wDNmrAS-XIO97YcQ_oP55QIgsc3szuI3ma=w995-h995-s-no-gm?authuser=0" alt="FinTech" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Data & Generative AI</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="2">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMGqfE1ZgaSHgoBjkxSsMVG1dFsvY4yxiVQaOfJLnDZY3MeiZEBbL3-H2GpOGVVavrWhM1ekNWpmb-5b4B2EqTAAQogBlW5w8_S1Tg8ZgO2sGTuDhbfVGpy927Yl0idpSi3NIgNd8FGll_9xvbZearo=w995-h995-s-no-gm?authuser=0" alt="Sustainability" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Cloud & DevOps</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="minecart-card" data-index="3">
+                        <div class="minecart-body">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMew3sXKriDVLf3C0q0F2D36htiVhSzrs6AhZoxy6XQkUbmT3nKGvrTyT9sIwHfuxls15RsMQey5jiylRkw5xcgne8FJJFJsXSwDScdWxbiVsp7ipratX7jymEfbAF5mwgZkrstBPTyqkn0Dga1XxdW=w995-h995-s-no-gm?authuser=0" alt="Open Innovation" class="track-logo">
+                        </div>
+                        <div class="track-info">
+                            <h3>Cyber Security</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open Innovation Banner with Ghast -->
+                <div class="open-innovation-banner">
+                    <div class="ghast-banner-wrapper">
+                        <!-- Ghast Image -->
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczOpFnxQjEqmKRGm-uqefkZ1RQ_FGdbvHjy3ai4_ZSidf3WOX2RzQTOzxG2JnIGqALJVSu6Yd5so5KzgO01iIuQjFxMvaM1m7IR-h3bE9uI9vyy_BNrAVHBCw1DnitF3pd3Xu9dDDd0hePOk6wlj7SDZ=w250-h256-s-no-gm?authuser=0" 
+                            alt="Ghast" 
+                            class="ghast-img">
+                        
+                        <!-- Rope Connection -->
+                        <div class="rope-container">
+                            <div class="rope rope-left"></div>
+                            <div class="rope rope-right"></div>
+                        </div>
+                        
+                        <!-- Banner -->
+                        <div class="banner-sign">
+                            <p>Open Innovation Track is Also Available for Interested Developers!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Attend Section --> 
+    <section id="why-attend" class="section-bg">
+        <div style="max-width: 1400px; margin: 0 auto; margin-top: -50px;">
+            <h2>Why Attend?</h2>
+            <div class="cards-grid">
+                <!-- Row 1 -->
+                <div class="card-wrapper" data-direction="top-left" data-index="0">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                    <div class="card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMtC1TfeAMEhmhYYm1rEFM96mD7GtLDPIRHxvpiZcXeCpgu7NNjMeSZHyzKLQpv2A933FejjXJngFQalSiuKm2aTANCEBn-YSQRw0mEeD5C5YeUCeCdefhCgx2hSa77JVObMlbz974ZkZwLz97nr_RH=w1086-h868-s-no-gm?authuser=0" alt="Win Prizes" class="card-logo">
+                        <h3>Build</h3>
+                        <p>Solve real-world problems with practical impact</p>
+                    </div>
+                </div>
+                
+                <div class="card-wrapper" data-direction="top-center" data-index="1">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                    <div class="card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNBwORKZ8n4YITsdGATHX1xYVIQXa0VYLLUx85w8VEZiMSxNZ0LObnMwmMjbOauIoY2HrMuujS1UpfDDHRDpLrQATcXh9UAbEJdaqiNr3Q9Hlu6zgKglQBzxsjci4JuE7I8ij_Jl2tq0EflJ-4-1qpw=w892-h891-s-no-gm?authuser=0" class="card-logo">
+                        <h3>Industry</h3>
+                        <p>Interact with the top tech leaders and innovators</p>
+                    </div>
+                </div>
+                
+                <div class="card-wrapper" data-direction="top-right" data-index="2">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                    <div class="card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlDxlcaoQ5p_Y16jY18GwfVmpX1IPalCr-Jtn_JxxnuG9ohvJvgFH_MK_v_wnazaxIp3ns0JIj69CvHPA3S_b19p-KTYgevwY81gnbYWZSKPnl8FiK-yn_4TvL3BzoLomEx33N508Z3xNCHCEnuUEl=w913-h912-s-no-gm?authuser=0" alt="Learn" class="card-logo">
+                        <h3>Network</h3>
+                        <p>Connect with like minded hackers and creators</p>
+                    </div>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="card-wrapper" data-direction="top-left" data-index="0">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                    <div class="card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczM6mumlt-V64vbmRTQkOcwHRFhWvHD7m7QjTH6p-sjTRBy-VCo1QuhU9MmndlLggp72v6h-k1vRvXG4UFxOcNgRD9lSwHMOPdBZ4boR2FYyRkyJrkQnuXiLMNA08YKvrl3Q_eAAwdhEnFEXD-CfNJCX=w996-h995-s-no-gm?authuser=0" alt="Build" class="card-logo">
+                        <h3>Careers</h3>
+                        <p>Explore jobs, internships, and mentorships</p>
+                    </div>
+                </div>
+                
+                <div class="card-wrapper" data-direction="top-center" data-index="1">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                    <div class="card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNooCLJw_FqDYJ0daLVWv8I-VVktdaSv7S2nCacf-J11ZMiMEqNigU0pKLfyEfSZgLtt8063VmmzcJCpUt8xONdwRrBeFD9xSXcPZP5IT6er2f9c_HUWTHy57rvIvyBLmRxytugfFSgu5Eu3FYpPAtE=w995-h995-s-no-gm?authuser=0" alt="Explore" class="card-logo">
+                        <h3>Fun & Joy</h3>
+                        <p>Enjoy food, swags, energy, and the AceHack vibe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prize Pool Section -->
+    <section id="prizes" class="section-bg">
+        <div style="max-width: 1400px; margin: 0 auto; margin-top: -40px;">
+            <h2>Prize Pool</h2>
+            <div class="prizes">
+                <!-- First Row - 3 chests (1st elevated in middle) -->
+                <div class="prize-row prize-row-1">
+                    <div class="prize-card" data-index="1" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNu_H5PVobUGKHQkuX0j_QQtF_N5AV7ezccjknQ0oHH8mRJslsN9h1DglGhHoIX_ZK6gd7nQLWTLk8anZdHajEDnFfaTDfcU8H5r4wd-Hxi7qZoH2y2BdWziMxdqBWb2Bm25twGCUwRLWSYrRbC6qUX=w273-h246-s-no-gm?authuser=0" 
+                                alt="2nd Place Chest" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOUx7jS6BjysWc4E9ccmAONBxbf0I2UMQ4c7xYwHIJiBpnpr4KgfY5DlBuW5F-_jWHFGFUyBh546ClFqFX2bhu9IW86mAYoCfYfuO1BnNfSvaTL-RXnbvyp-xvxTTLl2sDpBKeB7p6O-3kCaMk08QZL=w560-h491-s-no-gm?authuser=0" 
+                                alt="2nd Place Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">2nd Place</div>
+                        <div class="prize-amount">₹X,XX,XXX</div>
+                    </div>
+
+                    <div class="prize-card prize-card-elevated" data-index="0" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczONpnP1yvDpP72KKTsTLkeid_wP14rFywsXKG-CAMpdcdGUehQI3CRHlJ-FXZePgPxFC62sJ3XVTPwm31e-neNRWNaJOO6dHZeG4q_WOmrcyoXVA33-c2xOecGan4k7F7GNllG7qnVacuRiS2INB5SO=w346-h296-s-no-gm?authuser=0" 
+                                alt="1st Place Chest" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPa0z9wORDhiDT9JohihWaMmxp1AQDIY8sRMyMvhwNuVhgRnoF1udYA0e1ekWUa0ROljmNK4Ouw9pPFqEOKdTT9O9St4vRoDXXnziemauSVOekiqxzwKKM04IpsTHPnPFfGHX3TGeQQCsXMx3SqDRUw=w560-h461-s-no-gm?authuser=0" 
+                                alt="1st Place Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">1st Place</div>
+                        <div class="prize-amount">₹X,XX,XXX</div>
+                    </div>
+
+                    <div class="prize-card" data-index="2" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMuquS5JtdH4UZd3pxUiWPzxjpYFXME5jWI2m2ydzr-mcbCTGDFN9AWXNLfxkPv39k-RNZd7-WPvJ07760yiIXiLOeWHxsb535QfxPRnjMpnZ3VQl1lmBsWSc0FuSm0xtt5xTVQg-tcyBnYTU1DSgcg=w366-h354-s-no-gm?authuser=0" 
+                                alt="3rd Place Chest" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOxe138R0rw7XV-rbmWygQnSTsHRDqHcO9wvfpIy2En1Viamu2CXVAjJ-EbIl19OT8zdHmbtTu5GeIpiG3J6w71Thqd6f77csGz-aQRbn_J0N-Oxy_PDa_zsfRlpFxtt3VqezgzFJd1xveMXIw_1M3S=w566-h471-s-no-gm?authuser=0" 
+                                alt="3rd Place Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">3rd Place</div>
+                        <div class="prize-amount">₹XX,XXX</div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="prize-row prize-row-2">
+                    <div class="prize-card" data-index="0" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczO8ZGXlGbm7X7XvSdvVmmhQ8xm6qRXm2lp3MQE-t7SDlHi03j34G_pzG4lrqK5vWZ36PIA_Qx103qKP7dTN0W1NBPJocWfe0ymas-iJLPEiR-Rf7gdoOBvCL7QYQmDy0G5CkJQbjxtiTCL7foIPkl1k=w371-h364-s-no-gm?authuser=0" 
+                                alt="Best Beginner Chest" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczN9nTQaGdGy3Pp2kOllw1rFEwSplHIA_esSnMHenRQCJnbKa52nnCDvHJeD2pe2kdzkEY4TgBJm-qkddV3QLWUmUUaToLDZR86dpGcNVwv7J9innIuWOBe0lfflyV64SDFe5vcoQrVon0u3JnZcvBBW=w496-h445-s-no-gm?authuser=0" 
+                                alt="Best Beginner Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">Best Beginner</div>
+                        <div class="prize-amount">₹XX,XXX</div>
+                    </div>
+
+                    <div class="prize-card" data-index="1" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNNDXrSPaGnDcsLe6Frcv42JFY6v7Z_k0DRcRaFobE3vnpoPY9W1ZgrL5iG07YgJlzf4_1SvFVflW3u0SYgNk8jR2LzbeyK8-EXl6DtE2mYeF4rhyx8vZhLuaZjcucfRnARK64I_484jJ3tBqnEIkno=w377-h362-s-no-gm?authuser=0" 
+                                alt="All Girls Team Chest" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOtxhCyJOfFGclzyqK6pPIY-JLHSjrss7V4rlf4GWdDvxmluFnDVr9KYFWK9kxtBlnVZm8oP7ebIAtFnlZ_fBstkWTMwIIWjxVUaROA2Wr1-kXITHBMryvj040TdlQh2FynZUnNLxuXxT3zNnnH6Xs0=w489-h437-s-no-gm?authuser=0" 
+                                alt="All Girls Team Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">All Girls Team</div>
+                        <div class="prize-amount">₹XX,XXX</div>
+                    </div>
+
+                    <div class="prize-card" data-index="2" data-amount="$XXXX">
+                        <div class="chest-wrapper">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPpc9LL6lwBVY9i5iTU6ulUwGiQ40CWRAQuM4oIfI3cNg1HRv7q9fP0PV8TQOc6RvKI8yg5GsJkuljxryZ-O7dUYGbkdS7RalEbUg6PXhMZ18tvv-KdC_zKjSvmpuoLpkQJIvf6KsRi7vYsgZSw-UD7=w228-h219-s-no-gm?authuser=0" 
+                                alt="Special Goodies Box" 
+                                class="chest-img chest-default">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOftM8eW7ImP-1-64GKKAUhX41DANBybLypZ8BPSs8t-Js7yBsLePRWG1fIlZOXVJShu5rHT-DPgNnILg0c43HGbKTP8d_FRI7OzNdiyiXCzXXtnNMxydDj2mkLCwFqnyliHkOeA5tzFF1ihI6rRGdH=w376-h347-s-no-gm?authuser=0" 
+                                alt="Special Prize Hover" 
+                                class="chest-img chest-hover">
+                        </div>
+                        <div class="prize-label">Special Prize</div>
+                        <div class="prize-amount">₹XX,XXX</div>
+                    </div>
+                </div>
+            </div>
+            <div class="open-innovation-banner" style="margin-top: -10px; ">
+                    <div class="ghast-banner-wrapper">
+                        <!-- Ghast Image -->
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczOpFnxQjEqmKRGm-uqefkZ1RQ_FGdbvHjy3ai4_ZSidf3WOX2RzQTOzxG2JnIGqALJVSu6Yd5so5KzgO01iIuQjFxMvaM1m7IR-h3bE9uI9vyy_BNrAVHBCw1DnitF3pd3Xu9dDDd0hePOk6wlj7SDZ=w250-h256-s-no-gm?authuser=0" 
+                            alt="Ghast" 
+                            class="ghast-img">
+                        
+                        <!-- Rope Connection -->
+                        <div class="rope-container">
+                            <div class="rope rope-left"></div>
+                            <div class="rope rope-right"></div>
+                        </div>
+                        
+                        <!-- Banner -->
+                        <div class="banner-sign">
+                            <p>Top 30 teams will receive Momentos, Certificates & Swags!</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAB Button -->
+    <a href="faq.html" class="fab">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczN1JC7IshEcH37kyGSYZgnMowLxC9Z5zIT-r-U1wtqLjQJ3rV4R6nTxUjfdMUCLEViGhnzXMdGo8IaUsZSaMt7qSr0NxO3q_eNIh5TTFMmlzOXUMMkENrMOQlLGwXOTyscY4GCER2XbALXG1cR-uPR-=w938-h938-s-no-gm?authuser=0" alt="FAQ">
+    </a>
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+    <!-- Lava Texture Top Border -->
+    <div class="lava-border"></div>
+
+    <!-- Main Footer Content on Soil Texture -->
+    <div class="footer-main">
+        <div class="footer-content">
+            <!-- Logo / Tagline / Socials -->
+            <div class="footer-section logo-section">
+                <div class="logo-bg">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0" alt="AceHack Logo" class="acehack-logo">
+                </div>
+
+                <p class="follow-us">Follow us</p>
+
+                <!-- 7 Social Media Icons -->
+                <div class="socials">
+                    <a href="https://www.youtube.com/@Acehack-hackathon" class="social-icon whatsapp" aria-label="WhatsApp">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                    </a>
+                    <a href="https://www.instagram.com/acehack__" class="social-icon instagram" aria-label="Instagram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/company/acehack-5-0" class="social-icon linkedin" aria-label="LinkedIn">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                    </a>
+                    <a href="https://x.com/AceHack_uemj" class="social-icon x-twitter" aria-label="X (Twitter)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X">
+                    </a>
+                    <a href="https://t.me/acehack2" class="social-icon telegram" aria-label="Telegram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+                    </a>
+                    <a href="https://discord.com/invite/yBDmQqYDMK" class="social-icon discord" aria-label="Discord">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+                    </a>
+                    <a href="https://www.youtube.com/@Acehack-hackathon" class="social-icon youtube" aria-label="YouTube">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="YouTube">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section links-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#tracks">Tracks</a>
+                <a href="#prizes">Prizes</a>
+                <a href="faq.html">FAQs</a>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-section contact-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info">
+                    <b style="color: #fff700;">Email</b>: acehack@uem.edu.in<br>
+                    <b style="color: #fff700;">Phone</b>: +916296499137<br>
+                    <b style="color: #fff700;">Address</b>: UEM Jaipur<br>
+                    Gurukul Campus, Sikar Road<br>
+                    Rajasthan - 303807
+                </p>
+            </div>
+
+            <!-- Archives -->
+            <div class="footer-section links-section" style="margin-left: 30px;">
+                <h3>Archives</h3>
+                <a href="https://dark-97o.github.io/AceHack4.0/">AceHack 4.0</a>
+                <a href="https://acehack3-0.vercel.app/">AceHack 3.0</a>
+                <a href="https://acehack2-0.vercel.app/">AceHack 2.0</a>
+                <a href="https://sahityaroy.github.io/ace-hack-uemj/">AceHack 1.0</a>
+            </div>
+
+            <!-- Location with Map -->
+            <div class="footer-section location-section">
+                <div class="map-overlay">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.512!2d75.7002425!3d27.2124649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5f1e3b7b5b5%3A0xb78e5c340c935a95!2sUniversity%20of%20Engineering%20%26%20Management%20(UEM)%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1739999999999"
+                        width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brown separation line -->
+    <div class="footer-separator"></div>
+
+    <!-- Copyright on black background -->
+    <div class="copyright">
+        © 2026 AceHack - University of Enigeneering and Management Jaipur. All Rights Reserved.
+    </div>
+    </footer>
+
+    <script defer>
+        /* ======================================================
+        END SKY CREATION (RUNS ONCE)
+        ====================================================== */
+        (function createEndSky() {
+            const container = document.getElementById('endSky');
+            if (!container) return;
+
+            // Stars
+            for (let i = 0; i < 15; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.cssText = `
+                    left:${Math.random() * 100}%;
+                    top:${Math.random() * 100}%;
+                    width:${Math.random() * 3 + 1}px;
+                    height:${Math.random() * 3 + 1}px;
+                    animation-duration:${Math.random() * 3 + 2}s;
+                    animation-delay:${Math.random() * 3}s;
+                `;
+                container.appendChild(star);
+            }
+
+            // Purple glow (only ONE – big performance win)
+            const glow = document.createElement('div');
+            glow.className = 'purple-glow';
+            glow.style.cssText = `
+                left:${Math.random() * 100}%;
+                top:${Math.random() * 100}%;
+                width:400px;
+                height:400px;
+                animation-duration:25s;
+            `;
+            container.appendChild(glow);
+
+            // Clouds (reduced count)
+            for (let i = 0; i < 3; i++) {
+                const cloud = document.createElement('div');
+                cloud.className = 'end-cloud';
+                cloud.style.cssText = `
+                    left:${100 + Math.random() * 100}%;
+                    top:${Math.random() * 80}%;
+                    width:${Math.random() * 100 + 80}px;
+                    height:${Math.random() * 40 + 30}px;
+                    animation-duration:${Math.random() * 30 + 25}s;
+                `;
+                container.appendChild(cloud);
+            }
+
+            // Flying entity
+            const entity = document.createElement('img');
+            entity.className = 'flying-entity';
+            entity.loading = 'lazy';
+            entity.src = 'https://lh3.googleusercontent.com/pw/AP1GczPV701QojlTPppKTU5fRn4pSw94_Yh_U6spxRgmq1I1WtR7nQjxEpirl4UNy4I53aLpKYZqULLRuoWkL58Ew3xOBkzT6XA0vjYm9GzfXZ9s7xwY_KDb3XJPUWc6S8NaByK1CEI9VvQz6aeQnSg8bEam=w1126-h938-s-no-gm';
+            container.appendChild(entity);
+        })();
+
+        /* ======================================================
+        COUNTDOWN (SAFE & LIGHT)
+        ====================================================== */
+        (function initCountdown() {
+            const target = new Date('March 8, 2026 00:00:00').getTime();
+            const el = {
+                d: document.getElementById('days'),
+                h: document.getElementById('hours'),
+                m: document.getElementById('mins'),
+                s: document.getElementById('secs')
+            };
+
+            const timer = setInterval(() => {
+                if (document.hidden) return;
+
+                const diff = target - Date.now();
+                if (diff <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('countdown').innerHTML =
+                        '<div style="font-size:22px">EVENT STARTED</div>';
+                    return;
+                }
+
+                el.d.textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+                el.h.textContent = String(Math.floor(diff / 3600000) % 24).padStart(2, '0');
+                el.m.textContent = String(Math.floor(diff / 60000) % 60).padStart(2, '0');
+                el.s.textContent = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
+            }, 1000);
+        })();
+
+        /* ======================================================
+        SMOOTH SCROLL (UNCHANGED)
+        ====================================================== */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const t = document.querySelector(a.getAttribute('href'));
+                if (!t) return;
+                e.preventDefault();
+                t.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        /* ======================================================
+        INTERSECTION OBSERVER (REPLACES ALL SCROLL LISTENERS)
+        ====================================================== */
+        const revealObserver = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    const el = entry.target;
+                    el.classList.add('visible');
+
+                    // Prize particle burst (ONCE)
+                    if (el.classList.contains('prize-card')) {
+                        setTimeout(() => createPrizeParticleBurst(el), 700);
+                    }
+
+                    revealObserver.unobserve(el);
+                });
+            },
+            { threshold: 0.35 }
+        );
+
+        document.querySelectorAll(
+            '.minecart-card, .card-wrapper, .prize-card'
+        ).forEach(el => revealObserver.observe(el));
+        
+       /* ===========================
+        GHAST OBSERVER (FIXED)
+        =========================== */
+        (function initGhasts() {
+            const ghasts = document.querySelectorAll('.ghast-banner-wrapper');
+            if (!ghasts.length) return;
+
+            function reveal() {
+                ghasts.forEach(g => {
+                    if (g.classList.contains('visible')) return;
+                    if (g.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                        g.classList.add('visible');
+                    }
+                });
+            }
+
+            reveal();
+            window.addEventListener('scroll', reveal, { passive: true });
+        })();
+
+       /* ======================================================
+        PRIZE PARTICLES – BIGGER & WIDER SPREAD
+        ====================================================== */
+        function createPrizeParticleBurst(card) {
+            const chest = card.querySelector('.chest-wrapper');
+            if (!chest) return;
+
+            let container = chest.querySelector('.particle-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'particle-container';
+                chest.appendChild(container);
+            }
+
+            const colors = [
+                'particle-soil-dark',
+                'particle-soil-medium',
+                'particle-soil-light',
+                'particle-dirt',
+                'particle-brown'
+            ];
+
+            const particleCount = 14; // slightly more, still safe
+
+            for (let i = 0; i < particleCount; i++) {
+                const p = document.createElement('div');
+                p.className = `particle particle-fall ${colors[i % colors.length]}`;
+
+                // BIGGER particles
+                const size = 14 + Math.random() * 20; // was ~8–22
+
+                // WIDER horizontal scatter
+                const tx = (Math.random() - 0.5) * 240; // was 140px
+
+                // More vertical variation
+                const ty = Math.random() * 70; // was 40px
+
+                p.style.cssText = `
+                    left:50%;
+                    top:100%;
+                    width:${size}px;
+                    height:${size}px;
+                    --tx:${tx}px;
+                    --ty:${ty}px;
+                `;
+
+                container.appendChild(p);
+
+                // Slightly longer life to match size
+                setTimeout(() => p.remove(), 2200);
+            }
+        }
+
+        /* ======================================================
+        PRIZE SCRAMBLE (OPTIMIZED)
+        ====================================================== */
+        document.querySelectorAll('.prize-card').forEach(card => {
+            const el = card.querySelector('.prize-amount');
+            const real = card.dataset.amount;
+            let id;
+
+            const scramble = () => {
+                el.textContent = real
+                    .split('')
+                    .map(c => (c === '₹' || c === ',' ? c : Math.floor(Math.random() * 9)))
+                    .join('');
+            };
+
+            id = setInterval(scramble, 120);
+
+            card.addEventListener('mouseenter', () => {
+                clearInterval(id);
+                el.textContent = real;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                clearInterval(id);
+                id = setInterval(scramble, 120);
+            });
+        });
+
+        /* ======================================================
+        COMING SOON TOAST
+        ====================================================== */
+        document.addEventListener('click', e => {
+            const link = e.target.closest('a[data-soon="true"]');
+            if (!link) return;
+
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.textContent = link.textContent + ' Coming Soon!';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        });
+        </script>
+
+    <div id="toast" class="mc-toast">Coming Soon!</div>
+</body>
+</html>

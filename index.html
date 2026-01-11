@@ -1,172 +1,4589 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link
-      rel="icon"
-      href="https://lh3.googleusercontent.com/pw/AP1GczPkrOYJGLmFLsA_7CKN_TImM0yUC7efHwv7jspyK-V5ZSN1yByHqWvGIhjYDOPZq-V4wkJj2HgBsM868s7YrZMWKQAGLzBlXNFe_f072lv2WUgQE4ouHObtwTdYMO8XeRsIYIi-Fw6yw2t_gt2Dxcxs=w300-h300-s-no-gm?authuser=0"
-      type="image/svg+xml"
-    />
-    <title>ACEHACK 5.0 - Deployment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AceHack 5.0 | 07-08th March</title>
+        <link
+        rel="icon"
+        href="https://lh3.googleusercontent.com/pw/AP1GczO1t0jxmklXeu6NqXcHVBo1c93VptbcWTrP9PQ8ljiF0-VeUfWmOp9VUfzB_LH3wjN0iWHooGAUdijyRyt7jEfopelqpw-OQrHBFxMJfWKfNsXskDZGPTfgs3Xv67IEgp24zx45HpjHe8zDfVGwzA_H=w995-h995-s-no-gm?authuser=0"
+        type="image/svg+xml"
+        />
+        <meta name="description" content="ACEHACK is the premier 36-hour hackathon where innovation meets creativity. Join hundreds of hackers from across the nation to build groundbreaking projects, collaborate with industry mentors, and compete for exciting rewards in an intense, high-energy environment.">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" as="image" href="[hero-background-url]">    
+        <link rel="preload" as="image" href="[logo-url]">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-<body>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            /* ========================================
+            DISABLE SCROLLBARS (ALL BROWSERS)
+            ======================================== */
 
-<audio id="bg-music" autoplay muted loop preload="auto">
-    <source src="assets/bg_music/music.mp3" type="audio/mpeg">
-</audio>
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            *::-webkit-scrollbar {
+                display: none;
+            }
 
-<div id="music-toggle" title="Toggle background music">
-    <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--terminal-green)">
-        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-    </svg>
-</div>
+            /* Hide scrollbar for IE, Edge and Firefox */
+            * {
+                -ms-overflow-style: none;  /* IE and Edge */
+                scrollbar-width: none;  /* Firefox */
+            }
 
-<canvas id="scene-3d"></canvas>
-<canvas id="trail-canvas"></canvas>
-<div class="hex-grid"></div>
+            /* Ensure body and html still scroll */
+            html, body {
+                overflow-x: hidden; /* Prevent horizontal scroll */
+                overflow-y: auto;   /* Allow vertical scroll */
+            }
 
-<div id="boot-sequence">
-    <div class="boot-text-line">INITIATING ACEHACK.EXE...</div>
-    <div class="boot-text-line" id="status-line"></div>
-    <div class="pixel-spinner"></div>
-</div>
+            /* Keep functionality for nav-links horizontal scroll */
+            .nav-links {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
 
-<div id="main-content">
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            body {
+                font-family: 'Press Start 2P', cursive;
+                background: linear-gradient(to bottom, #0a0014 0%, #2d1b4e 45%, #1a0b2e 50%, #2d1b4e 75%,#1a0b2e 100%);
+                color: #FFF;
+                overflow-x: hidden;
+                position: relative;
+            }
+    s
+            /* Animated Particle Background */
+            /* Minecraft End Sky Background */
+            .end-sky {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -10;
+                background: linear-gradient(to bottom, #0a0014 0%, #1a0b2e 50%, #2d1b4e 100%);
+                pointer-events: none;
+                overflow: hidden;
+            }
 
-<section class="hero-section">
-<div class="hero-inner">
+            /* Twinkling Stars */
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle linear infinite;
+                box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+            }
 
-    <div class="retro-corner top-left"></div>
-    <div class="retro-corner top-right"></div>
-    <div class="retro-corner bottom-left"></div>
-    <div class="retro-corner bottom-right"></div>
+            @keyframes twinkle {
+                0%, 100% { opacity: 0.3; transform: scale(1); }
+                50% { opacity: 1; transform: scale(1.5); }
+            }
 
-    <div class="retro-badge">v5.0</div>
+            /* Purple Ambient Glow */
+            .purple-glow {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(50px);
+                opacity: 0.4;
+                animation: float-glow linear infinite;
+            }
 
-    <div class="header">
-        <div class="css-logo">
-            <span class="logo-text">ACEHACK 5.0</span>
+            @keyframes float-glow {
+                0% { transform: translateY(0) translateX(0); }
+                50% { transform: translateY(-40px) translateX(30px); }
+                100% { transform: translateY(0) translateX(0); }
+            }
+
+            /* Blocky Purple Clouds */
+            /* Blocky Purple Clouds - Minecraft Style */
+            .end-cloud {
+                position: absolute;
+                background: rgba(88, 28, 135, 0.4);
+                border: none;
+                animation: drift-cloud linear infinite;
+                image-rendering: pixelated;
+                image-rendering: -moz-crisp-edges;
+                image-rendering: crisp-edges;
+                box-shadow: 
+                    0 0 0 2px rgba(58, 18, 85, 0.6),
+                    0 0 0 4px rgba(88, 28, 135, 0.4),
+                    0 0 20px rgba(139, 92, 246, 0.3);
+            }
+            
+            /* Create blocky layers for cloud structure */
+            .end-cloud::before,
+            .end-cloud::after {
+                content: '';
+                position: absolute;
+                background: rgba(88, 28, 135, 0.5);
+                image-rendering: pixelated;
+            }
+            
+            .end-cloud::before {
+                width: 60%;
+                height: 70%;
+                top: -15%;
+                left: 20%;
+                box-shadow: 0 0 0 2px rgba(58, 18, 85, 0.5);
+            }
+            
+            .end-cloud::after {
+                width: 50%;
+                height: 60%;
+                bottom: -10%;
+                right: 15%;
+                box-shadow: 0 0 0 2px rgba(58, 18, 85, 0.5);
+            }
+
+            @keyframes drift-cloud {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-150vw); }
+            }
+
+            /* Flying Entity (Ender Dragon/Enderman) */
+            .flying-entity {
+                position: fixed;
+                width: 400px;
+                height: 400px;
+                z-index: -10;
+                pointer-events: none;
+                image-rendering: pixelated;
+                animation: fly-across 9s linear infinite;
+                will-change: transform, left, top;
+                filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.6));
+            }
+
+            @keyframes fly-across {
+                0% {
+                    left: 100%;
+                    top: 20%;
+                    opacity: 1;
+                    transform: scale(0.9) rotate(-5deg);
+                }
+                50% {
+                    left: 50%;
+                    top: 30%;
+                    opacity: 1;
+                    transform: scale(1.1) rotate(3deg);
+                }
+                100% {
+                    left: -100%;
+                    top: 50%;
+                    opacity: 1;
+                    transform: scale(0.9) rotate(2deg);
+                }
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-6px); }
+            }
+
+            .flying-object {
+                animation:
+                    fly-across 8s cubic-bezier(0.45, 0, 0.55, 1) infinite,
+                    float 1.8s ease-in-out infinite;
+                will-change: transform, top, right;
+            }
+
+
+
+            /* Navbar - Transparent */
+            nav {
+                position: sticky;
+                top: 0;
+                width: 100%;
+                background: transparent;
+                z-index: 1000;
+            }
+
+            .nav-texture-bar {
+                width: 100%;
+                height: 14px;
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczPSZFithNMgw3p0NfejCpVSDTcs4uBveqBbFIQhIYpNpQmHtH3hdvbLKfEVlYf08kgjmMfhrvW6q5gTzl0wiluQnke2OSErtyz9RDP-R6-5-4TiPN9xICRt3IDNc5uoaUlRfsRDFyLXIzQh5_3BlLUQ=w16-h16-s-no-gm?authuser=0");
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                background-position: center;
+                box-shadow: inset 0 -4px 6px rgba(0,0,0,0.5);
+            }
+
+            .nav-container {
+                height: 220px;
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 0 40px;
+                position: relative;
+                gap: 0;
+            }
+
+            /* Lantern with chain - Attached to nav bar */
+            .lantern-container {
+                width: 60px;
+                transform-origin: top center;
+                animation: pendulum-swing 4s ease-in-out infinite;
+                margin-top: -14px;
+            }
+
+            @keyframes pendulum-swing {
+                0%, 100% { transform: rotate(-8deg); }
+                50% { transform: rotate(8deg); }
+            }
+
+            .chain {
+                width: 4px;
+                height: 60px;
+                background: repeating-linear-gradient(
+                    0deg,
+                    #5C4033 0px,
+                    #5C4033 8px,
+                    #3E2723 8px,
+                    #3E2723 16px
+                );
+                margin: 0 auto 0;
+                border-radius: 2px;
+            }
+
+            .lantern {
+                width: 50px;
+                height: 70px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPOaiEMh44SO1C-USmJudCX__Wq50ckoHtpl0oa4lVsadJHNGPuZMvrrf_baOM2AXwYeOxZ209MfjCuoZVwQe-dptcdvy9FaTl2MKMgMsCezFO2hOnDfrbCznXVBuUw1Yj5C421BPF9ce-UK0IpqBL4=w74-h127-s-no-gm?authuser=0');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: 0 auto;
+                position: relative;
+                animation: glow 2s ease-in-out infinite;
+            }
+
+            @keyframes glow {
+                0%, 100% { filter: brightness(1) drop-shadow(0 0 10px #FFA500); }
+                50% { filter: brightness(1.3) drop-shadow(0 0 20px #FFD700); }
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 20px;
+                overflow-x: auto;
+                scrollbar-width: none;
+                padding-bottom: 80px;
+                position: absolute;  /* Add this */
+                left: 50%;  /* Add this */
+                transform: translateX(-50%);  /* Add this */
+            }
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav-sign-container {
+                position: relative;
+                min-width: 140px;
+                margin-top: -14px;
+            }
+
+            .sign-chain {
+                width: 4px;
+                height: 30px;
+                background: transparent;
+                margin: 0 auto;
+                border-radius: 2px;
+                position: relative;
+            }
+
+            /* Add chains on left and right of sign */
+            .sign-chain::before{
+                content: '';
+                position: absolute;
+                width: 4px;
+                height: 35.5px;
+                background: repeating-linear-gradient(
+                    0deg,
+                    #5C4033 0px,
+                    #5C4033 6px,
+                    #3E2723 6px,
+                    #3E2723 12px
+                );
+                border-radius: 2px;
+                top: 0;
+            }
+
+            .sign-chain::after {
+                content: '';
+                position: absolute;
+                width: 4px;
+                height: 35.5px;
+                background: repeating-linear-gradient(
+                    0deg,
+                    #5C4033 0px,
+                    #5C4033 6px,
+                    #3E2723 6px,
+                    #3E2723 12px
+                );
+                border-radius: 2px;
+                top: 0;
+            }
+
+            .sign-chain::before {
+                left: -39px;
+            }
+
+            .sign-chain::after {
+                right: -39px;
+            }
+
+            .nav-sign {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 3px solid #2c231b;
+                padding: 15px 20px;
+                text-decoration: none;
+                color: #FFF;
+                font-size: 11px;
+                white-space: nowrap;
+                display: block;
+                text-align: center;
+                transition: transform 0.3s;
+                z-index: 1000;
+            }
+
+            .nav-sign:hover {
+                transform: translateY(5px);
+            }
+
+            /* Hero Section */
+            .hero {
+                margin-top: 0px;
+                max-width: 1600px;
+                padding: 180px 20px 60px;
+                text-align: center;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPImIZLv30YQn4jXuTuzxyyzJTKYF965FS7xS3jjf_OexojHUI2PH0xMPuKaSmeIU5koTDoScACCQi08SZqPR0opNrWzyRvf5AI6WK9VcNhFVb5TJK0WgOBDpe5h-rl862CmDT1uqPZ2EJ84M0ALocs=w800-h450-s-no-gm?authuser=0');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+            }
+
+            /* Black fade overlay on hero */
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.49) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.49) 100%
+                );
+                z-index: 0;
+            }
+            
+            .hero > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Wrapper to hold both box and logo */
+            .hero-logo-wrapper {
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: -72px auto 1px;
+            }
+
+            /* Independent transparent black box */
+            .hero-logo-bg-box {
+                position: absolute;
+                width: 120%;                    /* Full width */
+                height: 350px;                  /* Control height independently */
+                background: rgba(0, 0, 0, 0.35); /* Control opacity independently */
+                top: 35%;         
+                margin-top: 20px;   
+                margin-bottom: -200px;           /* Control vertical position */
+                left: -50px;
+                transform: translateY(-50%);
+                z-index: 0;
+                
+                /* Optional: Add blur or effects */
+                /* backdrop-filter: blur(5px); */
+            }
+
+            /* Logo stays on top */
+            .hero-logo {
+                max-width: 1100px;
+                height: 440px;
+                margin: 0;
+                filter: drop-shadow(0 10px 20px rgba(0,0,0,0.9));
+                object-fit: contain;
+                will-change: transform;
+                position: relative;
+                z-index: 1;
+            }
+
+            .countdown-card {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPEriaY5PSmrTgJNQYqowfF7FXAGoqZTkInKkLrAid_5hHCUXzUo0y27FqjcFn2tlJzoNLjcbSNlT7j91x3kx5bgYPymMAdpB2DmPzuhJsf5xjsTfjP02x2o-GW4vvOin7xNSK2En-ZFz9u3nGXK8h8=w889-h287-s-no-gm?authuser=0');
+                background-size: cover;
+                height: 160px;
+                border: 2px solid #ffffff;
+                max-width: 665px;
+                margin: -80px auto;
+                padding: 22px 35px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+                position: relative;
+                border-radius: 2px;
+            }
+
+            /* .countdown-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.1);
+                z-index: 0;
+            } */
+
+            .countdown-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .countdown-card h2 {
+                font-size: 19px;
+                margin-bottom: 24px;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #000;
+            }
+
+            .countdown {
+                display: flex;
+                gap: 30px;
+                justify-content: center;
+                font-size: 10px;
+            }
+
+            .countdown div {
+                background: rgba(0,0,0,0.7);
+                padding: 10px 10px;
+                border: 2px solid #ffffff;
+                min-width: 70px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+            }
+
+            .countdown span {
+                display: block;
+                font-size: 12px;
+                margin-top: 12px;
+                color: #ffffff;
+            }
+
+            .stone-buttons {
+                display: flex;
+                gap: 100px;
+                justify-content: center;
+                margin-top: 118px;
+            }
+
+            .btn-icon {
+                width: 100px;
+                height: 35px;
+                margin-top: -75px;
+                margin-bottom: -70px;
+                margin-left: -20px;
+                margin-right: 0px;
+                vertical-align: middle;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 5));
+            }
+
+            /* Tablets and smaller (≤768px) */
+            @media (max-width: 768px) {
+                .btn-icon {
+                    width: 70px;
+                    height: 25px;
+                    margin-top: -55px;
+                    margin-bottom: -50px;
+                    margin-left: -15px;
+                    margin-right: 0px;
+                }
+            }
+
+            /* Mobile phones (≤480px) */
+            @media (max-width: 480px) {
+                .btn-icon {
+                    width: 60px;
+                    height: 20px;
+                    margin-top: -42px;
+                    margin-bottom: -40px;
+                    margin-left: -12px;
+                    margin-right: 0px;
+                }
+            }
+
+            /* Very small screens (≤400px) */
+            @media (max-width: 400px) {
+                .btn-icon {
+                    width: 50px;
+                    height: 18px;
+                    margin-top: -37px;
+                    margin-bottom: -35px;
+                    margin-left: -10px;
+                    margin-right: 0px;
+                }
+            }
+
+            .stone-btn {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMZ213EkYNghug2YDe5JlReDkV4NnHM3CGMcE9KqZfO3wC9E_mPF4fTCfvumT9HwnfLUKLq-QrhWvHSVF0b9jXjoA3SyMnZ25P4sEngOwiGw-gXURtMETzmtALESaDtVdos6rNA5r0Gn5hq25KXxsdU=w1731-h974-s-no-gm?authuser=0');
+                background-size: cover;
+                /* border: 3px solid #303030; */
+                border-radius: 2px;
+                padding:26px 35px;
+                font-family: 'Press Start 2P', cursive;
+                color: #FFF;
+                font-size: 15px;
+                cursor: pointer;
+                transition: all 0.3s;
+                text-decoration: none;
+                display: inline-block;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+                text-shadow: 3px 3px #000;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .stone-btn::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.099), transparent);
+                transform: rotate(45deg);
+            }
+
+            .stone-btn::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                padding: 3px; /* border thickness */
+                background: linear-gradient(
+                    120deg,
+                    #ffffff,
+                    #7e7e7e,
+                    #12002a,
+                    #666666
+                );
+                background-size: 300% 300%;
+                animation: purpleBorderFlow 3s linear infinite;
+
+                /* MASK MAGIC — keeps it on the border only */
+                -webkit-mask:
+                    linear-gradient(#000 0 0) content-box,
+                    linear-gradient(#000 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+
+                pointer-events: none;
+            }
+
+
+            @keyframes purpleBorderFlow {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            .stone-btn:hover {
+                transform: translateY(-6px) scale(1.04);
+                box-shadow:
+                    0 10px 25px rgba(114, 114, 114, 0.25),
+                    inset 0 0 18px rgba(0, 0, 0, 0.507);
+                border-color: #575757;
+            }
+
+            .stone-btn:active {
+                transform: translateY(-2px) scale(1.01);
+                box-shadow:
+                    0 4px 10px rgba(255, 255, 255, 0.2),
+                    inset 0 0 10px rgba(0, 0, 0, 0.6);
+            }
+
+            .stone-btn-wrapper {
+                position: relative;
+                display: inline-block;
+            }
+
+            .popup-image {
+                position: absolute;
+                width: 41.5px;
+                height: 41.5px;
+                top: 1%;
+                left: 94%;
+                transform: translate(-50%, -50%) scale(0);
+                z-index: 1;
+                pointer-events: none;
+                opacity: 0;
+                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
+                image-rendering: pixelated;
+            }
+
+            .stone-btn-wrapper:hover .popup-image {
+                transform: translate(-50%, -50%) scale(1.5) rotate(15deg);
+                opacity: 1;
+                z-index: 10;
+            }
+
+            .stone-btn-wrapper:hover .stone-btn {
+                z-index: 1;
+            }
+
+            /* Sections with backgrounds */
+            section {
+                padding: 120px 20px;
+                max-width: 1480px;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .section-bg {
+                padding: 120px 20px;
+                background-size: cover;
+                background-position: center;
+                background-attachment: scroll;
+                position: relative;
+            }
+
+            .section-bg::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.2);
+                z-index: 0;
+            }
+
+            .section-bg > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            /* #about {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMcGS1yt1wT5BKt2RRvmacdjuSxybrIVbCmbPYNzpdJ23P7dmlD_alt51XhLJl9wuVCOuLxSnlutwWM5j9SCRyKY03sG_YdH_8flssVSPrANbg7GTYnIYdtjleg35W8sEejN2f2wffVYbmKJhWLYEgE=w1080-h483-s-no-gm?authuser=0');
+            } */
+
+            /* #tracks {
+                background-image: url('YOUR_TRACKS_BACKGROUND_URL.png');
+            }
+
+            #why-attend {
+                background-image: url('YOUR_WHY_ATTEND_BACKGROUND_URL.png');
+            }
+
+            #prizes {
+                background-image: url('YOUR_PRIZES_BACKGROUND_URL.png');
+            }
+
+            #sponsors {
+                background-image: url('YOUR_SPONSORS_BACKGROUND_URL.png');
+            } */
+
+            h1 {
+                font-size: 22px;
+                text-align: center;
+                margin-bottom: 22px;
+                text-shadow: 4px 4px 0 #000;
+                color: #ffffff;
+            }
+
+            h2 {
+                font-size: 36px;
+                text-align: center;
+                margin-bottom: 76px;
+                text-shadow: 5px 5px 0 #000;
+                color: #FFD700;
+            }
+
+            /* Image above heading */
+            h2::before {
+                content: '';
+                position: absolute;
+                top: -110px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 350px;
+                height: 120px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNanViXbxtTb4J6iI1DiyGtGlEA5n1FTMjXqKKobDwkyJfeEHp94FVfY5h1zxW4qxZ0G0YUZWaklrV5jurrL-YU3p25gC2TyosYluywv-IlU3PvNFPKgfQQV1flzFTOmvpJ0LaJYqaw-M12pKriI1BJ=w1865-h274-s-no-gm?authuser=0');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                image-rendering: pixelated;
+                text-shadow: #000;
+            }
+
+            .about-content {
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 30px auto 0px;
+                border-radius: 0px;
+                line-height: 2;
+                font-size: 12px;
+                text-shadow: 4px 4px 0 #000;
+                /* box-shadow: 0 10px 30px rgba(0,0,0,0.8); */
+                position: relative; 
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: -40px;
+            }
+
+            .about-content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                /* background: rgba(0, 0, 0, 0.45);  */
+                z-index: 0;
+            }
+
+            .about-content > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .about-text {
+                margin-left: 50px;
+                flex: 1;
+                text-align: left;
+            }
+
+            .about-image {
+                flex: 0 0 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .about-image img {
+                width: 100%;
+                height: auto;
+                max-width: 200px;
+                image-rendering: pixelated;
+            }
+
+
+            .stats {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 50px;
+                margin-top: 42px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+            }
+
+            .stat-box {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNmZFAcs04y6XKd0kZtr4ZR529N34PqbTWJiY6jFkyuqXVk_q9mWIkPb4r09jucPeuQovOyNTBybyVXKfNlawAiB9ygYZc7LKhXAbGgsXJN0dcTGvDXAmsFysCwYzB-Gufh66aPcYbxM8DYSOm_fhWo=w640-h360-s-no-gm?authuser=0');
+                background-size: cover;
+                height: 135px;
+                border: 2px solid #909090;
+                padding: 30px 20px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+                transition: transform 0.3s;
+                position: relative;
+                z-index: 1;
+            }
+
+            .stat-box::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 0;
+            }
+
+            .stat-box > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .stat-box:hover {
+                transform: translateY(-10px) scale(1.05);
+            }
+
+            .stat-number {
+                font-size: 42px;
+                display: block;
+                margin-bottom: 20px;
+                text-shadow: 4px 4px 0 #000;
+                color: #FFD700;
+            }
+
+            .stat-label {
+                font-size: 15px;
+                color: #FFF;
+            }
+
+            /* Tracks Container */
+            .tracks-container {
+                max-width: 1400px;
+                margin: 0 auto;
+                overflow: hidden;
+                padding: 0px 20px;
+            }
+
+            .track-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+                margin-bottom: 40px; /* REDUCED from 100px */
+                position: relative;
+                padding: 50px 0; /* INCREASED padding for larger minecarts */
+            }
+
+            /* Minecart Rail - Full Width */
+            .minecart-rail {
+                margin-top: 25px;
+                position: absolute;
+                width: 100%;
+                height: 80px; /* INCREASED from 40px */
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczObok46sVoyhzb7t683F3aoprm1__CM0rWoM3SUlcbLGjF7ZZ4wGNv-JbzdpWSoBOVL25v1EfD4K6yC9DrkWY748f58rT4Q5CcljA8V4weDuoKnwMpWiBzncLGTsjphJYdwWXS2CuZBTpS_4y0TCnpv=w301-h270-s-no-gm?authuser=0');
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 0;
+                image-rendering: pixelated;
+            }
+
+            /* Minecart Card Container */
+            .minecart-card {
+                flex: 0 0 calc(25% - 30px);
+                position: relative;
+                z-index: 1;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            /* Minecart Body with Background - INCREASED SIZE */
+            .minecart-body {
+                width: 260px; /* INCREASED from 180px */
+                height: 260px; /* INCREASED from 180px */
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM0PeHmA1W9pMt-V-tlsTUIY-U3NPU4htKmlTYkEwsJtRzLeMu7lvOVvjJZZ44Mq-JhRvudREzbo5kz6XUAVBZhwKQZ_sFN2k4MtN5FhSWuZswNAZ3Rp9aZKc2I5jyOGuGknwuxNKsFiotDCUoqz7Oy=w780-h478-s-no-gm?authuser=0');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                image-rendering: pixelated;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: transform 0.3s ease;
+            }
+
+            .minecart-body:hover {
+                transform: translateY(-10px) scale(1.05);
+            }
+
+            /* Track Logo inside Minecart - INCREASED SIZE */
+            .track-logo {
+                width: 180px; /* INCREASED from 80px */
+                height: auto; /* INCREASED from 80px */
+                image-rendering: pixelated;
+                filter: drop-shadow(0 5px 10px rgba(0,0,0,2.9));
+                position: relative;
+                z-index: 2;
+                margin-top: -140px; /* ADJUSTED for larger size */
+            }
+
+            /* Track Info Below Minecart */
+            .track-info {
+                margin-top: -30px;
+                text-align: center;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNMFDvRP2LUGTWyLqy8hyVod0E51GIN2puYcrchdkJt_JBzemnh4qkJ_6lTFyUwOvUuL6GmPuZov_TgZuwru6FuVzoz00hz_Nlj1cPuCKu_pK0da7BJQTjsA8_NESTnjmOlX2-QF2SFPgg0y2_3YUL-=w160-h160-s-no-gm?authuser=0');
+                background-size: contain;
+                text-shadow: #cecece 2px 1px 0;
+                padding: 9px 25px; /* INCREASED padding */
+                border: 3px solid #b0b0b0cd;  
+                border-radius: 1px;
+                width: 250px; /* INCREASED from 200px */
+                height: 57px;
+                border-radius: 8px;
+            }
+
+            .track-info::after {
+                content: '';
+                position: absolute;
+                background: rgb(1, 1, 1,10);
+                z-index: 100;
+            }
+
+            .track-info h3 {
+                margin-top: 2px;
+                font-size: 14px; /* INCREASED from 14px */
+                line-height: 1.2;
+                color: #000000;
+            }
+
+            .track-info p {
+                font-size: 10px; /* INCREASED from 9px */
+                line-height: 1.7;
+                color: #000000;
+                margin: 0;
+            }
+
+            /* Row 1 Animation - Right to Left (SLIDING, NO ROTATION) */
+            .track-row-1 .minecart-card {
+                transform: translateX(150px);
+            }
+
+            .track-row-1 .minecart-card.visible {
+                animation: slideInFromRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            @keyframes slideInFromRight {
+                0% {
+                    opacity: 0;
+                    transform: translateX(150px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* Row 2 Animation - Left to Right (SLIDING, NO ROTATION) */
+            .track-row-2 .minecart-card {
+                transform: translateX(-150px);
+            }
+
+            .track-row-2 .minecart-card.visible {
+                animation: slideInFromLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            @keyframes slideInFromLeft {
+                0% {
+                    opacity: 0;
+                    transform: translateX(-150px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            /* Stagger animation delays for ONE BY ONE effect */
+            .minecart-card[data-index="0"].visible { animation-delay: 0s; }
+            .minecart-card[data-index="1"].visible { animation-delay: 0.2s; }
+            .minecart-card[data-index="2"].visible { animation-delay: 0.4s; }
+            .minecart-card[data-index="3"].visible { animation-delay: 0.6s; }
+
+            .minecart-card.visible .minecart-body:hover {
+                animation: none;
+                transform: translateY(-10px) scale(1.05);
+            }
+
+            /* ============================================
+            GHAST + BANNER SECTION
+            ============================================ */
+
+            .open-innovation-banner {
+                margin-top: -25px;
+                margin-left: 50px;
+                margin-bottom: -29px;
+                padding: 0 20px;
+                overflow: hidden;
+                min-height: 200px;
+                position: relative;
+                z-index: 3;
+                animation: simplefloat 4s ease-in-out infinite;
+                overflow: visible;
+            }
+
+            @keyframes simplefloat {
+                0% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-9px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
+
+            /* Wrapper for ghast + ropes + banner */
+            .ghast-banner-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 0;
+                opacity: 0;
+                transform: translate3d(150%, 0, 0);
+                transition: none;
+                margin: 40px auto;
+                max-width: 1000px;
+                will-change: transform, opacity;
+            }
+
+            /* Ghast Image - REDUCED SIZE */
+            .ghast-img {
+                width: 180px;
+                height: 180px;
+                image-rendering: pixelated;
+                z-index: 3;
+                flex-shrink: 0;
+            }
+
+            /* Rope Container - HORIZONTAL */
+            .rope-container {
+                position: relative;
+                width: 100px;
+                height: 8px;
+                margin-left: -20px;
+                margin-right: -20px;
+                z-index: 1;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+                justify-content: center;
+            }
+
+            .rope {
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background: repeating-linear-gradient(
+                    90deg,
+                    #5C4033 0px,
+                    #5C4033 10px,
+                    #3E2723 10px,
+                    #3E2723 20px
+                );
+                border-radius: 3px;
+                left: 0;
+            }
+
+            .rope-left {
+                top: 18px; /* Upper rope - fixed pixel position */
+            }
+
+            .rope-right {
+                bottom: 18px; /* Lower rope - fixed pixel position */
+            }
+
+            /* Banner Sign - REDUCED SIZE */
+            .banner-sign {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOg5faX00xxW8BweS_lac6WvAFtu32N7qFDiF1M02n1a6KEdmGrMAYKFcL2fccEVt5aHdOPOnrQwv5OF-X9AkjO74WyLx3yfwt0B0uscF2pqjMulLzOihrqj4s-aceDe__El0LYEgqVDELcwtig6h5w=w160-h160-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 4px solid #5C4033;
+                padding: 9px 29px;
+                max-height: 65px;
+                text-align: center;
+                font-size: 10px;
+                background-size: contain;
+                z-index: 1;
+                max-width: 690px;
+                position: relative;
+
+            }
+
+            .banner-sign::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 0;
+            }
+
+            .banner-sign > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .banner-sign p {
+                margin: 0;
+                font-size: 13px;
+                color: #000000;
+                text-shadow: 3px 3px 6px #ffffff;
+                font-weight: bold;
+                line-height: 1.6;
+            }
+
+            /* Slide-in Animation from Right to Left */
+            .ghast-banner-wrapper.visible {
+                animation: ghastSlideIn 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards;
+            }
+
+            @keyframes ghastSlideIn {
+                0% {
+                    opacity: 0;
+                    transform: translate3d(150%, 0, 0);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            /* ============================================
+            WHY ATTEND SECTION - COMPLETE CSS
+            ============================================ */
+
+            /* Cards Grid Layout */
+            .cards-grid {
+                display: grid;
+                grid-template-columns: repeat(5, 2fr);
+                gap: 30px;
+                max-width: 1500px;
+                margin: 0 auto;
+                margin-top: -20px;
+                padding: 70px 1px 0px;
+                margin-bottom: -80px;
+            }
+
+            /* Card Wrapper - Contains bee and card */
+            .card-wrapper {
+                position: relative;
+                opacity: 0;
+                transform: translateX(0);
+                transition: none;
+            }
+
+            /* Initial positions for different flying directions */
+            .card-wrapper[data-direction="top-left"] {
+                transform: translate(-200px, -200px) rotate(-15deg);
+            }
+
+            .card-wrapper[data-direction="top-center"] {
+                transform: translate(0, -250px) rotate(0deg);
+            }
+
+            .card-wrapper[data-direction="top-right"] {
+                transform: translate(200px, -200px) rotate(15deg);
+            }
+
+            .card-wrapper[data-direction="bottom-left"] {
+                transform: translate(-200px, 200px) rotate(-15deg);
+            }
+
+            .card-wrapper[data-direction="bottom-center"] {
+                transform: translate(0, 250px) rotate(0deg);
+            }
+
+            .card-wrapper[data-direction="bottom-right"] {
+                transform: translate(200px, 200px) rotate(15deg);
+            }
+
+            /* Bee Image - Flies above card */
+            .bee-image {
+                position: absolute;
+                top: -55px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90px;
+                height: auto;
+                z-index: 10;
+                image-rendering: pixelated;
+            }
+
+            /* Card Design */
+            .card {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNW5_-Oc5G3NZQZJa0fDPnRt05fruIUvQZneOI-jjw-_XyzuyyEIpbI1hOaWoOLIjj3Nv8zqGfCvsQX6DyKz6AhltYA8sw_2fGSWCI1dDCAv06DD1ES2MPlSwWWazeWLUsHpe_JY0BMT2VzRaBYVmZD=w160-h160-s-no-gm?authuser=0');
+                background-size: cover;
+                margin-bottom: 90px;
+                margin-top: 35px;
+                border: 6px solid transparent;
+                border-image: repeating-linear-gradient(
+                    90deg,
+                    #8b5a2b 0px,
+                    #8b5a2b 6px,
+                    #7a4a1f 6px,
+                    #7a4a1f 12px,
+                    #9c6b3d 12px,
+                    #9c6b3d 18px
+                ) 6;
+                border-radius: 1px;
+                padding: 20px 0px 20px;
+                min-width: 200px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+                position: relative;
+                min-height: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Card Logo */
+            .card-logo {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 20px;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
+            }
+
+            /* Card Title */
+            .card h3 {
+                font-size: 18px;
+                color: #000000;
+                margin-bottom: 15px;
+                text-shadow: 2px 2px 0 #b1b1b1;
+            }
+
+            /* Card Description */
+            .card p {
+                font-size: 11px;
+                line-height: 1.8;
+                color: #FFF;
+                text-shadow: 2px 2px 4px #000;
+            }
+
+            /* Flying animation when visible */
+            .card-wrapper.visible {
+                animation: flyIn 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+
+            @keyframes flyIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate(0, 0) rotate(0deg);
+                }
+            }
+
+            /* Stagger delays for each card */
+            .card-wrapper[data-index="0"].visible { animation-delay: 0.3s; }
+            .card-wrapper[data-index="1"].visible { animation-delay: 0.35s; }
+            .card-wrapper[data-index="2"].visible { animation-delay: 0.4s; }
+            .card-wrapper[data-index="3"].visible { animation-delay: 0.45s; }
+            .card-wrapper[data-index="4"].visible { animation-delay: 0.5s; }
+            .card-wrapper[data-index="5"].visible { animation-delay: 0.75s; }
+
+            /* Continuous float animation after landing - for the card */
+            .card-wrapper.visible .card {
+                animation: syncedFloat 3s ease-in-out 1s infinite;
+            }
+
+            @keyframes syncedFloat {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-15px);
+                }
+            }
+
+            /* Continuous float animation after landing - for the bee (maintains horizontal centering) */
+            .card-wrapper.visible .bee-image {
+                animation: syncedFloatBee 3s ease-in-out 1s infinite;
+            }
+
+            @keyframes syncedFloatBee {
+                0%, 100% {
+                    transform: translate(-50%, 0);
+                }
+                50% {
+                    transform: translate(-50%, -15px);
+                }
+            }
+
+            /* Prize Pool - 2 Rows of 3 */
+            .prizes {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 80px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 40px 0;
+            }
+
+            .prize-row {
+                display: flex;
+                margin-top: -50px;
+                justify-content: center;
+                align-items: flex-end;
+                gap: 60px;
+                flex-wrap: wrap;
+                width: 100%;
+                margin-bottom: -30px;
+            }
+
+            .prize-card {
+                text-align: center;
+                position: relative;
+                opacity: 0;
+                transform: translateY(-800px);
+                transition: none;
+            }
+
+            /* 1st place elevated in middle */
+            .prize-card-elevated {
+                transform: translateY(-850px);
+                margin-bottom: 40px;
+            }
+
+            /* Soil/Brown particle colors for prize chests */
+            /* Particle burst effect - BEHIND the card */
+            /* ==================================================
+            BASE PARTICLE — SHARED BY ALL EFFECTS
+            ================================================== */
+            .particle {
+                position: absolute;
+                pointer-events: none;
+                z-index: 0;
+                image-rendering: pixelated;
+
+                /* image-based particles support */
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                /* performance */
+                will-change: transform, opacity;
+            }
+
+
+            .particle-burst {
+                width: 10px;
+                height: 10px;
+                margin-top: 25px;
+                animation: particle-burst 1s ease-out forwards;
+            }
+            
+            .particle-fall {
+                width: 10px;
+                height: 10px;
+                margin-top: -10px;
+                animation: particle-burst-fall 3s ease-out forwards;
+            }
+
+            @keyframes particle-burst-fall {
+                0% {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                }
+                30% {
+                    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.2);
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.9;
+                }
+                100% {
+                    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty) + 150px)) scale(0.3); /* Falls down 150px */
+                    opacity: 0;
+                }
+            }
+
+            .particle-soil-dark {
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczOnA70azawW6Kgofg25lPYoPyI9YJfV0bcBgFVfdMmkn3V5suVqcLR3BYYkRChqspLH2Qw2LMFvPBIKhQH5H7j_6YxVN8a_UCahp0RLnUaS6c0d7Z1xzzRmAiP_J_OnXsAQFmWwVL85d5fMUCjOcq6I=w144-h144-s-no-gm?authuser=0");
+            }
+
+            .particle-soil-medium {
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczOlFB2J4uL8wIqyT-ePz-J6HveRgkh14g43b0JYvF78NoEpu2r-EVc55cdpcVJkmSlOZLJ2X_M0kGLRfdMC86V6S-C1esbBIuiQLVCmheRKcKL7X56g71w1Jz6_wRmve04P2jTUJpXoydx7s4S_6co4=w160-h160-s-no-gm?authuser=0");
+            }
+
+            .particle-soil-light {
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczNIuou5hUOOdK_OjwM48qCj_BdFJDZA57COlvNmm6YYj2L8VeipvIGSUVR9r_P81oXGKY1WZry2t1ne4OrD2mAPO5ATlsVnKKB3xJbvcjqMJM7H-EDVmmM4SgfDFSLwlJsuNZQ4i24No1Qjob5ZF3G_=w160-h160-s-no-gm?authuser=0");
+            }
+
+            .particle-dirt {
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczMOqITyfzJKaORYdL6-TNKodIde6XDr5_KnpBE_q4oDinwB6uLaZSv5w8L1nw6HFxSzKZdU37IgASB3efTyb5fz2Z4p_rqtWYxLu9z6DErSz-rtjyLzAcMn4XxC8Y3rRY1JPcUZJfKQ3NptqnUFJjc8=w160-h160-s-no-gm?authuser=0");
+            }
+
+            .particle-brown {
+                background-image: url("https://lh3.googleusercontent.com/pw/AP1GczO9O-Wkk6CGxvDysW9PB5WZyfEPDeprYSnMjxQ0BpVbTHDFrNpKlKeD_izK2aLJPRsrw9Mfoab-0bfYpAt1EOqXPWnr7F6fFqRFyNQ3MTnxIYGk_2ye4fBdbgtxoQv2zIVR6zQn_ss4pBdx3wF4Akj9=w160-h160-s-no-gm?authuser=0");
+            }
+
+            /* Chest wrapper for image swap on hover */
+            .chest-wrapper {
+                position: relative;
+                width: 205px;
+                height: 205px;
+                margin: 0 auto 25px;
+                z-index: 1;
+            }
+
+            .chest-img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: opacity 0.3s ease;
+                image-rendering: pixelated;
+            }
+
+            .chest-default {
+                opacity: 1;
+                z-index: 1;
+            }
+
+            .chest-hover {
+                opacity: 0;
+                z-index: 2;
+            }
+
+            .chest-wrapper:hover .chest-default {
+                opacity: 0;
+            }
+
+            .chest-wrapper:hover .chest-hover {
+                opacity: 1;
+            }
+
+            .prize-label {
+                font-size: 13px;
+                margin-bottom: 12px;
+                color: #FFD700;
+                text-shadow: 3px 3px 6px #000;
+            }
+
+            /* Prize amount with scramble effect */
+            .prize-amount {
+                font-size: 24px;
+                color: #FFF;
+                text-shadow: 4px 4px 0 #000;
+                font-family: 'Press Start 2P', cursive;
+                letter-spacing: 2px;
+                min-width: 200px;
+                display: inline-block;
+                transition: all 0.3s ease;
+            }
+
+            .prize-card:not(:hover) .prize-amount {
+                color: #888;
+                text-shadow: 2px 2px 0 #000;
+            }
+
+            /* Falling animation when visible */
+            .prize-card.visible {
+                animation: chestFall 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+
+            .prize-card-elevated.visible {
+                animation: chestFallElevated 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            }
+
+            .chest-wrapper:hover .chest-hover {
+                opacity: 1;
+                transform: scale(1.25); /* ONLY expand the hover image */
+            }
+
+
+            @keyframes chestFall {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-500px) rotate(0deg);
+                }
+                60% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                }
+                75% {
+                    transform: translateY(-15px) rotate(-2deg);
+                }
+                85% {
+                    transform: translateY(5px) rotate(1deg);
+                }
+                95% {
+                    transform: translateY(-5px) rotate(-0.5deg);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                }
+            }
+
+            @keyframes chestFallElevated {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-550px) rotate(0deg);
+                    margin-bottom: 40px;
+                }
+                60% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                    margin-bottom: 40px;
+                }
+                75% {
+                    transform: translateY(-15px) rotate(-2deg);
+                    margin-bottom: 40px;
+                }
+                85% {
+                    transform: translateY(5px) rotate(1deg);
+                    margin-bottom: 40px;
+                }
+                95% {
+                    transform: translateY(-5px) rotate(-0.5deg);
+                    margin-bottom: 40px;
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                    margin-bottom: 40px;
+                }
+            }
+
+            /* Stagger delays for falling effect */
+            .prize-row-1 .prize-card[data-index="0"].visible { animation-delay: 0.1s; }
+            .prize-row-1 .prize-card[data-index="1"].visible { animation-delay: 0s; }
+            .prize-row-1 .prize-card[data-index="2"].visible { animation-delay: 0.2s; }
+
+            .prize-row-2 .prize-card[data-index="0"].visible { animation-delay: 0.4s; }
+            .prize-row-2 .prize-card[data-index="1"].visible { animation-delay: 0.5s; }
+            .prize-row-2 .prize-card[data-index="2"].visible { animation-delay: 0.6s; }
+
+            /* Particle container for ground impact */
+            .prize-card .particle-container {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 300px;
+                height: 300px;
+                margin-top: -500px;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            /* Sponsors */
+            .sponsor-tier {
+                margin-bottom: 80px;
+            }
+
+            .sponsor-tier h3 {
+                font-size: 22px;
+                margin-bottom: 45px;
+                text-align: center;
+                color: #FFD700;
+            }
+
+            .sponsors-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .sponsor-box {
+                background: rgba(255,255,255,0.95);
+                padding: 30px;
+                border: 5px solid #654321;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+                transition: transform 0.3s;
+            }
+
+            .sponsor-box:hover {
+                transform: translateY(-8px);
+            }
+
+            .sponsor-box img {
+                max-width: 100%;
+                height: 75px;
+                object-fit: contain;
+            }
+
+            /* FAB */
+            .fab {
+                position: fixed;
+                bottom: 40px;
+                right: 40px;
+                width: 80px;
+                height: 80px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczP1lCeiQIfbd83eLG7d4f-uawftSIIHk4rpp8bQSiOR8KmmuLcCisWxTopkn-56BiB6wYDc7-qWvy0HRZyGEtrH84uz_cF9nsAcdOTuZ2ROvMVsFL4irkzZSVhIBBgpUWBvvbqa0emAaqC0yA_ekiov=w160-h160-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 2px solid #fff700;
+                border-radius: 50%;
+                cursor: pointer;
+                z-index: 999;
+                box-shadow: 0 0 40px rgba(234, 255, 7, 0.9);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                padding: 15px;
+            }
+
+            .fab img {
+                width: 120%;
+                height: 120%;
+                object-fit: contain;
+            }
+
+            /* Global Footer Styles */
+            footer#contact {
+                width: 100%;
+                font-family: 'Press Start 2P', cursive;
+                color: #FFFFFF;
+                image-rendering: pixelated;
+                margin: 0;
+                padding: 0;
+                position: relative;
+            }
+
+            .lava-border {
+                width: 100%;
+                height: 100px;
+                background: url('https://img.freepik.com/free-photo/detailed-structure-marble-natural-pattern-background-design_1258-79119.jpg?semt=ais_hybrid&w=740&q=80') repeat-x top center;
+                background-size: auto 100%;
+                image-rendering: pixelated;
+                animation: lavaFlow 40s linear infinite;
+                z-index: 10;
+                position: relative;
+            }
+
+            .map-overlay {
+                position: absolute;
+                right: 15px;
+                top: 65px;
+                transform: translateY(-50%);
+                width: clamp(220px, 22vw, 300px);
+                height: clamp(220px, 22vw, 300px);
+                border-radius: 12px;
+                overflow: visible;
+                z-index: 35;
+            }
+
+            .map-overlay::before {
+                content: '';
+                position: absolute;
+                top: -15px;
+                left: -15px;
+                right: -15px;
+                bottom: -15px;
+                background: url('https://lh3.googleusercontent.com/pw/AP1GczOnN-03cUemuR5S0Kezbi3WDwAYgx8WVj4TCufy1LoTlc5X85lx_JPsGhs0l-K0vXTA7IB8AM9e5AguXr0i7qEzUtKd_gFAetjGmxYnswU8zXRrHeLKm8EWJZP3X-wC85a-WxYhyAvbVs67XkJLVhjH=w160-h160-s-no-gm?authuser=0') repeat;
+                background-size: 100px 100px;
+                image-rendering: pixelated;
+                z-index: 25;
+            }
+
+            .map-overlay iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                position: relative;
+                z-index: 25;
+            }
+
+            @keyframes lavaFlow {
+                0% { background-position: 0 0; }
+                100% { background-position: 100% 0; }
+            }
+
+            .footer-main {
+                height:240px;
+                width: 100%;
+                background: url('https://lh3.googleusercontent.com/pw/AP1GczOnN-03cUemuR5S0Kezbi3WDwAYgx8WVj4TCufy1LoTlc5X85lx_JPsGhs0l-K0vXTA7IB8AM9e5AguXr0i7qEzUtKd_gFAetjGmxYnswU8zXRrHeLKm8EWJZP3X-wC85a-WxYhyAvbVs67XkJLVhjH=w160-h160-s-no-gm?authuser=0') repeat;
+                background-size: 100px 100px;
+                image-rendering: pixelated;
+                padding: 45px 20px 50px;
+                margin-top: -50px;
+                box-sizing: border-box;
+                position: relative;
+                z-index: 15;
+            }   
+
+            .footer-content {
+                max-width: 1600px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 25px;
+                z-index: 25;
+            }
+
+            /* Logo Section */
+            .logo-section {
+                flex: 1 1 300px;
+                min-width: 240px;
+                max-width: 380px;
+                text-align: center;
+            }
+
+            .logo-bg {      
+                padding: 8px;
+                border-radius: 1px;
+                display: inline-flex;
+                width: fit-content;
+            }
+
+            .acehack-logo {
+                margin-top: -30px;
+                width: 320px;
+                max-width: 320px;
+                height: auto;
+                display: block;
+                image-rendering: pixelated;
+                align-content: center;
+            }
+
+            .follow-us {
+                font-size: 13px;
+                font-weight: bold;
+                margin-top: 10px;   
+                color: #FFFF00;
+                letter-spacing: 1px;
+            }
+
+            .socials {
+                display: flex;
+                gap: clamp(8px, 1.5vw, 12px);
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-icon {
+                width: clamp(30px, 3vw, 35px);
+                height: clamp(30px, 3vw, 35px);
+                background: transparent;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.2s;
+            }
+
+            .social-icon:hover {
+                transform: scale(1.1);
+            }
+
+            .social-icon img {
+                width:100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* Links Sections (Quick Links & Archives) */
+            .links-section {
+                flex: 1 1 160px;
+                min-width: 140px;
+            }
+
+            .links-section h3 {
+                color: #FFFF00;
+                font-size: clamp(11px, 1.8vw, 15px);
+                margin-bottom: 12px;
+                text-shadow: 2px 2px 4px #000;
+                white-space: nowrap;
+            }
+
+            .links-section a {
+                display: block;
+                color: #FFFFFF;
+                font-size: clamp(9px, 1.5vw, 11px);
+                margin-bottom: 8px;
+                text-shadow: 1px 1px 2px #000;
+                white-space: nowrap;
+                text-decoration: none;
+            }
+
+            /* Contact Us Section */
+            .contact-section {
+                flex: 1 1 250px;
+                min-width: 180px;
+            }
+
+            .contact-section h3 {
+                color: #FFFF00;
+                font-size: clamp(11px, 1.8vw, 15px);
+                margin-bottom: 12px;
+                text-shadow: 2px 2px 4px #000;
+                white-space: nowrap;
+            }
+
+            .contact-info {
+                font-size: clamp(9px, 1.5vw, 11px);
+                line-height: 1.8;
+                color: #FFFFFF;
+                text-shadow: 1px 1px 2px #000;
+                margin: 0;
+            }
+
+            /* Location Section */
+            .location-section {
+                flex: 1 1 280px;
+                min-width: 260px;
+                text-align: left;
+            }
+
+            .location-section h3 {
+                color: #FFFF00;
+                font-size: clamp(11px, 1.8vw, 15px);
+                margin-bottom: 12px;
+                text-shadow: 2px 2px 4px #000;
+            }
+
+            /* Separator & Copyright */
+            .footer-separator {
+                height: 5px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMJLO4QxuMypYpHFbsxpGiAs1u51MK4EyEI40Yj0M630JhLIz5XEZo43k6deeFcnpR1imTJPxsRSn7UQ7yJ3CTq9qBY0PeGah2Qt4xeihP-Vk-zxR3p8uQC5-z0GXja6g3fjK5Dpq-NUR0teUGsDPO1=w160-h67-s-no-gm?authuser=0');
+                image-rendering: pixelated;
+                background-size: 80px 80px;
+            }
+
+            .copyright {
+                background: #000000;
+                text-align: center;
+                padding: 20px 0;
+                font-size: clamp(11px, 0.4vw, 13px);
+                text-shadow: 1px 1px 2px #000;
+            }
+
+            .mc-toast {
+                position: fixed;
+                bottom: 390px;
+                left: 50%;
+                transform: translateX(-50%) scale(0.8);
+                background: #2b2b2b;
+                color: #FFD700;
+                border: 3px solid #fff700;
+                padding: 14px 22px;
+                font-size: 22px;
+                text-shadow: 2px 2px 0 #000;
+                opacity: 0;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.3s ease;
+            }
+
+            .mc-toast.show {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+
+            /* ============================================
+            PERFORMANCE OPTIMIZATION ADDITIONS
+            ============================================ */
+
+            /* FORCE GPU ACCELERATION*/
+            .hero-logo,
+            .stone-btn,
+            .minecart-card,
+            .card-wrapper,
+            .prize-card,
+            .ghast-banner-wrapper,
+            .lantern,
+            .stat-box,
+            .bee-image,
+            .card,
+            .chest-wrapper,
+            .particle,
+            .end-cloud,
+            .star,
+            .purple-glow,
+            .lantern-container {
+                will-change: transform;
+                transform: translateZ(0);
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                -webkit-font-smoothing: subpixel-antialiased;
+            }
+
+            /* CONTAIN PROPERTIES */
+            
+            .hero,
+            section,
+            .end-sky {
+                contain: layout style paint;
+            }
+
+            /*  REDUCE BLUR INTENSITY */
+            .purple-glow {
+                filter: blur(60px); 
+            }
+
+            /*  OPTIMIZE ANIMATIONS  */
+            @keyframes twinkle {
+                0%, 100% { 
+                    opacity: 0.3; 
+                    transform: scale(1) translateZ(0); 
+                }
+                50% { 
+                    opacity: 1; 
+                    transform: scale(1.5) translateZ(0); 
+                }
+            }
+
+            @keyframes float-glow {
+                0% { transform: translate3d(0, 0, 0); }
+                50% { transform: translate3d(30px, -40px, 0); }
+                100% { transform: translate3d(0, 0, 0); }
+            }
+
+            @keyframes drift-cloud {
+                0% { transform: translate3d(0, 0, 0); }
+                100% { transform: translate3d(-150vw, 0, 0); }
+            }
+
+            @keyframes pendulum-swing {
+                0%, 100% { transform: rotate(-8deg) translateZ(0); }
+                50% { transform: rotate(8deg) translateZ(0); }
+            }
+
+            @keyframes slideInFromRight {
+                0% {
+                    opacity: 0;
+                    transform: translate3d(150px, 0, 0);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            @keyframes slideInFromLeft {
+                0% {
+                    opacity: 0;
+                    transform: translate3d(-150px, 0, 0);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
+            @keyframes flyIn {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+            }
+
+            @keyframes syncedFloat {
+                0%, 100% {
+                    transform: translate3d(0, 0, 0);
+                }
+                50% {
+                    transform: translate3d(0, -15px, 0);
+                }
+            }
+
+            @keyframes syncedFloatBee {
+                0%, 100% {
+                    transform: translate3d(-50%, 0, 0);
+                }
+                50% {
+                    transform: translate3d(-50%, -15px, 0);
+                }
+            }
+
+            @keyframes chestFall {
+                0% {
+                    opacity: 0;
+                    transform: translate3d(0, -500px, 0) rotate(0deg);
+                }
+                60% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+                75% {
+                    transform: translate3d(0, -15px, 0) rotate(-2deg);
+                }
+                85% {
+                    transform: translate3d(0, 5px, 0) rotate(1deg);
+                }
+                95% {
+                    transform: translate3d(0, -5px, 0) rotate(-0.5deg);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+            }
+
+            /* OPTIMIZE TRANSITIONS */
+            .stone-btn,
+            .minecart-body,
+            .stat-box,
+            .popup-image {
+                transition-property: transform, opacity, box-shadow;
+                transition-duration: 0.3s;
+                transition-timing-function: ease;
+            }
+
+            .particle {
+                pointer-events: none;
+                transform: translate3d(0, 0, 0);
+            }
+
+            @keyframes particle-burst-fall {
+                0% {
+                    transform: translate3d(-50%, -50%, 0) scale(1);
+                    opacity: 1;
+                }
+                30% {
+                    transform: translate3d(calc(-50% + var(--tx)), calc(-50% + var(--ty)), 0) scale(1.2);
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.9;
+                }
+                100% {
+                    transform: translate3d(calc(-50% + var(--tx)), calc(-50% + var(--ty) + 150px), 0) scale(0.3);
+                    opacity: 0;
+                }
+            }
+
+
+            /* ========================================
+            HAMBURGER MENU STYLES
+            ======================================== */
+
+            .hamburger-menu {
+                display: none;
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 2000;
+                background: rgba(26, 11, 46, 0.95);
+                border: 2px solid #8b5a2b;
+                border-radius: 8px;
+                padding: 12px;
+                cursor: pointer;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 50px;
+                height: 50px;
+            }
+
+            .hamburger-menu span {
+                display: block;
+                width: 28px;
+                height: 3px;
+                background: #FFD700;
+                margin: 4px 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            }
+
+            .hamburger-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+
+            .hamburger-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+
+            /* Mobile overlay menu */
+            .mobile-nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 280px;
+                height: 100vh;
+                background: linear-gradient(to bottom, #1a0b2e 0%, #2d1b4e 100%);
+                z-index: 5999;
+                transition: left 0.4s ease;
+                overflow-y: auto;
+                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.9);
+                border-right: 4px solid #8b5a2b;
+            }
+
+            .mobile-nav-overlay.active {
+                left: 0;
+            }
+
+            .mobile-nav-content {
+                padding: 80px 20px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .mobile-nav-item {
+                margin-bottom: 5px;
+            }
+
+            .mobile-nav-link {
+                display: block;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 3px solid #2c231b;
+                padding: 15px 20px;
+                text-decoration: none;
+                color: #FFF;
+                font-size: 11px;
+                text-align: center;
+                transition: all 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            }
+
+            .mobile-nav-link:hover,
+            .mobile-nav-link:active {
+                transform: translateX(8px);
+                box-shadow: 0 6px 15px rgba(139, 90, 43, 0.8);
+                border-color: #8b5a2b;
+            }
+
+            /* Backdrop overlay */
+            .nav-backdrop {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                z-index: 5998;
+                opacity: 0;
+                transition: opacity 0.4s ease;
+                pointer-events: none;
+            }
+
+            .nav-backdrop.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            nav {
+                contain: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 3000;
+
+            }
+            
+        </style>
+
+        <!-- ========================================
+            MOBILE RESPONSIVE STYLES - ALL FIXES APPLIED
+    ========================================  -->
+
+    <style>
+        /* Tablets and smaller (≤768px) */
+        @media (max-width: 768px) {
+            /* Enable horizontal scrolling where needed */
+            body {
+                overflow-x: auto;
+            }
+            
+            /* Hero Section - Much smaller */
+            .hero {
+                padding: 120px 10px 30px;
+                /* min-height: 60vh; */
+                max-height: 1200px;
+            }
+            
+            .hero-logo {
+                max-width: auto;
+                height: 260px;
+                margin-top: 60px;
+            }
+
+            .hero-logo-bg-box {
+                height: 220px;
+                top: 47.6%;
+                margin-top: 7px;
+            }
+            
+            /* FIXED COUNTDOWN STRUCTURE - SMALLER TEXT */
+            .countdown-card {
+                width: 320px;
+                height: 108px;
+                padding: 8px 12px;
+                margin: -38px auto;
+            }
+            
+            .countdown-card h2 {
+                font-size: 8px;
+                margin-bottom: 8px;
+            }
+
+            .countdown-card h1 {
+                margin-top: 8px;
+                font-size: 15px;
+                text-shadow: 3px 3px 0 #000;
+            }
+            
+            .countdown {
+                margin-top: -10px;
+                display: flex;
+                gap: 5px;
+                justify-content: center;
+                font-size: 6px;
+                flex-wrap: nowrap;
+            }
+            
+            .countdown div {
+                /* min-width: 32px; */
+                margin-top: 8px;
+                max-width: 52px;
+                max-height: 52px;
+                padding: 3px 2px;
+                border: 2px solid #ffffff;
+                box-sizing: border-box;
+            }
+            
+            .countdown div span:first-child {
+                font-size: 15px;
+                line-height: 1;
+                display: block;
+            }
+            
+            .countdown span {
+                font-size: 9px;
+                margin-top: 3px;
+                display: block;
+                line-height: 1.1;
+            }
+            
+            .stone-buttons {
+                gap: 40px;
+                margin-top: 70px;   
+                flex-wrap: nowrap;
+                flex-direction: column;  /* Makes buttons stack vertically */
+                align-items: center;
+            }
+            
+            .stone-btn {
+                font-size: 100px;
+                line-height: 10px;
+                padding: 24px 52px;
+                white-space: nowrap;
+            }
+            
+            .popup-image {
+                width: 28px;
+                height: 28px;
+            }
+            
+            /* Navigation - Hide desktop nav, show hamburger */
+            .nav-links {
+                display: none;
+            }
+            
+            .lantern-container {
+                display: none;
+            }
+            
+            .hamburger-menu {
+                display: flex;
+            }
+            
+            .mobile-nav-overlay {
+                display: block;
+            }
+            
+            .nav-backdrop {
+                display: block;
+            }
+            
+            .nav-container {
+                height: 180px;
+            }
+            
+            /* Sections */
+            section, .section-bg {
+                padding: 60px 10px;
+                overflow: visible;  /* CHANGE from hidden to visible */
+            }
+            
+            h1 {
+                font-size: 16px;
+            }
+            
+            h2 {
+                position: relative;     /* ADD THIS */
+                padding-top: 80px; 
+                font-size: 22px;
+                margin-bottom: 50px;
+            }
+            
+            h2::before {
+                width: 220px;
+                height: 75px;
+                top: 0px;
+            }
+            
+            /* About Section - Keep side by side but smaller */
+            .about-content {
+                max-width: 100%;
+                font-size: 9px;
+                gap: 10px;
+                flex-wrap: nowrap;
+                padding: 15px 10px;
+            }
+            
+            .about-text {
+                margin-left: 15px;
+                flex: 1;
+                min-width: 280px;
+                line-height: 1.8;
+            }
+            
+            .about-image {
+                display: none;
+                flex: 0 0 200px;
+            }
+            
+            /* .about-image img {
+                max-width: 100px;
+            } */
+            
+            /* Stats - Keep 4 columns, much smaller */
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-top: 25px;
+                max-width: 80%;
+            }
+            
+            .stat-box {
+                height: 85px;
+                padding: 12px 8px;
+            }
+            
+            .stat-number {
+                font-size: 22px;
+                margin-bottom: 10px;
+            }
+            
+            .stat-label {
+                font-size: 9px;
+            }
+            
+            .stone-btn {
+                font-size: 11px;
+                text-shadow: 2px 2px #000;
+            }
+
+            /* TRACKS SECTION - FIXED VISIBILITY */
+            .tracks-container {
+                margin-bottom: -55px;
+                height: auto;
+                min-height: unset;
+                padding: 0 5px;
+                overflow-x: visible;
+                overflow-y: visible;
+                display: flex;              /* ADD THIS */
+                flex-direction: column;     /* ADD THIS */
+                align-items: center;  
+            }
+            
+            .track-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* CHANGED from flex to grid */
+                gap: 8px;
+                padding: 25px 0;
+                position: relative;
+                margin-bottom: -28px;
+            }
+
+            .minecart-card::before {
+                content: '';
+                position: absolute;
+                width: 100% ;
+                height: 38%;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczObok46sVoyhzb7t683F3aoprm1__CM0rWoM3SUlcbLGjF7ZZ4wGNv-JbzdpWSoBOVL25v1EfD4K6yC9DrkWY748f58rT4Q5CcljA8V4weDuoKnwMpWiBzncLGTsjphJYdwWXS2CuZBTpS_4y0TCnpv=w301-h270-s-no-gm?authuser=0');
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 0;
+                image-rendering: pixelated;
+            }
+            
+            .minecart-rail {
+                display: none;
+            }
+            
+            /* MINECARTS - Force visibility on mobile, keep animations */
+            .minecart-card {
+                flex: 0 0 calc(50% - 6px);
+                width: 200px;
+                opacity: 1 !important; /* FORCE VISIBLE */
+                
+                margin-bottom: 60px;
+            }
+            
+            /* Disable initial transform on mobile */
+            .track-row-1 .minecart-card,
+            .track-row-2 .minecart-card {
+                transform: none !important;
+            }
+            
+            /* Keep hover animations */
+            .minecart-body:hover {
+                transform: translateY(-10px) scale(1.05);
+            }
+            
+            .minecart-body {
+                margin-top: -20px;
+                width: 150px;
+                height:150px;
+            }
+            
+            .track-logo {
+                width: 100px;
+                margin-top: -90px;
+            }
+            
+            .track-info {
+                width: 150px;
+                height: 36px;
+                padding: 4px 8px;
+                margin-top: -45px;
+                text-shadow: #cecece 1px 1px 0;
+            }
+            
+            .track-info h3 {
+                font-size: 9.5px;
+                margin-top: 1px;
+                line-height: 1.1;
+            }
+            
+            .track-info p {
+                font-size: 6px;
+                line-height: 1.4;
+            }
+            
+            /* Ghast Banner - Keep horizontal, smaller, FORCE VISIBLE */
+            .open-innovation-banner {
+                margin-left: 15px;
+                margin-top: -50px;
+                margin-bottom: 10px;
+            }
+            
+            .ghast-banner-wrapper {
+                flex-direction: row;
+                max-width: 600px;
+                gap: 0;
+                opacity: 1 !important; /* FORCE VISIBLE */
+                transform: none !important;
+            }
+            
+            .ghast-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .rope-container {
+                display: flex;
+                width: 60px;
+            }
+            
+            .rope {
+                height: 3px;
+            }
+            
+            .rope-left {
+                top: 14px;
+            }
+            
+            .rope-right {
+                bottom: 14px;
+            }
+            
+            .banner-sign {
+                max-width: 400px;
+                padding: 6px 16px;
+                max-height: 52px;
+            }
+            
+            .banner-sign p {
+                font-size: 9px;
+                line-height: 1.5;
+            }
+            
+            /* WHY ATTEND SECTION – FORCE SMALL CARDS (COPY PASTE READY) */
+
+            .cards-grid {
+                margin-top: 80px;
+                display: grid;
+                grid-template-columns: repeat(1, 100px);
+                justify-content: center;
+                gap: 18px;
+                padding: 25px 6px;
+                margin-bottom: -50px;
+            }
+
+            /* Card container */
+            .card-wrapper {
+                width: 100px !important;
+                min-width: 60px !important;
+                max-width: 100px !important;
+                opacity: 1 !important;
+                transform: none !important;
+                overflow: visible; /* bee stays visible */
+            }
+
+            /* Bee */
+            .bee-image {
+                width: 60px;
+                top: -49px;
+                margin-left: 13px;
+            }
+
+            /* Card box */
+            .card {
+                width: 200px;
+                min-width: 20px;
+                max-width: 200px;
+
+                box-sizing: border-box;
+                overflow: hidden;
+
+                min-height: 200px;
+                max-height: 200px;
+
+                padding: 6px 4px;
+                margin-top: 10px;
+                margin-bottom: 50px;
+
+                border-width: 3px;
+                margin-left: -45px;
+            }
+
+            /* Logo inside card */
+            .card-logo {
+                width: 96px;
+                height: 96px;
+                margin-bottom: 6px;
+            }
+
+            /* Text */
+            .card h3 {
+                font-size: 12.5px;
+                margin-bottom: 4px;
+            }
+
+            .card p {
+                font-size: 8.5px;
+                line-height: 1.3;
+            }
+
+            
+            /* PRIZES SECTION - FORCE VISIBLE */
+            .prizes {
+                gap: 60px;
+                padding: 20px 0;
+            }
+            
+            .prize-row {
+                flex-direction: row;
+                gap: 25px;
+                justify-content: center;
+                flex-wrap: nowrap;
+                margin-top: -35px;
+                margin-bottom: -20px;
+            }
+            
+            /* PRIZE CARDS - FORCE VISIBLE */
+            .prize-card {
+                flex: 0 0 auto;
+                min-width: 145px;
+                opacity: 1 !important; /* FORCE VISIBLE */
+                transform: none !important; /* REMOVE INITIAL TRANSFORM */
+            }
+            
+            .prize-card-elevated {
+                margin-bottom: 20px;
+                transform: none !important;
+            }
+            
+            .chest-wrapper {
+                width: 130px;
+                height: 130px;
+                margin-bottom: 15px;
+            }
+            
+            .prize-label {
+                font-size: 10px;
+                margin-bottom: 8px;
+            }
+            
+            .prize-amount {
+                font-size: 16px;
+                min-width: 130px;
+                letter-spacing: 1px;
+            }
+            
+            /* Particle effects smaller */
+            .particle-fall {
+                width: 8px;
+                height: 8px;
+            }
+            
+            /* FAB Button */
+            .fab {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            /* FOOTER - FIXED MAP WITH LAVA FLOW */
+            .lava-border {
+                height: 80px;
+                background-size: auto 100%;
+                animation: lavaFlow 40s linear infinite;
+            }
+            
+            .footer-main {
+                padding: 30px 16px 20px;
+                height: 780px;
+                background-size: 48px 48px;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;   /* 🔥 STACK VERTICALLY */
+                align-items: center;
+                gap: 20px;
+                max-width: 360px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            /* LOGO SECTION */
+            .logo-section {
+                flex: none;
+                min-width: unset;
+                max-width: unset;
+            }
+
+            .acehack-logo {
+                width: 290px;
+                margin: 0 auto;
+            }
+
+            .follow-us {
+                font-size: 10px;
+                margin-top: 8px;
+            }
+
+            .socials {
+                justify-content: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .social-icon {
+                width: 22px;
+                height: 22px;
+            }
+
+            /* LINKS */
+            .links-section {
+                flex: none;
+                min-width: unset;
+                align-items: center;
+            }
+
+            .links-section h3 {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+
+            .links-section a {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+
+            /* CONTACT */
+            .contact-section {
+                flex: none;
+                min-width: unset;
+            }
+
+            .contact-section h3 {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+
+            .contact-info {
+                font-size: 11px;
+                line-height: 1.6;
+            }
+
+            /* LOCATION + MAP */
+            .location-section {
+                flex: none;
+                min-width: unset;
+                width: 100%;
+                position: relative;
+            }
+
+            .location-section h3 {
+                font-size: 12px;
+                margin-bottom: 10px;
+            }
+
+            .map-overlay {
+                position: relative;     /* 🔥 INLINE MAP */
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 180px;
+                margin-top: 90px;
+                border-radius: 14px;
+                overflow: hidden;
+            }
+
+            .map-overlay::before {
+                top: -6px;
+                left: -6px;
+                right: -6px;
+                bottom: -6px;
+                background-size: 40px 40px;
+            }
+
+            .footer-separator {
+                height: 4px;
+            }
+
+            .copyright {
+                font-size: 10px;
+                padding: 12px 8px;
+                text-align: center;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                position: fixed;
+                top: 20px;
+                left: 5px;
+                z-index: 10000;
+                background: rgba(26, 11, 46, 0.95);
+                border: 2px solid #8b5a2b;
+                border-radius: 8px;
+                padding: 10px;  /* ← Reduced */
+                cursor: pointer;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                gap: 3px;  /* ← Added for even spacing */
+            }
+
+            .hamburger-menu span {
+                display: block;
+                width: 22px;  /* ← Fits within 50px - 20px padding */
+                height: 3px;
+                background: #FFD700;
+                margin: 0;  /* ← Remove margin, using gap instead */
+                transition: all 0.3s ease;
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* Mobile phones (≤480px) */
+        @media (max-width: 480px) {
+            .flying-entity {
+                width: 200px;
+                height: auto;
+                animation: fly-across 5s linear infinite;
+            }
+
+            .hero{
+                height: 700px;
+            }
+
+            .hero-logo {
+                max-width: 390px;
+                height: auto;
+                margin-top: -10px;
+            }
+
+            .hero-logo-bg-box {
+                height: 170px;
+                top: 30%;
+                margin-top: 14px;
+            }
+            
+            .countdown-card {
+                max-width: 310px;
+                height: 95px;
+                padding: 5px 8px;
+                margin-top: 0px;
+            }
+
+            .countdown-card h1 {
+                font-size: 13.5px;
+                text-shadow: #000 3px 3px 0;
+            }
+            
+            .countdown-card h2 {
+                font-size: 4.5px !important;
+                margin-bottom: 6px;
+            }
+            
+            .countdown div {
+                width: 15px;
+                height: 35px;
+            }
+            
+            .countdown div span:first-child {
+                font-size: 10px;
+            }
+            
+            .countdown span {
+                font-size: 9px;
+                width: 66px;
+            }
+
+            .stone-buttons {
+                gap: 20px;
+                margin-top: 100px;
+                flex-wrap: nowrap;  
+            }
+            
+            .stone-btn {
+                font-size: 11px;
+                padding: 18px 25px;
+                white-space: nowrap;
+                height: auto;
+            }
+
+            .stone-btn::after {
+                padding: 1.5px;
+            }
+            
+            .popup-image {
+                width: 28px;
+                height: 28px;
+            }
+
+            section , .section-bg {
+                padding: 60px 6px;
+            }
+
+            h1 {
+                font-size: 14px;
+            }
+
+            h2 {
+                position: relative;     /* ADD THIS */
+                padding-top: 0px; 
+                font-size: 17px;
+                margin-top: 28px;
+            }
+
+            h2::before {
+                width: 220px;
+                height: 75px;
+                top: -60px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: -35px;
+            }
+
+            .tracks-container {
+                margin-bottom: -140px;
+
+            }
+            
+            .minecart-card {
+                margin-top: 40px;
+                min-width: 50px;
+                opacity: 1 !important;
+                margin-left: -10px;
+                margin-right: -10px;
+                margin-bottom: 30px;
+            }
+
+            .minecart-card::before {
+                content: '';
+                position: absolute;
+                width: 122% ;
+                height: 38%;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczObok46sVoyhzb7t683F3aoprm1__CM0rWoM3SUlcbLGjF7ZZ4wGNv-JbzdpWSoBOVL25v1EfD4K6yC9DrkWY748f58rT4Q5CcljA8V4weDuoKnwMpWiBzncLGTsjphJYdwWXS2CuZBTpS_4y0TCnpv=w301-h270-s-no-gm?authuser=0');
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 0;
+                image-rendering: pixelated;
+            }
+            
+            .track-row-1 .minecart-card,
+            .track-row-2 .minecart-card {
+                transform: none !important;
+            }
+            
+            .minecart-body {
+                width: 210px;
+                height: 88px;
+                margin-bottom: -40px;
+            }
+            
+            .track-logo {
+                width: 80px;
+                margin-top: -70px;
+            }
+            
+            .track-info {
+                margin-top: 25px;
+                width: 130px;
+                height: 32px;
+            }
+
+            .track-info h3 {
+                font-size: 9px;
+                margin-top: 1px;
+                line-height: 1.1;
+            }
+
+            .open-innovation-banner {
+                margin-left: 15px;
+                margin-top: -30px;
+                margin-bottom: 65px;
+            }
+            
+            .ghast-banner-wrapper {
+                flex-direction: row;
+                max-width: 600px;
+                gap: 0;
+                opacity: 1 !important; /* FORCE VISIBLE */
+                transform: none !important;
+            }
+            
+            .ghast-img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .banner-sign {
+                width: 230px;
+                height: 62px;
+            }
+            
+            .banner-sign p {
+                font-size: 8.2px;
+                line-height: 1.5;
+            }
+            
+            .cards-grid {
+                display: grid;
+                grid-template-columns: 2fr;   /* full-width column */
+                justify-content: center;
+                gap: 12px;
+                padding: 16px 8px;
+                margin-right: 110px;
+                margin-top: 50px;
+            }
+
+            .card-wrapper {
+                width: 100%;
+                max-width: 180px;             /* safe width for 360px screens */
+                height: auto;
+                margin: 0 auto;
+                margin-top: 1px;
+            }
+
+            .card {
+                width: 100%;
+                min-width: 200px;
+                max-width: unset;
+
+                min-height: 180px;
+                max-height: none;             /* REMOVE height conflict */
+
+                padding: 8px 6px;
+                margin: 40px 0 16px 0;
+
+                border-width: 2px;
+                box-sizing: border-box;
+            }
+
+            .card-logo {
+                width: 88px;
+                height: 88px;
+            }
+            
+            .bee-image {
+                width: 60px;
+                margin-top: 29px;
+                margin-left: 60px;
+            }
+
+            .card h3 {
+                font-size: 12px;
+                color: #000000;
+                margin-bottom: 15px;
+                text-shadow: 2px 2px 0 #b1b1b1;
+            }
+
+            /* Card Description */
+            .card p {
+                font-size: 8.5px;
+                line-height: 1.8;
+                color: #FFF;
+                text-shadow: 2px 2px 4px #000;
+            }
+
+            .prizes {
+                max-width: 200px;
+            }
+
+            .prize-row {
+                margin-top: -50px;
+                gap: 0px;
+                width: 100%;
+                margin-bottom: -30px;
+                margin-right: 35px;
+            }
+
+            .chest-wrapper {
+                width: 80px;
+                height: 80px;
+                gap: -10px;
+                margin-bottom: 10px;
+            }
+
+            .chest-img {
+                width: 150%;
+                height: 150%;
+                margin-top: 20px;
+            }
+
+            .prize-label {
+                font-size: 10.5px;
+                margin-top: 70px;
+                margin-left: 35px;
+                margin-bottom: -1px;
+            }
+
+            .prize-amount {
+                margin-top: 0px;
+                margin-left: 35px;
+                font-size: 10.5px;
+            }
+        
+            
+            .prize-card {
+                opacity: 1 !important;
+                transform: none !important;
+                margin-left: -15px;   /* ← ADD THIS - makes them overlap */
+                margin-right: -15px;
+            }
+            
+            .prize-card-elevated {
+                transform: none !important;
+            }
+            
+            /* Footer ultra compact */
+            /* Lava border — reduce height & animation cost */
+            .lava-border {
+                margin-top: -200px;
+                height: 70px;
+                background-size: auto 100%;
+                animation-duration: 60s; /* smoother on low-end devices */
+            }
+
+            /* Footer container */
+            .footer-main {
+                padding: 24px 12px 16px;
+                height: 658px;
+                background-size: 40px 40px;
+            }
+
+            .footer-content {
+                max-width: 320px;
+                gap: 16px;
+                padding: 0;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: -100px;
+            }
+
+            /* Logo section */
+            .logo-section {
+                width: 100%;
+                max-width: none;
+                min-width: unset;
+            }
+
+            .logo-bg {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .acehack-logo {
+                width: 220px !important;   /* 👈 CHANGE THIS VALUE */
+                max-width: none !important;
+                height: auto;
+                margin-top: 0;
+            }
+
+            .follow-us {
+                font-size: 11px;
+                margin-top: 6px;
+            }
+
+            .socials {
+                gap: 8px;
+                margin-top: 8px;
+            }
+
+            .social-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            /* Links */
+           
+            .links-section h3,
+            .contact-section h3,
+            .location-section h3 {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+
+            .links-section a {
+                font-size: 10px;
+                margin-bottom: 5px;
+            }
+
+            /* Contact info */
+            .contact-info {
+                font-size: 9.5px;
+                line-height: 1.5;
+            }
+
+            /* Map */
+            .map-overlay {
+                margin-top: 80px;
+                margin-bottom: 5px;
+                height: 150px;
+                width: auto;
+                border-radius: 12px;
+            }
+
+            .map-overlay::before {
+                background-size: 32px 32px;
+            }
+
+            /* Footer separator */
+            .footer-separator {
+                height: 3px;
+                margin-top: 0px;
+            }
+
+            /* Copyright */
+            .copyright {
+                font-size: 6.5px;
+                line-height: 1.5;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                position: fixed;
+                top: 20px;
+                left: 5px;
+                z-index: 10000;
+                background: rgba(26, 11, 46, 0.95);
+                border: 2px solid #8b5a2b;
+                border-radius: 8px;
+                padding: 10px;  /* ← Reduced */
+                cursor: pointer;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                gap: 3px;  /* ← Added for even spacing */
+            }
+
+            .hamburger-menu span {
+                display: block;
+                width: 22px;  /* ← Fits within 50px - 20px padding */
+                height: 3px;
+                background: #FFD700;
+                margin: 0;  /* ← Remove margin, using gap instead */
+                transition: all 0.3s ease;
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        /* Very small screens (≤375px) */
+        @media (max-width: 400px) {
+            .hero{
+                max-height: 700px;
+            }
+
+            .hero-logo {
+                max-width: 540px;
+                height: 188px;
+                margin-top: -70px;
+            }
+
+            .hero-logo-bg-box {
+                height: 170px;
+                top: 0%;
+                margin-top: 7px;
+            }
+            
+            .countdown-card {
+                max-width: 360px;
+                height: 95px;
+                padding: 5px 8px;
+                margin-top: 0px;
+            }
+
+            .countdown-card h1 {
+                font-size: 13.5px;
+                text-shadow: #000 3px 3px 0;
+            }
+            
+            .countdown-card h2 {
+                font-size: 4.5px !important;
+                margin-bottom: 6px;
+            }
+            
+            .countdown div {
+                max-width: 25px !important;
+                height: 37px;
+            }
+            
+            .countdown div span:first-child {
+                font-size: 10px;
+            }
+            
+            .countdown span {
+                font-size: 9px;
+                width: 60px;
+            }
+
+            .stone-buttons {
+                gap: 20px;
+                margin-top: 100px;
+                flex-wrap: nowrap;
+            }
+            
+            .stone-btn {
+                font-size: 9px;
+                padding: 17px 25px;
+                white-space: nowrap;
+            }
+            
+            .popup-image {
+                width: 28px;
+                height: 28px;
+            }
+
+            section , .section-bg {
+                padding: 60px 6px;
+            }
+
+            h1 {
+                font-size: 14px;
+            }
+
+            h2 {
+                position: relative;     /* ADD THIS */
+                padding-top: 0px; 
+                font-size: 17px;
+                margin-top: 28px;
+            }
+
+            h2::before {
+                width: 220px;
+                height: 75px;
+                top: -60px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: -35px;
+            }
+            
+            .tracks-container {
+                margin-bottom: -140px;
+
+            }
+
+            .minecart-card {
+                margin-top: 40px;
+                min-width: 50px;
+                opacity: 1 !important;
+                margin-left: -10px;
+                margin-right: -10px;
+                margin-bottom: 30px;
+            }
+
+            .minecart-card::before {
+                content: '';
+                position: absolute;
+                width: 95% ;
+                height: 28%;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczObok46sVoyhzb7t683F3aoprm1__CM0rWoM3SUlcbLGjF7ZZ4wGNv-JbzdpWSoBOVL25v1EfD4K6yC9DrkWY748f58rT4Q5CcljA8V4weDuoKnwMpWiBzncLGTsjphJYdwWXS2CuZBTpS_4y0TCnpv=w301-h270-s-no-gm?authuser=0');
+                background-repeat: repeat-x;
+                background-size: auto 100%;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 0;
+                image-rendering: pixelated;
+            }
+            
+            .track-row-1 .minecart-card,
+            .track-row-2 .minecart-card {
+                transform: none !important;
+            }
+            
+            .minecart-body {
+                width: 190px;
+                height: 78px;
+                margin-bottom: -40px;
+            }
+            
+            .track-logo {
+                width: 80px;
+                margin-top: -70px;
+            }
+            
+            .track-info {
+                margin-top: 25px;
+                width: 130px;
+                height: 32px;
+            }
+
+            .track-info h3 {
+                font-size: 9px;
+                margin-top: 1px;
+                line-height: 1.1;
+            }
+
+            .open-innovation-banner {
+                margin-left: 15px;
+                margin-top: -30px;
+                margin-bottom: 65px;
+            }
+            
+            .ghast-banner-wrapper {
+                flex-direction: row;
+                max-width: 600px;
+                gap: 0;
+                opacity: 1 !important; /* FORCE VISIBLE */
+                transform: none !important;
+            }
+            
+            .ghast-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .banner-sign {
+                width: 200px;
+                height: 62px;
+            }
+            
+            .banner-sign p {
+                font-size: 7.5px;
+                line-height: 1.5;
+            }
+            
+            .cards-grid {
+                display: grid;
+                grid-template-columns: 2fr;   /* full-width column */
+                justify-content: center;
+                gap: 12px;
+                padding: 16px 8px;
+                margin-right: 90px;
+                margin-top: 50px;
+            }
+
+            .card-wrapper {
+                width: 100%;
+                max-width: 180px;             /* safe width for 360px screens */
+                height: auto;
+                margin: 0 auto;
+                margin-top: 1px;
+            }
+
+            .card {
+                width: 100%;
+                min-width: 200px;
+                max-width: unset;
+
+                min-height: 180px;
+                max-height: none;             /* REMOVE height conflict */
+
+                padding: 8px 6px;
+                margin: 40px 0 16px 0;
+
+                border-width: 2px;
+                box-sizing: border-box;
+            }
+
+            .card-logo {
+                width: 88px;
+                height: 88px;
+            }
+            
+            .bee-image {
+                width: 60px;
+                margin-top: 29px;
+                margin-left: 55px;
+            }
+
+            .card h3 {
+                font-size: 12px;
+                color: #000000;
+                margin-bottom: 15px;
+                text-shadow: 2px 2px 0 #b1b1b1;
+            }
+
+            /* Card Description */
+            .card p {
+                font-size: 8.5px;
+                line-height: 1.8;
+                color: #FFF;
+                text-shadow: 2px 2px 4px #000;
+            }
+
+            .prizes {
+                max-width: 200px;
+            }
+
+            .prize-row {
+                margin-top: -50px;
+                flex-direction: row;
+                gap: -10px;
+                width: 100%;
+                margin-bottom: -30px;
+                margin-left: -60px;
+                margin-right: -60px;
+            }
+
+            .chest-wrapper {
+                width: 80px;
+                height: 80px;
+                gap: -10px;
+                margin-bottom: 10px;
+            }
+
+            .chest-img {
+                width: 120%;
+                height: 120%;
+                margin-top: 20px;
+            }
+
+            .prize-label {
+                font-size: 10.5px;
+                margin-top: 45px;
+                margin-right: 20px;
+                margin-bottom: -1px;
+            }
+
+            .prize-amount {
+                margin-top: -5px;
+                margin-right: 20px;
+                font-size: 10.5px;
+            }
+        
+            
+            .prize-card {
+                opacity: 1 !important;
+                transform: none !important;
+                margin-left: -35px;   /* ← ADD THIS - makes them overlap */
+                margin-right: -35px;
+            }
+            
+            .prize-card-elevated {
+                transform: none !important;
+            }
+            
+            /* Footer ultra compact */
+            /* Lava border — reduce height & animation cost */
+            .lava-border {
+                margin-top: -200px;
+                height: 70px;
+                background-size: auto 100%;
+                animation-duration: 60s; /* smoother on low-end devices */
+            }
+
+            /* Footer container */
+            .footer-main {
+                padding: 24px 12px 16px;
+                background-size: 40px 40px;
+            }
+
+            .footer-content {
+                max-width: 320px;
+                gap: 16px;
+                padding: 0;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: -100px;
+            }
+
+            /* Logo section */
+            .logo-section {
+                width: 100%;
+                max-width: none;
+                min-width: unset;
+            }
+
+            .logo-bg {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .acehack-logo {
+                width: 220px !important;   /* 👈 CHANGE THIS VALUE */
+                max-width: none !important;
+                height: auto;
+                margin-top: 0;
+            }
+
+            .follow-us {
+                font-size: 11px;
+                margin-top: 6px;
+            }
+
+            .socials {
+                gap: 8px;
+                margin-top: 8px;
+            }
+
+            .social-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            /* Links */
+           
+            .links-section h3,
+            .contact-section h3,
+            .location-section h3 {
+                font-size: 11px;
+                margin-bottom: 6px;
+            }
+
+            .links-section a {
+                font-size: 10px;
+                margin-bottom: 5px;
+            }
+
+            /* Contact info */
+            .contact-info {
+                font-size: 9.5px;
+                line-height: 1.5;
+            }
+
+            /* Map */
+            .map-overlay {
+                margin-top: 80px;
+                margin-bottom: 25px;
+                height: 140px;
+                width: auto;
+                border-radius: 12px;
+            }
+
+            .map-overlay::before {
+                background-size: 32px 32px;
+            }
+
+            /* Footer separator */
+            .footer-separator {
+                height: 3px;
+                margin-top: 0px;
+            }
+
+            /* Copyright */
+            .copyright {
+                font-size: 6.5px;
+                line-height: 1.5;
+                margin-bottom: -50px;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                position: fixed;
+                top: 20px;
+                left: 5px;
+                z-index: 10000;
+                background: rgba(26, 11, 46, 0.95);
+                border: 2px solid #8b5a2b;
+                border-radius: 8px;
+                padding: 10px;  /* ← Reduced */
+                cursor: pointer;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                gap: 3px;  /* ← Added for even spacing */
+            }
+
+            .hamburger-menu span {
+                display: block;
+                width: 22px;  /* ← Fits within 50px - 20px padding */
+                height: 3px;
+                background: #FFD700;
+                margin: 0;  /* ← Remove margin, using gap instead */
+                transition: all 0.3s ease;
+                box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            }
+        }
+    </style>
+        
+    </head>
+    <body>
+
+        <!-- Animated Particles -->
+        <!-- Minecraft End Sky Background -->
+        <div class="end-sky" id="endSky"></div> 
+
+        <!-- Navbar -->
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </div>
 
-    <div class="pixel-divider"></div>
+        <!-- Navbar -->
+        <nav>
+        <div class="nav-texture-bar"></div>
 
-    <div class="content">
+        <div class="nav-container">
+            <div class="lantern-container">
+                <div class="chain"></div>
+                <div class="lantern"></div>
+            </div>
 
-        <div class="heading-wrapper">
-            <h1 class="coming-soon-heading">GENERATING...</h1>
-            <h1 class="year-2026">2026</h1>
+            <div class="nav-links">
+                <div class="nav-sign-container" style="--index: 0">
+                    <div class="sign-chain"></div>
+                    <a href="#home" class="nav-sign">Home</a>
+                </div>
+
+                <div class="nav-sign-container" style="--index: 1">
+                    <div class="sign-chain"></div>
+                    <a href="#timeline" class="nav-sign" data-soon="true">Timeline</a>
+                </div>
+
+                <div class="nav-sign-container" style="--index: 2">
+                    <div class="sign-chain"></div>
+                    <a href="#guests" class="nav-sign" data-soon="true">Guests</a>
+                </div>
+
+                <!-- NEW TRACKS BUTTON -->
+                <div class="nav-sign-container" style="--index: 3">
+                    <div class="sign-chain"></div>
+                    <a href="#tracks" class="nav-sign">Tracks</a>
+                </div>
+
+                <div class="nav-sign-container" style="--index: 4">
+                    <div class="sign-chain"></div>
+                    <a href="#team" class="nav-sign" data-soon="true">DG Swags</a>
+                </div>
+
+                <div class="nav-sign-container" style="--index: 5">
+                    <div class="sign-chain"></div>
+                    <a href="#contact" class="nav-sign">Contact</a>
+                </div>
+            </div>
+
+            <div class="lantern-container">
+                <div class="chain"></div>
+                <div class="lantern"></div>
+            </div>
         </div>
+    </nav>
 
-        <p class="tagline">From Blocks to Breakthroughs</p>
 
-        <!-- LOADING BAR -->
-        <div class="data-stream-container">
-            <div class="data-stream-bar">
-                <div class="minecraft-steve">
-                    <div class="steve-hair"></div>
-                    <div class="steve-head">
-                        <div class="steve-face">
-                            <div class="steve-eye"></div>
-                            <div class="steve-eye"></div>
-                            <div class="steve-mouth"></div>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-logo-wrapper">
+                <div class="hero-logo-bg-box"></div>
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczPxb-M-DbEfiTuCRNNuye1Hmi-tOO0co4dj9ABS6RA1i66QiECIi16ZzjfYl7oSQMfW1YAOwmKVxWvIVXN8grhpAIp4jP3FOJOXWgmIm8qsPDd4-iEHxVaIvujxAp-c-hdSH11bA5ISpRCiEX1FWEjJ=w929-h531-s-no-gm?authuser=0" alt="AceHack 5.0" class="hero-logo">
+            </div>
+            <div class="countdown-card">
+                <h1>Event Starts In</h1>
+                <div class="countdown" id="countdown">
+                    <div><span id="days">00</span><span>Days</span></div>
+                    <div><span id="hours">00</span><span>Hours</span></div>
+                    <div><span id="mins">00</span><span>Mins</span></div>
+                    <div><span id="secs">00</span><span>Secs</span></div>
+                </div>
+            </div>
+            
+            <div class="stone-buttons">
+                <div class="stone-btn-wrapper">
+                    <a href="https://acehack5.devfolio.co/overview" class="stone-btn">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczN-MhX7-NgOHmDI9WNE52xjs-F3FCz4GlVEmH8ca4vmBcTq7F7yLlwY2ic9lcYNu692w8F5cxM9gx5kwJ_8vLr-A6WQw6Zs7zekl1eZW8V50ZHsjGuGUIhBadHAJk8_Hp57Cdvw4v5y1XgGqoEAvvkB=w724-h203-s-no-gm?authuser=0" alt="Register Icon" class="btn-icon">
+                        Register
+                    </a>
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Diamond" class="popup-image">
+                </div>
+                <div class="stone-btn-wrapper">
+                    <a href="https://chat.whatsapp.com/FC9DCKKTe61DD3SERneNV0" class="stone-btn">Join Community</a>
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Golden Apple" class="popup-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-bg">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2>About AceHack 5.0</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                        AceHack 5.0 is the next evolution of Rajasthan's biggest student-run hackathon—a 36-hour build space where students and innovators from across the country come together to create impactful, real-world tech solutions.
+                        </p>
+                        <p>
+                        More than just coding, it is a platform to explore ideas, sharpen skills, and grow with a driven community—whether you are just starting out or building complex systems.
+                        </p>
+                        <p>
+                        Enter AceHack 5.0 and shape the future, one idea at a time.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNWNWiQ4kQZeKYZNto0zbPYMNi0geP_jgBiH7dOCR10sFhgEeKMm5smK3O-FATAvxv35rkMSScR6NWfBQeRo7bNHTUUSqgtY_EeHkQ-w4iyNI2OoaI8rWmH5I5OvyUkdBgIEfqDyOwl9_iL_grP143S=w188-h200-s-no-gm?authuser=0" alt="AceHack">
+                    </div>
+                </div>
+                
+                <!-- <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Participants</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Cities</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">$XXXX</span>
+                        <span class="stat-label">Prize Pool</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Mentors</span>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+    <!-- Inside #tracks section, replace everything inside the section -->
+        <section id="tracks" class="section-bg">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2>Hackathon Tracks</h2>
+                
+                <div class="tracks-container">
+                    <!-- First Row - Right to Left -->
+                    <div class="track-row track-row-1">
+                        <div class="minecart-rail"></div>
+                        
+                        <div class="minecart-card" data-index="0">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMuaQNdg3vs_x-w_DwJFLG2oqj7mjiaYfLCnHUE-Kn5VoWbbUJ9PfzFebkZEuHMKOvZkIT185tacwzk1LzpW28Tn9hQNA43z1eLh7DRMlQI3zgT_4_9aYxLkN9SuoQapZcI92nQp66gbRjiwW5V9JaN=w512-h575-s-no-gm?authuser=0" alt="FinTech" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Data & Gen AI</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="1">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOmoh9lr8wLhCpAojhzkmBX4PotMBn1poGLRwtru5buY2oiXA5-_3eOm0gSJJdipHkx8jSaz4GhVr5Uuom8qdM94oI0EixS81a9mcmXWa9sm-NZPJsVXkLRWaAZQWbRZBgNYfOaVJUuiaho0ecOioFT=w512-h526-s-no-gm?authuser=0" alt="Web3" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Web & App Development</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="2">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOpQuBzxugRArOfHWaKpXjU2gqNIyNj54xJl_NFx32q3GvreNgzUTRMFhWGAtZoP1ujsxXuRNbBfPQ8JoACeV6A0qS07Fb8G6Z6uLCCiLmcrBuhTjEyxj0fMfv5_Rwoo5ma_3okwnn2odjeEVFCdfZu=w512-h538-s-no-gm?authuser=0" alt="Sustainability" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Cloud & DevOps</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="3">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczM-C8fRTQFVNRKqZ5KtvR3ys23Vjdl7SDmXOLtT2-BwcItVPXG8MJzb0AzHo70O6xM-qSceWl8-M70tKSWTyfWdpQlYxfIhD01Um_gXh2OdLyX0PFyjX_o8-7dAVsklHjOv3IkcsZz-oI5pBi1PNZz4=w512-h567-s-no-gm?authuser=0" alt="AI/ML" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Blockchain & Crypto</h3>
+                            </div>
                         </div>
                     </div>
-                    <div class="steve-body"></div>
-                    <div class="steve-arm steve-arm-left"></div>
-                    <div class="steve-arm steve-arm-right"></div>
-                    <div class="steve-leg steve-leg-left"></div>
-                    <div class="steve-leg steve-leg-right"></div>
+
+                    <!-- Second Row - Left to Right -->
+                    <div class="track-row track-row-2">
+                        <div class="minecart-rail"></div>
+                        
+                        <div class="minecart-card" data-index="0">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPNBey59i7uLdauw9XoOzFfmfBg-rO0A0Qs1nfU-L62CxaSc54VF5fq86Yfv9FncHlFDmIJ_vtWdm01L2V1Zil5zKJH_jWx9-MRuKcsCamTAU9KgRYxpMBW4yowUOHpRjycuViuik43kc9xFtCOPeQD=w382-h382-s-no-gm?authuser=0" alt="EdTech" class="track-logo" >
+                            </div>
+                            <div class="track-info">
+                                <h3>Game Development</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="1">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPXaL6q5ZXpgK8SEGfCWgwleKnTNTwyhbJ5_so03NKuE1GjfgI7d3TT4kxjws6kgDKa-ZYsV2-cvoJUj5aN6l3Ma7YEwDuivedwGzES9cvMkTzsvYImJtel_x7KAiiHvqtzZMN8sYPOdFjbTlKp92et=w512-h449-s-no-gm?authuser=0" alt="Healthcare" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>AR & VR Projects</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="2">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMiDkz2S2JgoZaZYuLadsFeJUR8lpXwp-pquLZ8TzGISKfkhnVw9a-ZoHxNmMaOZAH60GdaBHxZkdnoHmRz3A8-GA7XGAAN26VhIj0l00Hj8sPBP50yfqFTr1iLMT2BN7Q71LDOSJ-Pw6eXUaQQYr0d=w512-h508-s-no-gm?authuser=0" alt="IoT" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Internet of Things</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="minecart-card" data-index="3">
+                            <div class="minecart-body">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczO_teoBV6j4Q2rsDTQ_pU2p-D6tWIfCQEz2FuRfzzrIGIwN7vjJKsOdGUpmjn02-ubJbwWun8wKZFMF5zgFWYcgKgfRQCtgq96T_WJku5ED2zknp3pR-BtjLH8dwgypZhdC3prKVfMMB23mPxlgohJl=w512-h554-s-no-gm?authuser=0" alt="Open Innovation" class="track-logo">
+                            </div>
+                            <div class="track-info">
+                                <h3>Cyber Security</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Open Innovation Banner with Ghast -->
+                    <div class="open-innovation-banner">
+                        <div class="ghast-banner-wrapper">
+                            <!-- Ghast Image -->
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOpFnxQjEqmKRGm-uqefkZ1RQ_FGdbvHjy3ai4_ZSidf3WOX2RzQTOzxG2JnIGqALJVSu6Yd5so5KzgO01iIuQjFxMvaM1m7IR-h3bE9uI9vyy_BNrAVHBCw1DnitF3pd3Xu9dDDd0hePOk6wlj7SDZ=w250-h256-s-no-gm?authuser=0" 
+                                alt="Ghast" 
+                                class="ghast-img">
+                            
+                            <!-- Rope Connection -->
+                            <div class="rope-container">
+                                <div class="rope rope-left"></div>
+                                <div class="rope rope-right"></div>
+                            </div>
+                            
+                            <!-- Banner -->
+                            <div class="banner-sign">
+                                <p>Open Innovation Track for Interested Developers!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Attend Section --> 
+        <section id="why-attend" class="section-bg">
+            <div style="max-width: 1400px; margin: 0 auto; margin-top: -50px;">
+                <h2>Why Attend?</h2>
+                <div class="cards-grid">
+                    <!-- Row 1 -->
+                    <div class="card-wrapper" data-direction="top-left" data-index="0">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                        <div class="card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMtC1TfeAMEhmhYYm1rEFM96mD7GtLDPIRHxvpiZcXeCpgu7NNjMeSZHyzKLQpv2A933FejjXJngFQalSiuKm2aTANCEBn-YSQRw0mEeD5C5YeUCeCdefhCgx2hSa77JVObMlbz974ZkZwLz97nr_RH=w1086-h868-s-no-gm?authuser=0" alt="Win Prizes" class="card-logo">
+                            <h3>Build</h3>
+                            <p>Solve real-world problems with practical impact</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-wrapper" data-direction="top-center" data-index="1">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                        <div class="card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNBwORKZ8n4YITsdGATHX1xYVIQXa0VYLLUx85w8VEZiMSxNZ0LObnMwmMjbOauIoY2HrMuujS1UpfDDHRDpLrQATcXh9UAbEJdaqiNr3Q9Hlu6zgKglQBzxsjci4JuE7I8ij_Jl2tq0EflJ-4-1qpw=w892-h891-s-no-gm?authuser=0" class="card-logo">
+                            <h3>Industry</h3>
+                            <p>Interact with the top tech leaders and innovators</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-wrapper" data-direction="top-right" data-index="2">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                        <div class="card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMlDxlcaoQ5p_Y16jY18GwfVmpX1IPalCr-Jtn_JxxnuG9ohvJvgFH_MK_v_wnazaxIp3ns0JIj69CvHPA3S_b19p-KTYgevwY81gnbYWZSKPnl8FiK-yn_4TvL3BzoLomEx33N508Z3xNCHCEnuUEl=w913-h912-s-no-gm?authuser=0" alt="Learn" class="card-logo">
+                            <h3>Network</h3>
+                            <p>Connect with like minded hackers and creators</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 2 -->
+                    <div class="card-wrapper" data-direction="top-left" data-index="0">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                        <div class="card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczM6mumlt-V64vbmRTQkOcwHRFhWvHD7m7QjTH6p-sjTRBy-VCo1QuhU9MmndlLggp72v6h-k1vRvXG4UFxOcNgRD9lSwHMOPdBZ4boR2FYyRkyJrkQnuXiLMNA08YKvrl3Q_eAAwdhEnFEXD-CfNJCX=w996-h995-s-no-gm?authuser=0" alt="Build" class="card-logo">
+                            <h3>Careers</h3>
+                            <p>Explore jobs, internships, and mentorships</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-wrapper" data-direction="top-center" data-index="1">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
+                        <div class="card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNooCLJw_FqDYJ0daLVWv8I-VVktdaSv7S2nCacf-J11ZMiMEqNigU0pKLfyEfSZgLtt8063VmmzcJCpUt8xONdwRrBeFD9xSXcPZP5IT6er2f9c_HUWTHy57rvIvyBLmRxytugfFSgu5Eu3FYpPAtE=w995-h995-s-no-gm?authuser=0" alt="Explore" class="card-logo">
+                            <h3>Fun & Joy</h3>
+                            <p>Enjoy food, swags, energy, and the AceHack vibe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prize Pool Section -->
+        <section id="prizes" class="section-bg">
+            <div style="max-width: 1400px; margin: 0 auto; margin-top: -40px;">
+                <h2>Prize Pool</h2>
+                <div class="prizes">
+                    <!-- First Row - 3 chests (1st elevated in middle) -->
+                    <div class="prize-row prize-row-1">
+                        <div class="prize-card" data-index="1" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczNu_H5PVobUGKHQkuX0j_QQtF_N5AV7ezccjknQ0oHH8mRJslsN9h1DglGhHoIX_ZK6gd7nQLWTLk8anZdHajEDnFfaTDfcU8H5r4wd-Hxi7qZoH2y2BdWziMxdqBWb2Bm25twGCUwRLWSYrRbC6qUX=w273-h246-s-no-gm?authuser=0" 
+                                    alt="2nd Place Chest" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOUx7jS6BjysWc4E9ccmAONBxbf0I2UMQ4c7xYwHIJiBpnpr4KgfY5DlBuW5F-_jWHFGFUyBh546ClFqFX2bhu9IW86mAYoCfYfuO1BnNfSvaTL-RXnbvyp-xvxTTLl2sDpBKeB7p6O-3kCaMk08QZL=w560-h491-s-no-gm?authuser=0" 
+                                    alt="2nd Place Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">2nd <br> Place</div>
+                            <div class="prize-amount">₹X,XX,XXX</div>
+                        </div>
+
+                        <div class="prize-card prize-card-elevated" data-index="0" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczONpnP1yvDpP72KKTsTLkeid_wP14rFywsXKG-CAMpdcdGUehQI3CRHlJ-FXZePgPxFC62sJ3XVTPwm31e-neNRWNaJOO6dHZeG4q_WOmrcyoXVA33-c2xOecGan4k7F7GNllG7qnVacuRiS2INB5SO=w346-h296-s-no-gm?authuser=0" 
+                                    alt="1st Place Chest" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPa0z9wORDhiDT9JohihWaMmxp1AQDIY8sRMyMvhwNuVhgRnoF1udYA0e1ekWUa0ROljmNK4Ouw9pPFqEOKdTT9O9St4vRoDXXnziemauSVOekiqxzwKKM04IpsTHPnPFfGHX3TGeQQCsXMx3SqDRUw=w560-h461-s-no-gm?authuser=0" 
+                                    alt="1st Place Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">1st<br> Place</div>
+                            <div class="prize-amount">₹X,XX,XXX</div>
+                        </div>
+
+                        <div class="prize-card" data-index="2" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMuquS5JtdH4UZd3pxUiWPzxjpYFXME5jWI2m2ydzr-mcbCTGDFN9AWXNLfxkPv39k-RNZd7-WPvJ07760yiIXiLOeWHxsb535QfxPRnjMpnZ3VQl1lmBsWSc0FuSm0xtt5xTVQg-tcyBnYTU1DSgcg=w366-h354-s-no-gm?authuser=0" 
+                                    alt="3rd Place Chest" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOxe138R0rw7XV-rbmWygQnSTsHRDqHcO9wvfpIy2En1Viamu2CXVAjJ-EbIl19OT8zdHmbtTu5GeIpiG3J6w71Thqd6f77csGz-aQRbn_J0N-Oxy_PDa_zsfRlpFxtt3VqezgzFJd1xveMXIw_1M3S=w566-h471-s-no-gm?authuser=0" 
+                                    alt="3rd Place Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">3rd <br>Place</div>
+                            <div class="prize-amount">₹XX,XXX</div>
+                        </div>
+                    </div>
+
+                    <!-- Second Row -->
+                    <div class="prize-row prize-row-2">
+                        <div class="prize-card" data-index="0" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczO8ZGXlGbm7X7XvSdvVmmhQ8xm6qRXm2lp3MQE-t7SDlHi03j34G_pzG4lrqK5vWZ36PIA_Qx103qKP7dTN0W1NBPJocWfe0ymas-iJLPEiR-Rf7gdoOBvCL7QYQmDy0G5CkJQbjxtiTCL7foIPkl1k=w371-h364-s-no-gm?authuser=0" 
+                                    alt="Best Beginner Chest" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczN9nTQaGdGy3Pp2kOllw1rFEwSplHIA_esSnMHenRQCJnbKa52nnCDvHJeD2pe2kdzkEY4TgBJm-qkddV3QLWUmUUaToLDZR86dpGcNVwv7J9innIuWOBe0lfflyV64SDFe5vcoQrVon0u3JnZcvBBW=w496-h445-s-no-gm?authuser=0" 
+                                    alt="Best Beginner Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">Best Beginner<br>Team </div>
+                            <div class="prize-amount">₹XX,XXX</div>
+                        </div>
+
+                        <div class="prize-card" data-index="1" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczNNDXrSPaGnDcsLe6Frcv42JFY6v7Z_k0DRcRaFobE3vnpoPY9W1ZgrL5iG07YgJlzf4_1SvFVflW3u0SYgNk8jR2LzbeyK8-EXl6DtE2mYeF4rhyx8vZhLuaZjcucfRnARK64I_484jJ3tBqnEIkno=w377-h362-s-no-gm?authuser=0" 
+                                    alt="All Girls Team Chest" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOtxhCyJOfFGclzyqK6pPIY-JLHSjrss7V4rlf4GWdDvxmluFnDVr9KYFWK9kxtBlnVZm8oP7ebIAtFnlZ_fBstkWTMwIIWjxVUaROA2Wr1-kXITHBMryvj040TdlQh2FynZUnNLxuXxT3zNnnH6Xs0=w489-h437-s-no-gm?authuser=0" 
+                                    alt="All Girls Team Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">All Girls<br> Team</div>
+                            <div class="prize-amount">₹XX,XXX</div>
+                        </div>
+
+                        <div class="prize-card" data-index="2" data-amount="$XXXX">
+                            <div class="chest-wrapper">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPpc9LL6lwBVY9i5iTU6ulUwGiQ40CWRAQuM4oIfI3cNg1HRv7q9fP0PV8TQOc6RvKI8yg5GsJkuljxryZ-O7dUYGbkdS7RalEbUg6PXhMZ18tvv-KdC_zKjSvmpuoLpkQJIvf6KsRi7vYsgZSw-UD7=w228-h219-s-no-gm?authuser=0" 
+                                    alt="Special Goodies Box" 
+                                    class="chest-img chest-default">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOftM8eW7ImP-1-64GKKAUhX41DANBybLypZ8BPSs8t-Js7yBsLePRWG1fIlZOXVJShu5rHT-DPgNnILg0c43HGbKTP8d_FRI7OzNdiyiXCzXXtnNMxydDj2mkLCwFqnyliHkOeA5tzFF1ihI6rRGdH=w376-h347-s-no-gm?authuser=0" 
+                                    alt="Special Prize Hover" 
+                                    class="chest-img chest-hover">
+                            </div>
+                            <div class="prize-label">Special<br> Prize</div>
+                            <div class="prize-amount">₹XX,XXX</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="open-innovation-banner" style="margin-top: -10px; ">
+                        <div class="ghast-banner-wrapper">
+                            <!-- Ghast Image -->
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOpFnxQjEqmKRGm-uqefkZ1RQ_FGdbvHjy3ai4_ZSidf3WOX2RzQTOzxG2JnIGqALJVSu6Yd5so5KzgO01iIuQjFxMvaM1m7IR-h3bE9uI9vyy_BNrAVHBCw1DnitF3pd3Xu9dDDd0hePOk6wlj7SDZ=w250-h256-s-no-gm?authuser=0" 
+                                alt="Ghast" 
+                                class="ghast-img">
+                            
+                            <!-- Rope Connection -->
+                            <div class="rope-container">
+                                <div class="rope rope-left"></div>
+                                <div class="rope rope-right"></div>
+                            </div>
+                            
+                            <!-- Banner -->
+                            <div class="banner-sign">
+                                <p>Top 30 teams get Momentos, Certificates & Swags!</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAB Button -->
+        <a href="faq.html" class="fab">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczN1JC7IshEcH37kyGSYZgnMowLxC9Z5zIT-r-U1wtqLjQJ3rV4R6nTxUjfdMUCLEViGhnzXMdGo8IaUsZSaMt7qSr0NxO3q_eNIh5TTFMmlzOXUMMkENrMOQlLGwXOTyscY4GCER2XbALXG1cR-uPR-=w938-h938-s-no-gm?authuser=0" alt="FAQ">
+        </a>
+
+        <!-- FOOTER -->
+
+        <footer id="contact">
+        <!-- Lava Texture Top Border -->
+        <div class="lava-border"></div>
+
+        <!-- Main Footer Content on Soil Texture -->
+        <div class="footer-main">
+            <div class="footer-content">
+                <!-- Logo / Tagline / Socials -->
+                <div class="footer-section logo-section">
+                    <div class="logo-bg">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0" alt="AceHack Logo" class="acehack-logo">
+                    </div>
+
+                    <p class="follow-us">Follow us</p>
+
+                    <!-- 7 Social Media Icons -->
+                    <div class="socials">
+                        <a href="https://chat.whatsapp.com/FC9DCKKTe61DD3SERneNV0" class="social-icon whatsapp" aria-label="WhatsApp">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                        </a>
+                        <a href="https://www.instagram.com/acehack__" class="social-icon instagram" aria-label="Instagram">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.linkedin.com/company/acehack-5-0" class="social-icon linkedin" aria-label="LinkedIn">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://x.com/AceHack_uemj" class="social-icon x-twitter" aria-label="X (Twitter)">
+                            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X">
+                        </a>
+                        <a href="https://t.me/acehack2" class="social-icon telegram" aria-label="Telegram">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
+                        </a>
+                        <a href="https://discord.com/invite/yBDmQqYDMK" class="social-icon discord" aria-label="Discord">
+                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord">
+                        </a>
+                        <a href="https://www.youtube.com/@Acehack-hackathon" class="social-icon youtube" aria-label="YouTube">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMqs3zqbyvwcx128i-6pRgrMselFGbr9n3QHZAgl-Tc_8hNbR-5JYsePjBljeuR0Bxp15UB_5qum6YKi6VFMwvIIeHpTWh2GLi5sx2sN42ADUJffUS9Us5xTfx_59tg4oe0s1K-VnuSTN6lbmM9WaF7=w128-h128-s-no-gm?authuser=0" alt="YouTube">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section links-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#tracks">Tracks</a>
+                    <a href="#prizes">Prizes</a>
+                    <a href="faq.html">FAQs</a>
+                </div>
+
+                <!-- Contact Us -->
+                <div class="footer-section contact-section">
+                    <h3>Contact Us</h3>
+                    <p class="contact-info">
+                        <b style="color: #fff700;">Email</b>: acehack@uem.edu.in<br>
+                        <b style="color: #fff700;">Phone</b>: +91 9887103068<br>
+                        <b style="color: #fff700;">Address</b>: UEM Jaipur<br>
+                        Gurukul Campus, Sikar Road<br>
+                        Rajasthan - 303807
+                    </p>
+                </div>
+
+                <!-- Archives -->
+                <div class="footer-section links-section" style="margin-left: 30px;">
+                    <h3>Archives</h3>
+                    <a href="https://dark-97o.github.io/AceHack4.0/">AceHack 4.0</a>
+                    <a href="https://acehack3-0.vercel.app/">AceHack 3.0</a>
+                    <a href="https://acehack2-0.vercel.app/">AceHack 2.0</a>
+                    <a href="https://sahityaroy.github.io/ace-hack-uemj/">AceHack 1.0</a>
+                </div>
+
+                <!-- Location with Map -->
+                <div class="footer-section location-section">
+                    <div class="map-overlay">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.512!2d75.7002425!3d27.2124649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5f1e3b7b5b5%3A0xb78e5c340c935a95!2sUniversity%20of%20Engineering%20%26%20Management%20(UEM)%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1739999999999"
+                            width="100%" height="100%" style="border:0; border-radius:12px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- ✅ WHATSAPP COMMUNITY CTA (CORRECT POSITION) -->
-        <div class="whatsapp-cta">
-            <a href="https://chat.whatsapp.com/FC9DCKKTe61DD3SERneNV0" target="_blank">
-                Join the WhatsApp Community
-            </a>
-            <p>Get updates before anyone else.</p>
+        <!-- Brown separation line -->
+        <div class="footer-separator"></div>
+
+        <!-- Copyright on black background -->
+        <div class="copyright">
+            © 2026 AceHack - University of Enigeneering and Management Jaipur. All Rights Reserved.
         </div>
+        </footer>
 
-    </div>
-</div>
-</section>
+        <script defer>
+            /* ======================================================
+            END SKY CREATION (RUNS ONCE)
+            ====================================================== */
+            (function createEndSky() {
+                const container = document.getElementById('endSky');
+                if (!container) return;
 
-    <section class="section">
-    <h2>ABOUT ACEHACK</h2>
+                // Stars - INCREASED COUNT AND SIZE
+                for (let i = 0; i < 0; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.cssText = `
+                        left:${Math.random() * 100}%;
+                        top:${Math.random() * 100}%;
+                        width:${Math.random() * 4 + 2}px;
+                        height:${Math.random() * 4 + 2}px;
+                        animation-duration:${Math.random() * 3 + 2}s;
+                        animation-delay:${Math.random() * 3}s;
+                    `;
+                    container.appendChild(star);
+                }
+                console.log('✓ Created 150 stars');
 
-    <div class="about-description">
-        <p>ACEHACK is the premier 36-hour hackathon where innovation meets creativity. Join hundreds of hackers from across the nation to build groundbreaking projects, solve real-world problems, and push the boundaries of technology. From blocks to breakthroughs, this is where your ideas come to life.</p>
-    </div>
-   
-        <div class="previous-editions">
-            <h3>ARCHIVES</h3>
-            <div class="edition-buttons">
-                <a href="https://sahityaroy.github.io/ace-hack-uemj/" class="edition-btn"><span>ACEHACK 1.0</span></a>
-                <a href="https://acehack2-0.vercel.app/" class="edition-btn"><span>ACEHACK 2.0</span></a>
-                <a href="https://acehack3-0.vercel.app/" class="edition-btn"><span>ACEHACK 3.0</span></a>
-                <a href="https://dark-97o.github.io/AceHack4.0/" class="edition-btn"><span>ACEHACK 4.0</span></a>
-            </div>
-        </div>
+                // Purple glow
+                const glow = document.createElement('div');
+                glow.className = 'purple-glow';
+                glow.style.cssText = `
+                    left:${Math.random() * 100}%;
+                    top:${Math.random() * 100}%;
+                    width:400px;
+                    height:400px;
+                    animation-duration:25s;
+                `;
+                container.appendChild(glow);
+                console.log('✓ Created purple glow');
 
-        <!-- <div class="contact-section">
-            <h3>CONTACT US</h3>
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:acehack@uem.edu.in">acehack@uem.edu.in</a></p>
-                <p><strong>Phone:</strong> <a href="tel:+919887103068">+91 9887103068</a></p>
-                <p><strong>Location:</strong> University of Engineering & Management, Jaipur</p>
-            </div>
-        </div> -->
+                // Clouds - INCREASED COUNT
+                for (let i = 0; i < 0; i++) {
+                    const cloud = document.createElement('div');
+                    cloud.className = 'end-cloud';
+                    cloud.style.cssText = `
+                        left:${100 + Math.random() * 100}%;
+                        top:${Math.random() * 80}%;
+                        width:${Math.random() * 100 + 80}px;
+                        height:${Math.random() * 40 + 30}px;
+                        animation-duration:${Math.random() * 30 + 25}s;
+                    `;
+                    container.appendChild(cloud);
+                }
+                console.log('✓ Created 70 clouds');
 
-        <div class="map-section">
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3548.2128967462436!2d75.69766757559415!3d27.212464876469873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396cffc30dacc2db%3A0xb78e5c340c935a95!2sUniversity%20of%20Engineering%20%26%20Management%20(UEM)%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1765986851601!5m2!1sen!2sin" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            <br><br><br>
-            <h3>CONTACT US</h3>
-            <div class="contact-info">
-                <p><strong>Email:</strong> <a href="mailto:acehack@uem.edu.in">acehack@uem.edu.in</a></p>
-                <p><strong>Phone:</strong> <a href="tel:+919887103068">+91 9887103068</a></p>
-                <p><strong>Location:</strong> University of Engineering & Management, Jaipur</p>
-            </div>
-        </div>
+                // Flying entity
+                
+            })();
 
-        <div class="footer">
-            <p>&copy; 2025 ACEHACK 5.0 - University of Engineering & Management, Jaipur. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="https://discord.gg/yBDmQqYDMK" target="_blank" class="social-icon" title="Discord">
-                    <i class="fab fa-discord"></i>
-                </a>
-                <a href="https://twitter.com/AceHack_uemj" target="_blank" class="social-icon" title="X (Twitter)">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/acehack__" target="_blank" class="social-icon" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/acehack-5-0" target="_blank" class="social-icon" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://t.me/acehack2" target="_blank" class="social-icon" title="Telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
-                <a href="https://www.youtube.com/@Acehack-hackathon" target="_blank" class="social-icon" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-</div>
-<script src="script.js"></script>
-</body>
-</html> 
+            // Flying entity - GUARANTEED TO WORK
+            (function createFlyingDragon() {
+                console.log('🐉 Initializing dragon...');
+                
+                // Try multiple container options
+                let container = document.body;
+                
+                if (!container) {
+                    console.warn('⚠️ endSky not found, using body');
+                    container = document.body;
+                }
+                
+                const dragon = document.createElement('img');
+                dragon.className = 'flying-entity';
+                dragon.alt = 'Flying Dragon';
+                dragon.src = 'https://lh3.googleusercontent.com/pw/AP1GczPV701QojlTPppKTU5fRn4pSw94_Yh_U6spxRgmq1I1WtR7nQjxEpirl4UNy4I53aLpKYZqULLRuoWkL58Ew3xOBkzT6XA0vjYm9GzfXZ9s7xwY_KDb3XJPUWc6S8NaByK1CEI9VvQz6aeQnSg8bEam=w1126-h938-s-no-gm';
+                
+                container.appendChild(dragon);
+                console.log('✓ Dragon added to DOM');
+                
+                // Verify it's in the DOM
+                setTimeout(() => {
+                    const check = document.querySelector('.flying-entity');
+                    console.log('Dragon in DOM:', check ? 'YES ✓' : 'NO ✗');
+                    if (check) {
+                        const rect = check.getBoundingClientRect();
+                        console.log('Dragon position:', rect);
+                    }
+                }, 100);
+            })();
+            /* ======================================================
+            COUNTDOWN (SAFE & LIGHT)
+            ====================================================== */
+            (function initCountdown() {
+                const target = new Date('March 8, 2026 00:00:00').getTime();
+                const el = {
+                    d: document.getElementById('days'),
+                    h: document.getElementById('hours'),
+                    m: document.getElementById('mins'),
+                    s: document.getElementById('secs')
+                };
+
+                const timer = setInterval(() => {
+                    if (document.hidden) return;
+
+                    const diff = target - Date.now();
+                    if (diff <= 0) {
+                        clearInterval(timer);
+                        document.getElementById('countdown').innerHTML =
+                            '<div style="font-size:22px">EVENT STARTED</div>';
+                        return;
+                    }
+
+                    el.d.textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+                    el.h.textContent = String(Math.floor(diff / 3600000) % 24).padStart(2, '0');
+                    el.m.textContent = String(Math.floor(diff / 60000) % 60).padStart(2, '0');
+                    el.s.textContent = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
+                }, 1000);
+            })();
+
+            /* ======================================================
+            SMOOTH SCROLL (UNCHANGED)
+            ====================================================== */
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', e => {
+                    const t = document.querySelector(a.getAttribute('href'));
+                    if (!t) return;
+                    e.preventDefault();
+                    t.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            /* ======================================================
+            INTERSECTION OBSERVER (REPLACES ALL SCROLL LISTENERS)
+            ====================================================== */
+            const revealObserver = new IntersectionObserver(
+                entries => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) return;
+
+                        const el = entry.target;
+                        el.classList.add('visible');
+
+                        // Prize particle burst (ONCE)
+                        if (el.classList.contains('prize-card')) {
+                            setTimeout(() => createPrizeParticleBurst(el), 700);
+                        }
+
+                        revealObserver.unobserve(el);
+                    });
+                },
+                { threshold: 0.01, rootMargin: '100px' }  // Very low threshold + large rootMargin
+            );
+
+            document.querySelectorAll(
+                '.minecart-card, .card-wrapper, .prize-card, .ghast-banner-wrapper'
+            ).forEach(el => revealObserver.observe(el));
+            
+        /* ===========================
+            GHAST OBSERVER (FIXED)
+            =========================== */
+            (function initGhasts() {
+                const ghasts = document.querySelectorAll('.ghast-banner-wrapper');
+                if (!ghasts.length) return;
+
+                function reveal() {
+                    ghasts.forEach(g => {
+                        if (g.classList.contains('visible')) return;
+                        if (g.getBoundingClientRect().top < window.innerHeight * 0.8) {
+                            g.classList.add('visible');
+                        }
+                    });
+                }
+
+                reveal();
+                window.addEventListener('scroll', reveal, { passive: true });
+            })();
+
+        /* ======================================================
+            PRIZE PARTICLES – BIGGER & WIDER SPREAD
+            ====================================================== */
+            function createPrizeParticleBurst(card) {
+                const chest = card.querySelector('.chest-wrapper');
+                if (!chest) return;
+
+                let container = chest.querySelector('.particle-container');
+                if (!container) {
+                    container = document.createElement('div');
+                    container.className = 'particle-container';
+                    chest.appendChild(container);
+                }
+
+                const colors = [
+                    'particle-soil-dark',
+                    'particle-soil-medium',
+                    'particle-soil-light',
+                    'particle-dirt',
+                    'particle-brown'
+                ];
+
+                const particleCount = 6;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const p = document.createElement('div');
+                    p.className = `particle particle-fall ${colors[i % colors.length]}`;
+
+                    const size = 14 + Math.random() * 20;
+                    const tx = (Math.random() - 0.5) * 240;
+                    const ty = Math.random() * 70;
+
+                    p.style.cssText = `
+                        left:50%;
+                        top:100%;
+                        width:${size}px;
+                        height:${size}px;
+                        --tx:${tx}px;
+                        --ty:${ty}px;
+                    `;
+
+                    container.appendChild(p);
+                    setTimeout(() => p.remove(), 2200);
+                }
+            }
+
+            /* ======================================================
+            PRIZE SCRAMBLE (OPTIMIZED)
+            ====================================================== */
+            document.querySelectorAll('.prize-card').forEach(card => {
+                const el = card.querySelector('.prize-amount');
+                const real = card.dataset.amount;
+                let id;
+
+                const scramble = () => {
+                    el.textContent = real
+                        .split('')
+                        .map(c => (c === '₹' || c === ',' ? c : Math.floor(Math.random() * 9)))
+                        .join('');
+                };
+
+                id = setInterval(scramble, 120);
+
+                card.addEventListener('mouseenter', () => {
+                    clearInterval(id);
+                    el.textContent = real;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    clearInterval(id);
+                    id = setInterval(scramble, 120);
+                });
+            });
+
+            /* ======================================================
+            COMING SOON TOAST
+            ====================================================== */
+            document.addEventListener('click', e => {
+                const link = e.target.closest('a[data-soon="true"]');
+                if (!link) return;
+
+                e.preventDefault();
+                const toast = document.getElementById('toast');
+                toast.textContent = link.textContent + ' Coming Soon!';
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 2000);
+            });
+            /* ======================================================
+            HAMBURGER MENU - MOBILE ONLY (≤480px)
+            ====================================================== */
+            (function initMobileMenu() {
+                // Create elements immediately
+                const hamburger = document.createElement('div');
+                hamburger.className = 'hamburger-menu';
+                hamburger.innerHTML = '<span></span><span></span><span></span>';
+                
+                const backdrop = document.createElement('div');
+                backdrop.className = 'nav-backdrop';
+                
+                const mobileNav = document.createElement('div');
+                mobileNav.className = 'mobile-nav-overlay';
+                
+                const navContent = document.createElement('div');
+                navContent.className = 'mobile-nav-content';
+                
+                // Nav links
+                const navLinks = [
+                    { href: '#home', text: 'Home' },
+                    { href: '#timeline', text: 'Timeline', soon: true },
+                    { href: '#guests', text: 'Guests', soon: true },
+                    { href: '#tracks', text: 'Tracks' },
+                    { href: '#team', text: 'DG Swags', soon: true },
+                    { href: '#contact', text: 'Contact' }
+                ];
+                
+                // Build menu
+                navLinks.forEach(link => {
+                    const item = document.createElement('div');
+                    item.className = 'mobile-nav-item';
+                    
+                    const anchor = document.createElement('a');
+                    anchor.href = link.href;
+                    anchor.className = 'mobile-nav-link';
+                    anchor.textContent = link.text;
+                    if (link.soon) anchor.dataset.soon = 'true';
+                    
+                    item.appendChild(anchor);
+                    navContent.appendChild(item);
+                });
+                
+                mobileNav.appendChild(navContent);
+                
+                // Append to body
+                document.body.appendChild(hamburger);
+                document.body.appendChild(backdrop);
+                document.body.appendChild(mobileNav);
+                
+                console.log('✓ Hamburger menu elements created');
+                
+                // Toggle menu
+                function toggleMenu() {
+                    hamburger.classList.toggle('active');
+                    mobileNav.classList.toggle('active');
+                    backdrop.classList.toggle('active');
+                    
+                    if (mobileNav.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
+                    }
+                }
+                
+                // Close menu
+                function closeMenu() {
+                    hamburger.classList.remove('active');
+                    mobileNav.classList.remove('active');
+                    backdrop.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                
+                // Event listeners
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+                
+                backdrop.addEventListener('click', closeMenu);
+                
+                // Handle nav links
+                navContent.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        if (link.dataset.soon) {
+                            e.preventDefault();
+                            const toast = document.getElementById('toast');
+                            if (toast) {
+                                toast.textContent = link.textContent + ' Coming Soon!';
+                                toast.classList.add('show');
+                                setTimeout(() => toast.classList.remove('show'), 2000);
+                            }
+                        }
+                        closeMenu();
+                    });
+                });
+                
+                console.log('✓ Hamburger menu initialized');
+            })();
+
+        </script>
+
+        <div id="toast" class="mc-toast">Coming Soon!</div>
+    </body>
+
+
+    </html>
