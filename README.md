@@ -22,25 +22,6 @@ A pixel-perfect Minecraft-themed landing page for AceHack 5.0, Rajasthan's bigge
 - Vanilla JavaScript
 - Google Fonts (Press Start 2P)
 
-## 🚀 Quick Start
-
-1. Clone the repository
-2. Open `index.html` in your browser
-3. No build process required!
-
-## ⚙️ Customization
-
-**Update Countdown:**
-```javascript
-const countdownDate = new Date('March 8, 2026 00:00:00').getTime();
-```
-
-**Change Theme Colors:**
-Edit CSS color values in the `<style>` section
-
-**Replace Images:**
-Update image URLs in HTML with your hosted assets
-
 ## 📱 Browser Support
 
 Chrome, Firefox, Safari, Edge, and modern mobile browsers
