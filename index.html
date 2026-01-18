@@ -346,11 +346,12 @@
             .nav-sign {
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
                 background-size: cover;
-                border: 0.1px solid #3b1b00;
+                border: 0.1px solid #2d003b;
                 padding: 15px 20px;
                 text-decoration: none;
                 color: #FFF;
                 font-size: 11px;
+                text-shadow: 2px 2px #6f00ff;
                 white-space: nowrap;
                 display: block;
                 text-align: center;
@@ -368,7 +369,7 @@
                 max-width: 100%;
                 padding: 180px 20px 60px;
                 text-align: center;
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPImIZLv30YQn4jXuTuzxyyzJTKYF965FS7xS3jjf_OexojHUI2PH0xMPuKaSmeIU5koTDoScACCQi08SZqPR0opNrWzyRvf5AI6WK9VcNhFVb5TJK0WgOBDpe5h-rl862CmDT1uqPZ2EJ84M0ALocs=w800-h450-s-no-gm?authuser=0');
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOBOyyVJKZ9-qi7e-E_4TPut9pQnFbNZx-gMFzpJV9q-0YceDG0vxRyoDS1vdZAzLgJJ5bSf8SceXI841Z7Ubthr3knqR1UWSd6BidQtJCi3j2S4DlVnhvX_0p5iHjYtY6xaH2LTtsuikPYOi6XLAZZ=w800-h450-s-no-gm?authuser=0');
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -379,7 +380,7 @@
             }
 
             /* Black fade overlay on hero */
-            .hero::before {
+            /* .hero::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -393,7 +394,7 @@
                     rgba(0, 0, 0, 0.49) 100%
                 );
                 z-index: 0;
-            }
+            } */
             
             .hero > * {
                 position: relative;
@@ -408,23 +409,6 @@
                 justify-content: center;
                 align-items: center;
                 margin: -72px auto 1px;
-            }
-
-            /* Independent transparent black box */
-            .hero-logo-bg-box {
-                position: absolute;
-                width: 120%;                    /* Full width */
-                height: 350px;                  /* Control height independently */
-                background: rgba(0, 0, 0, 0.35); /* Control opacity independently */
-                top: 35%;         
-                margin-top: 20px;   
-                margin-bottom: -200px;           /* Control vertical position */
-                left: -50px;
-                transform: translateY(-50%);
-                z-index: 0;
-                
-                /* Optional: Add blur or effects */
-                /* backdrop-filter: blur(5px); */
             }
 
             /* Logo stays on top */
@@ -468,11 +452,18 @@
                 z-index: 1;
             }
 
+
+            .countdown-card h1 {
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #7700d8;
+            }
+
+
             .countdown-card h2 {
                 font-size: 19px;
                 margin-bottom: 24px;
                 color: #ffffff;
-                text-shadow: 3px 3px 0 #000;
+                text-shadow: 3px 3px 0 #000000;
             }
 
             .countdown {
@@ -505,21 +496,22 @@
             }
 
             .btn-icon {
-                width: 100px;
-                height: 35px;
+                width: 32px;
+                height: 31px;
+                border-radius: 10px;
                 margin-top: -75px;
                 margin-bottom: -70px;
                 margin-left: -20px;
                 margin-right: 0px;
                 vertical-align: middle;
                 image-rendering: pixelated;
-                filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 5));
+                filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 5));
             }
 
             /* Tablets and smaller (≤768px) */
             @media (max-width: 768px) {
                 .btn-icon {
-                    width: 70px;
+                    width: 25px;
                     height: 25px;
                     margin-top: -55px;
                     margin-bottom: -50px;
@@ -531,7 +523,7 @@
             /* Mobile phones (≤480px) */
             @media (max-width: 480px) {
                 .btn-icon {
-                    width: 60px;
+                    width: 20px;
                     height: 20px;
                     margin-top: -42px;
                     margin-bottom: -40px;
@@ -543,7 +535,7 @@
             /* Very small screens (≤400px) */
             @media (max-width: 400px) {
                 .btn-icon {
-                    width: 50px;
+                    width: 18px;
                     height: 18px;
                     margin-top: -37px;
                     margin-bottom: -35px;
@@ -553,12 +545,12 @@
             }
 
             .stone-btn {
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMZ213EkYNghug2YDe5JlReDkV4NnHM3CGMcE9KqZfO3wC9E_mPF4fTCfvumT9HwnfLUKLq-QrhWvHSVF0b9jXjoA3SyMnZ25P4sEngOwiGw-gXURtMETzmtALESaDtVdos6rNA5r0Gn5hq25KXxsdU=w1716-h965-s-no-gm?authuser=0');
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMl7-yI0IOl2szTleheXLPxPin8gtD2lESL81THaUaaUrsuTQRLcBOSV3eM8nNVKB-SyrE3AqSGZixbkZVQy9E7zVtV74XUQwCDYQiFsNPG8_B_NymQFzSNj16iFwnB3nal2DndvMKEi30M5OKtiGJP=w160-h160-s-no-gm?authuser=0');
                 /* background-color: #575757; */
-                background-size: cover ;
+                background-size: contain ;
                 /* border: 3px solid #303030; */
-                border-radius: 2px;
-                padding:26px 35px;
+                border-radius: 0.1px;
+                padding:18px 30px;
                 font-family: 'Press Start 2P', cursive;
                 color: #FFF;
                 font-size: 15px;
@@ -579,20 +571,21 @@
                 left: -50%;
                 width: 200%;
                 height: 200%;
-                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.099), transparent);
-                transform: rotate(45deg);
+                background: transparent rgba(0, 0, 0, 0.6);
+                /* background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.099), transparent); */
+                /* transform: rotate(45deg); */
             }
 
             .stone-btn::after {
                 content: "";
                 position: absolute;
                 inset: 0;
-                padding: 2.5px; /* border thickness */
+                padding: 1.5px; /* border thickness */
                 background: linear-gradient(
                     120deg,
                     #ffffff,
                     #e700fc,
-                    #9900ff,
+                    #000000,
                     #ffffff
                 );
                 background-size: 300% 300%;
@@ -1154,8 +1147,8 @@
             .banner-sign p {
                 margin: 0;
                 font-size: 13px;
-                color: #a200ff;
-                text-shadow: 1px 1.4px 5px #44444475;
+                color: #000000;
+                /* text-shadow: 1px 1.4px 5px #44444475; */
                 font-weight: bold;
                 line-height: 1.6;
             }
@@ -1355,6 +1348,127 @@
                 }
                 50% {
                     transform: translate(-50%, -15px);
+                }
+            }
+
+            /* ============================================
+            GALLERY CAROUSEL
+            ============================================ */
+
+            .gallery-carousel {
+                width: 100%;
+                overflow: hidden;
+                padding: 40px 0;
+                margin: 0 auto;
+                margin-bottom: -20px;
+                position: relative;
+            }
+
+            .carousel-track {
+                display: flex;
+                gap: 30px;
+                animation: scroll-left 30s linear infinite;
+                will-change: transform;
+            }
+
+            .carousel-image {
+                width: 300px;
+                height: 200px;
+                object-fit: cover;
+                border: 0.5px solid #8400ff;
+                flex-shrink: 0;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+                image-rendering: auto;
+                transition: transform 0.3s ease;
+            }
+
+            .carousel-image:hover {
+                transform: scale(1.05);
+            }
+
+            @keyframes scroll-left {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-80%);
+                }
+            }
+
+            /* Pause on hover */
+            .gallery-carousel:hover .carousel-track {
+                animation-play-state: paused;
+            }
+
+            /* Mobile responsiveness */
+            @media (max-width: 768px) {
+                .gallery-carousel {
+                    padding-top: 75px;
+                }
+                .carousel-image {
+                    width: 250px;
+                    height: 180px;
+                }
+                
+                .carousel-track {
+                    gap: 20px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .carousel-image {
+                    width: 200px;
+                    height: 140px;
+                }
+                
+                .carousel-track {
+                    gap: 15px;
+                }
+            }
+
+            /* ============================================
+            SECTION SUBHEADINGS (Stats & Gallery)
+            ============================================ */
+
+            .section-subheading {
+                text-align: left;
+                margin: 3rem 0 2rem 0;
+                font-size: 1.5rem;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #8d00eb;
+                margin-left: 120px;
+                margin-bottom: -5px;
+            }
+
+            /* Tablets and smaller (≤768px) */
+            @media (max-width: 768px) {
+                .section-subheading {
+                    font-size: 1.2rem;
+                    margin: 2rem 0 1.5rem 0;
+                    padding-bottom: 20px;
+                    margin-left: 30px;
+                    text-shadow: 2.5px 2.5px 0 #8d00eb;
+                }
+            }
+
+            /* Mobile phones (≤480px) */
+            @media (max-width: 480px) {
+                .section-subheading {
+                    font-size: 1rem;
+                    /* margin: 1.5rem 0 1rem 0; */
+                    margin-left: 40px;
+                    padding-bottom: 20px;
+                    text-shadow: 2px 2px 0 #8d00eb;
+                }
+            }
+
+            /* Very small screens (≤400px) */
+            @media (max-width: 400px) {
+                .section-subheading {
+                    font-size: 0.9rem;
+                    margin: 1.2rem 0 0.8rem 0;
+                    margin-left: 35px;
+                    text-shadow: 1.5px 1.5px 0 #8d00eb;
                 }
             }
 
@@ -2125,7 +2239,7 @@
                 transition: left 0.4s ease;
                 overflow-y: auto;
                 box-shadow: 5px 0 30px rgba(0, 0, 0, 0.9);
-                border-right: 1px solid #ae00ff;
+                /* border-right: 1px solid #ae00ff; */
             }
 
             .mobile-nav-overlay.active {
@@ -2151,6 +2265,7 @@
                 padding: 15px 20px;
                 text-decoration: none;
                 color: #FFF;
+                text-shadow: 2px 2px #6f00ff;
                 font-size: 11px;
                 text-align: center;
                 transition: all 0.3s;
@@ -2223,11 +2338,11 @@
             .sponsor-card {
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOWQXqlTIPGxNz077siqQH0fxNYZguK6tdriaCt59KlNDkhBNNNnn5noq4CoGff5127cIcwC6SRiqSmV-9DU9Wsn9g0Pan4-v6ABm7Um2_tHzQBngtp33UrRsiTH6D6K6nyrf96Crcg7SaagYBDP6xc=w284-h284-s-no-gm?authuser=0');
                 background-size: cover;
-                border: 2px solid #FFD700;
+                /* border: 2px solid #FFD700; */
                 border-radius: 1px;
                 padding: 30px 20px;
                 text-align: center;
-                /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8); */
+                box-shadow: 0 10px 25px rgba(114, 0, 190, 0.8);
                 transition: transform 0.3s ease;
                 min-height: 220px;
                 min-width: 220px;
@@ -2292,7 +2407,8 @@
                 }
                 
                 .sponsor-card {
-                    min-height: 220px;
+                    min-height: 200px;
+                    min-width: 200px;
                     padding: 25px 15px;
                     border-width: 3px;
                 }
@@ -2327,15 +2443,16 @@
                 }
                 
                 .sponsor-card {
-                    min-height: 220px;
+                    min-height: 160px;
+                    min-width: 180px;
                     padding: 20px 12px;
                     border-width: 3px;
                     gap: 10px;
                 }
                 
                 .sponsor-logo {
-                    width: 110px;
-                    height: 110px;
+                    width: 100px;
+                    height: 100px;
                 }
                 
                 .sponsor-name {
@@ -2363,7 +2480,8 @@
                 }
                 
                 .sponsor-card {
-                    min-height: 220px;
+                    min-height: 150px;
+                    min-width: 150px;
                     padding: 15px 10px;
                     border-width: 2px;
                     gap: 8px;
@@ -2371,8 +2489,8 @@
                 
                 .sponsor-logo {
                     margin-top: 0px;
-                    width: 100px;
-                    height: 100px;
+                    width: 80px;
+                    height: 80px;
                 }
                 
                 .sponsor-name {
@@ -2476,15 +2594,14 @@
             
             /* Hero Section - Much smaller */
             .hero {
-                padding: 120px 10px 30px;
                 /* min-height: 60vh; */
-                max-height: 1200px;
+                height: 870px;
             }
             
             .hero-logo {
                 max-width: auto;
                 height: 260px;
-                margin-top: 60px;
+                margin-top: -70px;
             }
 
             .hero-logo-bg-box {
@@ -2509,7 +2626,7 @@
             .countdown-card h1 {
                 margin-top: 8px;
                 font-size: 15px;
-                text-shadow: 3px 3px 0 #000;
+                text-shadow: 3px 3px #6f00ff;
             }
             
             .countdown {
@@ -2545,8 +2662,8 @@
             }
             
             .stone-buttons {
-                gap: 40px;
-                margin-top: 70px;   
+                gap: 20px;
+                margin-top: 120px;   
                 flex-wrap: nowrap;
                 flex-direction: column;  /* Makes buttons stack vertically */
                 align-items: center;
@@ -2662,8 +2779,9 @@
             }
             
             .stone-btn {
-                font-size: 11px;
+                font-size: 16px;
                 text-shadow: 2px 2px #000;
+                padding: 13px 25px;
             }
 
             /* TRACKS SECTION - FIXED VISIBILITY */
@@ -2925,8 +3043,8 @@
             
             /* FAB Button */
             .fab {
-                width: 50px;
-                height: 50px;
+                width: 75px;
+                height: 75px;
                 bottom: 20px;
                 right: 20px;
             }
@@ -3097,7 +3215,7 @@
             }
 
             .hero{
-                height: 700px;
+                height: 870px;
             }
 
             .hero-logo {
@@ -3121,7 +3239,7 @@
 
             .countdown-card h1 {
                 font-size: 13.5px;
-                text-shadow: #000 3px 3px 0;
+                text-shadow: 3px 3px #6f00ff;
             }
             
             .countdown-card h2 {
@@ -3151,7 +3269,7 @@
             
             .stone-btn {
                 font-size: 12px;
-                padding: 20px 35px;
+                padding: 12px 25px;
                 white-space: nowrap;
                 height: auto;
             }
@@ -3523,12 +3641,12 @@
         /* Very small screens (≤375px) */
         @media (max-width: 400px) {
             .hero{
-                max-height: 700px;
+                max-height: 870px;
             }
 
             .hero-logo {
-                max-width: 540px;
-                height: 188px;
+                width: 100%;
+                height: 100%;
                 margin-top: -70px;
             }
 
@@ -3547,7 +3665,7 @@
 
             .countdown-card h1 {
                 font-size: 13.5px;
-                text-shadow: #000 3px 3px 0;
+                text-shadow: 3px 3px #6f00ff;
             }
             
             .countdown-card h2 {
@@ -3576,7 +3694,7 @@
             }
             
             .stone-btn {
-                font-size: 9px;
+                font-size: 12px;
                 padding: 13px 25px;
                 white-space: nowrap;
             }
@@ -4142,13 +4260,13 @@
             <div class="stone-buttons">
                 <div class="stone-btn-wrapper">
                     <a href="https://acehack5.devfolio.co/overview" class="stone-btn">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczN-MhX7-NgOHmDI9WNE52xjs-F3FCz4GlVEmH8ca4vmBcTq7F7yLlwY2ic9lcYNu692w8F5cxM9gx5kwJ_8vLr-A6WQw6Zs7zekl1eZW8V50ZHsjGuGUIhBadHAJk8_Hp57Cdvw4v5y1XgGqoEAvvkB=w724-h203-s-no-gm?authuser=0" alt="Register Icon" class="btn-icon">
-                        Register
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" alt="Register Icon" class="btn-icon">
+                        Devfolio Register
                     </a>
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Diamond" class="popup-image">
                 </div>
                 <div class="stone-btn-wrapper">
-                    <a href="https://linktr.ee/acehack5" class="stone-btn">Join Community</a>
+                    <a href="https://linktr.ee/acehack5" class="stone-btn">Join The Community</a>
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Golden Apple" class="popup-image">
                 </div>
             </div>
@@ -4175,30 +4293,33 @@
                     </div>
                 </div>
                 
+                
+                <h3 class="section-subheading" style="margin-bottom: -50px; margin-top: 90px;">AceHack Stats</h3>
+
                 <div class="stats">
                     <div class="stat-box">
-                        <span class="stat-number">1000+</span>
+                        <span class="stat-number">21K+</span>
                         <span class="stat-label">Registrations</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">500+</span>
+                        <span class="stat-number">2400+</span>
                         <span class="stat-label">Participants</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">50+</span>
+                        <span class="stat-number">850+</span>
                         <span class="stat-label">Teams</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">$1200</span>
-                        <span class="stat-label">Prize Pool</span>
-                    </div>
-                    <div class="stat-box">
-                        <span class="stat-number">20+</span>
+                        <span class="stat-number">70+</span>
                         <span class="stat-label">Mentors</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">40+</span>
+                        <span class="stat-number">80+</span>
                         <span class="stat-label">Cities</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Countries</span>
                     </div>
                 </div>
             </div>
@@ -4219,7 +4340,7 @@
                                 <img src="https://lh3.googleusercontent.com/pw/AP1GczMuaQNdg3vs_x-w_DwJFLG2oqj7mjiaYfLCnHUE-Kn5VoWbbUJ9PfzFebkZEuHMKOvZkIT185tacwzk1LzpW28Tn9hQNA43z1eLh7DRMlQI3zgT_4_9aYxLkN9SuoQapZcI92nQp66gbRjiwW5V9JaN=w512-h575-s-no-gm?authuser=0" alt="FinTech" class="track-logo">
                             </div>
                             <div class="track-info">
-                                <h3>Data & Generative AI</h3>
+                                <h3>Data & Gen AI</h3>
                             </div>
                         </div>
                         
@@ -4325,7 +4446,7 @@
                     <div class="card-wrapper" data-direction="top-left" data-index="0">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
                         <div class="card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMtC1TfeAMEhmhYYm1rEFM96mD7GtLDPIRHxvpiZcXeCpgu7NNjMeSZHyzKLQpv2A933FejjXJngFQalSiuKm2aTANCEBn-YSQRw0mEeD5C5YeUCeCdefhCgx2hSa77JVObMlbz974ZkZwLz97nr_RH=w1086-h868-s-no-gm?authuser=0" alt="Win Prizes" class="card-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOllbDCqJA9YWNH3bB060KLN1cJhvxwV8z4rB7ETJbdwgB4HcSxKRB9y0hFjFYQvXmtNmlfrtMr02mB6o1MQcc4MPJiBz9cFVtMWK_SiOKdDtxFjnknm1UBYmWNFI99p1jNJLtAEoVzOgndTkRB6Fxk=w965-h965-s-no-gm?authuser=0" alt="Win Prizes" class="card-logo">
                             <h3>Build</h3>
                             <p>Solve real-world problems with practical impact</p>
                         </div>
@@ -4334,7 +4455,7 @@
                     <div class="card-wrapper" data-direction="top-center" data-index="1">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
                         <div class="card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNBwORKZ8n4YITsdGATHX1xYVIQXa0VYLLUx85w8VEZiMSxNZ0LObnMwmMjbOauIoY2HrMuujS1UpfDDHRDpLrQATcXh9UAbEJdaqiNr3Q9Hlu6zgKglQBzxsjci4JuE7I8ij_Jl2tq0EflJ-4-1qpw=w892-h891-s-no-gm?authuser=0" class="card-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPkltutZAvGfn7n7w_mSPLFHxQg45v1IGIdAohCOr10V32o-MHYgF8KoRiNLzWSGe3diaOyfMB6rMftPpNf_PGdjNhoAb9LPrAF0xs5NG4S-nZcxBGB0IhiKSD2k30uez2FA4PvqcFEtZVJJA9Tevc0=w1009-h965-s-no-gm?authuser=0" class="card-logo">
                             <h3>Industry</h3>
                             <p>Interact with the top tech leaders and innovators</p>
                         </div>
@@ -4343,7 +4464,7 @@
                     <div class="card-wrapper" data-direction="top-right" data-index="2">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
                         <div class="card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMlDxlcaoQ5p_Y16jY18GwfVmpX1IPalCr-Jtn_JxxnuG9ohvJvgFH_MK_v_wnazaxIp3ns0JIj69CvHPA3S_b19p-KTYgevwY81gnbYWZSKPnl8FiK-yn_4TvL3BzoLomEx33N508Z3xNCHCEnuUEl=w913-h912-s-no-gm?authuser=0" alt="Learn" class="card-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMOGk1fPjj7nPYM5NpCxmv0bC3a8UymSKmkZNuPNyGfbeGmwJyXn2k5lrCIvuGnDThrmxV1cgfevgkMcMHUhMSGHYNzkGgw9lQ20-iuobi38QunPJzJsKXsXeHtQo-d3SWPQiP7WSoTQAdTfBv_dVZb=w676-h674-s-no-gm?authuser=0" alt="Learn" class="card-logo">
                             <h3>Network</h3>
                             <p>Connect with like minded hackers and creators</p>
                         </div>
@@ -4353,7 +4474,7 @@
                     <div class="card-wrapper" data-direction="top-left" data-index="0">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
                         <div class="card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczM6mumlt-V64vbmRTQkOcwHRFhWvHD7m7QjTH6p-sjTRBy-VCo1QuhU9MmndlLggp72v6h-k1vRvXG4UFxOcNgRD9lSwHMOPdBZ4boR2FYyRkyJrkQnuXiLMNA08YKvrl3Q_eAAwdhEnFEXD-CfNJCX=w996-h995-s-no-gm?authuser=0" alt="Build" class="card-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMhUIAxcdcx6k-9JntVT_ggvWKTxj_hld5vl6g7f4wHbD2_G5wTRw4NCl1CGwI96qYyUPt8ZZm5FxJSvUeu-LSUqq_RRi4mJwhOuxMPDKXgT3t3PO0oVUu_FUB1Tzc3BTFZunJNh567r2R_4rp0qtr8=w965-h965-s-no-gm?authuser=0" alt="Build" class="card-logo">
                             <h3>Careers</h3>
                             <p>Explore jobs, internships, and mentorships</p>
                         </div>
@@ -4362,10 +4483,28 @@
                     <div class="card-wrapper" data-direction="top-center" data-index="1">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczPm-5kiqlxM9reJPum5egPWbUg78tsMBiQ94gyQ15JB24TFgiX40rliJZEPoAeX0i5YYmug9-E3SXeptXdbauqT2ltBRrnu4oiniouzXC8Vp1TtZTF5JJzxZjqZM4WufXsr0ock4DDHItpqKC3sjEB-=w180-h200-s-no-gm?authuser=0" alt="Bee" class="bee-image">
                         <div class="card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNooCLJw_FqDYJ0daLVWv8I-VVktdaSv7S2nCacf-J11ZMiMEqNigU0pKLfyEfSZgLtt8063VmmzcJCpUt8xONdwRrBeFD9xSXcPZP5IT6er2f9c_HUWTHy57rvIvyBLmRxytugfFSgu5Eu3FYpPAtE=w995-h995-s-no-gm?authuser=0" alt="Explore" class="card-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMAxDy-OMLaZhr1EUx69REIDOAPs5g-Xv0s07SUaZMlmfArAYjxV-XWqdRhPY-gzghUesSH9gKNZqal3cSsF1gyhYcKvzJmcIIOGsKKZwsGrpw-25UGlo9-P1_nTGpK8-26pK9h6OGd8QnSDCLPi4TR=w965-h965-s-no-gm?authuser=0" alt="Explore" class="card-logo">
                             <h3>Fun & Joy</h3>
                             <p>Enjoy food, swags, energy, and the AceHack vibe</p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="gallery-carousel">
+                    <div class="carousel-track">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPpCvJ5dEcy6iWf40wn0aD0JllqdjAbkFJ_f1OFBwxoxKGe247GcFvaltbRIBU_wxmBforek583pogXXDwKclY-8oS5r5Hpp7LKMkv0LVHmZo_j1nGWCUTxZib6n-LeO71SRQR9XIOkSZEBzPwXMO0b=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 1" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczM4GGQrwCQIRBsHncdIqbNixKzyQO8OmvOqBVHcsQgkngXhZtVvUnFIAzcsg6X2KVHhzupLueuHElVDgX1fWmf0ZbTzoBaDnX_ClYhMik5VZCrlKyOnHjomOgwauwB_Tqm6Q_T0UkFo8Imnkgcu2stk=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 2" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMg6tuo2BxUns6aUKrm3qMpmLbCkJFNbPy-OuXh89YDp2m2JvxqpVXiA_YXhbjr3q8Utu8P0FtgSgglTkOiY-abyCscOl45NLGVnHWpmfbmjKtJwlyedxBzvSowiGaVbK6NMa8_FZlAAbPY2_1tN05T=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 3" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNFUC_PtyU-aDFYbP8uUM_0lXZI2dY1NCQznK715LMZqkyGmO9HuKFgVl2T-JE4WsRQfzeyG13qcbmjwFbRRTIJLOJiI0r774vb30QlTJTzhWwrAZ_u98OQgeTxD5YDuh7Yi_kfDwarM2bEWfvOdTXw=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 4" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlYZIVmtnYBTY5jWNFCIPNJS-Cjom-ulRsF0L-4907yZUyRbRGj_eMvpFotwfxIJ67n-jhrtRKN6NtA6JxVyCMRWTRmd5PKhOPIIJg4ugICC1fnr5poV6zi7DWz9ztMHJ1xGaG7a9feun9eyGnkJOP=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 5" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMZbdTw9kvGF7FZWTOGVISHU8WKS-FIQEv6I4H24MmT4DEh8FcGAUIxmur-f2xTD342fNIANU5Ph2s_hpsx6msXjx4i0Azc44VPk4GTos5Sq5ohT2xcJeIRgholLkCueh5llKqlPCQQpm0VssSrrhlcNA=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 6" class="carousel-image">
+                        <!-- Duplicate images for seamless loop -->
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPpCvJ5dEcy6iWf40wn0aD0JllqdjAbkFJ_f1OFBwxoxKGe247GcFvaltbRIBU_wxmBforek583pogXXDwKclY-8oS5r5Hpp7LKMkv0LVHmZo_j1nGWCUTxZib6n-LeO71SRQR9XIOkSZEBzPwXMO0b=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 1" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczM4GGQrwCQIRBsHncdIqbNixKzyQO8OmvOqBVHcsQgkngXhZtVvUnFIAzcsg6X2KVHhzupLueuHElVDgX1fWmf0ZbTzoBaDnX_ClYhMik5VZCrlKyOnHjomOgwauwB_Tqm6Q_T0UkFo8Imnkgcu2stk=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 2" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMg6tuo2BxUns6aUKrm3qMpmLbCkJFNbPy-OuXh89YDp2m2JvxqpVXiA_YXhbjr3q8Utu8P0FtgSgglTkOiY-abyCscOl45NLGVnHWpmfbmjKtJwlyedxBzvSowiGaVbK6NMa8_FZlAAbPY2_1tN05T=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 3" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNFUC_PtyU-aDFYbP8uUM_0lXZI2dY1NCQznK715LMZqkyGmO9HuKFgVl2T-JE4WsRQfzeyG13qcbmjwFbRRTIJLOJiI0r774vb30QlTJTzhWwrAZ_u98OQgeTxD5YDuh7Yi_kfDwarM2bEWfvOdTXw=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 4" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlYZIVmtnYBTY5jWNFCIPNJS-Cjom-ulRsF0L-4907yZUyRbRGj_eMvpFotwfxIJ67n-jhrtRKN6NtA6JxVyCMRWTRmd5PKhOPIIJg4ugICC1fnr5poV6zi7DWz9ztMHJ1xGaG7a9feun9eyGnkJOP=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 5" class="carousel-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMZbdTw9kvGF7FZWTOGVISHU8WKS-FIQEv6I4H24MmT4DEh8FcGAUIxmur-f2xTD342fNIANU5Ph2s_hpsx6msXjx4i0Azc44VPk4GTos5Sq5ohT2xcJeIRgholLkCueh5llKqlPCQQpm0VssSrrhlcNA=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 6" class="carousel-image">
                     </div>
                 </div>
             </div>
@@ -4499,11 +4638,11 @@
                             <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
                             <p class="sponsor-name">Devfolio</p>
                         </a>
+                        <a href="https://ethindia.co/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPCFrW6ib3dQcb36A2FG6trIqazn8HIFlfQjd-jMctRRPOuyL8E5pg7alFPlQ76GeUQ_XU_PqcaceMzwja8wozElKEFqHGp-S7azyivXBcQlYeknKpjGo13iuX9fSW5RadPiULkAzRK26Xp8j2MvODQ=w407-h407-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
+                            <p class="sponsor-name">ETH India</p>
+                        </a>
                         <!-- <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
                             <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
                             <p class="sponsor-name">Company Name</p>
                         </div>
@@ -5054,6 +5193,6 @@
 
         <div id="toast" class="mc-toast">Coming Soon!</div>
     </body>
-        <!--- update index.html 1 piyushkrrai --->
+
 
     </html>
