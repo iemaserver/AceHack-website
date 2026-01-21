@@ -13,7 +13,7 @@ A pixel-perfect Minecraft-themed landing page for AceHack 5.0, Rajasthan's bigge
 
 ## 🌐 DEV Repo
 
-[Refer ehere for Original Commits](https://github.com/Dark-97o/AceHack5.0_DEV)
+[Refer here for Original Commits](https://github.com/Dark-97o/AceHack5.0_DEV)
 
 ## 🛠️ Technologies
 
