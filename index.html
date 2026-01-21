@@ -347,16 +347,17 @@
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
                 background-size: cover;
                 border: 0.1px solid #2d003b;
-                padding: 15px 20px;
+                padding: 12px 15px;
                 text-decoration: none;
                 color: #FFF;
-                font-size: 11px;
+                font-size: 13.4px;
                 text-shadow: 2px 2px #6f00ff;
                 white-space: nowrap;
                 display: block;
                 text-align: center;
                 transition: transform 0.3s;
                 z-index: 1000;
+                box-shadow: 0 0 10px rgba(119, 0, 255, 0.6);
             }
 
             /* .nav-sign:hover {
@@ -496,12 +497,11 @@
             }
 
             .btn-icon {
-                width: 32px;
-                height: 31px;
-                border-radius: 10px;
+                width: 24px;
+                height: 24px;
                 margin-top: -75px;
                 margin-bottom: -70px;
-                margin-left: -20px;
+                margin-left: -8px;
                 margin-right: 0px;
                 vertical-align: middle;
                 image-rendering: pixelated;
@@ -545,12 +545,10 @@
             }
 
             .stone-btn {
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMl7-yI0IOl2szTleheXLPxPin8gtD2lESL81THaUaaUrsuTQRLcBOSV3eM8nNVKB-SyrE3AqSGZixbkZVQy9E7zVtV74XUQwCDYQiFsNPG8_B_NymQFzSNj16iFwnB3nal2DndvMKEi30M5OKtiGJP=w160-h160-s-no-gm?authuser=0');
-                /* background-color: #575757; */
-                background-size: contain ;
-                /* border: 3px solid #303030; */
+                background: linear-gradient(135deg, #6d28d9, #a855f7, #6d28d9);
+                background-size: contain;
                 border-radius: 0.1px;
-                padding:18px 30px;
+                padding: 18px 30px;
                 font-family: 'Press Start 2P', cursive;
                 color: #FFF;
                 font-size: 15px;
@@ -645,7 +643,6 @@
                 pointer-events: none;
                 opacity: 0;
                 transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
                 image-rendering: pixelated;
             }
 
@@ -657,6 +654,54 @@
 
             .stone-btn-wrapper:hover .stone-btn {
                 z-index: 1;
+            }
+
+            /* ============================================
+            HERO MARQUEE
+            ============================================ */
+            .hero-marquee {
+                width: 100%;
+                background: linear-gradient(90deg, #7700ff, #b026ff, #7700ff);
+                padding: 12px 0;
+                overflow: hidden;
+                position: relative;
+                box-shadow: 0 4px 15px rgba(119, 0, 255, 0.5);
+            }
+
+            .marquee-content {
+                display: flex;
+                white-space: nowrap;
+                animation: marqueeScroll 20s linear infinite;
+            }
+
+            .marquee-content span {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 15px;
+                color: #ffffff;
+                text-shadow: 2px 2px 4px #000000;
+                padding-right: 50px;
+            }
+
+            @keyframes marqueeScroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .marquee-content span {
+                    font-size: 14px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .marquee-content span {
+                    font-size: 11px;
+                }
             }
 
             /* Sections with backgrounds */
@@ -723,7 +768,7 @@
                 font-size: 36px;
                 text-align: center;
                 margin-bottom: 76px;
-                text-shadow: 5px 5px 0 #c300ff;
+                text-shadow: 5px 5px  #c300ff;
                 color: #ffffff;
             }
 
@@ -791,10 +836,11 @@
             }
 
             .about-image img {
-                width: 400px;
-                height: auto;
-                max-width: 200px;
+                width: 460px;
+                height: 300px;
+                /* max-width: 200px; */
                 image-rendering: pixelated;
+                filter: drop-shadow(0 6px 6px rgba(180, 0, 255, 5));
             }
 
 
@@ -1352,77 +1398,210 @@
             }
 
             /* ============================================
-            GALLERY CAROUSEL
+            INTERACTIVE CONTENT SECTION - STACK CARDS
             ============================================ */
-
-            .gallery-carousel {
-                width: 100%;
-                overflow: hidden;
-                padding: 40px 0;
-                margin: 0 auto;
-                margin-bottom: -20px;
-                position: relative;
-            }
-
-            .carousel-track {
+            .interactive-content-wrapper {
                 display: flex;
-                gap: 30px;
-                animation: scroll-left 30s linear infinite;
-                will-change: transform;
+                gap: 60px;
+                max-width: 1300px;
+                margin: 0 auto 80px;
+                padding: 0 20px;
+                align-items: center;
+                justify-content: space-between; 
+                margin-bottom: -30px;
             }
 
-            .carousel-image {
-                width: 300px;
-                height: 200px;
+            .content-text-section {
+                flex: 1 1 65%;
+                padding-right: 40px;
+            }
+
+            .content-heading {
+                font-size: 25px;
+                color: #ffffff;
+                text-shadow: 4px 4px 0 #8d00eb;
+                margin-bottom: 30px;
+            }
+
+            .content-description {
+                font-size: 12px;
+                line-height: 2;
+                color: #FFF;
+                text-shadow: 2px 2px #000;
+                margin-bottom: 20px;
+            }
+
+            .interactive-cards-section {
+                flex: 1 1 35%;
+                height: 500px;
+                position: relative;
+                perspective: 1500px;
+            }
+
+            .interactive-card {
+                position: absolute;
+                width: 480px;  /* WIDER - was 380px */
+                height: 320px;  /* SHORTER - was 480px - makes it horizontally longer */
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM_K6POKMRfjRwlMsq8bLETu21MXNZX2yRp6ek411_rFlzE5b-FuuiyAR84YQHDWto1qtSd4Z138h8YtdhwMp_9hKNkLT8Gf-fPHcRzHcpDXCb-hs71NI0CPBjw_go8N-3_Bb1_XZtic8bK4y50NoyV=w392-h392-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 2px solid #8d00eb;
+                cursor: pointer;
+                transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+                transform-style: preserve-3d;
+                left: 50%;
+                top: 50%;
+            }
+
+            /* Front card - NO ZOOM, just centered */
+            .interactive-card[data-position="front"] {
+                transform: translate(-50%, -50%) scale(1) translateZ(0) rotateY(0deg);
+                z-index: 30;
+                opacity: 1;
+            }
+
+            /* Middle card - MOVED UP so heading is visible */
+            .interactive-card[data-position="middle"] {
+                transform: translate(-50%, -50%) scale(0.90) translateZ(-60px) rotateY(-10deg) translateX(-50px) translateY(-80px);
+                z-index: 20;
+                opacity: 0.80;
+                filter: brightness(0.85);
+            }
+
+            /* Back card - MOVED UP MORE so heading is visible */
+            .interactive-card[data-position="back"] {
+                transform: translate(-50%, -50%) scale(0.80) translateZ(-120px) rotateY(-18deg) translateX(-100px) translateY(-140px);
+                z-index: 10;
+                opacity: 0.65;
+                filter: brightness(0.75);
+            }
+
+            /* Edition Label - positioned to be visible */
+            .card-edition-label {
+                position: absolute;
+                top: -55px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+                background-size: cover;
+                padding: 12px 35px;
+                font-size: 16px;
+                color: #FFF;
+                text-shadow: 3px 3px #000;
+                white-space: nowrap;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+                pointer-events: none;
+            }
+
+            /* Front card label */
+            .interactive-card[data-position="front"] .card-edition-label {
+                z-index: 150;
+                opacity: 1;
+            }
+
+            /* Middle card label - fully visible above front card */
+            .interactive-card[data-position="middle"] .card-edition-label {
+                z-index: 149;
+                opacity: 1;
+            }
+
+            /* Back card label - fully visible above front card */
+            .interactive-card[data-position="back"] .card-edition-label {
+                z-index: 148;
+                opacity: 1;
+            }
+
+            .interactive-card-image {
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
-                border: 0.5px solid #8400ff;
-                flex-shrink: 0;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
-                image-rendering: auto;
-                transition: transform 0.3s ease;
+                border-radius: 6px;
+                pointer-events: none;
             }
 
-            .carousel-image:hover {
-                transform: scale(1.05);
+            /* REMOVED ZOOM - Only subtle shadow change on hover */
+            .interactive-card[data-position="front"]:hover {
+                box-shadow: 0 20px 50px rgba(80, 43, 139, 0.9);
             }
 
-            @keyframes scroll-left {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-80%);
-                }
-            }
-
-            /* Pause on hover */
-            .gallery-carousel:hover .carousel-track {
-                animation-play-state: paused;
-            }
-
-            /* Mobile responsiveness */
+            /* Responsive adjustments */
             @media (max-width: 768px) {
-                .gallery-carousel {
-                    padding-top: 75px;
-                }
-                .carousel-image {
-                    width: 250px;
-                    height: 180px;
+                .interactive-content-wrapper {
+                    flex-direction: column;
+                    gap: 40px;
+                    margin-bottom: 60px;
                 }
                 
-                .carousel-track {
-                    gap: 20px;
+                .content-text-section {
+                    padding-right: 0;
+                }
+                
+                .content-heading {
+                    font-size: 15px;
+                }
+                
+                .content-description {
+                    font-size: 9px;
+                }
+                
+                .interactive-cards-section {
+                    flex: 0 0 450px;
+                    height: 400px;
+                }
+                
+                .interactive-card {
+                    width: 320px;
+                    height: 200px;
+                }
+                
+                .card-edition-label {
+                    font-size: 13px;
+                    padding: 10px 25px;
+                    top: -50px;
                 }
             }
 
             @media (max-width: 480px) {
-                .carousel-image {
-                    width: 200px;
-                    height: 140px;
+                .interactive-cards-section {
+                    flex: 0 0 380px;
+                    height: 350px;
                 }
                 
-                .carousel-track {
-                    gap: 15px;
+                .interactive-card {
+                    width: 340px;
+                    height: 220px;
+                    border-width: 4px;
+                }
+                
+                .card-edition-label {
+                    font-size: 11px;
+                    padding: 8px 20px;
+                    top: -45px;
+                }
+                
+                .content-heading {
+                    font-size: 14px;
+                }
+                
+                .content-description {
+                    font-size: 8.6px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .interactive-cards-section {
+                    flex: 0 0 340px;
+                    height: 320px;
+                }
+                
+                .interactive-card {
+                    width: 300px;
+                    height: 200px;
+                }
+                
+                .card-edition-label {
+                    font-size: 10px;
+                    padding: 7px 18px;
                 }
             }
 
@@ -1472,7 +1651,11 @@
                 }
             }
 
-            .prizes {
+            /* =============================
+            PRIZES SECTION
+            ============================= */
+
+            /* .prizes {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -1480,7 +1663,7 @@
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 40px 0;
-            }
+            } */
 
             .prize-row {
                 display: flex;
@@ -1733,32 +1916,271 @@
                 z-index: 0;
             }
 
-            /* FAB */
-            .fab {
-                position: fixed;
-                bottom: 40px;
-                right: 40px;
-                width: 80px;
-                height: 80px;
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczP1lCeiQIfbd83eLG7d4f-uawftSIIHk4rpp8bQSiOR8KmmuLcCisWxTopkn-56BiB6wYDc7-qWvy0HRZyGEtrH84uz_cF9nsAcdOTuZ2ROvMVsFL4irkzZSVhIBBgpUWBvvbqa0emAaqC0yA_ekiov=w160-h160-s-no-gm?authuser=0');
-                background-size: cover;
-                border: 2px solid #8400ff;
-                border-radius: 50%;
-                cursor: pointer;
-                z-index: 999;
-                box-shadow: 0 0 40px rgba(135, 7, 255, 0.9);
-                text-decoration: none;
+            /* =============================
+            PRIZE POOL - NEW LAYOUT
+            ============================= */
+
+            .prizes {
                 display: flex;
+                flex-direction: row !important; /* FORCE horizontal */
                 align-items: center;
-                justify-content: center;
-                overflow: hidden;
-                padding: 15px;
+                justify-content: space-between;
+                gap: 40px;
+                max-width: 1800px; /* INCREASE from 1600px */
+                margin: 0 auto;
+                padding: 40px 20px;
+                flex-wrap: nowrap !important; /* FORCE no wrapping */
+                width: 100%; /* ADD THIS */
             }
 
-            .fab img {
-                width: 120%;
-                height: 120%;
-                object-fit: contain;
+            /* Left character image */
+            .prize-left-image {
+                flex: 0 0 200px; /* REDUCE from 250px */
+                display: flex;
+                align-items: center;
+                justify-content: flex-start; /* CHANGE from center */
+                order: 1; /* ADD THIS - forces left position */
+            }
+
+            .prize-left-image img {
+                width: 150%;
+                height: 350px;
+                max-width: 400px;
+                margin-left: -70px;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.6));
+                animation: float 3s ease-in-out infinite;
+            }
+
+            /* Center chests area */
+            .prize-chests-center {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+                order: 2; /* ADD THIS - forces middle position */
+                max-width: 800px; /* ADD THIS - prevents it from being too wide */
+            }
+
+            /* Right card with rotating images */
+            .prize-right-card {
+                flex: 0 0 280px;
+                margin-top: 30px;
+                margin-right: -120px;
+                height: 480px;
+                background-image: url('...');
+                background-size: cover;
+                border: 0px solid #8d00eb;
+                /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8); */
+                position: relative;
+                overflow: hidden;
+                order: 3; /* ADD THIS - forces right position */
+                align-self: center; /* ADD THIS - vertically centers it */
+            }
+
+            .prize-right-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                /* background: rgba(0, 0, 0, 0.3); */
+                z-index: 0;
+            }
+
+            .prize-track-showcase {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .track-prize-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.8s ease-in-out;
+                image-rendering: pixelated;
+            }
+
+            .track-prize-img.active {
+                opacity: 1;
+            }
+
+            @media (max-width: 768px) {
+                /* ... existing styles ... */
+                
+                /* Hide left and right prize images */
+                .prize-left-image {
+                    display: none;
+                }
+                
+                .prize-right-card {
+                    display: none;
+                }
+                
+                /* Make chests take full width */
+                .prize-chests-center {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+
+            @media (max-width: 480px) {
+                /* ... existing styles ... */
+                
+                /* Hide left and right prize images */
+                .prize-left-image {
+                    display: none !important;
+                }
+                
+                .prize-right-card {
+                    display: none !important;
+                }
+                
+                /* Make chests take full width */
+                .prize-chests-center {
+                    width: 100%;
+                    max-width: 100%;
+                    flex: 1 1 100%;
+                    margin-left: -15px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                /* ... existing styles ... */
+                
+                /* Hide left and right prize images */
+                .prize-left-image {
+                    display: none !important;
+                }
+                
+                .prize-right-card {
+                    display: none !important;
+                }
+                /* Make chests take full width */
+                .prize-chests-center {
+                    width: 100%;
+                    max-width: 100%;
+                    flex: 1 1 100%;
+                    margin-left: 55px;
+                }
+            }
+
+            /* FAQ Container */
+            .faq-container {
+                max-width: 1000px;
+                margin: 0 auto 60px;
+                padding: 0 20px;
+            }
+
+            /* FAQ Item */
+            .faq-item {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNnRMyOqLqz8uhsHKe1iXkI88f3bHaszEoNhw7jmQozRTa0ZTD7oWwhwvp95nkASVLX2PlfeAvch9nvN6va5j2kNr0QP70GWxapOg4B8MIiwkeDFDOtSuV8jWXc9jCjBREupS3MZdE0muy7tkghxgPr=w1199-h198-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 2px solid #450086;
+                margin-bottom: 20px;
+                border-radius: 2px;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .faq-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.82);
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            /* FAQ Question */
+            .faq-question {
+                padding: 20px 25px;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 13px;
+                color: #FFF;
+                text-shadow: 2px 2px #8900e4;
+                position: relative;
+                z-index: 1;
+            }
+
+            .faq-icon {
+                font-size: 24px;
+                transition: transform 0.3s;
+            }
+
+            .faq-item.active .faq-icon {
+                transform: rotate(45deg);
+            }
+
+            /* FAQ Answer */
+            .faq-answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 25px;
+                font-size: 10px;
+                line-height: 1.8;
+                color: #FFF;
+                text-shadow: 1px 1px #000;
+                position: relative;
+                z-index: 1;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 500px;
+                padding: 0 25px 20px 25px;
+            }
+
+            /* FAQ CTA */
+            .faq-cta {
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            @media (max-width: 768px) {
+                .faq-container {
+                    margin-top: 0px;
+                }
+                .faq-question {
+                    font-size: 11px;
+                    padding: 15px 20px;
+                }
+                
+                .faq-answer {
+                    font-size: 10px;
+                }
+                
+                .faq-icon {
+                    font-size: 20px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .faq-container {
+                    margin-bottom: 20px;
+                }
+
+                .faq-question {
+                    font-size: 10px;
+                    padding: 12px 15px;
+                }
+                
+                .faq-answer {
+                    font-size: 9px;
+                }
             }
 
             /* Global Footer Styles */
@@ -2238,8 +2660,9 @@
                 z-index: 5999;
                 transition: left 0.4s ease;
                 overflow-y: auto;
-                box-shadow: 5px 0 30px rgba(0, 0, 0, 0.9);
                 /* border-right: 1px solid #ae00ff; */
+                display: flex;              /* ADD THIS */
+                flex-direction: column;   
             }
 
             .mobile-nav-overlay.active {
@@ -2251,6 +2674,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 0;
+                flex: 1;
             }
 
             .mobile-nav-item {
@@ -2306,7 +2730,21 @@
                 left: 0;
                 width: 100%;
                 z-index: 3000;
+            }
 
+            .mobile-nav-logo {
+                margin-top: auto;
+                padding: 20px;
+                text-align: center;
+                border-top: 2px solid rgba(157, 0, 255, 0.3);
+                margin-bottom: -80px;
+            }
+
+            .mobile-nav-logo img {
+                width: 200px;
+                max-width: 100%;
+                height: auto;
+                image-rendering: pixelated;
             }
 
             /* ============================================
@@ -2341,6 +2779,7 @@
                 /* border: 2px solid #FFD700; */
                 border-radius: 1px;
                 padding: 30px 20px;
+                margin-bottom: -20px;
                 text-align: center;
                 box-shadow: 0 10px 25px rgba(114, 0, 190, 0.8);
                 transition: transform 0.3s ease;
@@ -2392,6 +2831,10 @@
 
             /* Tablets and smaller (≤768px) */
             @media (max-width: 768px) {
+                #sponsors-section {
+                    padding-bottom: -70px;
+                }
+
                 .sponsor-tier {
                     margin-bottom: 40px;
                 }
@@ -2424,6 +2867,23 @@
                 
                 .sponsor-name {
                     font-size: 15px;
+                }
+
+                /* Reduce sponsors section bottom spacing */
+                #sponsors {
+                    padding-bottom: 40px !important; /* reduced from default */
+                    /* margin-bottom: -40px; */
+                }
+                
+                /* Reduce FAQ section top spacing */
+                #faq-preview {
+                    padding-top: 40px !important; /* reduced from default */
+                    /* margin-top: -40px; */
+                }
+                
+                .sponsor-cta {
+                    margin-top: 50px;
+                    margin-bottom: 20px !important; /* reduced */
                 }
             }
 
@@ -2603,7 +3063,7 @@
             /* Hero Section - Much smaller */
             .hero {
                 /* min-height: 60vh; */
-                height: 870px;
+                height: 700px;
             }
             
             .hero-logo {
@@ -3223,7 +3683,7 @@
             }
 
             .hero{
-                height: 870px;
+                height: 627px;
             }
 
             .hero-logo {
@@ -3509,11 +3969,99 @@
             .prize-card-elevated {
                 transform: none !important;
             }
+
+            /* =============================
+            PRIZE POOL - NEW LAYOUT
+            ============================= */
+
+            .prizes {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 40px;
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+            /* Left character image */
+            .prize-left-image {
+                flex: 0 0 250px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .prize-left-image img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.6));
+                animation: float 3s ease-in-out infinite;
+            }
+
+            /* Center chests area */
+            .prize-chests-center {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+            }
+
+            /* Right card with rotating images */
+            .prize-right-card {
+                flex: 0 0 280px;
+                height: 600px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM_K6POKMRfjRwlMsq8bLETu21MXNZX2yRp6ek411_rFlzE5b-FuuiyAR84YQHDWto1qtSd4Z138h8YtdhwMp_9hKNkLT8Gf-fPHcRzHcpDXCb-hs71NI0CPBjw_go8N-3_Bb1_XZtic8bK4y50NoyV=w392-h392-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 4px solid #8d00eb;
+                border-radius: 2px;
+                padding: 20px;
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .prize-right-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 0;
+            }
+
+            .prize-track-showcase {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            .track-prize-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 4px;
+                opacity: 0;
+                transition: opacity 0.8s ease-in-out;
+                image-rendering: pixelated;
+            }
+
+            .track-prize-img.active {
+                opacity: 1;
+            }
             
             /* Footer ultra compact */
             /* Lava border — reduce height & animation cost */
             .lava-border {
-                margin-top: -200px;
+                margin-top: 10px;
                 height: 70px;
                 background-size: auto 100%;
                 animation-duration: 60s; /* smoother on low-end devices */
@@ -3521,6 +4069,7 @@
 
             /* Footer container */
             .footer-main {
+                margin-top: -30px;
                 padding: 24px 12px 16px;
                 height: 658px;
                 background-size: 40px 40px;
@@ -3935,7 +4484,7 @@
             /* Footer ultra compact */
             /* Lava border — reduce height & animation cost */
             .lava-border {
-                margin-top: -200px;
+                margin-top: 0px;
                 height: 70px;
                 background-size: auto 100%;
                 animation-duration: 60s; /* smoother on low-end devices */
@@ -3945,6 +4494,7 @@
             .footer-main {
                 padding: 24px 12px 16px;
                 background-size: 40px 40px;
+                margin-top: -43px;
             }
 
             .footer-content {
@@ -4222,17 +4772,17 @@
                 <!-- NEW TRACKS BUTTON -->
                 <div class="nav-sign-container" style="--index: 3">
                     <div class="sign-chain"></div>
-                    <a href="#tracks" class="nav-sign">Tracks</a>
+                    <a href="index.html#tracks" class="nav-sign">Tracks</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 4">
                     <div class="sign-chain"></div>
-                    <a href="#team" class="nav-sign" data-soon="true">DG Swags</a>
+                    <a href="index.html#sponsors" class="nav-sign">Sponsors</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 5">
                     <div class="sign-chain"></div>
-                    <a href="#sponsors" class="nav-sign">Sponsors</a>
+                    <a href="#faq-preview" class="nav-sign">FAQs</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 6">
@@ -4267,8 +4817,8 @@
             
             <div class="stone-buttons">
                 <div class="stone-btn-wrapper">
-                    <a href="https://acehack5.devfolio.co/overview" class="stone-btn">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" alt="Register Icon" class="btn-icon">
+                    <a href="https://acehack5.devfolio.co/overview" class="stone-btn" style="background-color: #1381ff; background-image: none; text-shadow:none;">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMdnflTxtuKLOK2QZJPY4Cqrh1eVFp514-KwGCaZsf897bZEIsEEvHaleeZNMIx0A111S9hzvf2E-y0AO829IQkw02x9aCCN72Rl1MhKQPyLTADNthJoG0l10YIO8M_v7ubGNzQO2JPUHlEzh7lLBKd=w512-h512-s-no-gm?authuser=0" alt="Register Icon" class="btn-icon">
                         Devfolio Register
                     </a>
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Diamond" class="popup-image">
@@ -4280,6 +4830,13 @@
             </div>
         </section>
 
+        <div class="hero-marquee">
+            <div class="marquee-content">
+                <span>INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM •</span>
+                <span>INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM • INNOVATE-ELEVATE-TRANSFORM •</span>
+            </div>
+        </div>
+
         <!-- About Section -->
         <section id="about" class="section-bg">
             <div style="max-width: 1400px; margin: 0 auto;">
@@ -4288,16 +4845,16 @@
                     <div class="about-text">
                         <p>
                         AceHack 5.0 is the next evolution of Rajasthan's biggest student-run hackathon—a 36-hour build space where students and innovators from across the country come together to create impactful, real-world tech solutions.
-                        </p>
+                        </p><br>
                         <p>
                         More than just coding, it is a platform to explore ideas, sharpen skills, and grow with a driven community—whether you are just starting out or building complex systems.
-                        </p>
+                        </p><br>
                         <p>
                         Enter AceHack 5.0 and shape the future, one idea at a time.
                         </p>
                     </div>
                     <div class="about-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNWNWiQ4kQZeKYZNto0zbPYMNi0geP_jgBiH7dOCR10sFhgEeKMm5smK3O-FATAvxv35rkMSScR6NWfBQeRo7bNHTUUSqgtY_EeHkQ-w4iyNI2OoaI8rWmH5I5OvyUkdBgIEfqDyOwl9_iL_grP143S=w188-h200-s-no-gm?authuser=0" alt="AceHack">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNbVu4phMEY8-C490Y4zp4PakLKp3cL_FCRjn2sYA8hFJGFiZ-T2EW7dQV5aFfcSG0hbZuslpO_js69H9zKzeL-4QKWEoMUJDVo6XY_jAnu3cC5UvaruEZeZ3UJ13iG5mZHzG4WI7xw6ejVNl7NtaaY=w1024-h617-s-no-gm?authuser=0" alt="AceHack">
                     </div>
                 </div>
                 
@@ -4314,8 +4871,8 @@
                         <span class="stat-label">Participants</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">850+</span>
-                        <span class="stat-label">Teams</span>
+                        <span class="stat-number">900+</span>
+                        <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">70+</span>
@@ -4449,6 +5006,53 @@
         <section id="why-attend" class="section-bg">
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -50px;">
                 <h2>Why Attend?</h2>
+                
+                <!-- Interactive Content Section - Side by Side -->
+                <div class="interactive-content-wrapper">
+                    <!-- Left side - Text -->
+                    <div class="content-text-section">
+                        <h3 class="content-heading">Experience AceHack</h3>
+                        <p class="content-description">
+                            Explore AceHack’s journey through highlights from past editions. 
+                            Click the cards to relive AceHack 2.0, 3.0, and 4.0.
+                        </p>
+                        <p class="content-description">
+                            From coding marathons to keynotes and workshops, AceHack is where ideas turn into impact.
+                        </p>
+                        <p class="content-description">
+                            Each edition grows stronger. Be part of the next chapter at AceHack 5.0.
+                        </p>
+                    </div>
+
+                    <!-- Right side - Stack Cards -->
+                    <div class="interactive-cards-section">
+                        <!-- Card 1 - AceHack 4.0 (Front initially) -->
+                        <div class="interactive-card" data-index="0" data-position="front" data-youtube="https://youtu.be/1BO_oclr_PQ?si=oMtz9S0tQiopxZN0">
+                            <div class="card-edition-label">AceHack 4.0</div>
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOWzTIBmpX4VFPtva1FBTBSrbajhc2cXxtFbWJ5LWIwnWYbracfMsRRyru6pXZEWsgBxbKGMIYPkQkKW85M8fbn08_KaXpZi8_1IEAoPpeQs3D1UeUtfnW0DdsfJYJIzNCECA7CB7zRBlLNpbpq6AhL=w1024-h627-s-no-gm?authuser=0" 
+                                alt="AceHack 4.0" 
+                                class="interactive-card-image">
+                        </div>
+
+                        <!-- Card 2 - AceHack 3.0 (Middle initially) -->
+                        <div class="interactive-card" data-index="1" data-position="middle" data-youtube="https://youtu.be/TiZbmEgvVdM?si=fnnUkpRPPsx2EyRe">
+                            <div class="card-edition-label">AceHack 3.0</div>
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNefxasrkN8kpfsnKPi2EmNAv33wtu837yNql_VeTcjye0ceKERGPCbQxV0K_KavAA1uTpwGXi1x2yFvN1WTRXDF7uiuCqW21HNUDLxasGgYgAXcfAxX4IJTyg2wlhoiVIW3arc9dtIloQfhozlE3SS=w1024-h600-s-no-gm?authuser=0" 
+                                alt="AceHack 3.0" 
+                                class="interactive-card-image">
+                        </div>
+
+                        <!-- Card 3 - AceHack 2.0 (Back initially) -->
+                        <div class="interactive-card" data-index="2" data-position="back" data-youtube="https://youtu.be/bR_YNme5nwk?si=S8r8agsQ-kHwbCdY">
+                            <div class="card-edition-label">AceHack 2.0</div>
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczO9zbZ24LVPYmzVFRaZ5byKJ0k5aHqdAEpQ-cfHGE8_qr-M4TaqjPvRM0jTK-pFn6jtZM8_38DAOiE2TJOF7V8Sm0VgYvVY3VGAfEOJcYvbec1X11DPLmPKKDqbvuQ90HcWu4wUNpuOvcRRULpQW_hp=w1024-h566-s-no-gm?authuser=0" 
+                                alt="AceHack 2.0" 
+                                class="interactive-card-image">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bee Cards Grid - Below the side-by-side content -->
                 <div class="cards-grid">
                     <!-- Row 1 -->
                     <div class="card-wrapper" data-direction="top-left" data-index="0">
@@ -4497,24 +5101,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="gallery-carousel">
-                    <div class="carousel-track">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPpCvJ5dEcy6iWf40wn0aD0JllqdjAbkFJ_f1OFBwxoxKGe247GcFvaltbRIBU_wxmBforek583pogXXDwKclY-8oS5r5Hpp7LKMkv0LVHmZo_j1nGWCUTxZib6n-LeO71SRQR9XIOkSZEBzPwXMO0b=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 1" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczM4GGQrwCQIRBsHncdIqbNixKzyQO8OmvOqBVHcsQgkngXhZtVvUnFIAzcsg6X2KVHhzupLueuHElVDgX1fWmf0ZbTzoBaDnX_ClYhMik5VZCrlKyOnHjomOgwauwB_Tqm6Q_T0UkFo8Imnkgcu2stk=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 2" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMg6tuo2BxUns6aUKrm3qMpmLbCkJFNbPy-OuXh89YDp2m2JvxqpVXiA_YXhbjr3q8Utu8P0FtgSgglTkOiY-abyCscOl45NLGVnHWpmfbmjKtJwlyedxBzvSowiGaVbK6NMa8_FZlAAbPY2_1tN05T=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 3" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNFUC_PtyU-aDFYbP8uUM_0lXZI2dY1NCQznK715LMZqkyGmO9HuKFgVl2T-JE4WsRQfzeyG13qcbmjwFbRRTIJLOJiI0r774vb30QlTJTzhWwrAZ_u98OQgeTxD5YDuh7Yi_kfDwarM2bEWfvOdTXw=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 4" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlYZIVmtnYBTY5jWNFCIPNJS-Cjom-ulRsF0L-4907yZUyRbRGj_eMvpFotwfxIJ67n-jhrtRKN6NtA6JxVyCMRWTRmd5PKhOPIIJg4ugICC1fnr5poV6zi7DWz9ztMHJ1xGaG7a9feun9eyGnkJOP=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 5" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMZbdTw9kvGF7FZWTOGVISHU8WKS-FIQEv6I4H24MmT4DEh8FcGAUIxmur-f2xTD342fNIANU5Ph2s_hpsx6msXjx4i0Azc44VPk4GTos5Sq5ohT2xcJeIRgholLkCueh5llKqlPCQQpm0VssSrrhlcNA=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 6" class="carousel-image">
-                        <!-- Duplicate images for seamless loop -->
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPpCvJ5dEcy6iWf40wn0aD0JllqdjAbkFJ_f1OFBwxoxKGe247GcFvaltbRIBU_wxmBforek583pogXXDwKclY-8oS5r5Hpp7LKMkv0LVHmZo_j1nGWCUTxZib6n-LeO71SRQR9XIOkSZEBzPwXMO0b=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 1" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczM4GGQrwCQIRBsHncdIqbNixKzyQO8OmvOqBVHcsQgkngXhZtVvUnFIAzcsg6X2KVHhzupLueuHElVDgX1fWmf0ZbTzoBaDnX_ClYhMik5VZCrlKyOnHjomOgwauwB_Tqm6Q_T0UkFo8Imnkgcu2stk=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 2" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMg6tuo2BxUns6aUKrm3qMpmLbCkJFNbPy-OuXh89YDp2m2JvxqpVXiA_YXhbjr3q8Utu8P0FtgSgglTkOiY-abyCscOl45NLGVnHWpmfbmjKtJwlyedxBzvSowiGaVbK6NMa8_FZlAAbPY2_1tN05T=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 3" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNFUC_PtyU-aDFYbP8uUM_0lXZI2dY1NCQznK715LMZqkyGmO9HuKFgVl2T-JE4WsRQfzeyG13qcbmjwFbRRTIJLOJiI0r774vb30QlTJTzhWwrAZ_u98OQgeTxD5YDuh7Yi_kfDwarM2bEWfvOdTXw=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 4" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlYZIVmtnYBTY5jWNFCIPNJS-Cjom-ulRsF0L-4907yZUyRbRGj_eMvpFotwfxIJ67n-jhrtRKN6NtA6JxVyCMRWTRmd5PKhOPIIJg4ugICC1fnr5poV6zi7DWz9ztMHJ1xGaG7a9feun9eyGnkJOP=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 5" class="carousel-image">
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMZbdTw9kvGF7FZWTOGVISHU8WKS-FIQEv6I4H24MmT4DEh8FcGAUIxmur-f2xTD342fNIANU5Ph2s_hpsx6msXjx4i0Azc44VPk4GTos5Sq5ohT2xcJeIRgholLkCueh5llKqlPCQQpm0VssSrrhlcNA=w1422-h948-s-no-gm?authuser=0" alt="Gallery Image 6" class="carousel-image">
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -4523,90 +5109,105 @@
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -40px;">
                 <h2>Prize Pool</h2>
                 <div class="prizes">
-                    <!-- First Row - 3 chests (1st elevated in middle) -->
-                    <div class="prize-row prize-row-1">
-                        <div class="prize-card" data-index="1" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczNu_H5PVobUGKHQkuX0j_QQtF_N5AV7ezccjknQ0oHH8mRJslsN9h1DglGhHoIX_ZK6gd7nQLWTLk8anZdHajEDnFfaTDfcU8H5r4wd-Hxi7qZoH2y2BdWziMxdqBWb2Bm25twGCUwRLWSYrRbC6qUX=w273-h246-s-no-gm?authuser=0" 
-                                    alt="2nd Place Chest" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOUx7jS6BjysWc4E9ccmAONBxbf0I2UMQ4c7xYwHIJiBpnpr4KgfY5DlBuW5F-_jWHFGFUyBh546ClFqFX2bhu9IW86mAYoCfYfuO1BnNfSvaTL-RXnbvyp-xvxTTLl2sDpBKeB7p6O-3kCaMk08QZL=w560-h491-s-no-gm?authuser=0" 
-                                    alt="2nd Place Hover" 
-                                    class="chest-img chest-hover">
+                    <!-- LEFT IMAGE -->
+                    <div class="prize-left-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNO-DUOMjab3NVUd_8rNuBrTnUr0aGKcAV-sQaZERpQ5TYmEH6bfGXejM3g-kqbGo_JaJ6zANG35BNiOEelBXnwYQLi7pokqbEILTavcQN_ppxxypfJDEoh5L5T6nxpPanR0ybG5WRwmLNYCnOD2D7L=w936-h938-s-no-gm?authuser=0" alt="Prize Character">
+                    </div>
+
+                    <!-- CENTER - EXISTING CHESTS -->
+                    <div class="prize-chests-center">
+                        <!-- First Row - 3 chests (1st elevated in middle) -->
+                        <div class="prize-row prize-row-1">
+                            <div class="prize-card" data-index="1" data-amount="₹X,XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNu_H5PVobUGKHQkuX0j_QQtF_N5AV7ezccjknQ0oHH8mRJslsN9h1DglGhHoIX_ZK6gd7nQLWTLk8anZdHajEDnFfaTDfcU8H5r4wd-Hxi7qZoH2y2BdWziMxdqBWb2Bm25twGCUwRLWSYrRbC6qUX=w273-h246-s-no-gm?authuser=0" 
+                                        alt="2nd Place Chest" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOUx7jS6BjysWc4E9ccmAONBxbf0I2UMQ4c7xYwHIJiBpnpr4KgfY5DlBuW5F-_jWHFGFUyBh546ClFqFX2bhu9IW86mAYoCfYfuO1BnNfSvaTL-RXnbvyp-xvxTTLl2sDpBKeB7p6O-3kCaMk08QZL=w560-h491-s-no-gm?authuser=0" 
+                                        alt="2nd Place Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">2nd <br> Place</div>
+                                <div class="prize-amount">₹X,XX,XXX</div>
                             </div>
-                            <div class="prize-label">2nd <br> Place</div>
-                            <div class="prize-amount">₹X,XX,XXX</div>
+
+                            <div class="prize-card prize-card-elevated" data-index="0" data-amount="₹X,XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczONpnP1yvDpP72KKTsTLkeid_wP14rFywsXKG-CAMpdcdGUehQI3CRHlJ-FXZePgPxFC62sJ3XVTPwm31e-neNRWNaJOO6dHZeG4q_WOmrcyoXVA33-c2xOecGan4k7F7GNllG7qnVacuRiS2INB5SO=w346-h296-s-no-gm?authuser=0" 
+                                        alt="1st Place Chest" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPa0z9wORDhiDT9JohihWaMmxp1AQDIY8sRMyMvhwNuVhgRnoF1udYA0e1ekWUa0ROljmNK4Ouw9pPFqEOKdTT9O9St4vRoDXXnziemauSVOekiqxzwKKM04IpsTHPnPFfGHX3TGeQQCsXMx3SqDRUw=w560-h461-s-no-gm?authuser=0" 
+                                        alt="1st Place Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">1st<br> Place</div>
+                                <div class="prize-amount">₹X,XX,XXX</div>
+                            </div>
+
+                            <div class="prize-card" data-index="2" data-amount="₹XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMuquS5JtdH4UZd3pxUiWPzxjpYFXME5jWI2m2ydzr-mcbCTGDFN9AWXNLfxkPv39k-RNZd7-WPvJ07760yiIXiLOeWHxsb535QfxPRnjMpnZ3VQl1lmBsWSc0FuSm0xtt5xTVQg-tcyBnYTU1DSgcg=w366-h354-s-no-gm?authuser=0" 
+                                        alt="3rd Place Chest" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOxe138R0rw7XV-rbmWygQnSTsHRDqHcO9wvfpIy2En1Viamu2CXVAjJ-EbIl19OT8zdHmbtTu5GeIpiG3J6w71Thqd6f77csGz-aQRbn_J0N-Oxy_PDa_zsfRlpFxtt3VqezgzFJd1xveMXIw_1M3S=w566-h471-s-no-gm?authuser=0" 
+                                        alt="3rd Place Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">3rd <br>Place</div>
+                                <div class="prize-amount">₹XX,XXX</div>
+                            </div>
                         </div>
 
-                        <div class="prize-card prize-card-elevated" data-index="0" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczONpnP1yvDpP72KKTsTLkeid_wP14rFywsXKG-CAMpdcdGUehQI3CRHlJ-FXZePgPxFC62sJ3XVTPwm31e-neNRWNaJOO6dHZeG4q_WOmrcyoXVA33-c2xOecGan4k7F7GNllG7qnVacuRiS2INB5SO=w346-h296-s-no-gm?authuser=0" 
-                                    alt="1st Place Chest" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPa0z9wORDhiDT9JohihWaMmxp1AQDIY8sRMyMvhwNuVhgRnoF1udYA0e1ekWUa0ROljmNK4Ouw9pPFqEOKdTT9O9St4vRoDXXnziemauSVOekiqxzwKKM04IpsTHPnPFfGHX3TGeQQCsXMx3SqDRUw=w560-h461-s-no-gm?authuser=0" 
-                                    alt="1st Place Hover" 
-                                    class="chest-img chest-hover">
+                        <!-- Second Row -->
+                        <div class="prize-row prize-row-2">
+                            <div class="prize-card" data-index="0" data-amount="₹XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczO8ZGXlGbm7X7XvSdvVmmhQ8xm6qRXm2lp3MQE-t7SDlHi03j34G_pzG4lrqK5vWZ36PIA_Qx103qKP7dTN0W1NBPJocWfe0ymas-iJLPEiR-Rf7gdoOBvCL7QYQmDy0G5CkJQbjxtiTCL7foIPkl1k=w371-h364-s-no-gm?authuser=0" 
+                                        alt="Best Beginner Chest" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczN9nTQaGdGy3Pp2kOllw1rFEwSplHIA_esSnMHenRQCJnbKa52nnCDvHJeD2pe2kdzkEY4TgBJm-qkddV3QLWUmUUaToLDZR86dpGcNVwv7J9innIuWOBe0lfflyV64SDFe5vcoQrVon0u3JnZcvBBW=w496-h445-s-no-gm?authuser=0" 
+                                        alt="Best Beginner Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">Best Beginner<br>Team </div>
+                                <div class="prize-amount">₹XX,XXX</div>
                             </div>
-                            <div class="prize-label">1st<br> Place</div>
-                            <div class="prize-amount">₹X,XX,XXX</div>
-                        </div>
 
-                        <div class="prize-card" data-index="2" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMuquS5JtdH4UZd3pxUiWPzxjpYFXME5jWI2m2ydzr-mcbCTGDFN9AWXNLfxkPv39k-RNZd7-WPvJ07760yiIXiLOeWHxsb535QfxPRnjMpnZ3VQl1lmBsWSc0FuSm0xtt5xTVQg-tcyBnYTU1DSgcg=w366-h354-s-no-gm?authuser=0" 
-                                    alt="3rd Place Chest" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOxe138R0rw7XV-rbmWygQnSTsHRDqHcO9wvfpIy2En1Viamu2CXVAjJ-EbIl19OT8zdHmbtTu5GeIpiG3J6w71Thqd6f77csGz-aQRbn_J0N-Oxy_PDa_zsfRlpFxtt3VqezgzFJd1xveMXIw_1M3S=w566-h471-s-no-gm?authuser=0" 
-                                    alt="3rd Place Hover" 
-                                    class="chest-img chest-hover">
+                            <div class="prize-card" data-index="1" data-amount="₹XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNNDXrSPaGnDcsLe6Frcv42JFY6v7Z_k0DRcRaFobE3vnpoPY9W1ZgrL5iG07YgJlzf4_1SvFVflW3u0SYgNk8jR2LzbeyK8-EXl6DtE2mYeF4rhyx8vZhLuaZjcucfRnARK64I_484jJ3tBqnEIkno=w377-h362-s-no-gm?authuser=0" 
+                                        alt="All Girls Team Chest" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOtxhCyJOfFGclzyqK6pPIY-JLHSjrss7V4rlf4GWdDvxmluFnDVr9KYFWK9kxtBlnVZm8oP7ebIAtFnlZ_fBstkWTMwIIWjxVUaROA2Wr1-kXITHBMryvj040TdlQh2FynZUnNLxuXxT3zNnnH6Xs0=w489-h437-s-no-gm?authuser=0" 
+                                        alt="All Girls Team Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">All Girls<br> Team</div>
+                                <div class="prize-amount">₹XX,XXX</div>
                             </div>
-                            <div class="prize-label">3rd <br>Place</div>
-                            <div class="prize-amount">₹XX,XXX</div>
+
+                            <div class="prize-card" data-index="2" data-amount="₹XX,XXX">
+                                <div class="chest-wrapper">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczPpc9LL6lwBVY9i5iTU6ulUwGiQ40CWRAQuM4oIfI3cNg1HRv7q9fP0PV8TQOc6RvKI8yg5GsJkuljxryZ-O7dUYGbkdS7RalEbUg6PXhMZ18tvv-KdC_zKjSvmpuoLpkQJIvf6KsRi7vYsgZSw-UD7=w228-h219-s-no-gm?authuser=0" 
+                                        alt="Special Goodies Box" 
+                                        class="chest-img chest-default">
+                                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOftM8eW7ImP-1-64GKKAUhX41DANBybLypZ8BPSs8t-Js7yBsLePRWG1fIlZOXVJShu5rHT-DPgNnILg0c43HGbKTP8d_FRI7OzNdiyiXCzXXtnNMxydDj2mkLCwFqnyliHkOeA5tzFF1ihI6rRGdH=w376-h347-s-no-gm?authuser=0" 
+                                        alt="Special Prize Hover" 
+                                        class="chest-img chest-hover">
+                                </div>
+                                <div class="prize-label">Special<br> Prize</div>
+                                <div class="prize-amount">₹XX,XXX</div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Second Row -->
-                    <div class="prize-row prize-row-2">
-                        <div class="prize-card" data-index="0" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczO8ZGXlGbm7X7XvSdvVmmhQ8xm6qRXm2lp3MQE-t7SDlHi03j34G_pzG4lrqK5vWZ36PIA_Qx103qKP7dTN0W1NBPJocWfe0ymas-iJLPEiR-Rf7gdoOBvCL7QYQmDy0G5CkJQbjxtiTCL7foIPkl1k=w371-h364-s-no-gm?authuser=0" 
-                                    alt="Best Beginner Chest" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczN9nTQaGdGy3Pp2kOllw1rFEwSplHIA_esSnMHenRQCJnbKa52nnCDvHJeD2pe2kdzkEY4TgBJm-qkddV3QLWUmUUaToLDZR86dpGcNVwv7J9innIuWOBe0lfflyV64SDFe5vcoQrVon0u3JnZcvBBW=w496-h445-s-no-gm?authuser=0" 
-                                    alt="Best Beginner Hover" 
-                                    class="chest-img chest-hover">
-                            </div>
-                            <div class="prize-label">Best Beginner<br>Team </div>
-                            <div class="prize-amount">₹XX,XXX</div>
-                        </div>
-
-                        <div class="prize-card" data-index="1" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczNNDXrSPaGnDcsLe6Frcv42JFY6v7Z_k0DRcRaFobE3vnpoPY9W1ZgrL5iG07YgJlzf4_1SvFVflW3u0SYgNk8jR2LzbeyK8-EXl6DtE2mYeF4rhyx8vZhLuaZjcucfRnARK64I_484jJ3tBqnEIkno=w377-h362-s-no-gm?authuser=0" 
-                                    alt="All Girls Team Chest" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOtxhCyJOfFGclzyqK6pPIY-JLHSjrss7V4rlf4GWdDvxmluFnDVr9KYFWK9kxtBlnVZm8oP7ebIAtFnlZ_fBstkWTMwIIWjxVUaROA2Wr1-kXITHBMryvj040TdlQh2FynZUnNLxuXxT3zNnnH6Xs0=w489-h437-s-no-gm?authuser=0" 
-                                    alt="All Girls Team Hover" 
-                                    class="chest-img chest-hover">
-                            </div>
-                            <div class="prize-label">All Girls<br> Team</div>
-                            <div class="prize-amount">₹XX,XXX</div>
-                        </div>
-
-                        <div class="prize-card" data-index="2" data-amount="$XXXX">
-                            <div class="chest-wrapper">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPpc9LL6lwBVY9i5iTU6ulUwGiQ40CWRAQuM4oIfI3cNg1HRv7q9fP0PV8TQOc6RvKI8yg5GsJkuljxryZ-O7dUYGbkdS7RalEbUg6PXhMZ18tvv-KdC_zKjSvmpuoLpkQJIvf6KsRi7vYsgZSw-UD7=w228-h219-s-no-gm?authuser=0" 
-                                    alt="Special Goodies Box" 
-                                    class="chest-img chest-default">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOftM8eW7ImP-1-64GKKAUhX41DANBybLypZ8BPSs8t-Js7yBsLePRWG1fIlZOXVJShu5rHT-DPgNnILg0c43HGbKTP8d_FRI7OzNdiyiXCzXXtnNMxydDj2mkLCwFqnyliHkOeA5tzFF1ihI6rRGdH=w376-h347-s-no-gm?authuser=0" 
-                                    alt="Special Prize Hover" 
-                                    class="chest-img chest-hover">
-                            </div>
-                            <div class="prize-label">Special<br> Prize</div>
-                            <div class="prize-amount">₹XX,XXX</div>
+                    <!-- RIGHT CARD WITH ROTATING IMAGES -->
+                    <div class="prize-right-card">
+                        <div class="prize-track-showcase">
                         </div>
                     </div>
                 </div>
+
                 <div class="open-innovation-banner" style="margin-top: -10px; margin-bottom: -105px;">
                         <div class="ghast-banner-wrapper">
                             <!-- Ghast Image -->
@@ -4716,10 +5317,67 @@
             </div>
         </section>
 
-        <!-- FAB Button -->
-        <a href="faq.html" class="fab">
-            <img src="https://lh3.googleusercontent.com/pw/AP1GczN1JC7IshEcH37kyGSYZgnMowLxC9Z5zIT-r-U1wtqLjQJ3rV4R6nTxUjfdMUCLEViGhnzXMdGo8IaUsZSaMt7qSr0NxO3q_eNIh5TTFMmlzOXUMMkENrMOQlLGwXOTyscY4GCER2XbALXG1cR-uPR-=w938-h938-s-no-gm?authuser=0" alt="FAQ">
-        </a>
+        <!-- FAQ Section -->
+        <section id="faq-preview" class="section-bg">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2>FAQs</h2>
+                
+                <div class="faq-container">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What is AceHack 5.0?</span>
+                            <span class="faq-icon">⛏</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>AceHack 5.0 is a 36-hour hackathon where students and innovators create real-world tech solutions. It's a platform to learn, build, network, and compete for amazing prizes while working on projects that matter.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>When and where is AceHack 5.0 taking place?</span>
+                            <span class="faq-icon">⛏</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>AceHack 5.0 will be held on March 7-8th, 2026. The event location will be announced soon. Stay tuned to our social media channels for updates!</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Who can participate in AceHack 5.0?</span>
+                            <span class="faq-icon">⛏</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>AceHack 5.0 is open to all students currently enrolled in any educational institution across India. Whether you're a beginner or an experienced developer, everyone is welcome!</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How do I register for the hackathon?</span>
+                            <span class="faq-icon">⛏</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Click the "Register Now" button on our homepage and fill out the registration form with your details. You'll receive a confirmation email once your registration is complete.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Repeat for FAQ items 2, 3, 4 -->
+                </div>
+                
+                <!-- Read More Button -->
+                <div class="faq-cta">
+                    <div class="stone-btn-wrapper">
+                        <a href="faq.html" class="stone-btn">
+                            Read More FAQs
+                        </a>
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Icon" class="popup-image">
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- FOOTER -->
 
@@ -4933,18 +5591,6 @@
             })();
 
             /* ======================================================
-            SMOOTH SCROLL (UNCHANGED)
-            ====================================================== */
-            document.querySelectorAll('a[href^="#"]').forEach(a => {
-                a.addEventListener('click', e => {
-                    const t = document.querySelector(a.getAttribute('href'));
-                    if (!t) return;
-                    e.preventDefault();
-                    t.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-
-            /* ======================================================
             INTERSECTION OBSERVER (REPLACES ALL SCROLL LISTENERS)
             ====================================================== */
             const revealObserver = new IntersectionObserver(
@@ -5101,8 +5747,8 @@
                     { href: '#timeline', text: 'Timeline', soon: true },
                     { href: '#guests', text: 'Guests', soon: true },
                     { href: '#tracks', text: 'Tracks' },
-                    { href: '#team', text: 'DG Swags', soon: true },
                     { href: '#sponsors', text: 'Sponsors' },
+                    { href: '#faq-preview', text: 'FAQs'},
                     { href: '#contact', text: 'Contact' }
                 ];
                 
@@ -5120,6 +5766,17 @@
                     item.appendChild(anchor);
                     navContent.appendChild(item);
                 });
+
+                // Add logo at bottom
+                const logoSection = document.createElement('div');
+                logoSection.className = 'mobile-nav-logo';
+
+                const logoImg = document.createElement('img');
+                logoImg.src = 'https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0';
+                logoImg.alt = 'AceHack Logo';
+
+                logoSection.appendChild(logoImg);
+                mobileNav.appendChild(logoSection);
                 
                 mobileNav.appendChild(navContent);
                 
@@ -5176,6 +5833,165 @@
                 });
                 
                 console.log('✓ Hamburger menu initialized');
+            })();
+
+            /* ======================================================
+            FAQ ACCORDION
+            ====================================================== */
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all FAQs
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Open clicked FAQ if it wasn't active
+                    if (!wasActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            /* ======================================================
+            SMOOTH SCROLL (FIXED FOR ANCHOR LINKS)
+            ====================================================== */
+            let currentScroll = window.scrollY;
+            let targetScroll = currentScroll;
+            let ease = 0.08;
+            let isUserScrolling = false;
+
+            // Handle wheel events for smooth scrolling
+            window.addEventListener("wheel", e => {
+                e.preventDefault();
+                targetScroll += e.deltaY;
+                targetScroll = Math.max(
+                    0,
+                    Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)
+                );
+                isUserScrolling = true;
+            }, { passive: false });
+
+            function smoothScroll() {
+                if (isUserScrolling) {
+                    currentScroll += (targetScroll - currentScroll) * ease;
+                    window.scrollTo(0, currentScroll);
+                    
+                    // Stop smooth scrolling when close enough to target
+                    if (Math.abs(targetScroll - currentScroll) < 0.5) {
+                        isUserScrolling = false;
+                    }
+                }
+                requestAnimationFrame(smoothScroll);
+            }
+
+            smoothScroll();
+
+            // Fixed anchor link handling
+            document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', e => {
+                    const targetId = a.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (!targetElement) return;
+                    
+                    e.preventDefault();
+                    
+                    // Get target position
+                    const targetPosition = targetElement.offsetTop - 100; // 100px offset for nav
+                    
+                    // Set both scroll values to target position for instant jump
+                    targetScroll = targetPosition;
+                    currentScroll = targetPosition;
+                    
+                    // Perform the scroll
+                    window.scrollTo(0, targetPosition);
+                    
+                    // Update URL hash
+                    history.pushState(null, null, targetId);
+                });
+            });
+
+            smoothScroll();
+
+
+            /* ======================================================
+            INTERACTIVE CARDS - STACK ROTATION
+            ====================================================== */
+            (function initStackCards() {
+                const cards = document.querySelectorAll('.interactive-card');
+                if (!cards.length) return;
+                
+                const positions = ['front', 'middle', 'back'];
+                let isPaused = false;
+                
+                function rotateStack() {
+                    if (isPaused) return;
+                    
+                    cards.forEach(card => {
+                        const currentPos = card.dataset.position;
+                        const currentIndex = positions.indexOf(currentPos);
+                        
+                        // Move to next position (front -> middle -> back -> front)
+                        const nextIndex = (currentIndex + 1) % positions.length;
+                        card.dataset.position = positions[nextIndex];
+                    });
+                }
+                
+                // Auto-rotate every 2 seconds
+                const autoRotate = setInterval(rotateStack, 3000);
+                
+                // Click handler - open link
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        // Only allow clicking front card
+                        if (card.dataset.position === 'front') {
+                            const url = card.dataset.youtube;
+                            if (url) {
+                                window.open(url, '_blank');
+                            }
+                        }
+                    });
+                    
+                    // Pause on hover
+                    card.addEventListener('mouseenter', () => {
+                        isPaused = true;
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        isPaused = false;
+                    });
+                });
+                
+                console.log('✓ Stack cards initialized - rotating every 2 seconds');
+            })();
+
+            /* ======================================================
+            PRIZE RIGHT CARD - IMAGE ROTATION
+            ====================================================== */
+            (function initPrizeRotation() {
+                const images = document.querySelectorAll('.track-prize-img');
+                if (!images.length) return;
+                
+                let currentIndex = 0;
+                
+                function rotateImages() {
+                    // Remove active class from current image
+                    images[currentIndex].classList.remove('active');
+                    
+                    // Move to next image      
+                    currentIndex = (currentIndex + 1) % images.length;
+                    
+                    // Add active class to next image
+                    images[currentIndex].classList.add('active');
+                }
+                
+                // Rotate every 3 seconds
+                setInterval(rotateImages, 3000);
+                
+                console.log('✓ Prize track showcase initialized - rotating every 3 seconds');
             })();
 
         </script>

@@ -269,10 +269,10 @@
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
                 background-size: cover;
                 border: 0.1px solid #3b1b00;
-                padding: 15px 20px;
+                padding: 12px 15px;
                 text-decoration: none;
                 color: #FFF;
-                font-size: 11px;
+                font-size: 13.4px;
                 text-shadow: 2px 2px #6f00ff;
                 white-space: nowrap;
                 display: block;
@@ -901,7 +901,8 @@
                 transition: left 0.4s ease;
                 overflow-y: auto;
                 box-shadow: 5px 0 30px rgba(0, 0, 0, 0.9);
-                /* border-right: 1px solid #ae00ff; */
+                display: flex;              /* ADD THIS */
+                flex-direction: column;      /* ADD THIS */
             }
 
             .mobile-nav-overlay.active {
@@ -913,6 +914,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 0;
+                flex: 1;
             }
 
             .mobile-nav-item {
@@ -961,8 +963,21 @@
                 pointer-events: auto;
             }
             
+            .mobile-nav-logo {
+                margin-top: auto;
+                padding: 20px;
+                text-align: center;
+                border-top: 2px solid rgba(157, 0, 255, 0.3);
+                margin-bottom: -80px;
+            }
+
+            .mobile-nav-logo img {
+                width: 200px;
+                max-width: 100%;
+                height: auto;
+                image-rendering: pixelated;
+            }
                 
-        
         </style>
         <!-- ============================
         RESPONSIVE STYLES GO HERE
@@ -1464,7 +1479,7 @@
                 /* Footer ultra compact */
                 /* Lava border — reduce height & animation cost */
                 .lava-border {
-                    margin-top: -200px;
+                    margin-top: -190px;
                     height: 70px;
                     background-size: auto 100%;
                     animation-duration: 60s; /* smoother on low-end devices */
@@ -1475,6 +1490,7 @@
                     padding: 24px 12px 16px;
                     height: 658px;
                     background-size: 40px 40px;
+                    margin-top: -28px;
                 }
 
                 .footer-content {
@@ -1983,12 +1999,12 @@
 
                 <div class="nav-sign-container" style="--index: 4">
                     <div class="sign-chain"></div>
-                    <a href="#team" class="nav-sign" data-soon="true">DG Swags</a>
+                    <a href="index.html#sponsors" class="nav-sign">Sponsors</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 5">
                     <div class="sign-chain"></div>
-                    <a href="index.html#sponsors" class="nav-sign">Sponsors</a>
+                    <a href="faq.html" class="nav-sign">FAQs</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 6">
@@ -2009,7 +2025,9 @@
             <h1>Frequently Asked Questions</h1>
             <p>Got questions? We've got answers! Browse through our FAQ to find everything you need to know about AceHack 5.0</p>
             
-            <div class="search-container">
+            <!-- REMOVED -->
+
+            <div class="search-container">   
                 <input type="text" class="search-box" id="searchBox" placeholder=" Select Type">
             </div>
 
@@ -2031,7 +2049,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What is AceHack 5.0?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>AceHack 5.0 is a 36-hour hackathon where students and innovators create real-world tech solutions. It's a platform to learn, build, network, and compete for amazing prizes while working on projects that matter.</p>
@@ -2042,7 +2060,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">When and where is AceHack 5.0 taking place?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>AceHack 5.0 will be held on March 7-8th, 2026. The event location will be announced soon. Stay tuned to our social media channels for updates!</p>
@@ -2053,7 +2071,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Who can participate in AceHack 5.0?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>AceHack 5.0 is open to all students currently enrolled in any educational institution across India. Whether you're a beginner or an experienced developer, everyone is welcome!</p>
@@ -2065,7 +2083,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">How do I register for the hackathon?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Click the "Register Now" button on our homepage and fill out the registration form with your details. You'll receive a confirmation email once your registration is complete.</p>
@@ -2076,7 +2094,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Is there a registration fee?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>No! AceHack 5.0 is completely free to participate in. We believe in making innovation accessible to everyone.</p>
@@ -2087,7 +2105,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can I participate individually or do I need a team?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>You can participate either individually or in teams of up to 4 members. We recommend forming teams to enhance collaboration and learning!</p>
@@ -2098,7 +2116,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">When is the registration deadline?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>When we reach maximum capacity the registrations will be closed. We recommend registering early to secure your spot!</p>
@@ -2109,7 +2127,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can I change my team after registering?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes, team changes are allowed up to March 1st 2026. Please contact us at discord and raise a ticket for modifications.</p>
@@ -2121,7 +2139,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What should I bring to the hackathon?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Bring your laptop, chargers, student ID, and enthusiasm! We'll provide food, drinks, WiFi, and workspace. We will provide accomodation. Hacker Guide will be shared soon.</p>
@@ -2132,7 +2150,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Will food and accommodation be provided?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! We'll provide all meals, snacks, and refreshments throughout the 36-hour event. Accommodation arrangements will be shared closer to the event date.</p>
@@ -2143,7 +2161,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What are the hackathon tracks?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>We have 8 tracks: Blockchain & Crypto, Web & App Dev, IOT, AR & VR, Game Dev, Data & Gen AI, Cloud & DevOps, Cyber Security and Open Innovation. Choose the track that aligns with your project idea!</p>
@@ -2154,7 +2172,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Will there be mentors available during the event?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Absolutely! We have 20+ mentors from various tech domains who will be available throughout the hackathon to guide you, answer questions, and help debug your projects.</p>
@@ -2165,7 +2183,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Are there any workshops or tech talks?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! We'll have workshops, tech talks, and sessions by industry experts throughout the event. Schedule will be shared with registered participants.</p>
@@ -2177,7 +2195,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What technologies can we use?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>You're free to use any programming languages, frameworks, APIs, or platforms you prefer. Choose what works best for your project idea!</p>
@@ -2188,7 +2206,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can we start working on our project before the hackathon?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>No, all code must be written during the 36-hour event period. However, you can come with an idea, research, and design mockups prepared beforehand.</p>
@@ -2199,7 +2217,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Do we need to have a working prototype?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>While a working prototype is preferred, we also value innovative ideas and solid execution plans. Focus on demonstrating your concept effectively!</p>
@@ -2210,7 +2228,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Will internet and power outlets be available?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! High-speed WiFi and charging stations will be available throughout the venue. We'll ensure you have all the infrastructure needed to build great projects. Due to the venue size and number of participants, we recommend bringing your own power bank and personal hotspot as a backup.</p>
@@ -2221,7 +2239,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can we use open-source libraries and APIs?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! You're encouraged to use open-source libraries, APIs, and frameworks. Just make sure to properly attribute any third-party code you use.</p>
@@ -2233,7 +2251,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What is the total prize pool?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>The total prize pool will be revealed soon! This includes prizes for top 3 teams, best beginner team, and all-girls team categories.</p>
@@ -2244,7 +2262,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">How will projects be judged?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Projects will be evaluated based on innovation, technical complexity, design & usability, real-world impact, and presentation quality by our expert panel of judges.</p>
@@ -2255,7 +2273,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">When will winners be announced?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Winners will be announced during the closing ceremony on March 8, 2026. All participants must be present for the final presentations and ceremony.</p>
@@ -2266,7 +2284,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Will I get a certificate of participation?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! All participants will receive a certificate of participation. Winners and special category awardees will receive additional recognition certificates.</p>
@@ -2277,7 +2295,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Are there any sponsor prizes or tracks?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! Our sponsors may offer additional prizes and special tracks. Details will be announced to registered participants before the event.</p>
@@ -2288,7 +2306,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What if I'm a beginner with no prior hackathon experience?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Perfect! AceHack 5.0 welcomes beginners. We have a special "Best Beginner" category and mentors dedicated to helping first-timers. It's a great place to learn!</p>
@@ -2299,7 +2317,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Is there a code of conduct?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes, all participants must follow MLH code of conduct. Harassment of any kind will not be tolerated. MLH Code of Conduct: https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md </p>
@@ -2310,7 +2328,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">What if I can't find a team?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Don't worry! We have a team formation group in our discord server where you can meet other participants and form teams based on interests and skills.</p>
@@ -2321,7 +2339,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can we work on hardware projects?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Absolutely! Hardware projects are welcome, especially in the IoT track. Please bring your own hardware components as. We will try to fulfill any other requirements as available.</p>
@@ -2332,7 +2350,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">How long is the presentation/demo time?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>There is no stage presentation in Acehack, Judges will visit your alloted room during presentation. Each team will have 3 minutes to present their project followed by 2 minutes of Q&A with judges. Make your demo impactful and concise!</p>
@@ -2343,7 +2361,7 @@
                     <div class="faq-question">
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="Icon" class="faq-icon">
                         <span class="faq-question-text">Can participants from other cities attend?</span>
-                        <span class="faq-toggle">+</span>
+                        <span class="faq-toggle">⛏</span>
                     </div>
                     <div class="faq-answer">
                         <p>Yes! AceHack 5.0 is open to students from across India. We encourage diversity and welcome participants from all regions.</p>
@@ -2458,43 +2476,6 @@
             function createEndSky() {
                 const container = document.getElementById('endSky');
                 
-                for (let i = 0; i < 30; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star';
-                    star.style.left = Math.random() * 100 + '%';
-                    star.style.top = Math.random() * 100 + '%';
-                    star.style.width = (Math.random() * 3 + 1) + 'px';
-                    star.style.height = star.style.width;
-                    star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                    star.style.animationDelay = Math.random() * 3 + 's';
-                    container.appendChild(star);
-                }
-                
-                for (let i = 0; i < 1; i++) {
-                    const glow = document.createElement('div');
-                    glow.className = 'purple-glow';
-                    glow.style.left = Math.random() * 100 + '%';
-                    glow.style.top = Math.random() * 100 + '%';
-                    glow.style.width = (Math.random() * 300 + 200) + 'px';
-                    glow.style.height = glow.style.width;
-                    glow.style.background = `radial-gradient(circle, rgba(139, 92, 246, ${Math.random() * 0.3 + 0.2}) 0%, transparent 70%)`;
-                    glow.style.animationDuration = (Math.random() * 20 + 15) + 's';
-                    glow.style.animationDelay = Math.random() * 5 + 's';
-                    container.appendChild(glow);
-                }
-                
-                for (let i = 0; i < 3; i++) {
-                    const cloud = document.createElement('div');
-                    cloud.className = 'end-cloud';
-                    cloud.style.left = (100 + Math.random() * 100) + '%';
-                    cloud.style.top = Math.random() * 80 + '%';
-                    cloud.style.width = (Math.random() * 100 + 80) + 'px';
-                    cloud.style.height = (Math.random() * 40 + 30) + 'px';
-                    cloud.style.animationDuration = (Math.random() * 30 + 20) + 's';
-                    cloud.style.animationDelay = Math.random() * 10 + 's';
-                    container.appendChild(cloud);
-                }
-                
                 const entity = document.createElement('img');
                 entity.className = 'flying-entity';
                 entity.src = 'https://lh3.googleusercontent.com/pw/AP1GczPV701QojlTPppKTU5fRn4pSw94_Yh_U6spxRgmq1I1WtR7nQjxEpirl4UNy4I53aLpKYZqULLRuoWkL58Ew3xOBkzT6XA0vjYm9GzfXZ9s7xwY_KDb3XJPUWc6S8NaByK1CEI9VvQz6aeQnSg8bEam=w1126-h938-s-no-gm?authuser=0';
@@ -2581,19 +2562,7 @@
                 });
             });
 
-            // Smooth Scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+            
         // Toast notification for Coming Soon buttons
             document.addEventListener('DOMContentLoaded', () => {
                 const toast = document.getElementById('toast');
@@ -2637,8 +2606,9 @@
                         { href: '#timeline', text: 'Timeline', soon: true },
                         { href: '#guests', text: 'Guests', soon: true },
                         { href: 'index.html#tracks', text: 'Tracks' },
-                        { href: 'index.html#team', text: 'DG Swags', soon: true },
+                        
                         { href: 'index.html#sponsors', text: 'Sponsors' },
+                        { href: 'faq.html', text: 'FAQs'},
                         { href: 'index.html#contact', text: 'Contact' }
                     ];
                     
@@ -2656,6 +2626,17 @@
                         item.appendChild(anchor);
                         navContent.appendChild(item);
                     });
+
+                    // Add logo at bottom
+                    const logoSection = document.createElement('div');
+                    logoSection.className = 'mobile-nav-logo';
+
+                    const logoImg = document.createElement('img');
+                    logoImg.src = 'https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0';
+                    logoImg.alt = 'AceHack Logo';
+
+                    logoSection.appendChild(logoImg);
+                    mobileNav.appendChild(logoSection);
                     
                     mobileNav.appendChild(navContent);
                     
@@ -2713,10 +2694,96 @@
                     
                     console.log('✓ Hamburger menu initialized');
                 })();
-
-            
             
         </script>
+        
+        <script>
+        (() => {
+            let current = window.scrollY;
+            let target = current;
+            let ease = 0.07;
+            let maxScroll = document.body.scrollHeight - window.innerHeight;
+
+            function updateMax() {
+                maxScroll = document.body.scrollHeight - window.innerHeight;
+            }
+            window.addEventListener('resize', updateMax);
+            window.addEventListener('load', updateMax);
+
+            // Track if we're handling an anchor navigation
+            let isAnchorNavigation = false;
+
+            // Handle anchor link clicks
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a[href^="#"], a[href*="#"]');
+                if (link && link.href) {
+                    const url = new URL(link.href);
+                    const hash = url.hash;
+                    
+                    // Check if it's a same-page anchor
+                    if (hash && (url.pathname === window.location.pathname || link.href.includes('index.html#'))) {
+                        e.preventDefault();
+                        
+                        // If it's a link to index.html with hash, navigate there
+                        if (link.href.includes('index.html#')) {
+                            window.location.href = link.href;
+                            return;
+                        }
+                        
+                        const targetElement = document.querySelector(hash);
+                        if (targetElement) {
+                            isAnchorNavigation = true;
+                            const targetPosition = targetElement.offsetTop;
+                            target = targetPosition;
+                            current = targetPosition;
+                            window.scrollTo(0, targetPosition);
+                            
+                            // Update URL hash
+                            history.pushState(null, null, hash);
+                            
+                            setTimeout(() => {
+                                isAnchorNavigation = false;
+                            }, 500);
+                        }
+                    }
+                }
+            });
+
+            // Desktop inertial scroll - only when not anchor navigating
+            window.addEventListener('wheel', (e) => {
+                if (isAnchorNavigation) return;
+                e.preventDefault();
+                target += e.deltaY * 0.9;
+                target = Math.max(0, Math.min(target, maxScroll));
+            }, { passive: false });
+
+            // Touch support (mobile)
+            let touchStart = 0;
+            window.addEventListener('touchstart', e => {
+                if (isAnchorNavigation) return;
+                touchStart = e.touches[0].clientY;
+            }, { passive: true });
+
+            window.addEventListener('touchmove', e => {
+                if (isAnchorNavigation) return;
+                const touchDelta = touchStart - e.touches[0].clientY;
+                target += touchDelta * 1.2;
+                target = Math.max(0, Math.min(target, maxScroll));
+                touchStart = e.touches[0].clientY;
+            }, { passive: true });
+
+            function animate() {
+                if (!isAnchorNavigation) {
+                    current += (target - current) * ease;
+                    window.scrollTo(0, current);
+                }
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        })();
+        </script>
+
         <div id="toast" class="mc-toast">Coming Soon!</div>
     </body>
     </html>
