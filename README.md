@@ -11,9 +11,9 @@ A pixel-perfect Minecraft-themed landing page for AceHack 5.0, Rajasthan's bigge
 - **Animated Lava Border** with dynamic glow effects
 - **Responsive Layout** adapting to all screen sizes
 
-## 🌐 Live Demo
+## 🌐 DEV Repo
 
-[View Live Site](https://dark-97o.github.io/AceHack5.0_Main_website/)
+[Refer ehere for Original Commits](https://github.com/Dark-97o/AceHack5.0_DEV)
 
 ## 🛠️ Technologies
 
