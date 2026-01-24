@@ -1444,7 +1444,16 @@
                 height: 320px;  /* SHORTER - was 480px - makes it horizontally longer */
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM_K6POKMRfjRwlMsq8bLETu21MXNZX2yRp6ek411_rFlzE5b-FuuiyAR84YQHDWto1qtSd4Z138h8YtdhwMp_9hKNkLT8Gf-fPHcRzHcpDXCb-hs71NI0CPBjw_go8N-3_Bb1_XZtic8bK4y50NoyV=w392-h392-s-no-gm?authuser=0');
                 background-size: cover;
-                border: 2px solid #8d00eb;
+                background:
+                    linear-gradient(#000, #000) padding-box,
+                    repeating-linear-gradient(
+                        135deg,
+                        #b486ff 0px,
+                        #b486ff 6px,
+                        #6a5581 6px,
+                        #6a5581 12px
+                    ) border-box;
+                border: 10px solid transparent;
                 cursor: pointer;
                 transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                 box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
@@ -1479,7 +1488,7 @@
             /* Edition Label - positioned to be visible */
             .card-edition-label {
                 position: absolute;
-                top: -55px;
+                top: -48px;
                 left: 50%;
                 transform: translateX(-50%);
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
@@ -1489,11 +1498,10 @@
                 color: #FFF;
                 text-shadow: 3px 3px #000;
                 white-space: nowrap;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
                 pointer-events: none;
             }
 
-            /* Front card label */
+            /* Front card label */ 
             .interactive-card[data-position="front"] .card-edition-label {
                 z-index: 150;
                 opacity: 1;
@@ -1952,6 +1960,23 @@
                 animation: float 3s ease-in-out infinite;
             }
 
+            /* Left character image */
+            .prize-right-image {
+                flex: 0 0 200px; /* REDUCE from 250px */
+                display: flex;
+                align-items: center;
+                justify-content: flex-start; /* CHANGE from center */
+                order: 3; /* ADD THIS - forces left position */
+            }
+
+            .prize-right-image img {
+                width: 150%;
+                height: 350px;
+                max-width: 400px;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 10px 20px rgba(139, 92, 246, 0.6));
+            }
+
             /* Center chests area */
             .prize-chests-center {
                 flex: 1 1 auto;
@@ -1960,33 +1985,6 @@
                 gap: 60px;
                 order: 2; /* ADD THIS - forces middle position */
                 max-width: 800px; /* ADD THIS - prevents it from being too wide */
-            }
-
-            /* Right card with rotating images */
-            .prize-right-card {
-                flex: 0 0 280px;
-                margin-top: 30px;
-                margin-right: -120px;
-                height: 480px;
-                background-image: url('...');
-                background-size: cover;
-                border: 0px solid #8d00eb;
-                /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8); */
-                position: relative;
-                overflow: hidden;
-                order: 3; /* ADD THIS - forces right position */
-                align-self: center; /* ADD THIS - vertically centers it */
-            }
-
-            .prize-right-card::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                /* background: rgba(0, 0, 0, 0.3); */
-                z-index: 0;
             }
 
             .prize-track-showcase {
@@ -3214,14 +3212,24 @@
                 line-height: 1.8;
             }
             
-            .about-image {
-                display: none;
-                flex: 0 0 200px;
+            .about-content {
+                max-width: 100%;
+                font-size: 9px;
+                gap: 10px;
+                flex-direction: column;   /* ← ADD THIS */
+                padding: 15px 10px;
+            }
+
+            .about-image{
+                margin-top: -70px;
+                margin-bottom: -100px;
             }
             
-            /* .about-image img {
-                max-width: 100px;
-            } */
+            .about-image img {
+                width: 100%;         /* ← Make it responsive */
+                max-width: 500px;    /* ← Limit maximum size */
+                height: auto;        /* ← Maintain aspect ratio */
+            }
             
             /* Stats - Keep 4 columns, much smaller */
             .stats {
@@ -3762,15 +3770,20 @@
             h2 {
                 position: relative;     /* ADD THIS */
                 padding-top: 0px; 
-                font-size: 17px;
+                font-size: 20px;
                 text-shadow: 3.5px 3.1px #a200ff;
                 margin-top: 28px;
             }
 
             h2::before {
-                width: 220px;
+                width: 280px;
                 height: 75px;
-                top: -5px;
+                top: -6px;
+            }
+
+            .about-image{
+                margin-top: -100px;
+                margin-bottom: -150px;
             }
 
             .stats {
@@ -3883,38 +3896,48 @@
 
             .card {
                 width: 100%;
-                min-width: 200px;
+                min-width: 340px;
                 max-width: unset;
 
                 min-height: 180px;
                 max-height: none;             /* REMOVE height conflict */
 
-                padding: 8px 6px;
-                margin: 40px 0 16px 0;
+                padding: 15px 6px;
+                margin: 50px 0 35px -65px;
 
                 border-width: 2px;
                 box-sizing: border-box;
+                border: 4px solid transparent;
+                border-image: repeating-linear-gradient(
+                    90deg,
+                    #8b5a2b 0px,
+                    #8b5a2b 6px,
+                    #7a4a1f 6px,
+                    #7a4a1f 12px,
+                    #9c6b3d 12px,
+                    #9c6b3d 18px
+                ) 6;
             }
 
             .card-logo {
-                width: 88px;
-                height: 88px;
+                width: 160px;
+                height: 160px;
             }
             
             .bee-image {
-                width: 60px;
-                margin-top: 29px;
+                width: 90px;
+                margin-top: 8px;
                 margin-left: 60px;
             }
 
             .card h3 {
-                font-size: 12px;
+                font-size: 18px;
                 margin-bottom: 15px;
             }
 
             /* Card Description */
             .card p {
-                font-size: 8.5px;
+                font-size: 10.5px;
                 line-height: 1.8;
                 color: #FFF;
                 text-shadow: 2px 2px 4px #000;
@@ -4392,38 +4415,38 @@
 
             .card {
                 width: 100%;
-                min-width: 200px;
+                min-width: 250px;
                 max-width: unset;
 
                 min-height: 180px;
                 max-height: none;             /* REMOVE height conflict */
 
                 padding: 8px 6px;
-                margin: 40px 0 16px 0;
+                margin: 40px 0 16px -30px;
 
                 border-width: 2px;
                 box-sizing: border-box;
             }
 
             .card-logo {
-                width: 88px;
-                height: 88px;
+                width: 100px;
+                height: 100px;
             }
             
             .bee-image {
-                width: 60px;
-                margin-top: 29px;
+                width: 75px;
+                margin-top: 20px;
                 margin-left: 55px;
             }
 
             .card h3 {
-                font-size: 12px;    
+                font-size: 14px;    
                 margin-bottom: 15px;
             }
 
             /* Card Description */
             .card p {
-                font-size: 8.5px;
+                font-size: 9.5px;
                 line-height: 1.8;
                 color: #FFF;
                 text-shadow: 2px 2px 4px #000;
@@ -5201,10 +5224,9 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT CARD WITH ROTATING IMAGES -->
-                    <div class="prize-right-card">
-                        <div class="prize-track-showcase">
-                        </div>
+                    <!-- RIGHT IMAGE -->
+                    <div class="prize-right-image">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNPDSXAem-P97x9M9aUgKNwXvZtZoPTGfWAduJPNGrqqHJECuegmCSPTHw65hRrIsDrRvFng8NdQKz9yya1KI0dSc4CNt5mKzCR2HpoH0XUZm0bWEs1aq0yW9gA7MWl0rfZBae-F1cMIGs4FukREIpi=w510-h829-s-no-gm?authuser=0" alt="Prize Character">
                     </div>
                 </div>
 
