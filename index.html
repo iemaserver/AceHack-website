@@ -736,6 +736,78 @@
                 }
             }
 
+            /* Hero Cloud Link Button */
+            .hero-cloud-link {
+                margin-top: 0px;
+                display: flex;
+                justify-content: center;
+                transition: opacity 0.5s ease, visibility 0.5s ease; /* Add this line */
+            }
+
+            .cloud-button {
+                position: relative;
+                display: inline-block;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .cloud-img {
+                width: 120px;
+                height: 190px;
+                image-rendering: pixelated;
+            }
+
+            .cloud-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-family: 'Press Start 2P', cursive;
+                font-size: 14px;
+                color: #000000;
+                text-shadow: 2px 2px 0 #ffffff;
+                white-space: nowrap;
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .hero-cloud-link {
+                    margin-top: 0px;
+                }
+                
+                .cloud-img {
+                    width: 110px;
+                    height: 160px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .hero-cloud-link {
+                    margin-top: 0px;
+                    margin-left: 270px;
+                }
+                
+                .cloud-img {
+                    width: 80px;
+                    height: 120px;
+                }
+                
+            }
+
+            @media (max-width: 400px) {
+                .hero-cloud-link {
+                    margin-top: 0px;
+                    margin-left: 210px;
+                }
+                
+                .cloud-img {
+                    width: 80px;
+                    height: 120px;
+                }
+            }
+
             /* Sections with backgrounds */
             section {
                 padding: 120px 20px;
@@ -770,23 +842,364 @@
 
             /* #about {
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMcGS1yt1wT5BKt2RRvmacdjuSxybrIVbCmbPYNzpdJ23P7dmlD_alt51XhLJl9wuVCOuLxSnlutwWM5j9SCRyKY03sG_YdH_8flssVSPrANbg7GTYnIYdtjleg35W8sEejN2f2wffVYbmKJhWLYEgE=w1080-h483-s-no-gm?authuser=0');
-            } */
+            }  */
 
-            /* #tracks {
-                background-image: url('YOUR_TRACKS_BACKGROUND_URL.png');
+            #tracks {
+                position: relative;
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(24, 16, 39) 0%,
+                        rgba(20, 10, 36, 0.8) 30%,
+                        rgba(0, 0, 0, 0.8) 55%,
+                        rgba(0, 0, 0, 0.7) 70%,
+                        rgb(0, 0, 0, 0.9 ) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczM-_Fp_VMrcuBVnv8TEFyV7m-gXgckXBkIDPa3GFChTtJ9qBbFOkilx-wYUTYBGK8_KLYGx0QUFOG4huL0zWP6mNjdf6tcwERqCVMSm_4ZMV7sFaMGpJ7TvNegMP6-CG2nrXuuQk4rmas2t-T3WnYps=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #tracks::after {
+                content: "";
+                position: absolute;
+                top: 1414px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .tracks-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 1324px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .tracks-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .tracks-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
             }
 
             #why-attend {
-                background-image: url('YOUR_WHY_ATTEND_BACKGROUND_URL.png');
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.8) 30%,
+                        rgba(0, 0, 0, 0.8) 55%,
+                        rgba(0, 0, 0, 0.8) 70%,
+                        rgba(0, 0, 0, 0.9) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczPLveVziGU6FGvU3g-CyWhTLEB8Nn_4r7W2NqxeZ3SpH0_N-2L1Stsq78Iakm5IYfD31auXHN2ui-8rqGtWbTRAA6jKb9mlSrwOPup_LAvi17pCa9vy-9wKCcs-J4SydtS8gEMpuoSnHLoToMe4fakk=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #why-attend::after {
+                content: "";
+                position: absolute;
+                top: 1185px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .why-attend-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 1094px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .why-attend-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .why-attend-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
             }
 
             #prizes {
-                background-image: url('YOUR_PRIZES_BACKGROUND_URL.png');
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.3) 30%,
+                        rgba(0, 0, 0, 0.3) 55%,
+                        rgba(0, 0, 0, 0.4) 70%,
+                        rgba(0, 0, 0, 0.9) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczOD5QjyX-HqbgEkEwwGf3uYmOxakH2bpjdeA2I64vMRPAeIDIJi3TBrZA8yBNsfMwDT82940lYdjAkc6J8JBuDnrqkBzRyJMX_wbEByP_3dMkjRq9C0SIqMdiPrvOeh6tkRcCpqXMS1_MDSb2nYNbam=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #prizes::after {
+                content: "";
+                position: absolute;
+                top: 1078px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .prizes-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 990px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .prizes-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .prizes-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
             }
 
             #sponsors {
-                background-image: url('YOUR_SPONSORS_BACKGROUND_URL.png');
-            } */
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.75) 30%,
+                        rgba(0, 0, 0, 0.75) 55%,
+                        rgba(0, 0, 0, 0.8) 70%,
+                        rgba(0, 0, 0, 0.9) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczPONNV2s1N6vPAyNxqM1Nere4yYjfhOIB-CcD7Y-QtO7-fSPmA15uvPqmzFSuKU0JlB_wwnbAPiKn2ET6I6anRGBG9OVT3Gi5VdizcQOG9TK880_OmAfEDBHlu1Ah5kdfuUMyfUo-AeARSDRZuL64w_=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #sponsors::after {
+                content: "";
+                position: absolute;
+                top: 2413px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .sponsors-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 2325px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .sponsors-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .sponsors-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
+            }
+
+            /* Mobile (≤480px) - Section Lines */
+            @media (max-width: 480px) {
+                #tracks {
+                position: relative;
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(18, 11, 31) 0%,
+                        rgba(20, 10, 36, 0.8) 30%,
+                        rgba(0, 0, 0, 0.8) 55%,
+                        rgba(0, 0, 0, 0.7) 70%,
+                        rgb(0, 0, 0, 0.9 ) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczM-_Fp_VMrcuBVnv8TEFyV7m-gXgckXBkIDPa3GFChTtJ9qBbFOkilx-wYUTYBGK8_KLYGx0QUFOG4huL0zWP6mNjdf6tcwERqCVMSm_4ZMV7sFaMGpJ7TvNegMP6-CG2nrXuuQk4rmas2t-T3WnYps=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+                #why-attend{
+                    background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.8) 30%,
+                        rgba(0, 0, 0, 0.8) 55%,
+                        rgba(0, 0, 0, 0.8) 70%,
+                        rgba(0, 0, 0, 0.5) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczNyH2ZenNyebAo6807cs1X7zy_fOns5XoAIEaEhkcEgkvvqzsX1JTQ0mISwbkgvcFSCRg0lUuKW53bVR0NOMSg0mfzzohkpnC4CauZB4kMWSjdEKGjTij9q2hazWReOowI3Hjvx9nHLPD_Z0UejMlB_=w444-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                }
+                #tracks::after,
+                #why-attend::after,
+                #prizes::after,
+                #sponsors::after {
+                    height: 4px;
+                    display: none;
+                }
+            }
+
+            /* Very small (≤400px) - Section Lines */
+            @media (max-width: 400px) {
+                #tracks::after,
+                #why-attend::after,
+                #prizes::after,
+                #sponsors::after {
+                    height: 3px;
+                    display: none;
+                }
+            }
+
+            /* Mobile (≤480px) - Decoration Links */
+            @media (max-width: 480px) {
+                .tracks-decoration-link,
+                .why-attend-decoration-link,
+                .prizes-decoration-link,
+                .sponsors-decoration-link {
+                    display: none;
+                }
+                
+                .tracks-decoration-link img,
+                .why-attend-decoration-link img,
+                .prizes-decoration-link img,
+                .sponsors-decoration-link img {
+                    display: none;
+                    max-width:100px;
+                    max-height:100px;
+                }
+            }
+
+            /* Very small (≤400px) - Decoration Links */
+            @media (max-width: 400px) {
+                .tracks-decoration-link,
+                .why-attend-decoration-link,
+                .prizes-decoration-link,
+                .sponsors-decoration-link {
+                    display: none;
+                    bottom: -60px;
+                }
+                
+                .tracks-decoration-link img,
+                .why-attend-decoration-link img,
+                .prizes-decoration-link img,
+                .sponsors-decoration-link img {
+                    display: none;
+                    width: 320px;
+                }
+            }
+
+            /* ============================================
+            MOBILE SECTION SEPARATORS - TRACKS, WHY ATTEND, PRIZES, SPONSORS
+            ============================================ */
+
+            /* Base styles - hidden by default */
+            #faq-preview::before,
+            #why-attend::before,
+            #prizes::before,
+            #sponsors::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: rgba(255, 255, 255, 0.9);
+                z-index: 10;
+                display: none;
+            }
+
+            /* Tablets (≤768px) */
+            @media (max-width: 768px) {
+                #tracks::before,
+                #faq-preview::before,
+                #why-attend::before,
+                #prizes::before,
+                #sponsors::before {
+                    display: block;
+                    height: 5px;
+                }
+            }
+
+            /* Mobile phones (≤480px) */
+            @media (max-width: 480px) {
+                #tracks::before,
+                #faq-preview::before,
+                #why-attend::before,
+                #prizes::before,
+                #sponsors::before {
+                    height: 4px;
+                }
+            }
+
+            /* Very small screens (≤400px) */
+            @media (max-width: 400px) {
+                #faq-preview::before,
+                #tracks::before,
+                #why-attend::before,
+                #prizes::before,
+                #sponsors::before {
+                    height: 3px;
+                }
+            }
 
             h1 {
                 font-size: 22px;
@@ -797,7 +1210,7 @@
             }
 
             h2 {
-                font-size: 36px;
+                font-size: 55px;
                 text-align: center;
                 margin-bottom: 76px;
                 text-shadow: 5px 5px  #c300ff;
@@ -808,10 +1221,10 @@
             h2::before {
                 content: '';
                 position: absolute;
-                top: -20px;
+                top: 0px;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 500px;
+                width: 700px;
                 height: 150px;
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPqLiIJaav3zAezUz5OcLfIepQxIpuV4_8expT74jViKIZSmnRJy9Menx3QN7kn6VnfebMM0UDaghJVlyFINBXiqjAaBFgNfywePaD8SkkTekfJVSeLlzEnGMpqOGx7xfe9F-4k8IpYUgg5yGq_O_aJ=w1876-h98-s-no-gm?authuser=0');
                 background-size: contain;
@@ -1812,11 +2225,82 @@
                 z-index: 1;
             }
 
+            /* Star background for each chest */
+            .chest-wrapper::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300px;
+                height: 300px;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOt-B3eTMDQ1B59EP6sCE4I4_qyALh9E15glYJZq0Ug1kbOlwAqL-ojinVafdiyOEEjZMS_45UgIFRW6vwbvW9JQEfRErb3SDHfzX6kIo7DMtl11-rTQSifot86O9HRF1ptT8tghMC6AhsFyUsXRWoj=w1001-h938-s-no-gm?authuser=0');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                transform: translate(-50%, -50%);
+                z-index: -1;  /* Behind the chest */
+                opacity: 1;
+                animation: rotateStar 20s linear infinite;
+                /* filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)); */
+                pointer-events: none;
+            }
+
+            @media (max-width: 768px) {
+                .chest-wrapper::before {
+                    width: 220px;
+                    height: 220px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .chest-wrapper::before {
+                    margin-top: 40px;
+                    margin-left: 10px;
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .chest-wrapper::before {
+                    width: 200px;
+                    height: 200px;
+                    margin-top: 35px;
+                }
+            }
+
+            /* Rotation animation */
+            @keyframes rotateStar {
+                0% {
+                    transform: translate(-50%, -50%) rotate(0deg);
+                }
+                100% {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+
+            /* Different rotation speeds */
+            .prize-row-1 .prize-card:nth-child(1) .chest-wrapper::before {
+                animation: rotateStar 5s linear infinite;  /* 2nd place - faster */
+            }
+
+            .prize-row-1 .prize-card:nth-child(2) .chest-wrapper::before {
+                animation: rotateStar 8s linear infinite;  /* 1st place - fastest */
+            }
+
+            .prize-row-1 .prize-card:nth-child(3) .chest-wrapper::before {
+                animation: rotateStar 6s linear infinite;  /* 3rd place - slower */
+            }
+
+            .prize-row-2 .chest-wrapper::before {
+                animation: rotateStar 5s linear infinite;  /* Special prizes - slowest */
+            }
+
             .chest-img {
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                filter: drop-shadow(0 0 15px #b026ff);
+                filter: drop-shadow(0 0 5px #b026ff);
                 top: 0;
                 left: 0;
                 transition: opacity 0.3s ease;
@@ -2436,6 +2920,99 @@
                 text-shadow: 1px 1px 2px #000;
             }
 
+            /* ============================================
+            FOOTER PILL BUTTON
+            ============================================ */
+            .footer-pill-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                background: #000000;
+                border: 3px solid #ffffff;
+                border-radius: 50px;
+                padding: 11px 30px;
+                text-decoration: none;
+                /* box-shadow: 0 8px 20px rgba(153, 0, 255, 0.4); */
+                transition: all 0.3s ease;
+                cursor: pointer;
+                margin-top: 20px;
+                margin-left: -60px;
+            }
+
+            .footer-pill-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(153, 0, 255, 0.6);
+                background: #6c09ff;
+            }
+
+            .footer-pill-button img {
+                width: 60px;
+                height: 60px;
+                margin-top: -24px;
+                margin-bottom: -22px;
+                margin-left: -10px;
+                object-fit: contain;
+                image-rendering: auto;
+            }
+
+            .footer-pill-button span {
+                font-family: 'Agency FB', sans-serif;
+                font-size: 22px;
+                color: #ffffff;
+                white-space: nowrap;
+                text-shadow: none;
+            }
+
+            /* Tablets and smaller (≤768px) */
+            @media (max-width: 768px) {
+                .footer-pill-button {
+                    padding: 10px 20px;
+                    gap: 10px;
+                }
+                
+                .footer-pill-button img {
+                    width: 25px;
+                    height: 25px;
+                }
+                
+                .footer-pill-button span {
+                    font-size: 10px;
+                }
+            }
+
+            /* Mobile phones (≤480px) */
+            @media (max-width: 480px) {
+                .footer-pill-button {
+                    padding: 8px 18px;
+                    gap: 8px;
+                    margin-top: 15px;
+                    margin-left: -10px;
+                }
+                
+                .footer-pill-button img {
+                    display:none;
+                    width: 22px;
+                    height: 22px;
+                    margin-top: -600px;
+                }
+                
+                .footer-pill-button span {
+                    font-size: 15px;
+                }
+            }
+
+            /* Very small screens (≤400px) */
+            @media (max-width: 400px) {
+                .footer-pill-button {
+                    padding: 7px 15px;
+                }
+                
+                
+                .footer-pill-button span {
+                    font-size: 13px;
+                }
+            }
+
             .mc-toast {
                 position: fixed;
                 bottom: 390px;
@@ -2806,9 +3383,9 @@
             }
 
             .sponsor-card {
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOWQXqlTIPGxNz077siqQH0fxNYZguK6tdriaCt59KlNDkhBNNNnn5noq4CoGff5127cIcwC6SRiqSmV-9DU9Wsn9g0Pan4-v6ABm7Um2_tHzQBngtp33UrRsiTH6D6K6nyrf96Crcg7SaagYBDP6xc=w284-h284-s-no-gm?authuser=0');
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM6uvMH2985cILFr61NSx1sBOdYuHXQ-Uw1mj7roKDQQeDjzW8C4Tj6p5LTnAQ9Auu0dEBMQZCbqKS4m4kCsI9gudqxrmd0B1msA5lwXtRHPPjnhIdIHJwCBpCPz5P6V55MoDXakugIlZpgQo-yCgMP=w168-h168-s-no-gm?authuser=0');
                 background-size: cover;
-                /* border: 2px solid #FFD700; */
+                border: 7.5px solid #a200ff;
                 border-radius: 1px;
                 padding: 30px 20px;
                 margin-bottom: -20px;
@@ -2833,12 +3410,11 @@
                 height: 120px;
                 border-radius: 8px;
                 object-fit: contain;
-                filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
                 margin-bottom: 5px;
             }
 
             .sponsor-name {
-                font-size: 16.5px;
+                font-size: 15px;
                 color: #FFF;
                 text-shadow: 3px 3px 4px #000;
                 margin: 0;
@@ -2895,6 +3471,7 @@
                 .sponsor-logo {
                     width: 110px;
                     height: 110px;
+
                 }
                 
                 .sponsor-name {
@@ -2944,6 +3521,7 @@
                     padding: 20px 12px;
                     border-width: 3px;
                     gap: 10px;
+                    margin-bottom: 8px;
                 }
                 
                 .sponsor-logo {
@@ -2957,7 +3535,7 @@
                 
                 .sponsor-name {
                     margin-top: 7px;
-                    font-size: 14px;
+                    font-size: 12px;
                     line-height: 1.3;
                 }
             }
@@ -2985,6 +3563,7 @@
                     padding: 15px 10px;
                     border-width: 2px;
                     gap: 8px;
+                    margin-bottom: 8px;
                 }
                 
                 .sponsor-logo {
@@ -3020,6 +3599,41 @@
 
             .sponsor-btn {
                 display: inline-block;
+            }
+
+            /* ============================================
+            SPONSOR CTA IMAGE
+            ============================================ */
+
+            .sponsor-cta-image {
+                max-width: 900px;
+                height: auto;
+                margin: 30px auto;
+                display: block;
+                image-rendering: pixelated; /* For pixel art style */
+                filter: drop-shadow(0 20px 30px rgba(139, 92, 246, 0.6));
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .sponsor-cta-image {
+                    max-width: 250px;
+                    margin: 25px auto;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .sponsor-cta-image {
+                    max-width: 200px;
+                    margin: 20px auto;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .sponsor-cta-image {
+                    max-width: 180px;
+                    margin: 15px auto;
+                }
             }
 
             /* Tablets and smaller (≤768px) */
@@ -3219,7 +3833,7 @@
             h2 {
                 position: relative;     /* ADD THIS */
                 padding-top: 80px; 
-                font-size: 22px;
+                font-size: 30px;
                 text-shadow: 3.5px 3.1px #a200ff;
                 margin-bottom: 50px;
             }
@@ -3805,15 +4419,15 @@
             h2 {
                 position: relative;     /* ADD THIS */
                 padding-top: 0px; 
-                font-size: 20px;
+                font-size: 22px;
                 text-shadow: 3.5px 3.1px #a200ff;
                 margin-top: 28px;
             }
 
             h2::before {
-                width: 280px;
+                width: 350px;
                 height: 75px;
-                top: -6px;
+                top: 0px;
             }
 
             .about-image{
@@ -3866,7 +4480,7 @@
             }
             
             .track-logo {
-                width: 80px;
+                width: 100px;
                 margin-top: -70px;
             }
             
@@ -4129,7 +4743,7 @@
             .footer-main {
                 margin-top: -30px;
                 padding: 24px 12px 16px;
-                height: 658px;
+                height: 710px;
                 background-size: 40px 40px;
             }
 
@@ -4330,14 +4944,14 @@
             h2 {
                 position: relative;     /* ADD THIS */
                 padding-top: 0px; 
-                font-size: 17px;
+                font-size: 20px;
                 margin-top: 28px;
             }
 
             h2::before {
-                width: 220px;
+                width: 300px;
                 height: 75px;
-                top: -8px;
+                top: -4px;
             }
 
             .stats {
@@ -4385,7 +4999,7 @@
             }
             
             .track-logo {
-                width: 80px;
+                width: 90px;
                 margin-top: -70px;
             }
             
@@ -4847,8 +5461,15 @@
                     <div class="sign-chain"></div>
                     <a href="#contact" class="nav-sign">Contact</a>
                 </div>
+                
             </div>
-
+            <div class="hero-cloud-link">
+                    <a href="https://mlh.io/eu?utm_source=eu-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=red" class="cloud-button">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMRZqvXFGLtbYxEGX2fY_v9zo1pvb4dkYlvOj1Qzi063q5cBqluvqb0bYka1pS5qrjLxVbDb5ZksYdA3sDLvAp6bDRxsljPByD8e-HcjDUxgulvllz4nS9suxRnmVV7OtDk2urlOcIjSwFoPrTvvSIh=w535-h938-s-no-gm?authuser=0" 
+                            alt="View Guests" 
+                            class="cloud-img">
+                    </a>
+            </div>
             <!-- <div class="lantern-container">
                 <div class="chain"></div>
                 <div class="lantern"></div>
@@ -4859,7 +5480,8 @@
 
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed !important;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=yellow" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-black.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%; filter: drop-shadow(0 5px 12px rgba(180, 0, 255, 0.8)); margin-top:14px;"></a>
+            <!-- Add this inside your hero section, after the stone-buttons div -->
+            
             <div class="hero-logo-wrapper">
                 <div class="hero-logo-bg-box"></div>
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczPxb-M-DbEfiTuCRNNuye1Hmi-tOO0co4dj9ABS6RA1i66QiECIi16ZzjfYl7oSQMfW1YAOwmKVxWvIVXN8grhpAIp4jP3FOJOXWgmIm8qsPDd4-iEHxVaIvujxAp-c-hdSH11bA5ISpRCiEX1FWEjJ=w929-h531-s-no-gm?authuser=0" alt="AceHack 5.0" class="hero-logo">
@@ -4932,15 +5554,15 @@
                         <span class="stat-label">Participants</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">900+</span>
+                        <span class="stat-number">1200+</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">70+</span>
+                        <span class="stat-number">100+</span>
                         <span class="stat-label">Mentors</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number">80+</span>
+                        <span class="stat-number">115+</span>
                         <span class="stat-label">Cities</span>
                     </div>
                     <div class="stat-box">
@@ -4953,6 +5575,9 @@
 
     <!-- Inside #tracks section, replace everything inside the section -->
         <section id="tracks" class="section-bg">
+            <a href="#home" class="tracks-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
             <div style="max-width: 1400px; margin: 0 auto;">
                 <h2>Hackathon Tracks</h2>
                 
@@ -5065,6 +5690,9 @@
 
         <!-- Why Attend Section --> 
         <section id="why-attend" class="section-bg">
+            <a href="#home" class="why-attend-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -50px;">
                 <h2>Why Attend?</h2>
                 
@@ -5167,6 +5795,9 @@
 
         <!-- Prize Pool Section -->
         <section id="prizes" class="section-bg">
+            <a href="#home" class="prizes-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -40px;">
                 <h2>Prize Pool</h2>
                 <div class="prizes">
@@ -5292,6 +5923,9 @@
 
         <!-- Sponsors Section -->
         <section id="sponsors" class="section-bg">
+            <a href="#home" class="sponsors-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
             <div style="max-width: 1400px; margin: 0 auto;">
                 <h2 style="margin-top: -22px; @media (max-width: 400px) {
                 h2 {
@@ -5299,6 +5933,17 @@
                 }
                 }">Our Sponsors</h2>
                 
+                <!-- Platinum Sponsors Tier -->
+                <div class="sponsor-tier">
+                    <h3 class="tier-title">Event Sponsor</h3>
+                    <div class="sponsor-row" >
+                        <a href="https://mlh.io/" target="_blank" class="sponsor-card" style="height:185px;">
+                            <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-black.png" alt="Sponsor Name" class="sponsor-logo" style="width:135px; height:auto; border-radius:0px;">
+                            <p class="sponsor-name">Major League<br>Hacking</p>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Title Sponsors Tier -->
                 <div class="sponsor-tier">
                     <h3 class="tier-title">Platform Partner</h3>
@@ -5307,19 +5952,6 @@
                             <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
                             <p class="sponsor-name">Devfolio</p>
                         </a>
-                        
-                        <!-- <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div> -->
                     </div>
                 </div>
 
@@ -5334,35 +5966,30 @@
                     </div>
                 </div>
 
-                <!-- Gold Sponsors Tier -->
-                <!-- <div class="sponsor-tier">
-                    <h3 class="tier-title">Gold Sponsors</h3>
+                <!-- Platinum Sponsors Tier -->
+                <div class="sponsor-tier">
+                    <h3 class="tier-title">Support Partner</h3>
                     <div class="sponsor-row">
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
-                        <div class="sponsor-card">
-                            <img src="SPONSOR_LOGO_URL" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Company Name</p>
-                        </div>
+                        <a href="https://mlh.io/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPtgt4lp288usORooj4kVkzDraqpRrv9C5LNLAGLb629M6GgWn-IZSvA6EsZyVPmTi1dq_EwJR1p66PXyXXWYncZVYkPI3EfFdzAmgKzpbk8kezvKlcfxoUfPT2--1h98GlhIgFMopJ6FwgRkILBhP7=w1038-h938-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
+                            <p class="sponsor-name">GitHub</p>
+                        </a>
+                        <a href="https://mlh.io/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczP20lYD2QaV0qiBb1w7G1-vQjeoI23hqQN6aHVkfKmiSNVonE4UzHhiSwqom-FTiojgg4BnzdZBNbdLOxDOSiJ3qQOJPDcoDE7-frwyT4lTsEJfOL0BIa20vb03q97aGuQla0464baMUDVViBfpohfw=w877-h877-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo" >
+                            <p class="sponsor-name">Pure Buttons</p>
+                        </a>
                     </div>
-                </div> -->
+                </div>
+
                 <!-- Become a Sponsor CTA -->
                 <div class="sponsor-cta">
                     <h3 class="sponsor-cta-text">Become a Sponsor for &lt;ACEHACK 5.0/&gt;</h3>
+                    
+                    <!-- ADD IMAGE HERE -->
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMBNh5POzKXRQllSkb_9dJAKpHpJX7IdShFywClNRtYi9TP0IFtTsc-3dOSTBpehBXzF9inr72GK9s0xXIoe2PKnrmAsnzR183tTQsfGFCUESiUiQ_k8lQ6nk15-RC_Qzb4o8AVUIiCs6YkIrnFZKva=w1080-h608-s-no-gm?authuser=0" 
+                        alt="Sponsor Image" 
+                        class="sponsor-cta-image">
+                    
                     <div class="stone-btn-wrapper">
                         <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view?usp=sharing" 
                         target="_blank" 
@@ -5511,6 +6138,11 @@
                     <a href="https://acehack3-0.vercel.app/">AceHack 3.0</a>
                     <a href="https://acehack2-0.vercel.app/">AceHack 2.0</a>
                     <a href="https://sahityaroy.github.io/ace-hack-uemj/">AceHack 1.0</a>
+                    <!-- Pill Button -->
+                    <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" class="footer-pill-button">
+                        <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png" alt="Icon">
+                        <span><b>CODE OF CONDUCT</b></span>
+                    </a>
                 </div>
 
                 <!-- Location with Map -->
@@ -5652,6 +6284,37 @@
             })();
 
             /* ======================================================
+            HIDE CLOUD WHEN HERO SCROLLS AWAY
+            ====================================================== */
+            (function initCloudHide() {
+                const cloud = document.querySelector('.hero-cloud-link');
+                const hero = document.querySelector('.hero');
+                
+                if (!cloud || !hero) return;
+                
+                function checkHeroVisibility() {
+                    const heroRect = hero.getBoundingClientRect();
+                    
+                    // If hero is completely scrolled past (bottom of hero is above viewport)
+                    if (heroRect.bottom < 0) {
+                        cloud.style.opacity = '0';
+                        cloud.style.pointerEvents = 'none';
+                    } else {
+                        cloud.style.opacity = '1';
+                        cloud.style.pointerEvents = 'auto';
+                    }
+                }
+                
+                // Check on scroll
+                window.addEventListener('scroll', checkHeroVisibility, { passive: true });
+                
+                // Initial check
+                checkHeroVisibility();
+                
+                console.log('✓ Cloud hide on scroll initialized');
+            })();
+
+            /* ======================================================
             INTERSECTION OBSERVER (REPLACES ALL SCROLL LISTENERS)
             ====================================================== */
             const revealObserver = new IntersectionObserver(
@@ -5784,6 +6447,7 @@
                 toast.classList.add('show');
                 setTimeout(() => toast.classList.remove('show'), 2000);
             });
+
             /* ======================================================
             HAMBURGER MENU - MOBILE ONLY (≤480px)
             ====================================================== */
@@ -5951,7 +6615,8 @@
             smoothScroll();
 
             // Fixed anchor link handling
-            document.querySelectorAll('a[href^="#"]').forEach(a => {
+            // Fixed anchor link handling (exclude MLH badge)
+            document.querySelectorAll('a[href^="#"]:not(#mlh-trust-badge)').forEach(a => {
                 a.addEventListener('click', e => {
                     const targetId = a.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
@@ -6058,6 +6723,7 @@
         </script>
 
         <div id="toast" class="mc-toast">Coming Soon!</div>
+        
         
     </body>
 
