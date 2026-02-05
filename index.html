@@ -6284,7 +6284,7 @@
             })();
 
             /* ======================================================
-            HIDE CLOUD WHEN HERO SCROLLS AWAY
+            HIDE CLOUD WHEN HERO SCROLLS AWAY (MOBILE ONLY)
             ====================================================== */
             (function initCloudHide() {
                 const cloud = document.querySelector('.hero-cloud-link');
@@ -6293,6 +6293,13 @@
                 if (!cloud || !hero) return;
                 
                 function checkHeroVisibility() {
+                    // Only apply on mobile (768px and below)
+                    if (window.innerWidth > 768) {
+                        cloud.style.opacity = '1';
+                        cloud.style.pointerEvents = 'auto';
+                        return;
+                    }
+                    
                     const heroRect = hero.getBoundingClientRect();
                     
                     // If hero is completely scrolled past (bottom of hero is above viewport)
@@ -6308,10 +6315,13 @@
                 // Check on scroll
                 window.addEventListener('scroll', checkHeroVisibility, { passive: true });
                 
+                // Check on resize
+                window.addEventListener('resize', checkHeroVisibility, { passive: true });
+                
                 // Initial check
                 checkHeroVisibility();
                 
-                console.log('✓ Cloud hide on scroll initialized');
+                console.log('✓ Cloud hide on scroll (mobile only) initialized');
             })();
 
             /* ======================================================
@@ -6694,31 +6704,7 @@
                 console.log('✓ Stack cards initialized - rotating every 2 seconds');
             })();
 
-            /* ======================================================
-            PRIZE RIGHT CARD - IMAGE ROTATION
-            ====================================================== */
-            (function initPrizeRotation() {
-                const images = document.querySelectorAll('.track-prize-img');
-                if (!images.length) return;
-                
-                let currentIndex = 0;
-                
-                function rotateImages() {
-                    // Remove active class from current image
-                    images[currentIndex].classList.remove('active');
-                    
-                    // Move to next image      
-                    currentIndex = (currentIndex + 1) % images.length;
-                    
-                    // Add active class to next image
-                    images[currentIndex].classList.add('active');
-                }
-                
-                // Rotate every 3 seconds
-                setInterval(rotateImages, 3000);
-                
-                console.log('✓ Prize track showcase initialized - rotating every 3 seconds');
-            })();
+            
 
         </script>
 

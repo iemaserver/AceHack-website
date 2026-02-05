@@ -977,6 +977,49 @@
                 height: auto;
                 image-rendering: pixelated;
             }
+
+            /* ============================================
+            FOOTER PILL BUTTON
+            ============================================ */
+            .footer-pill-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                background: #000000;
+                border: 3px solid #ffffff;
+                border-radius: 50px;
+                padding: 11px 30px;
+                text-decoration: none;
+                /* box-shadow: 0 8px 20px rgba(153, 0, 255, 0.4); */
+                transition: all 0.3s ease;
+                cursor: pointer;
+                margin-top: 20px;
+                margin-left: -60px;
+            }
+
+            .footer-pill-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 12px 30px rgba(153, 0, 255, 0.6);
+                background: #6c09ff;
+            }
+
+            .footer-pill-button img {
+                width: 60px;
+                height: 60px;
+                margin-top: -24px;
+                margin-bottom: -22px;
+                margin-left: -10px;
+                object-fit: contain;
+                image-rendering: auto;
+            }
+
+            .footer-pill-button span {
+                font-family: 'Agency FB', sans-serif;
+                font-size: 22px;
+                color: #ffffff;
+                white-space: nowrap;
+                text-shadow: none;
+            }
                 
         </style>
         <!-- ============================
@@ -2028,7 +2071,7 @@
             <!-- REMOVED -->
 
             <div class="search-container">   
-                <input type="text" class="search-box" id="searchBox" placeholder=" Select Type">
+                <input type="text" class="search-box" id="searchBox" placeholder="       ">
             </div>
 
             <div class="category-filters">
@@ -2448,6 +2491,11 @@
                     <a href="https://acehack3-0.vercel.app/">AceHack 3.0</a>
                     <a href="https://acehack2-0.vercel.app/">AceHack 2.0</a>
                     <a href="https://sahityaroy.github.io/ace-hack-uemj/">AceHack 1.0</a>
+                    <!-- Pill Button -->
+                    <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" class="footer-pill-button">
+                        <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png" alt="Icon">
+                        <span><b>CODE OF CONDUCT</b></span>
+                    </a>
                 </div>
 
                 <!-- Location with Map -->
