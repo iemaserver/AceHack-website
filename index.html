@@ -12,8 +12,15 @@
         <meta name="description" content="ACEHACK is the premier 36-hour hackathon where innovation meets creativity. Join hundreds of hackers from across the nation to build groundbreaking projects, collaborate with industry mentors, and compete for exciting rewards in an intense, high-energy environment.">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preload" as="image" href="[hero-background-url]">    
-        <link rel="preload" as="image" href="[logo-url]">
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        rel="stylesheet"
+        />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;700;900&display=swap"
+        rel="stylesheet"
+        />
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -43,6 +50,334 @@
                 overflow-y: auto;   /* Allow vertical scroll */
             }
 
+            /* ============================================
+            NEON PURPLE MOUSE TRAIL
+            ============================================ */
+            .mouse-trail {
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(186, 85, 255, 0.8) 0%, rgba(138, 43, 226, 0.4) 50%, transparent 100%);
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                animation: trailFade 0.6s ease-out forwards;
+                box-shadow: 
+                    0 0 10px rgba(186, 85, 255, 0.8),
+                    0 0 20px rgba(138, 43, 226, 0.6),
+                    0 0 30px rgba(138, 43, 226, 0.4);
+            }
+
+            @keyframes trailFade {
+                0% {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(0.3);
+                }
+            }
+
+            /* Music Toggle Button */
+            .music-toggle-button {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                width: 40px;
+                height: 40px;
+
+                /* Minecraft neon purple + white */
+                background:transparent;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                color: #ffffff;
+                font-size: 1.6rem;
+                text-decoration: none;
+
+                cursor: pointer;
+                z-index: 1000;
+            }
+
+            /* Hover: enchanted block effect */
+            .music-toggle-button:hover {
+                transform: scale(1.08);
+                box-shadow:
+                    0 0 12px rgba(200, 160, 255, 0.9),
+                    0 0 28px rgba(160, 40, 255, 0.8),
+                    0 0 50px rgba(140, 0, 255, 0.6);
+            }
+
+            /* Muted state = deactivated block */
+            .music-toggle-button.muted {
+                background:
+                    linear-gradient(
+                        145deg,
+                        #f5f5f5,
+                        #cfcfcf
+                    );
+                color: #555;
+                box-shadow:
+                    inset 0 0 10px rgba(0, 0, 0, 0.35);
+                animation: none;
+            }
+
+            /* Muted icon */
+            .music-toggle-button.muted i::before {
+                content: "\f6a9";
+            }
+
+            /* ===== Mobile ≤ 480px ===== */
+            @media (max-width: 480px) {
+                .music-toggle-button {
+                    width: 52px;
+                    height: 52px;
+                    bottom: 1rem;
+                    right: 1rem;
+
+                    font-size: 1.4rem;
+                    border-width: 2px;
+
+                    box-shadow:
+                        0 0 6px rgba(180, 120, 255, 0.6),
+                        0 0 16px rgba(140, 0, 255, 0.5),
+                        0 0 26px rgba(120, 0, 255, 0.4);
+                }
+            }
+
+            /* ===== Small Mobile ≤ 400px ===== */
+            @media (max-width: 400px) {
+                .music-toggle-button {
+                    width: 46px;
+                    height: 46px;
+                    bottom: 1.2rem;
+                    right: 1.2rem;
+
+                    font-size: 1.25rem;
+                    border-width: 2px;
+
+                    box-shadow:
+                        0 0 5px rgba(180, 120, 255, 0.55),
+                        0 0 12px rgba(140, 0, 255, 0.45),
+                        0 0 20px rgba(120, 0, 255, 0.35);
+                }
+            }
+
+             /* ============================================
+            GIF TRANSITION OVERLAY
+            ============================================ */
+            .transition-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.3s ease;
+            }
+
+            .transition-overlay.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .transition-gif {
+                width: 120%;
+                height: 120%;
+                image-rendering: pixelated;
+            }
+
+            @media (max-width: 768px) {
+                .transition-gif {
+                    max-width: 300px;
+                    max-height: 300px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .transition-gif {
+                    max-width: 600px;
+                    max-height: 450px;
+                }
+            }
+
+            /* ============================================
+            CREEPER CHATBOX - FIXED BOTTOM LEFT
+            ============================================ */
+
+            .creeper-chatbox {
+                position: fixed;
+                bottom: 12px;
+                left: 20px;
+                z-index: 9998;
+                display: flex;
+                align-items: flex-end;
+                gap: 15px;
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .creeper-container {
+                display: flex;
+                align-items: flex-end;
+                gap: 15px;
+            }
+
+            .creeper-image {
+                width: 75px;
+                height: 140px;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+                transition: transform 0.3s ease;
+            }
+
+            .creeper-image:hover {
+                transform: scale(1.1);
+            }
+
+            .chat-bubble {
+                background-color: #ae00ff;
+                background-size: cover;
+                border: 3px solid #ffffff;
+                padding: 15px 20px;
+                min-width: 50px;
+                max-width: 260px;
+                position: relative;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+                margin-bottom: 10px;
+                opacity: 1; /* Changed from 0 to 1 */
+                transform: translateX(0); /* Changed from -20px to 0 */
+                transition: all 0.4s ease;
+            }
+
+            .chat-bubble::before {
+                content: '';
+                position: absolute;
+                bottom: 15px;
+                left: -13px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #ffffff transparent transparent;
+            }
+
+            .chat-bubble::after {
+                content: '';
+                position: absolute;
+                bottom: 16px;
+                left: -9px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 9px 9px 9px 0;
+                border-color: transparent #ae00ff transparent transparent;
+            }
+
+            .chat-bubble.show {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            .chat-bubble.hide {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            .chat-bubble p {
+                margin: 0;
+                font-family: 'Press Start 2P', cursive;
+                font-size: 11px;
+                line-height: 1.6;
+                color: #ffffff;
+                text-shadow: 2px 2px 0 #000000;
+            }
+
+            /* Hide creeper chatbox when footer is in view */
+            .creeper-chatbox.hide-on-footer {
+                opacity: 0;
+                pointer-events: none;
+                transform: translateX(-100px);
+            }
+
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .creeper-chatbox {
+                    bottom: 80px;
+                    left: 10px;
+                }
+                
+                .creeper-image {
+                    width: 90px;
+                    height: 90px;
+                }
+                
+                .chat-bubble {
+                    max-width: 200px;
+                    min-width: 150px;
+                    padding: 12px 15px;
+                }
+                
+                .chat-bubble p {
+                    font-size: 9px;
+                    line-height: 1.5;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .creeper-chatbox {
+                    bottom: 10px;
+                    left: 9px;
+                }
+                
+                .creeper-image {
+                    width: 60px;
+                    height: 95px;
+                }
+                
+                .chat-bubble {
+                    max-width: 160px;
+                    min-width: 120px;
+                    padding: 10px 12px;
+                }
+                
+                .chat-bubble p {
+                    font-size: 8px;
+                    line-height: 1.4;
+                }
+            }
+
+            @media (max-width: 400px) {
+                .creeper-chatbox {
+                    bottom: 7px;
+                    left: 7px;
+                }
+                
+                .creeper-image {
+                    width: 45px;
+                    height: 75px;
+                }
+                
+                .chat-bubble {
+                    max-width: 140px;
+                    min-width: 100px;
+                    padding: 8px 10px;
+                    border-width: 2px;
+                }
+                
+                .chat-bubble p {
+                    font-size: 7px;
+                }
+            }
+
             /* Keep functionality for nav-links horizontal scroll */
             .nav-links {
                 -ms-overflow-style: none;
@@ -52,6 +387,7 @@
             .nav-links::-webkit-scrollbar {
                 display: none;
             }
+
             body {
                 font-family: 'Press Start 2P', cursive;
                 background: linear-gradient(to bottom, #0a0014 0%, #2d1b4e 45%, #1a0b2e 50%, #2d1b4e 75%,#1a0b2e 100%);
@@ -1021,7 +1357,7 @@
             #sponsors::after {
                 content: "";
                 position: absolute;
-                top: 2413px;
+                top: 2744px;
                 left: 0;
 
                 width: 100%;
@@ -1035,7 +1371,7 @@
             .sponsors-decoration-link {
                 position: absolute;
                 z-index: 100;
-                top: 2325px;
+                top: 2653px;
                 left: 300px;
                 display: block;
                 cursor: pointer;
@@ -5399,10 +5735,42 @@
             }
         }
     </style>
- 
-        
     </head>
     <body>
+
+        <audio id="background-music" loop>
+            <source
+                src="assets/music/music.mp3"
+                type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Add these new audio elements -->
+        <audio id="minecart-sound" preload="auto">
+            <source src="assets/sounds/minecart.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="bee-sound" preload="auto">
+            <source src="assets/sounds/bee.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="chest-sound" preload="auto">
+            <source src="assets/sounds/chest.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="stat-sound" preload="auto">
+            <source src="assets/sounds/stat.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="about-img-sound" preload="auto">
+            <source src="assets/sounds/univ.mp3" type="audio/mpeg" />
+        </audio>
+        
+        <!-- <canvas id="background-canvas"></canvas> -->
+        <button
+        id="music-toggle"
+        class="music-toggle-button"
+        title="Toggle Background Music"
+        >
+        <i class="fas fa-volume-up"></i>
+        </button>
 
         <!-- Animated Particles -->
         <!-- Minecraft End Sky Background -->
@@ -5444,12 +5812,12 @@
                 <!-- NEW TRACKS BUTTON -->
                 <div class="nav-sign-container" style="--index: 3">
                     <div class="sign-chain"></div>
-                    <a href="index.html#tracks" class="nav-sign">Tracks</a>
+                    <a href="#tracks" class="nav-sign">Tracks</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 4">
                     <div class="sign-chain"></div>
-                    <a href="index.html#sponsors" class="nav-sign">Sponsors</a>
+                    <a href="#sponsors" class="nav-sign">Sponsors</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 5">
@@ -5966,6 +6334,16 @@
                     </div>
                 </div>
 
+                <div class="sponsor-tier">
+                    <h3 class="tier-title">Travel Partner</h3>
+                    <div class="sponsor-row">
+                        <a href="https://www.abhibus.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOS4PlTmCpNiuJDuMh5ralNIj94fEqcm-EQ2ZFehyl9crINofC5FsZgqy2FL_yZi644PMAxYfur9srq9HELglT_d2TdwnLSHWCuTSEVjXtrN_4grtbJ6Wo0mF7ZetZ2BhJ6aTem41qLcFKM3ik1ZDwm=w512-h512-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
+                            <p class="sponsor-name">Abhi Bus</p>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Platinum Sponsors Tier -->
                 <div class="sponsor-tier">
                     <h3 class="tier-title">Support Partner</h3>
@@ -6165,6 +6543,19 @@
             © 2026 AceHack - University of Enigeneering and Management Jaipur. All Rights Reserved.
         </div>
         </footer>
+
+         <!-- Creeper Chatbox -->
+        <div id="creeper-chatbox" class="creeper-chatbox">
+            <div class="creeper-container">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMisSr9c0bK2xlGhxKByf0vhSMsw9TGnhbqDZF_vSHoV8GdXAEA0rBey9PInXm3G3nlNulhazgUWJ1helzrZ44OBH63YsBGiDDc9hWp109XGkS8r3I9Pe28gbP0vO6kbAVb7c31aH5BGBDYUb37_O4C=w445-h938-s-no-gm?authuser=0" 
+                    alt="Creeper" 
+                    class="creeper-image"
+                    id="creeper-image">
+                <div class="chat-bubble" id="chat-bubble">
+                    <p id="chat-message"> </p>
+                </div>
+            </div>
+        </div>
 
         <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
         <script defer>
@@ -6598,7 +6989,6 @@
             let ease = 0.08;
             let isUserScrolling = false;
 
-            // Handle wheel events for smooth scrolling
             window.addEventListener("wheel", e => {
                 e.preventDefault();
                 targetScroll += e.deltaY;
@@ -6614,7 +7004,6 @@
                     currentScroll += (targetScroll - currentScroll) * ease;
                     window.scrollTo(0, currentScroll);
                     
-                    // Stop smooth scrolling when close enough to target
                     if (Math.abs(targetScroll - currentScroll) < 0.5) {
                         isUserScrolling = false;
                     }
@@ -6624,8 +7013,6 @@
 
             smoothScroll();
 
-            // Fixed anchor link handling
-            // Fixed anchor link handling (exclude MLH badge)
             document.querySelectorAll('a[href^="#"]:not(#mlh-trust-badge)').forEach(a => {
                 a.addEventListener('click', e => {
                     const targetId = a.getAttribute('href');
@@ -6635,17 +7022,13 @@
                     
                     e.preventDefault();
                     
-                    // Get target position
-                    const targetPosition = targetElement.offsetTop - 100; // 100px offset for nav
+                    const targetPosition = targetElement.offsetTop - 100; 
                     
-                    // Set both scroll values to target position for instant jump
                     targetScroll = targetPosition;
                     currentScroll = targetPosition;
                     
-                    // Perform the scroll
                     window.scrollTo(0, targetPosition);
                     
-                    // Update URL hash
                     history.pushState(null, null, targetId);
                 });
             });
@@ -6704,12 +7087,386 @@
                 console.log('✓ Stack cards initialized - rotating every 2 seconds');
             })();
 
+            // ==================================
+            // MUSIC BUTTON
+            // ==================================
             
+            // Audio control
+            const audio = document.getElementById("background-music");
+            const musicToggle = document.getElementById("music-toggle");
+
+            audio.volume = 0.045; // Set initial volume to 20% to avoid being too loud
+
+            // Function to toggle music
+            function toggleMusic() {
+            if (audio.paused) {
+                audio
+                .play()
+                .then(() => {
+                    musicToggle.classList.remove("muted");
+                    musicToggle
+                    .querySelector("i")
+                    .classList.replace("fa-volume-mute", "fa-volume-up");
+                })
+                .catch((error) => {
+                    console.log("Autoplay prevented:", error);
+                });
+            } else {
+                audio.pause();
+                musicToggle.classList.add("muted");
+                musicToggle
+                .querySelector("i")
+                .classList.replace("fa-volume-up", "fa-volume-mute");
+            }
+            }
+
+            // Toggle music on button click
+            musicToggle.addEventListener("click", toggleMusic);
+
+            // Attempt to autoplay with a fallback
+            window.addEventListener("load", () => {
+            audio.play().catch(() => {
+                // Autoplay failed, require user interaction
+                musicToggle.classList.add("muted");
+                musicToggle
+                .querySelector("i")
+                .classList.replace("fa-volume-up", "fa-volume-mute");
+            });
+            });
+
+            // Play audio on first user interaction (to comply with browser policies)
+            document.addEventListener("click", function playAudioOnce() {
+            if (audio.paused) {
+                audio.play().then(() => {
+                musicToggle.classList.remove("muted");
+                musicToggle
+                    .querySelector("i")
+                    .classList.replace("fa-volume-mute", "fa-volume-up");
+                });
+            }
+            document.removeEventListener("click", playAudioOnce); // Remove after first play
+            });
+
+            // ==================================
+            // HOVER SOUND EFFECTS
+            // ==================================
+
+            // Get all audio elements
+            const sounds = {
+                minecart: document.getElementById('minecart-sound'),
+                bee: document.getElementById('bee-sound'),
+                chest: document.getElementById('chest-sound'),
+                stat: document.getElementById('stat-sound'),
+                aboutImg: document.getElementById('about-img-sound')
+            };
+
+            // Set volume for all sound effects
+            Object.values(sounds).forEach(sound => {
+                if (sound) sound.volume = 0.3;
+            });
+
+            // Function to play sound
+            function playSound(soundName) {
+                const sound = sounds[soundName];
+                if (sound) {
+                    sound.currentTime = 0; // Reset to start
+                    sound.play().catch(err => console.log('Sound play failed:', err));
+                }
+            }
+
+            // Add hover listeners to minecarts
+            document.querySelectorAll('.minecart-body').forEach(minecart => {
+                minecart.addEventListener('mouseenter', () => playSound('minecart'));
+            });
+
+            // Add hover listeners to bee cards
+            document.querySelectorAll('.card-wrapper').forEach(card => {
+                card.addEventListener('mouseenter', () => playSound('bee'));
+            });
+
+            // Add hover listeners to prize chests
+            document.querySelectorAll('.chest-wrapper').forEach(chest => {
+                chest.addEventListener('mouseenter', () => playSound('chest'));
+            });
+
+            // Add hover listeners to stat boxes
+            document.querySelectorAll('.stat-box').forEach(stat => {
+                stat.addEventListener('mouseenter', () => playSound('stat'));
+            });
+
+            // Add hover listener to about section image - ADD THIS
+            document.querySelector('.about-image img')?.addEventListener('mouseenter', () => {
+                playSound('aboutImg');
+            });
+
+            console.log('✓ Hover sound effects initialized');
+
+            // ==================================
+            // NEON PURPLE MOUSE TRAIL
+            // ==================================
+
+            (function initMouseTrail() {
+                let mouseX = 0;
+                let mouseY = 0;
+                let lastTime = 0;
+                const trailDelay = 30; // milliseconds between trail particles
+
+                // Track mouse position
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                // Create trail particles
+                function createTrail() {
+                    const now = Date.now();
+                    
+                    if (now - lastTime > trailDelay) {
+                        const trail = document.createElement('div');
+                        trail.className = 'mouse-trail';
+                        trail.style.left = mouseX + 'px';
+                        trail.style.top = mouseY + 'px';
+                        
+                        document.body.appendChild(trail);
+                        
+                        // Remove after animation completes
+                        setTimeout(() => trail.remove(), 600);
+                        
+                        lastTime = now;
+                    }
+                    
+                    requestAnimationFrame(createTrail);
+                }
+
+                createTrail();
+                console.log('✓ Mouse trail initialized');
+            })();
+
+            /* ======================================================
+            GIF TRANSITION EFFECT - EXTERNAL LINKS ONLY
+            ====================================================== */
+            document.addEventListener('DOMContentLoaded', function() {
+                const overlay = document.getElementById('transition-overlay');
+                
+                if (!overlay) {
+                    console.error('❌ Transition overlay not found in DOM');
+                    return;
+                }
+                
+                console.log('✓ Transition overlay found!');
+                
+                const transitionDuration = 1300;
+                let isTransitioning = false;
+                
+                function showTransitionAndNavigate(url) {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    
+                    overlay.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.open(url, '_blank');
+                        
+                        setTimeout(() => {
+                            overlay.classList.remove('active');
+                            isTransitioning = false;
+                        }, 300);
+                    }, transitionDuration);
+                }
+                
+                document.addEventListener('click', (e) => {
+                    let target = e.target;
+                    
+                    while (target && target !== document) {
+                        if (target.tagName === 'A' || target.classList.contains('stone-btn') || 
+                            target.classList.contains('nav-sign') || target.classList.contains('mobile-nav-link') ||
+                            target.classList.contains('sponsor-card')) {
+                            
+                            // Skip special cases
+                            if (target.dataset.soon === 'true') return;
+                            if (target.id === 'music-toggle' || target.closest('#music-toggle')) return;
+                            if (target.closest('.devfolio-apply-button')) return;
+                            if (target.classList.contains('social-icon') || target.closest('.social-icon')) return;
+                            
+                            const href = target.getAttribute('href');
+                            if (!href || href === '#') return;
+                            
+                            // Check if it's an anchor link (starts with #)
+                            const isAnchor = href.startsWith('#');
+                            
+                            if (!isAnchor) {
+                                // External link - show transition
+                                e.preventDefault();
+                                e.stopPropagation();
+                                showTransitionAndNavigate(href);
+                                return;
+                            }
+                            // If it's an anchor, do nothing and let default behavior happen
+                        }
+                        
+                        target = target.parentElement;
+                    }
+                }, true);
+                
+                console.log('✓ GIF transition initialized (external links only)');
+            });
+
+            /* ======================================================
+            CREEPER CHATBOX - SECTION-BASED MESSAGES (DEBUG VERSION)
+            ====================================================== */
+            (function initCreeperChatbox() {
+                const chatBubble = document.getElementById('chat-bubble');
+                const chatMessage = document.getElementById('chat-message');
+                const creeperChatbox = document.getElementById('creeper-chatbox');
+                
+                console.log('🐸 Creeper elements found:', {
+                    bubble: !!chatBubble,
+                    message: !!chatMessage,
+                    chatbox: !!creeperChatbox
+                });
+                
+                if (!chatBubble || !chatMessage || !creeperChatbox) {
+                    console.warn('❌ Creeper chatbox elements not found');
+                    return;
+                }
+                
+                // Define messages for each section
+                const sectionMessages = {
+                    'home': "Welcome to AceHack 5.0! Registration closes soon!",
+                    'about': "36 hours of pure innovation awaits!",
+                    'tracks': "Choose your track and start building!",
+                    'why-attend': "Network, learn, and grow with us! Be a part of History!!",
+                    'prizes': "Win amazing prizes and swags worth lakhs!",
+                    'sponsors': "Thanks to our amazing sponsors!",
+                    'faq-preview': "Got questions? We've got answers!"
+                };
+                
+                let currentSection = '';
+                let typingTimeout;
+                let isFooterVisible = false;
+                
+                // Function to update chat message with typing effect
+                function updateChatMessage(section) {
+                    if (isFooterVisible) {
+                        console.log('⛔ Footer visible - skipping message update');
+                        return;
+                    }
+                    
+                    if (!sectionMessages[section]) {
+                        console.log('⚠️ No message for section:', section);
+                        return;
+                    }
+                    
+                    console.log('✅ UPDATING MESSAGE FOR:', section);
+                    
+                    const message = sectionMessages[section];
+                    
+                    // Clear any ongoing typing
+                    clearTimeout(typingTimeout);
+                    
+                    // Add hide class
+                    chatBubble.classList.add('hide');
+                    chatBubble.classList.remove('show');
+                    
+                    setTimeout(() => {
+                        // Clear message
+                        chatMessage.textContent = '';
+                        
+                        // Show bubble
+                        chatBubble.classList.remove('hide');
+                        chatBubble.classList.add('show');
+                        
+                        // Type out message
+                        let charIndex = 0;
+                        const typeMessage = () => {
+                            if (charIndex < message.length) {
+                                chatMessage.textContent += message[charIndex];
+                                charIndex++;
+                                typingTimeout = setTimeout(typeMessage, 50);
+                            }
+                        };
+                        
+                        typeMessage();
+                    }, 400);
+                }
+                
+                // SIMPLIFIED DETECTION
+                function checkSections() {
+                    if (isFooterVisible) {
+                        return;
+                    }
+                    
+                    // Check each section in reverse order (bottom to top)
+                    const sectionIds = Object.keys(sectionMessages).reverse();
+                    
+                    for (const sectionId of sectionIds) {
+                        const section = document.getElementById(sectionId);
+                        if (!section) continue;
+                        
+                        const rect = section.getBoundingClientRect();
+                        
+                        // Trigger when section TOP enters viewport from bottom
+                        // OR when we're already inside the section
+                        if (rect.top < window.innerHeight - 100 && rect.bottom > 0) {
+                            if (currentSection !== sectionId) {
+                                console.log(`🎯 SWITCHING TO: ${sectionId}`);
+                                currentSection = sectionId;
+                                updateChatMessage(sectionId);
+                            }
+                            return; // Stop checking once we find a match
+                        }
+                    }
+                }
+                
+                // Check on scroll (throttled)
+                let scrollTimeout;
+                window.addEventListener('scroll', () => {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        console.log('📜 SCROLL EVENT - Checking sections...');
+                        checkSections();
+                    }, 100);
+                }, { passive: true });
+                
+                // FOOTER OBSERVER
+                const footer = document.getElementById('contact');
+                if (footer) {
+                    const footerObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            isFooterVisible = entry.isIntersecting;
+                            console.log('👣 Footer visibility:', isFooterVisible);
+                            
+                            if (entry.isIntersecting) {
+                                creeperChatbox.classList.add('hide-on-footer');
+                            } else {
+                                creeperChatbox.classList.remove('hide-on-footer');
+                                checkSections();
+                            }
+                        });
+                    }, {
+                        threshold: 0.01,
+                        rootMargin: '-100px'
+                    });
+                    
+                    footerObserver.observe(footer);
+                    console.log('✅ Footer observer initialized');
+                }
+                
+                // Initial check
+                console.log('🚀 Running initial check...');
+                checkSections();
+                
+                console.log('✅ Creeper chatbox fully initialized');
+            })();
 
         </script>
 
         <div id="toast" class="mc-toast">Coming Soon!</div>
-        
+
+        <!-- GIF Transition Overlay -->
+        <div id="transition-overlay" class="transition-overlay">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczOZWA1haVOPDfSHazCSBH-ed7lNXRPSjdzqZt0HZN12ZRHINykivNhCwcCFuun1tMb0EbXofv-6iUzKc2OLAPXPcjWwrkUvDcyZKEixHYjrjWw8YKHwl593IjQe6F7OpN0vRSybXnK2PuiiikNVd3lN=w800-h450-s-no-gm?authuser=0" alt="Loading" class="transition-gif">
+        </div>
         
     </body>
 
