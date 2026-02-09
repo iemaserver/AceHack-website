@@ -1020,6 +1020,56 @@
                 white-space: nowrap;
                 text-shadow: none;
             }
+
+            /* Tablets and smaller (≤768px) */
+            @media (max-width: 768px) {
+                .footer-pill-button {
+                    padding: 10px 20px;
+                    gap: 10px;
+                }
+                
+                .footer-pill-button img {
+                    width: 25px;
+                    height: 25px;
+                }
+                
+                .footer-pill-button span {
+                    font-size: 10px;
+                }
+            }
+
+            /* Mobile phones (≤480px) */
+            @media (max-width: 480px) {
+                .footer-pill-button {
+                    padding: 8px 18px;
+                    gap: 8px;
+                    margin-top: 15px;
+                    margin-left: -10px;
+                }
+                
+                .footer-pill-button img {
+                    display:none;
+                    width: 22px;
+                    height: 22px;
+                    margin-top: -600px;
+                }
+                
+                .footer-pill-button span {
+                    font-size: 15px;
+                }
+            }
+
+            /* Very small screens (≤400px) */
+            @media (max-width: 400px) {
+                .footer-pill-button {
+                    padding: 7px 15px;
+                }
+                
+                
+                .footer-pill-button span {
+                    font-size: 13px;
+                }
+            }
                 
         </style>
         <!-- ============================
@@ -1522,7 +1572,7 @@
                 /* Footer ultra compact */
                 /* Lava border — reduce height & animation cost */
                 .lava-border {
-                    margin-top: -190px;
+                    margin-top: -150px;
                     height: 70px;
                     background-size: auto 100%;
                     animation-duration: 60s; /* smoother on low-end devices */
@@ -1531,9 +1581,9 @@
                 /* Footer container */
                 .footer-main {
                     padding: 24px 12px 16px;
-                    height: 658px;
+                    height: 710px;
                     background-size: 40px 40px;
-                    margin-top: -28px;
+                    margin-top: -32px;
                 }
 
                 .footer-content {
@@ -2746,90 +2796,59 @@
         </script>
         
         <script>
-        (() => {
-            let current = window.scrollY;
-            let target = current;
-            let ease = 0.07;
-            let maxScroll = document.body.scrollHeight - window.innerHeight;
+        /* ======================================================
+            SMOOTH SCROLL (FIXED FOR ANCHOR LINKS)
+            ====================================================== */
+            let currentScroll = window.scrollY;
+            let targetScroll = currentScroll;
+            let ease = 0.08;
+            let isUserScrolling = false;
 
-            function updateMax() {
-                maxScroll = document.body.scrollHeight - window.innerHeight;
-            }
-            window.addEventListener('resize', updateMax);
-            window.addEventListener('load', updateMax);
-
-            // Track if we're handling an anchor navigation
-            let isAnchorNavigation = false;
-
-            // Handle anchor link clicks
-            document.addEventListener('click', (e) => {
-                const link = e.target.closest('a[href^="#"], a[href*="#"]');
-                if (link && link.href) {
-                    const url = new URL(link.href);
-                    const hash = url.hash;
-                    
-                    // Check if it's a same-page anchor
-                    if (hash && (url.pathname === window.location.pathname || link.href.includes('index.html#'))) {
-                        e.preventDefault();
-                        
-                        // If it's a link to index.html with hash, navigate there
-                        if (link.href.includes('index.html#')) {
-                            window.location.href = link.href;
-                            return;
-                        }
-                        
-                        const targetElement = document.querySelector(hash);
-                        if (targetElement) {
-                            isAnchorNavigation = true;
-                            const targetPosition = targetElement.offsetTop;
-                            target = targetPosition;
-                            current = targetPosition;
-                            window.scrollTo(0, targetPosition);
-                            
-                            // Update URL hash
-                            history.pushState(null, null, hash);
-                            
-                            setTimeout(() => {
-                                isAnchorNavigation = false;
-                            }, 500);
-                        }
-                    }
-                }
-            });
-
-            // Desktop inertial scroll - only when not anchor navigating
-            window.addEventListener('wheel', (e) => {
-                if (isAnchorNavigation) return;
+            window.addEventListener("wheel", e => {
                 e.preventDefault();
-                target += e.deltaY * 0.9;
-                target = Math.max(0, Math.min(target, maxScroll));
+                targetScroll += e.deltaY;
+                targetScroll = Math.max(
+                    0,
+                    Math.min(targetScroll, document.body.scrollHeight - window.innerHeight)
+                );
+                isUserScrolling = true;
             }, { passive: false });
 
-            // Touch support (mobile)
-            let touchStart = 0;
-            window.addEventListener('touchstart', e => {
-                if (isAnchorNavigation) return;
-                touchStart = e.touches[0].clientY;
-            }, { passive: true });
-
-            window.addEventListener('touchmove', e => {
-                if (isAnchorNavigation) return;
-                const touchDelta = touchStart - e.touches[0].clientY;
-                target += touchDelta * 1.2;
-                target = Math.max(0, Math.min(target, maxScroll));
-                touchStart = e.touches[0].clientY;
-            }, { passive: true });
-
-            function animate() {
-                if (!isAnchorNavigation) {
-                    current += (target - current) * ease;
-                    window.scrollTo(0, current);
+            function smoothScroll() {
+                if (isUserScrolling) {
+                    currentScroll += (targetScroll - currentScroll) * ease;
+                    window.scrollTo(0, currentScroll);
+                    
+                    if (Math.abs(targetScroll - currentScroll) < 0.5) {
+                        isUserScrolling = false;
+                    }
                 }
-                requestAnimationFrame(animate);
+                requestAnimationFrame(smoothScroll);
             }
 
-            animate();
-        })();
+            smoothScroll();
+
+            document.querySelectorAll('a[href^="#"]:not(#mlh-trust-badge)').forEach(a => {
+                a.addEventListener('click', e => {
+                    const targetId = a.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (!targetElement) return;
+                    
+                    e.preventDefault();
+                    
+                    const targetPosition = targetElement.offsetTop - 100; 
+                    
+                    targetScroll = targetPosition;
+                    currentScroll = targetPosition;
+                    
+                    window.scrollTo(0, targetPosition);
+                    
+                    history.pushState(null, null, targetId);
+                });
+            });
+
+            smoothScroll();
         </script>
 
         <div id="toast" class="mc-toast">Coming Soon!</div>

@@ -23,6 +23,8 @@
         />
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
             * {
                 margin: 0;
@@ -1305,7 +1307,7 @@
             #prizes::after {
                 content: "";
                 position: absolute;
-                top: 1078px;
+                top: 1084px;
                 left: 0;
 
                 width: 100%;
@@ -1319,7 +1321,7 @@
             .prizes-decoration-link {
                 position: absolute;
                 z-index: 100;
-                top: 990px;
+                top: 992px;
                 left: 300px;
                 display: block;
                 cursor: pointer;
@@ -1357,7 +1359,7 @@
             #sponsors::after {
                 content: "";
                 position: absolute;
-                top: 2744px;
+                top: 3437.5px;
                 left: 0;
 
                 width: 100%;
@@ -1371,7 +1373,7 @@
             .sponsors-decoration-link {
                 position: absolute;
                 z-index: 100;
-                top: 2653px;
+                top: 3345px;
                 left: 300px;
                 display: block;
                 cursor: pointer;
@@ -1524,6 +1526,9 @@
                 #sponsors::before {
                     height: 4px;
                 }
+                #sponsors {
+                    height: 2340px;
+                }
             }
 
             /* Very small screens (≤400px) */
@@ -1534,6 +1539,9 @@
                 #prizes::before,
                 #sponsors::before {
                     height: 3px;
+                }
+                #sponsors {
+                    height: 2000px;
                 }
             }
 
@@ -1557,10 +1565,10 @@
             h2::before {
                 content: '';
                 position: absolute;
-                top: 0px;
+                top: 8px;
                 left: 50%;
                 transform: translateX(-50%);
-                width: 700px;
+                width: 500px;
                 height: 150px;
                 background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPqLiIJaav3zAezUz5OcLfIepQxIpuV4_8expT74jViKIZSmnRJy9Menx3QN7kn6VnfebMM0UDaghJVlyFINBXiqjAaBFgNfywePaD8SkkTekfJVSeLlzEnGMpqOGx7xfe9F-4k8IpYUgg5yGq_O_aJ=w1876-h98-s-no-gm?authuser=0');
                 background-size: contain;
@@ -1568,6 +1576,50 @@
                 background-position: center;
                 image-rendering: pixelated;
                 text-shadow: #000;
+            }
+
+            h2 {
+                position: relative;
+            }
+
+            h2::after {
+                content: attr(data-corner-text);
+                position: absolute;
+                top: 70px;
+                right: 240px;
+                font-size: 30px;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #9900ff;
+                transform: rotate(-12deg);
+                font-weight: 600;
+                letter-spacing: 2px;
+                font-family: 'Satisfy', cursive;
+                letter-spacing: 1px;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                h2::after {
+                    font-size: 14px;
+                    right: 80px;
+                    top: 10px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                h2::after {
+                    font-size: 15px;
+                    right: 40px;
+                    top: 35px;
+                }
+            }
+
+            @media (max-width: 400px) {
+                h2::after {
+                    font-size: 12.5px;
+                    right: 30px;
+                    top: 32px;
+                }
             }
 
             .about-content {
@@ -2590,17 +2642,17 @@
 
             @media (max-width: 480px) {
                 .chest-wrapper::before {
-                    margin-top: 40px;
+                    margin-top: 45px;
                     margin-left: 10px;
-                    width: 200px;
-                    height: 200px;
+                    width: 190px;
+                    height: 190px;
                 }
             }
 
             @media (max-width: 400px) {
                 .chest-wrapper::before {
-                    width: 200px;
-                    height: 200px;
+                    width: 160px;
+                    height: 160px;
                     margin-top: 35px;
                 }
             }
@@ -2617,11 +2669,11 @@
 
             /* Different rotation speeds */
             .prize-row-1 .prize-card:nth-child(1) .chest-wrapper::before {
-                animation: rotateStar 5s linear infinite;  /* 2nd place - faster */
+                animation: rotateStar 4.5s linear infinite;  /* 2nd place - faster */
             }
 
             .prize-row-1 .prize-card:nth-child(2) .chest-wrapper::before {
-                animation: rotateStar 8s linear infinite;  /* 1st place - fastest */
+                animation: rotateStar 3s linear infinite;  /* 1st place - fastest */
             }
 
             .prize-row-1 .prize-card:nth-child(3) .chest-wrapper::before {
@@ -2629,7 +2681,7 @@
             }
 
             .prize-row-2 .chest-wrapper::before {
-                animation: rotateStar 5s linear infinite;  /* Special prizes - slowest */
+                animation: rotateStar 12s linear infinite;  /* Special prizes - slowest */
             }
 
             .chest-img {
@@ -2670,9 +2722,9 @@
 
             /* Prize amount with scramble effect */
             .prize-amount {
-                font-size: 18px;
+                font-size: 20px;
                 color: #ffffff;
-                text-shadow: 1px 1px 0 #000000;
+                text-shadow: 2px 2px 0 #ae00ff;
                 font-family: 'Press Start 2P', cursive;
                 letter-spacing: 2px;
                 min-width: 200px;
@@ -2681,8 +2733,25 @@
             }
 
             .prize-card:not(:hover) .prize-amount {
-                color: #dfdfdf;
+                color: #ffffff;
                 text-shadow: 2px 2px 0 #000;
+            }
+
+            .prize-card:hover .prize-amount {
+                transform: scale(1.2);
+                animation: swing 0.6s ease-in-out infinite;
+            }
+
+            @keyframes swing {
+                0%, 100% {
+                    transform: scale(1.2) rotate(0deg);
+                }
+                25% {
+                    transform: scale(1.2) rotate(6deg);
+                }
+                75% {
+                    transform: scale(1.2) rotate(-6deg);
+                }
             }
 
             /* Falling animation when visible */
@@ -3693,38 +3762,91 @@
             }
 
             /* ============================================
-            SPONSORS SECTION
+            SPONSORS SECTION - DESKTOP
             ============================================ */
 
             .sponsor-tier {
                 margin-bottom: 60px;
-                /* margin-top: -50px; */
             }
 
-            .tier-title {   
-                font-size: 20px;
+            /* Wrapper for title + card together */
+            .sponsor-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+
+            /* Individual tier titles (above each card) */
+            .tier-title {
+                font-size: 25px;
                 text-align: center;
+                margin-bottom: 20px;
+                margin-top: 50px;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #8d00eb;
+                letter-spacing: 2px;
+                line-height: 1.3;
+            }
+
+            /* Section-wide tier titles (for Support & In-Kind) */
+            .section-tier-title {
+                font-size: 25px;
+                text-align: center;
+                margin-top: 60px;
                 margin-bottom: 40px;
                 color: #ffffff;
                 text-shadow: 3px 3px 0 #8d00eb;
             }
 
-            .sponsor-row {
-                display: flex;
+            /* Main Partners Row - 5 columns */
+            .main-partners .sponsor-row {
+                display: grid;
                 grid-template-columns: repeat(5, 1fr);
-                gap: 30px;
+                gap: 10px;
                 max-width: 1400px;
                 margin: 0 auto;
                 justify-content: center;
             }
 
+            /* Secondary Partners Row - 3 columns */
+            .secondary-partners .sponsor-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                max-width: 900px;
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            /* Support Partners Row - 2 columns */
+            .support-partners .sponsor-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                max-width: 500px;
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            /* In-Kind Sponsors Row - 5 columns */
+            .inkind-sponsors .sponsor-row {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            /* Sponsor Card */
             .sponsor-card {
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM6uvMH2985cILFr61NSx1sBOdYuHXQ-Uw1mj7roKDQQeDjzW8C4Tj6p5LTnAQ9Auu0dEBMQZCbqKS4m4kCsI9gudqxrmd0B1msA5lwXtRHPPjnhIdIHJwCBpCPz5P6V55MoDXakugIlZpgQo-yCgMP=w168-h168-s-no-gm?authuser=0');
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNxuTnlmpkbeCJ1hjp9K-TsVUsvgVzsYMXZnpGH3xvMCAedB-Cm_pHYQQJkW0hyclP5hBxuy6u22DoZGpQ9oZ9wtKIy0yFcDRhmZOcKMoans5ohhWybvOp724Vzip9JeYR7u5VtRzHdwxKqLc0gUhqH=w611-h922-s-no-gm?authuser=0');
                 background-size: cover;
-                border: 7.5px solid #a200ff;
+                border: 5.5px solid #a200ff;
                 border-radius: 1px;
                 padding: 30px 20px;
-                margin-bottom: -20px;
+                margin-bottom: 15px;
                 text-align: center;
                 box-shadow: 0 10px 25px rgba(114, 0, 190, 0.8);
                 transition: transform 0.3s ease;
@@ -3735,10 +3857,36 @@
                 align-items: center;
                 justify-content: center;
                 gap: 15px;
+                text-decoration: none;
+                cursor: pointer;
+                position: relative;
+            }
+
+            /* Black overlay on sponsor card */
+            .sponsor-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.75); /* Adjust opacity as needed: 0.6 = 60% black */
+                z-index: 0;
+                border-radius: 1px;
+            }
+
+            /* Make sure content appears above overlay */
+            .sponsor-card > * {
+                position: relative;
+                z-index: 1;
             }
 
             .sponsor-card:hover {
                 transform: translateY(-10px) scale(1.05);
+            }
+
+            .sponsor-card:active {
+                transform: translateY(-5px) scale(1.02);
             }
 
             .sponsor-logo {
@@ -3747,36 +3895,54 @@
                 border-radius: 8px;
                 object-fit: contain;
                 margin-bottom: 5px;
+                filter: drop-shadow(5px 5px 20px rgb(255, 255, 255));
             }
 
             .sponsor-name {
-                font-size: 15px;
+                font-size: 16px;
                 color: #FFF;
-                text-shadow: 3px 3px 4px #000;
-                margin: 0;
+                text-shadow: 3px 3px 4px #500068;
+                line-height: 1.3;
             }
 
-            .sponsor-card {
-                /* Keep all existing styles */
-                text-decoration: none;
-                cursor: pointer;
+            /* ============================================
+            SPONSOR CTA SECTION
+            ============================================ */
+
+            .sponsor-cta {
+                text-align: center;
+                margin-top: 80px;
+                padding: 40px 20px;
             }
 
-            /* Add a subtle indicator on hover */
-            .sponsor-card:hover {
-                transform: translateY(-10px) scale(1.05);
-                box-shadow: 0 15px 35px rgba(139, 90, 43, 0.9);
+            .sponsor-cta-text {
+                font-size: 24px;
+                color: #ffffff;
+                text-shadow: 4px 4px 0 #8e00ec;
+                margin-bottom: 40px;
+                line-height: 1.4;
             }
 
-            /* Optional: Add "click" visual feedback */
-            .sponsor-card:active {
-                transform: translateY(-5px) scale(1.02);
+            .sponsor-btn {
+                display: inline-block;
             }
 
-            /* Tablets and smaller (≤768px) */
+            .sponsor-cta-image {
+                max-width: 900px;
+                height: auto;
+                margin: 30px auto;
+                display: block;
+                image-rendering: pixelated;
+                filter: drop-shadow(0 20px 30px rgba(139, 92, 246, 0.6));
+            }
+
+            /* ============================================
+            TABLETS (≤768px)
+            ============================================ */
+
             @media (max-width: 768px) {
-                #sponsors-section {
-                    padding-bottom: -70px;
+                #sponsors {
+                    padding-bottom: 40px;
                 }
 
                 .sponsor-tier {
@@ -3784,134 +3950,269 @@
                 }
                 
                 .tier-title {
+                    font-size: 13px;
+                    margin-bottom: 15px;
+                }
+
+                .section-tier-title {
                     font-size: 18px;
+                    margin-top: 40px;
                     margin-bottom: 30px;
                 }
                 
-                .sponsor-row {
+                /* All rows become 2 columns on tablets */
+                .main-partners .sponsor-row,
+                .secondary-partners .sponsor-row,
+                .support-partners .sponsor-row,
+                .inkind-sponsors .sponsor-row {
                     grid-template-columns: repeat(2, 1fr);
                     gap: 20px;
-                }
-                
-                .sponsor-card {
-                    min-height: 200px;
-                    min-width: 200px;
-                    padding: 25px 15px;
-                    border-width: 3px;
-                }
-
-                .sponsor-cta-text {
-                    margin-top: -120px;
-                }
-                
-                .sponsor-logo {
-                    width: 110px;
-                    height: 110px;
-
-                }
-                
-                .sponsor-name {
-                    font-size: 15px;
-                }
-
-                /* Reduce sponsors section bottom spacing */
-                #sponsors {
-                    padding-bottom: 40px !important; /* reduced from default */
-                    /* margin-bottom: -40px; */
-                }
-                
-                /* Reduce FAQ section top spacing */
-                #faq-preview {
-                    padding-top: 40px !important; /* reduced from default */
-                    /* margin-top: -40px; */
-                }
-                
-                .sponsor-cta {
-                    margin-top: 50px;
-                    margin-bottom: 20px !important; /* reduced */
-                }
-            }
-
-            /* Mobile phones (≤480px) */
-            @media (max-width: 480px) {
-                .sponsor-tier {
-                    margin-bottom: 35px;
-                    margin-top: 0px;
-                    min-height: auto;
-                }
-                
-                .tier-title {
-                    font-size: 16px;
-                    margin-bottom: 25px;
-                }
-                
-                .sponsor-row {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 15px;
                     padding: 0 10px;
                 }
                 
                 .sponsor-card {
-                    min-height: 160px;
+                    min-height: 180px;
                     min-width: 180px;
-                    padding: 20px 12px;
-                    border-width: 3px;
-                    gap: 10px;
-                    margin-bottom: 8px;
+                    padding: 20px 15px;
+                    border-width: 5px;
                 }
                 
                 .sponsor-logo {
                     width: 100px;
                     height: 100px;
                 }
-
-                .sponsor-cta-text {
-                    margin-top: -10px;
-                }
                 
                 .sponsor-name {
-                    margin-top: 7px;
-                    font-size: 12px;
-                    line-height: 1.3;
+                    font-size: 13px;
+                }
+
+                .sponsor-cta {
+                    margin-top: 160px;
+                    padding: 30px 15px;
+                }
+                
+                .sponsor-cta-text {
+                    font-size: 18px;
+                    margin-bottom: 30px;
+                }
+
+                .sponsor-cta-image {
+                    max-width: 550px;
+                    margin: 25px auto;
                 }
             }
 
-            /* Very small screens (≤400px) */
+            /* ============================================
+            MOBILE PHONES (≤480px)
+            ============================================ */
+
+            @media (max-width: 480px) {
+                #sponsors {
+                    padding-bottom: 40px;
+                }
+
+                .sponsor-tier {
+                    margin-bottom: 30px;
+                }
+                
+                .tier-title {
+                    margin-top: 30px;
+                    font-size: 11px;
+                    margin-bottom: 12px;
+                    letter-spacing: 1px;
+                }
+
+                .section-tier-title {
+                    font-size: 16px;
+                    margin-top: 70px;
+                    margin-bottom: 25px;
+                }
+                
+                /* Main & Secondary Partners - 2 per row */
+                .main-partners .sponsor-row{
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-bottom: -50px;
+                    gap: 8px;
+                    padding: 0 0px;
+                    justify-content: center;
+                }
+                .secondary-partners .sponsor-row {
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-top: -40px;
+                    margin-bottom: -50px;
+                    gap: 15px;
+                    padding: 0 10px;
+                    justify-content: center;
+                }
+
+                /* Support Partners - 2 per row */
+                .support-partners .sponsor-row {
+                    grid-template-columns: repeat(2, 1fr);
+                    margin-bottom: -50px;
+                    gap: 10px;
+                    padding: 0 10px;
+                    justify-content: center;
+                }
+
+                /* In-Kind Sponsors - 3 per row */
+                .inkind-sponsors .sponsor-row {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                    padding: 0 8px;
+                }
+                
+                .sponsor-card {
+                    min-height: 120px;
+                    min-width: 120px;
+                    padding: 15px 10px;
+                    border-width: 4px;
+                    gap: 8px;
+                }
+
+                /* Smaller cards for in-kind sponsors */
+                .inkind-sponsors .sponsor-card {
+                    min-height: 120px;
+                    min-width: 100px;
+                    padding: 12px 6px;
+                }
+                
+                .sponsor-logo {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .inkind-sponsors .sponsor-logo {
+                    width: 60px;
+                    height: 60px;
+                }
+                
+                .sponsor-name {
+                    font-size: 9px;
+                    line-height: 1.2;
+                }
+
+                .inkind-sponsors .sponsor-name {
+                    font-size: 8px;
+                }
+
+                .sponsor-cta {
+                    margin-top: 50px;
+                    margin-bottom: 150px;
+                    padding: 25px 10px;
+                }
+                
+                .sponsor-cta-text {
+                    font-size: 15px;
+                    margin-bottom: 25px;
+                    line-height: 1.3;
+                }
+
+                .sponsor-cta-image {
+                    max-width: 320px;
+                    margin: 20px auto;
+                }
+            }
+
+            /* ============================================
+            VERY SMALL SCREENS (≤400px)
+            ============================================ */
+
             @media (max-width: 400px) {
                 .sponsor-tier {
                     margin-bottom: 30px;
                 }
                 
                 .tier-title {
-                    font-size: 14px;
-                    margin-bottom: 20px;
+                    margin-top: 9.4px;
+                    font-size: 9.5px;
+                    margin-bottom: 12px;
+                    letter-spacing: 1px;
+                }
+
+                .section-tier-title {
+                    font-size: 12px;
+                    margin-top: 58px;
+                    margin-bottom: 15px;
                 }
                 
-                .sponsor-row {
+                /* Main & Secondary Partners - 2 per row */
+                .main-partners .sponsor-row{
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-top: 50px;
+                    gap: 8px;
+                    padding: 0 0px;
+                    justify-content: center;
+                }
+                .secondary-partners .sponsor-row {
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-top: 50px;
+                    gap: 15px;
+                    padding: 0 10px;
+                    justify-content: center;
+                }
+
+                /* Support Partners - 2 per row */
+                .support-partners .sponsor-row {
                     grid-template-columns: repeat(2, 1fr);
-                    gap: 12px;
+                    gap: 10px;
+                    padding: 0px 10px;
+                    justify-content: center;
+                    margin-top: 0px;
+                }
+
+                /* In-Kind Sponsors - 3 per row */
+                .inkind-sponsors .sponsor-row {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
                     padding: 0 8px;
                 }
                 
                 .sponsor-card {
-                    min-height: 150px;
-                    min-width: 150px;
+                    min-height: 110px;
+                    min-width: 110px;
                     padding: 15px 10px;
-                    border-width: 2px;
+                    border-width: 4px;
                     gap: 8px;
-                    margin-bottom: 8px;
+                }
+
+                .inkind-sponsors .sponsor-card {
+                    min-height: 100px;
+                    min-width: 85px;
+                    padding: 10px 5px;
                 }
                 
                 .sponsor-logo {
-                    margin-top: 0px;
-                    width: 80px;
-                    height: 80px;
+                    width: 65px;
+                    height: 65px;
+                }
+
+                .inkind-sponsors .sponsor-logo {
+                    width: 50px;
+                    height: 50px;
                 }
                 
                 .sponsor-name {
-                    margin-top: 9px;
-                    font-size: 12.5px;
-                    line-height: 1.2;
+                    font-size: 7.7px;
+                    line-height: 1.1;
+                }
+
+                .inkind-sponsors .sponsor-name {
+                    font-size: 7px;
+                }
+
+                .sponsor-cta {
+                    margin-top: 40px;
+                    padding: 20px 8px;
+                }
+                
+                .sponsor-cta-text {
+                    font-size: 13px;
+                    margin-bottom: 20px;
+                }
+
+                .sponsor-cta-image {
+                    max-width: 280px;
+                    margin: 15px auto;
                 }
             }
 
@@ -5891,7 +6192,7 @@
         <!-- About Section -->
         <section id="about" class="section-bg">
             <div style="max-width: 1400px; margin: 0 auto;">
-                <h2>About AceHack</h2>
+                <h2 data-corner-text="Experience Premium">ABOUT ACEHACK</h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p>
@@ -5947,7 +6248,7 @@
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto;">
-                <h2>Hackathon Tracks</h2>
+                <h2 data-corner-text="Dream it, Build it !!">HACKATHON TRACKS</h2>
                 
                 <div class="tracks-container">
                     <!-- First Row - Right to Left -->
@@ -6062,7 +6363,7 @@
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -50px;">
-                <h2>Why Attend?</h2>
+                <h2 data-corner-text="Hop On!! Limited Seats">WHY ATTEND?</h2>
                 
                 <!-- Interactive Content Section - Side by Side -->
                 <div class="interactive-content-wrapper">
@@ -6167,7 +6468,7 @@
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto; margin-top: -40px;">
-                <h2>Prize Pool</h2>
+                <h2 data-corner-text="Win big, Cash up !!">PRIZE POOL</h2>
                 <div class="prizes">
                     <!-- LEFT IMAGE -->
                     <div class="prize-left-image">
@@ -6178,7 +6479,7 @@
                     <div class="prize-chests-center">
                         <!-- First Row - 3 chests (1st elevated in middle) -->
                         <div class="prize-row prize-row-1">
-                            <div class="prize-card" data-index="1" data-amount="₹X,XX,XXX">
+                            <div class="prize-card" data-index="1" data-amount="₹25,000">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczNu_H5PVobUGKHQkuX0j_QQtF_N5AV7ezccjknQ0oHH8mRJslsN9h1DglGhHoIX_ZK6gd7nQLWTLk8anZdHajEDnFfaTDfcU8H5r4wd-Hxi7qZoH2y2BdWziMxdqBWb2Bm25twGCUwRLWSYrRbC6qUX=w273-h246-s-no-gm?authuser=0" 
                                         alt="2nd Place Chest" 
@@ -6187,11 +6488,11 @@
                                         alt="2nd Place Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">2nd <br> Place</div>
-                                <div class="prize-amount">₹X,XX,XXX</div>
+                                <div class="prize-label">#2 <br> Hackers</div>
+                                <div class="prize-amount">₹XX,XXX</div>
                             </div>
 
-                            <div class="prize-card prize-card-elevated" data-index="0" data-amount="₹X,XX,XXX">
+                            <div class="prize-card prize-card-elevated" data-index="0" data-amount="₹35,000">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczONpnP1yvDpP72KKTsTLkeid_wP14rFywsXKG-CAMpdcdGUehQI3CRHlJ-FXZePgPxFC62sJ3XVTPwm31e-neNRWNaJOO6dHZeG4q_WOmrcyoXVA33-c2xOecGan4k7F7GNllG7qnVacuRiS2INB5SO=w346-h296-s-no-gm?authuser=0" 
                                         alt="1st Place Chest" 
@@ -6200,11 +6501,11 @@
                                         alt="1st Place Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">1st<br> Place</div>
-                                <div class="prize-amount">₹X,XX,XXX</div>
+                                <div class="prize-label">#1<br> Hackers</div>
+                                <div class="prize-amount">₹XX,XXX</div>
                             </div>
 
-                            <div class="prize-card" data-index="2" data-amount="₹XX,XXX">
+                            <div class="prize-card" data-index="2" data-amount="₹20,000">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMuquS5JtdH4UZd3pxUiWPzxjpYFXME5jWI2m2ydzr-mcbCTGDFN9AWXNLfxkPv39k-RNZd7-WPvJ07760yiIXiLOeWHxsb535QfxPRnjMpnZ3VQl1lmBsWSc0FuSm0xtt5xTVQg-tcyBnYTU1DSgcg=w366-h354-s-no-gm?authuser=0" 
                                         alt="3rd Place Chest" 
@@ -6213,14 +6514,14 @@
                                         alt="3rd Place Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">3rd <br>Place</div>
+                                <div class="prize-label">#3 <br>Hackers</div>
                                 <div class="prize-amount">₹XX,XXX</div>
                             </div>
                         </div>
 
                         <!-- Second Row -->
                         <div class="prize-row prize-row-2">
-                            <div class="prize-card" data-index="0" data-amount="₹XX,XXX">
+                            <div class="prize-card" data-index="0" data-amount="₹10,000">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczO8ZGXlGbm7X7XvSdvVmmhQ8xm6qRXm2lp3MQE-t7SDlHi03j34G_pzG4lrqK5vWZ36PIA_Qx103qKP7dTN0W1NBPJocWfe0ymas-iJLPEiR-Rf7gdoOBvCL7QYQmDy0G5CkJQbjxtiTCL7foIPkl1k=w371-h364-s-no-gm?authuser=0" 
                                         alt="Best Beginner Chest" 
@@ -6229,11 +6530,11 @@
                                         alt="Best Beginner Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">#1 Beginner<br>Team </div>
+                                <div class="prize-label">#1 Rookie<br>Hackers</div>
                                 <div class="prize-amount">₹XX,XXX</div>
                             </div>
 
-                            <div class="prize-card" data-index="1" data-amount="₹XX,XXX">
+                            <div class="prize-card" data-index="1" data-amount="₹10,000">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczNNDXrSPaGnDcsLe6Frcv42JFY6v7Z_k0DRcRaFobE3vnpoPY9W1ZgrL5iG07YgJlzf4_1SvFVflW3u0SYgNk8jR2LzbeyK8-EXl6DtE2mYeF4rhyx8vZhLuaZjcucfRnARK64I_484jJ3tBqnEIkno=w377-h362-s-no-gm?authuser=0" 
                                         alt="All Girls Team Chest" 
@@ -6242,11 +6543,11 @@
                                         alt="All Girls Team Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">All Girls<br> Team</div>
+                                <div class="prize-label">#1 All<br>Girls Team</div>
                                 <div class="prize-amount">₹XX,XXX</div>
                             </div>
 
-                            <div class="prize-card" data-index="2" data-amount="₹XX,XXX">
+                            <div class="prize-card" data-index="2" data-amount="Swag Box">
                                 <div class="chest-wrapper">
                                     <img src="https://lh3.googleusercontent.com/pw/AP1GczPpc9LL6lwBVY9i5iTU6ulUwGiQ40CWRAQuM4oIfI3cNg1HRv7q9fP0PV8TQOc6RvKI8yg5GsJkuljxryZ-O7dUYGbkdS7RalEbUg6PXhMZ18tvv-KdC_zKjSvmpuoLpkQJIvf6KsRi7vYsgZSw-UD7=w228-h219-s-no-gm?authuser=0" 
                                         alt="Special Goodies Box" 
@@ -6295,86 +6596,235 @@
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto;">
-                <h2 style="margin-top: -22px; @media (max-width: 400px) {
-                h2 {
-                    margin-top: -60px;
-                }
-                }">Our Sponsors</h2>
+                <h2 data-corner-text="The MVP group" style="margin-top: -22px;">OUR SPONSORS</h2>
                 
-                <!-- Platinum Sponsors Tier -->
-                <div class="sponsor-tier">
-                    <h3 class="tier-title">Event Partner</h3>
-                    <div class="sponsor-row" >
-                        <a href="https://mlh.io/" target="_blank" class="sponsor-card" style="height:185px;">
-                            <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-black.png" alt="Sponsor Name" class="sponsor-logo" style="width:135px; height:auto; border-radius:0px;">
-                            <p class="sponsor-name">Major League<br>Hacking</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Title Sponsors Tier -->
-                <div class="sponsor-tier">
-                    <h3 class="tier-title">Platform Partner</h3>
+                <!-- Tier 0: Organizing Partners -->
+                <div class="sponsor-tier support-partners">
+                    <h3 class="tier-title section-tier-title">ORGANIZED BY</h3>
                     <div class="sponsor-row">
-                        <a href="Https://acehack5.devfolio.co" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Devfolio</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Platinum Sponsors Tier -->
-                <div class="sponsor-tier">
-                    <h3 class="tier-title">Track Sponsor</h3>
-                    <div class="sponsor-row">
-                        <a href="https://ethindia.co/" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPCFrW6ib3dQcb36A2FG6trIqazn8HIFlfQjd-jMctRRPOuyL8E5pg7alFPlQ76GeUQ_XU_PqcaceMzwja8wozElKEFqHGp-S7azyivXBcQlYeknKpjGo13iuX9fSW5RadPiULkAzRK26Xp8j2MvODQ=w407-h407-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">ETH India</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="sponsor-tier">
-                    <h3 class="tier-title">Travel Partner</h3>
-                    <div class="sponsor-row">
-                        <a href="https://www.abhibus.com/" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOS4PlTmCpNiuJDuMh5ralNIj94fEqcm-EQ2ZFehyl9crINofC5FsZgqy2FL_yZi644PMAxYfur9srq9HELglT_d2TdwnLSHWCuTSEVjXtrN_4grtbJ6Wo0mF7ZetZ2BhJ6aTem41qLcFKM3ik1ZDwm=w512-h512-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
-                            <p class="sponsor-name">Abhi Bus</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Platinum Sponsors Tier -->
-                <div class="sponsor-tier">
-                    <h3 class="tier-title">Support Partner</h3>
-                    <div class="sponsor-row">
+                        <!-- GitHub -->
                         <a href="https://github.com/" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPtgt4lp288usORooj4kVkzDraqpRrv9C5LNLAGLb629M6GgWn-IZSvA6EsZyVPmTi1dq_EwJR1p66PXyXXWYncZVYkPI3EfFdzAmgKzpbk8kezvKlcfxoUfPT2--1h98GlhIgFMopJ6FwgRkILBhP7=w1038-h938-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMTxC5vjY70jB1GFM6BMlKGldoz075dtwnvxuu1EBlzDJzh_CGQ-ek-Ag8GkBzjjoB3KHc56TOsNmPTAmFFS25ncy2KyHJQI6KuJKdgzCangCBet3owSdQqb3ZVjxocxGIu60xOcl3A3Gz9Y-dEbvOv=w422-h422-s-no-gm?authuser=0" 
+                                alt="GitHub" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">UEMJ</p>
+                        </a>
+
+                        <!-- Pure Buttons -->
+                        <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczO1tKEma54kG4PUz3136VCo5Tjx08e2xdcYNMpJbMzUICVK4MBTDfqMmOGTzZRr_xfO2IDQC7Sf0uRgmSwmBWIU9IQ7jpbTklbtrLsYhI_R7w-q68ogDJzqe00F7BI8NJ5VN6iZz6ZAOOPoMgAyHz2L=w200-h200-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">IIC</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tier 1: Main Partners (Event, Platform, Track, Travel, Hiring) -->
+                <div class="sponsor-tier main-partners">
+                    <div class="sponsor-row">
+                        <!-- Event Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">EVENT<br>PARTNER</h3>
+                            <a href="https://mlh.io/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPDKScOK3ImxUuPd48WhMAPCS2GA12rOCqhy_lnmA5AFkKEwDeT5s7cy7ChTD6Ot3DN6jh7fEIQNIrVpBH4gJTGJwLwa1UygL315QXQ8nlO3yvfkubYLlOUNw2kzqEou0Y0WhydfMRIOMGcz_WL_2D-=w396-h396-s-no-gm?authuser=0" 
+                                    alt="Major League Hacking" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">MLH</p>
+                            </a>
+                        </div>
+
+                        <!-- Platform Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">PLATFORM<br>PARTNER</h3>
+                            <a href="https://acehack5.devfolio.co" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMa3cUBO7G0J5vHfBnLUy-lkzNqvggOZgw0nwMgPQSukEg5Am7zoXUkUPH9nkmtwj_Aj69Wd6Pb6KZeeVUOyGAh2Ncb5GY8SwHxrdTQOVKGBVKeJ5zwqTEa27vqM9SfShHL61JuDGgOJJ32vJnsQMU4=w255-h255-s-no-gm?authuser=0" 
+                                    alt="Devfolio" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Devfolio</p>
+                            </a>
+                        </div>
+
+                        <!-- Track Sponsor -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">TRACK<br>SPONSOR</h3>
+                            <a href="https://ethindia.co/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPCFrW6ib3dQcb36A2FG6trIqazn8HIFlfQjd-jMctRRPOuyL8E5pg7alFPlQ76GeUQ_XU_PqcaceMzwja8wozElKEFqHGp-S7azyivXBcQlYeknKpjGo13iuX9fSW5RadPiULkAzRK26Xp8j2MvODQ=w407-h407-s-no-gm?authuser=0" 
+                                    alt="ETH India" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">ETH India</p>
+                            </a>
+                        </div>
+
+                        <!-- Travel Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">TRAVEL<br>PARTNER</h3>
+                            <a href="https://www.abhibus.com/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOS4PlTmCpNiuJDuMh5ralNIj94fEqcm-EQ2ZFehyl9crINofC5FsZgqy2FL_yZi644PMAxYfur9srq9HELglT_d2TdwnLSHWCuTSEVjXtrN_4grtbJ6Wo0mF7ZetZ2BhJ6aTem41qLcFKM3ik1ZDwm=w512-h512-s-no-gm?authuser=0" 
+                                    alt="abhibus" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">abhibus</p>
+                            </a>
+                        </div>
+
+                        <!-- Hiring Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">HIRING<br>PARTNER</h3>
+                            <a href="https://www.threewaystudio.world/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczOdplTsPhTx_Ad2sIGfY9ULnfA5qgjkSQfORahCJ5kBngFR32GOOKfUhYlaOjfS5KUmYCvqjp9xYKWTKitzoD-suiHmMH_oGr8h3AiUi7_MRZlXiZtaBOFMc2LroFEmwiJuXD5dedRY7N-4qVSmuPfU=w300-h300-s-no-gm?authuser=0" 
+                                    alt="Threeway" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Threeway</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Secondary Partners (AI Track, Community, Knowledge) -->
+                <div class="sponsor-tier secondary-partners">
+                    <div class="sponsor-row">
+                        <!-- AI Track Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">AI TRACK<br>PARTNER</h3>
+                            <a href="https://www.duality.ai/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPn0Ng0ozDP7LWo5YY-R0eSxeaqGiIXDHoPdev0AZlnxjQ_Xlaje4noYDBJ2Un0a4204l3Qrmn4e2ym4m1YtWQdxG2F8ay3U3i0y14x9k-zYh2wuJTIpL_CrqbPAS6ecMPiRRcpwv4FQCzkGon4D-O_=w320-h320-s-no-gm?authuser=0" 
+                                    alt="Duality AI" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Duality AI</p>
+                            </a>
+                        </div>
+
+                        <!-- Community Partner -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">COMMUNITY<br>PARTNER</h3>
+                            <a href="https://github.com/daytonaio/daytona" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczMl9shEfMYOPT9FwB7_bsZgiVv9em69uiYvMHyaxdgxvPLmSLpun3afldhad-vO8BioW0to4DSe7hkWBo7SxnzamrCSBPPPGXmVSC1CxQtR6w1eKtv38nV9Gpg2Iqxy20ytEakS0fdDOXmKzn1BRWol=w200-h200-s-no-gm?authuser=0" 
+                                    alt="Daytona" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Daytona</p>
+                            </a>
+                        </div>
+
+                        <!-- Knowledge Sponsor -->
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">KNOWLEDGE<br>SPONSOR</h3>
+                            <a href="https://mastra.ai/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPba-3ywKjHzdcAFlGU9Ix8YFJH8RviBl98gIS9XvM_BjAE6hheySO_gQ0mQY8RR-Y-VWwumCkiUrPg42du7o0tfMB6II3svLL9Xuw4C4qa9sEta5qtwt7nwQDA4gd0MirweBGJ4TMfb0cbmwrH6UBg=w195-h194-s-no-gm?authuser=0" 
+                                    alt="Mastra AI" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Mastra AI</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Support Partners -->
+                <div class="sponsor-tier support-partners">
+                    <h3 class="tier-title section-tier-title">SUPPORT PARTNER</h3>
+                    <div class="sponsor-row">
+                        <!-- GitHub -->
+                        <a href="https://github.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPtgt4lp288usORooj4kVkzDraqpRrv9C5LNLAGLb629M6GgWn-IZSvA6EsZyVPmTi1dq_EwJR1p66PXyXXWYncZVYkPI3EfFdzAmgKzpbk8kezvKlcfxoUfPT2--1h98GlhIgFMopJ6FwgRkILBhP7=w1038-h938-s-no-gm?authuser=0" 
+                                alt="GitHub" 
+                                class="sponsor-logo">
                             <p class="sponsor-name">GitHub</p>
                         </a>
+
+                        <!-- Pure Buttons -->
                         <a href="https://mlh.link/MLH-PureButtons-hackathons" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczP20lYD2QaV0qiBb1w7G1-vQjeoI23hqQN6aHVkfKmiSNVonE4UzHhiSwqom-FTiojgg4BnzdZBNbdLOxDOSiJ3qQOJPDcoDE7-frwyT4lTsEJfOL0BIa20vb03q97aGuQla0464baMUDVViBfpohfw=w877-h877-s-no-gm?authuser=0" alt="Sponsor Name" class="sponsor-logo" >
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczP20lYD2QaV0qiBb1w7G1-vQjeoI23hqQN6aHVkfKmiSNVonE4UzHhiSwqom-FTiojgg4BnzdZBNbdLOxDOSiJ3qQOJPDcoDE7-frwyT4lTsEJfOL0BIa20vb03q97aGuQla0464baMUDVViBfpohfw=w877-h877-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
                             <p class="sponsor-name">Pure Buttons</p>
                         </a>
                     </div>
                 </div>
 
-                <!-- Become a Sponsor CTA -->
-                <div class="sponsor-cta">
-                    <h3 class="sponsor-cta-text">Become a Sponsor for &lt;ACEHACK 5.0/&gt;</h3>
-                    
-                    <!-- ADD IMAGE HERE -->
-                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMBNh5POzKXRQllSkb_9dJAKpHpJX7IdShFywClNRtYi9TP0IFtTsc-3dOSTBpehBXzF9inr72GK9s0xXIoe2PKnrmAsnzR183tTQsfGFCUESiUiQ_k8lQ6nk15-RC_Qzb4o8AVUIiCs6YkIrnFZKva=w1080-h608-s-no-gm?authuser=0" 
-                        alt="Sponsor Image" 
-                        class="sponsor-cta-image">
-                    
-                    <div class="stone-btn-wrapper">
-                        <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view?usp=sharing" 
-                        target="_blank" 
-                        class="stone-btn sponsor-btn">
-                            View Brochure
+                <!-- Tier 4: In-Kind Sponsors -->
+                <div class="sponsor-tier inkind-sponsors">
+                    <h3 class="tier-title section-tier-title">IN-KIND SPONSORS</h3>
+                    <div class="sponsor-row">
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMOWjCun8M7cVhvNkyxCNkErGFZCPX5KeeoV7gp2VooVdVogqpXg0C91dGav7NcBXbwc6VvsHCG5OewIi7k7G_pN2nM3rKb1DEqrouCPANwYwdVXpRw9ps5Y7QkunWc1_VlGN6-mHdnDOWP-EHGVbbh=w466-h466-s-no-gm?authuser=0" 
+                                alt="Sublime Text" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Sublime<br>Text</p>
                         </a>
-                        <img src="https://lh3.googleusercontent.com/pw/AP1GczNv5-hEeaTMGXQOc9T1cwIagBA2_69l3R4r7qgm_M8vGKQVjrcSiclhSYWUUP4bKqcvG0Iv6-nMvGQtQXrmQxLnOHQ20-OnQ0PAp0PYmeQ0PEvHKL47gBtAFAdIM32SCs9VTBTCD20ImA_J4F027DQG=w479-h479-s-no-gm?authuser=0" 
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczO6TVhkxFaN1Px7dSwrdVRl1YsHB7kATUTHgPvaNdetDf6bQBG2eRWLllNsJqiBQa7kWjZTIaWPc9RQa3LT5MEP9Se_YG41mLS9Lk5ro9BQzBidoxYbDiWKU8dc6H1EQmCoGiYzPEeYryYvSgMCJ_ap=w444-h444-s-no-gm?authuser=0" 
+                                alt="Offsec" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Offsec</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMoK2GWOeEuJ5ZxOSLtmAVAwY1JGUij_FFVVJil_l2AlGx1lPxCXMjt1LAH8pKLQPm5Ic753ukCYmaxQzea99npV_szKcYfJ2_ZuMqVLUbwu9bFJGI_1I8K20kzRRiKILKTwqK0ATrNQbIFdb0TO_W1=w225-h225-s-no-gm?authuser=0" 
+                                alt="The Global Hues" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">The Global<br>Hues</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMaYaGNkDN8hLEQD5Y1Pz_bf_JAE-tQZFFZVhCayfJuTUG_r3DyEBW1vHjZJks1bNIGsI3beZIvvM75vaB85xCeHbf9Dl4LTzQ8P38Wtl1m-Zz-QL8amVktZTuqai7ZjmYo1FKVAHvJDNYqWXJavW_H=w281-h281-s-no-gm?authuser=0" 
+                                alt="CleanShot" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">CleanShot</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMlrU4Ov-uae_pjUuNz0rW7up3zZsrPfCZWPZWsrlDaCQczS4Hf4-BzqToHDoZlBPjDSRhEw6tAm0nolpC5eIFUw3IP1t-q7WdvP-CZjTbEC8grpt-WFPwlrIl4Av2PEsqd6u6Wye0Zt6x1qvkSNyXj=w219-h230-s-no-gm?authuser=0" 
+                                alt="Interview Cake" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Interview<br>Cake</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczNCG3ExDQ1fTob5XtCrJPjS3Dyd3Jqj9-FPu_IQVP0dxqeuWojnYf3AxRIOHGPQfEfnZQudvBaScom-JNmxHDhAIvNpaudkHQLq_-GKyqxoGSSQVUhYOi7cdrBhbbU453nE9qFfW34n49O1p_DSfgvy=w135-h135-s-no-gm?authuser=0" 
+                                alt="Balsamiq" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Balsamiq</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczORzhX_krZ2_NIacSzkMo7PU-tubhrfr8QpDrXS4l-LEplpaGeLGxyWjn4ftxpWX1mnw9EIE12TfKUfRQl_FnKOoBix2hQMyqiOdqulIGWA9RwjXCySeBQ7-GlCTUUt_ppKCN_barOa2SZOjRVI_PX5=w270-h270-s-no-gm?authuser=0" 
+                                alt=".xyz" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">.xyz</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMz4NxOl96l5FJAFtNvtxGacCYSQ69OI11Drnn6DaeRES5wdA0F5ME2biPyrfcdPu3rR1E8BVpjuPL84rM5lcZI7nWTVZOdHqKyBR7Gebj-s7v4sABfuKxlcM5nX4D3_M43CZAzPYkFd04qRIeTJJ29=w225-h225-s-no-gm?authuser=0" 
+                                alt="Mobbin" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Mobbin</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPWYjOGj8kgygbLz27YLgh6hsQxVbfcDA_FwSr6WDR0pYA42kHVzdwZMHBDNuXR24jKfaveEb_Pe_ziBvUWq21Pphyf1PQZU_FSN2RkM5ruo2Iw6P-oCbzOXALgkovm4rMW8OJzEg0LjAQ2QWzh4OpY=w323-h324-s-no-gm?authuser=0" 
+                                alt="Fueler" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Fueler</p>
+                        </a>
+
+                        <a href="#" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMKVkq3Cid9lpXY5CsobUz4bzy-j5g_rMTbOauslvHQvWbSgE-jcW_Ck0VWn8Krbp0LXDNiJPluLWpQaQ4lYtIuNQGMipw1twQxEqPkWr4ZDXGTdjbmPruz79wX4BMPPtdKRRYvz0D2yyWaax76SfTo=w390-h390-s-no-gm?authuser=0" 
+                                alt="AoPS" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">AoPS</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sponsor CTA -->
+                <div class="sponsor-cta">
+                    <p class="sponsor-cta-text">Want to sponsor AceHack 5.0?</p>
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMBNh5POzKXRQllSkb_9dJAKpHpJX7IdShFywClNRtYi9TP0IFtTsc-3dOSTBpehBXzF9inr72GK9s0xXIoe2PKnrmAsnzR183tTQsfGFCUESiUiQ_k8lQ6nk15-RC_Qzb4o8AVUIiCs6YkIrnFZKva=w1080-h608-s-no-gm?authuser=0" 
+                        alt="Sponsor CTA" 
+                        class="sponsor-cta-image">
+                    <div class="stone-btn-wrapper">
+                        <a href="mailto:acehack@uem.edu.in" class="stone-btn sponsor-btn">Become a Sponsor</a>
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" 
                             alt="Diamond" 
                             class="popup-image">
                     </div>
@@ -7095,7 +7545,7 @@
             const audio = document.getElementById("background-music");
             const musicToggle = document.getElementById("music-toggle");
 
-            audio.volume = 0.045; // Set initial volume to 20% to avoid being too loud
+            audio.volume = 0.065; // Set initial volume to 20% to avoid being too loud
 
             // Function to toggle music
             function toggleMusic() {
@@ -7336,7 +7786,7 @@
                     'about': "36 hours of pure innovation awaits!",
                     'tracks': "Choose your track and start building!",
                     'why-attend': "Network, learn, and grow with us! Be a part of History!!",
-                    'prizes': "Win amazing prizes and swags worth lakhs!",
+                    'prizes': "Tap the chests to unlock prizes worth ₹1 Lakh!!",
                     'sponsors': "Thanks to our amazing sponsors!",
                     'faq-preview': "Got questions? We've got answers!"
                 };
