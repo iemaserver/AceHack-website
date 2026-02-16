@@ -57,10 +57,10 @@
             ============================================ */
             .mouse-trail {
                 position: fixed;
-                width: 20px;
-                height: 20px;
+                width: 8px;
+                height: 8px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(186, 85, 255, 0.8) 0%, rgba(138, 43, 226, 0.4) 50%, transparent 100%);
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(132, 0, 255, 0.4) 50%, transparent 100%);
                 pointer-events: none;
                 z-index: 9999;
                 transform: translate(-50%, -50%);
@@ -1346,6 +1346,59 @@
                 image-rendering: pixelated;
             }
 
+            #benefits {
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.3) 30%,
+                        rgba(0, 0, 0, 0.3) 55%,
+                        rgba(0, 0, 0, 0.5) 70%,
+                        rgba(0, 0, 0, 0.7) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczMJvZYw4WuktwqRkq3C0mFeMiWPzeLAg0VP1NvQ8yoM2Bv4MWo519q7tVMK-nmspUQlm782zkSVrdWr1sDS-qH_uLL2aopJGY-WgsQaEoRFhVVLGdLWr4QDHO1VkxdAVTXp9ivsJgSlheNpapVDCtp1=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #benefits::after {
+                content: "";
+                position: absolute;
+                top: 1113.2px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .benefits-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 1020px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .benefits-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .benefits-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
+            }
+
+            
             #sponsors {
                 background-image:
                     linear-gradient(
@@ -1356,7 +1409,7 @@
                         rgba(0, 0, 0, 0.8) 70%,
                         rgba(0, 0, 0, 0.9) 100%
                     ),
-                    url('https://lh3.googleusercontent.com/pw/AP1GczPONNV2s1N6vPAyNxqM1Nere4yYjfhOIB-CcD7Y-QtO7-fSPmA15uvPqmzFSuKU0JlB_wwnbAPiKn2ET6I6anRGBG9OVT3Gi5VdizcQOG9TK880_OmAfEDBHlu1Ah5kdfuUMyfUo-AeARSDRZuL64w_=w1666-h938-s-no-gm?authuser=0');
+                    url('https://lh3.googleusercontent.com/pw/AP1GczNYE5nP5xpQCL0yOnzfxh7O8c6zHMxq0CE9EE9PBB27MAP6n0y3sdYNoQk2IMzANf0JkfRix42p-7h_6kq2pQFjE23m1lh2I3goOsF6wgzFvMZc-5DqqztZ1B0aC81cmUh0gOz1AMVBng-yPgwcuYy_=w528-h938-s-no-gm?authuser=0');
 
                 background-size: cover;
                 background-position: center;
@@ -1366,7 +1419,7 @@
             #sponsors::after {
                 content: "";
                 position: absolute;
-                top: 3928.5px;
+                top: 4741px;
                 left: 0;
 
                 width: 100%;
@@ -1380,7 +1433,7 @@
             .sponsors-decoration-link {
                 position: absolute;
                 z-index: 100;
-                top: 3840px;
+                top: 4650px;
                 left: 300px;
                 display: block;
                 cursor: pointer;
@@ -3769,6 +3822,161 @@
             }
 
             /* ============================================
+            SPONSORS BENEFIT SECTION
+            ============================================ */
+
+            .sponsor-benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            .sponsor-benefit-card {
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM_K6POKMRfjRwlMsq8bLETu21MXNZX2yRp6ek411_rFlzE5b-FuuiyAR84YQHDWto1qtSd4Z138h8YtdhwMp_9hKNkLT8Gf-fPHcRzHcpDXCb-hs71NI0CPBjw_go8N-3_Bb1_XZtic8bK4y50NoyV=w392-h392-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 4px solid #8d00eb;
+                border-radius: 2px;
+                padding: 40px 30px;
+                text-align: center;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+                transition: transform 0.3s ease;
+                position: relative;
+                min-height: 350px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .sponsor-benefit-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.75);
+                z-index: 0;
+                border-radius: 2px;
+            }
+
+            .sponsor-benefit-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .sponsor-benefit-card:hover {
+                transform: translateY(-10px) scale(1.05);
+            }
+
+            .benefit-logo {
+                width: 120px;
+                height: 120px;
+                border-radius: 8px;
+                object-fit: contain;
+                margin-bottom: 15px;
+                filter: drop-shadow(0 5px 15px rgba(255, 255, 255, 0.3));
+            }
+
+            .spn-name {
+                font-size: 20px;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #8d00eb;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .benefit-name {
+                font-size: 14px;
+                color: #ffffff;
+                text-shadow: 3px 3px 0 #8d00eb;
+                margin-bottom: 15px;
+                line-height: 1.3;
+            }
+
+            .benefit-description {
+                font-size: 12px;
+                line-height: 1.8;
+                color: #FFF;
+                text-shadow: 2px 2px 4px #000;
+                margin: 0;
+            }
+
+            /* Tablets (≤768px) */
+            @media (max-width: 768px) {
+                .sponsor-benefits-grid {
+                    grid-template-columns: 1fr;
+                    gap: 30px;
+                    padding: 0 15px;
+                }
+                
+                .sponsor-benefit-card {
+                    min-height: 300px;
+                    padding: 30px 20px;
+                }
+                
+                .benefit-logo {
+                    width: 100px;
+                    height: 100px;
+                }
+                
+                .benefit-name {
+                    font-size: 18px;
+                }
+                
+                .benefit-description {
+                    font-size: 11px;
+                }
+            }
+
+            /* Mobile (≤480px) */
+            @media (max-width: 480px) {
+                .sponsor-benefit-card {
+                    min-height: 280px;
+                    padding: 25px 15px;
+                    border-width: 3px;
+                }
+                
+                .benefit-logo {
+                    width: 80px;
+                    height: 80px;
+                }
+                
+                .benefit-name {
+                    font-size: 16px;
+                }
+                
+                .benefit-description {
+                    font-size: 10px;
+                }
+            }
+
+            /* Very small (≤400px) */
+            @media (max-width: 400px) {
+                .sponsor-benefit-card {
+                    min-height: 260px;
+                    padding: 20px 12px;
+                }
+                
+                .benefit-logo {
+                    width: 70px;
+                    height: 70px;
+                }
+                
+                .benefit-name {
+                    font-size: 14px;
+                }
+                
+                .benefit-description {
+                    font-size: 9px;
+                }
+            }
+
+            /* ============================================
             SPONSORS SECTION - DESKTOP
             ============================================ */
 
@@ -3814,14 +4022,16 @@
                 max-width: 1400px;
                 margin: 0 auto;
                 justify-content: center;
+                margin-bottom: -50px;
+                margin-top: -50px;
             }
 
             /* Secondary Partners Row - 3 columns */
             .secondary-partners .sponsor-row {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 10px;
-                max-width: 900px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                max-width: 500px;
                 margin: 0 auto;
                 justify-content: center;
             }
@@ -3830,6 +4040,15 @@
             .support-partners .sponsor-row {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+                max-width: 500px;
+                margin: 0 auto;
+                justify-content: center;
+            }
+
+            .track-partners .sponsor-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
                 gap: 30px;
                 max-width: 500px;
                 margin: 0 auto;
@@ -3848,12 +4067,12 @@
 
             /* Sponsor Card */
             .sponsor-card {
-                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczNxuTnlmpkbeCJ1hjp9K-TsVUsvgVzsYMXZnpGH3xvMCAedB-Cm_pHYQQJkW0hyclP5hBxuy6u22DoZGpQ9oZ9wtKIy0yFcDRhmZOcKMoans5ohhWybvOp724Vzip9JeYR7u5VtRzHdwxKqLc0gUhqH=w611-h922-s-no-gm?authuser=0');
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPmX3bJCrL82u5thaTvyV3PfHcnKzjctNgckUyyRJ0e_IgQ6RqfdYje5HWo2VVQJ3OnQGVT2TJ0jgtJmfk2-EAcgDz-pdJTMJnGi0qKiYsPtWSBC5Asg1_mcJG3_WauS4LoZPAg4K2jxEz8hvNc0FVi=w350-h350-s-no-gm?authuser=0');
                 background-size: cover;
-                border: 5.5px solid #a200ff;
+                border: 5.5px solid #362011;
                 border-radius: 1px;
                 padding: 30px 20px;
-                margin-bottom: 15px;
+                /* margin-bottom: 15px; */
                 text-align: center;
                 box-shadow: 0 10px 25px rgba(114, 0, 190, 0.8);
                 transition: transform 0.3s ease;
@@ -3877,7 +4096,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: rgba(0, 0, 0, 0.75); /* Adjust opacity as needed: 0.6 = 60% black */
+                background: rgba(0, 0, 0, 0.55); /* Adjust opacity as needed: 0.6 = 60% black */
                 z-index: 0;
                 border-radius: 1px;
             }
@@ -3902,7 +4121,7 @@
                 border-radius: 8px;
                 object-fit: contain;
                 margin-bottom: 5px;
-                filter: drop-shadow(5px 5px 20px rgb(255, 255, 255));
+                filter: drop-shadow(5px 5px 20px rgb(230, 230, 230));
             }
 
             .sponsor-name {
@@ -6042,1276 +6261,6 @@
                 right: -12px;
             }
         }
-
-        /* ============================================
-        DESKTOP RESPONSIVE STYLES
-        1200px and 1440px Breakpoints
-        ============================================ */
-
-        /* ============================================
-        1440px - Large Desktop (Standard Full HD)
-        ============================================ */
-        @media (min-width: 1441px) and (max-width: 1600px) {
-            /* Hero Section */
-            .hero {
-                height: 850px;
-                padding: 200px 20px 80px;
-            }
-
-            .hero-logo {
-                max-width: 1000px;
-                height: 400px;
-            }
-
-            .countdown-card {
-                max-width: 600px;
-                height: 150px;
-                padding: 20px 32px;
-                margin: -75px auto;
-            }
-
-            .countdown-card h1 {
-                font-size: 20px;
-            }
-
-            .countdown-card h2 {
-                font-size: 17px;
-                margin-bottom: 20px;
-            }
-
-            .countdown {
-                gap: 25px;
-                font-size: 9px;
-            }
-
-            .countdown div {
-                min-width: 65px;
-                padding: 9px 9px;
-            }
-
-            .countdown div span:first-child {
-                font-size: 18px;
-            }
-
-            .countdown span {
-                font-size: 11px;
-                margin-top: 10px;
-            }
-
-            .stone-buttons {
-                gap: 90px;
-                margin-top: 110px;
-            }
-
-            .stone-btn {
-                font-size: 14px;
-                padding: 17px 28px;
-            }
-
-            .popup-image {
-                width: 39px;
-                height: 39px;
-            }
-
-            /* Navigation */
-            .nav-container {
-                height: 200px;
-                padding: 0 35px;
-            }
-
-            .nav-sign {
-                font-size: 12.8px;
-                padding: 11px 14px;
-            }
-
-            /* Sections */
-            section, .section-bg {
-                padding: 110px 20px;
-            }
-
-            h2 {
-                font-size: 52px;
-                margin-bottom: 72px;
-            }
-
-            h2::before {
-                width: 480px;
-                height: 140px;
-            }
-
-            h2::after {
-                font-size: 28px;
-                right: 225px;
-                top: 68px;
-            }
-
-            /* About Section */
-            .about-content {
-                font-size: 11.5px;
-                padding: 28px 0;
-            }
-
-            .about-image img {
-                width: 440px;
-                height: 290px;
-            }
-
-            /* Stats */
-            .stats {
-                margin-top: 80px;
-                gap: 18px;
-                max-width: 1150px;
-            }
-
-            .stat-box {
-                height: 95px;
-                padding: 28px 9px;
-            }
-
-            .stat-number {
-                font-size: 24px;
-                margin-top: 11px;
-            }
-
-            .stat-label {
-                font-size: 9.5px;
-                margin-top: 13px;
-            }
-
-            /* Tracks Section */
-            .tracks-container {
-                max-width: 1350px;
-                padding: 65px 18px 0;
-            }
-
-            .track-row {
-                gap: 38px;
-                padding: 48px 0;
-                margin-bottom: 38px;
-            }
-
-            .minecart-card {
-                flex: 0 0 calc(25% - 28px);
-            }
-
-            .minecart-body {
-                width: 250px;
-                height: 250px;
-            }
-
-            .track-logo {
-                width: 175px;
-                margin-top: -135px;
-            }
-
-            .track-info {
-                width: 240px;
-                height: 54px;
-                padding: 8px 24px;
-                margin-top: -42px;
-            }
-
-            .track-info h3 {
-                font-size: 13.5px;
-            }
-
-            .track-info p {
-                font-size: 9.5px;
-            }
-
-            /* Ghast Banner */
-            .ghast-banner-wrapper {
-                max-width: 950px;
-                margin: 35px auto;
-            }
-
-            .ghast-img {
-                width: 170px;
-                height: 170px;
-            }
-
-            .rope-container {
-                width: 95px;
-            }
-
-            .banner-sign {
-                max-width: 660px;
-                padding: 8px 28px;
-                max-height: 63px;
-            }
-
-            .banner-sign p {
-                font-size: 12.5px;
-            }
-
-            /* Why Attend - Cards */
-            .cards-grid {
-                gap: 28px;
-                max-width: 1450px;
-                padding: 68px 0;
-            }
-
-            .card {
-                min-height: 195px;
-                padding: 19px 0;
-            }
-
-            .card-logo {
-                width: 115px;
-                height: 115px;
-                margin-bottom: 18px;
-            }
-
-            .card h3 {
-                font-size: 17.5px;
-            }
-
-            .card p {
-                font-size: 10.5px;
-            }
-
-            .bee-image {
-                width: 88px;
-                top: -53px;
-            }
-
-            /* Interactive Content */
-            .interactive-content-wrapper {
-                gap: 55px;
-                max-width: 1250px;
-                margin-bottom: 75px;
-            }
-
-            .content-heading {
-                font-size: 24px;
-            }
-
-            .content-description {
-                font-size: 11.5px;
-            }
-
-            .interactive-cards-section {
-                height: 480px;
-            }
-
-            .interactive-card {
-                width: 465px;
-                height: 310px;
-            }
-
-            .card-edition-label {
-                font-size: 15.5px;
-                padding: 11px 33px;
-            }
-
-            /* Prizes */
-            .prize-row {
-                gap: 58px;
-                margin-top: -48px;
-            }
-
-            .prize-card {
-                min-width: 140px;
-            }
-
-            .chest-wrapper {
-                width: 200px;
-                height: 200px;
-            }
-
-            .prize-label {
-                font-size: 17.5px;
-            }
-
-            .prize-amount {
-                font-size: 19px;
-            }
-
-            .prize-left-image img,
-            .prize-right-image img {
-                max-width: 380px;
-                height: 340px;
-            }
-
-            /* Sponsors */
-            .sponsor-card {
-                min-height: 245px;
-                min-width: 235px;
-                padding: 28px 19px;
-            }
-
-            .sponsor-logo {
-                width: 118px;
-                height: 118px;
-            }
-
-            .sponsor-name {
-                font-size: 14.5px;
-            }
-
-            /* FAQ */
-            .faq-container {
-                max-width: 950px;
-            }
-
-            .faq-question {
-                font-size: 12.5px;
-                padding: 19px 24px;
-            }
-
-            .faq-answer {
-                font-size: 9.5px;
-                padding: 0 24px;
-            }
-
-            .faq-icon {
-                font-size: 23px;
-            }
-
-            /* Footer */
-            .footer-main {
-                height: 235px;
-                padding: 43px 19px 48px;
-            }
-
-            .acehack-logo {
-                width: 310px;
-                margin-top: -28px;
-            }
-
-            .follow-us {
-                font-size: 12.5px;
-            }
-
-            .social-icon {
-                width: 34px;
-                height: 34px;
-            }
-
-            .links-section h3,
-            .contact-section h3 {
-                font-size: 14.5px;
-            }
-
-            .links-section a {
-                font-size: 10.5px;
-            }
-
-            .contact-info {
-                font-size: 10.5px;
-            }
-
-            .map-overlay {
-                width: 285px;
-                height: 285px;
-                top: 63px;
-            }
-        }
-
-        /* ============================================
-        1200px - Standard Desktop
-        ============================================ */
-        @media (min-width: 1201px) and (max-width: 1440px) {
-            /* Hero Section */
-            .hero {
-                height: 820px;
-                padding: 190px 20px 75px;
-            }
-
-            .hero-logo {
-                max-width: 950px;
-                height: 380px;
-            }
-
-            .countdown-card {
-                max-width: 580px;
-                height: 145px;
-                padding: 18px 30px;
-                margin: -72px auto;
-            }
-
-            .countdown-card h1 {
-                font-size: 19px;
-            }
-
-            .countdown-card h2 {
-                font-size: 16px;
-                margin-bottom: 18px;
-            }
-
-            .countdown {
-                gap: 22px;
-                font-size: 8.5px;
-            }
-
-            .countdown div {
-                min-width: 62px;
-                padding: 8px 8px;
-            }
-
-            .countdown div span:first-child {
-                font-size: 17px;
-            }
-
-            .countdown span {
-                font-size: 10.5px;
-                margin-top: 9px;
-            }
-
-            .stone-buttons {
-                gap: 85px;
-                margin-top: 105px;
-            }
-
-            .stone-btn {
-                font-size: 13.5px;
-                padding: 16px 27px;
-            }
-
-            .popup-image {
-                width: 37px;
-                height: 37px;
-            }
-
-            /* Navigation */
-            .nav-container {
-                height: 195px;
-                padding: 0 32px;
-            }
-
-            .lantern-container {
-                width: 58px;
-            }
-
-            .chain {
-                height: 58px;
-            }
-
-            .lantern {
-                width: 48px;
-                height: 68px;
-            }
-
-            .nav-links {
-                gap: 18px;
-            }
-
-            .nav-sign {
-                font-size: 12.5px;
-                padding: 10px 13px;
-            }
-
-            .sign-chain {
-                height: 28px;
-            }
-
-            /* Sections */
-            section, .section-bg {
-                padding: 105px 18px;
-            }
-
-            h1 {
-                font-size: 21px;
-                margin-bottom: 20px;
-            }
-
-            h2 {
-                font-size: 50px;
-                margin-bottom: 70px;
-            }
-
-            h2::before {
-                width: 460px;
-                height: 135px;
-                top: 7px;
-            }
-
-            h2::after {
-                font-size: 27px;
-                right: 220px;
-                top: 66px;
-            }
-
-            /* About Section */
-            .about-content {
-                max-width: 1250px;
-                font-size: 11px;
-                padding: 26px 0;
-                gap: 18px;
-            }
-
-            .about-text {
-                margin-left: 45px;
-            }
-
-            .about-image {
-                flex: 0 0 380px;
-            }
-
-            .about-image img {
-                width: 420px;
-                height: 280px;
-            }
-
-            /* Stats */
-            .stats {
-                margin-top: 75px;
-                gap: 17px;
-                max-width: 1100px;
-            }
-
-            .stat-box {
-                height: 92px;
-                padding: 26px 8px;
-            }
-
-            .stat-number {
-                font-size: 23px;
-                margin-top: 10px;
-            }
-
-            .stat-label {
-                font-size: 9px;
-                margin-top: 12px;
-            }
-
-            /* Tracks Section */
-            .tracks-container {
-                max-width: 1300px;
-                padding: 62px 16px 0;
-                margin-bottom: -90px;
-            }
-
-            .track-row {
-                gap: 35px;
-                padding: 46px 0;
-                margin-bottom: 35px;
-            }
-
-            .minecart-rail {
-                height: 75px;
-            }
-
-            .minecart-card {
-                flex: 0 0 calc(25% - 26px);
-                gap: 23px;
-            }
-
-            .minecart-body {
-                width: 240px;
-                height: 240px;
-            }
-
-            .track-logo {
-                width: 165px;
-                margin-top: -130px;
-            }
-
-            .track-info {
-                width: 230px;
-                height: 52px;
-                padding: 7px 22px;
-                margin-top: -40px;
-            }
-
-            .track-info h3 {
-                font-size: 13px;
-                margin-top: 1.5px;
-            }
-
-            .track-info p {
-                font-size: 9px;
-            }
-
-            /* Ghast Banner */
-            .open-innovation-banner {
-                margin-top: -23px;
-                margin-left: 45px;
-                margin-bottom: -27px;
-            }
-
-            .ghast-banner-wrapper {
-                max-width: 900px;
-                margin: 32px auto;
-            }
-
-            .ghast-img {
-                width: 160px;
-                height: 160px;
-            }
-
-            .rope-container {
-                width: 90px;
-            }
-
-            .rope {
-                height: 3.5px;
-            }
-
-            .rope-left {
-                top: 17px;
-            }
-
-            .rope-right {
-                bottom: 17px;
-            }
-
-            .banner-sign {
-                max-width: 630px;
-                padding: 7px 26px;
-                max-height: 60px;
-            }
-
-            .banner-sign p {
-                font-size: 12px;
-                line-height: 1.55;
-            }
-
-            /* Why Attend Section */
-            .cards-grid {
-                gap: 26px;
-                max-width: 1400px;
-                padding: 65px 0;
-                margin-top: -18px;
-                margin-bottom: -75px;
-            }
-
-            .card-wrapper {
-                margin-bottom: 85px;
-                margin-top: 33px;
-            }
-
-            .card {
-                min-height: 190px;
-                padding: 18px 0;
-                margin-bottom: 88px;
-                margin-top: 33px;
-            }
-
-            .card-logo {
-                width: 110px;
-                height: 110px;
-                margin-bottom: 17px;
-            }
-
-            .card h3 {
-                font-size: 17px;
-                margin-bottom: 13px;
-            }
-
-            .card p {
-                font-size: 10px;
-                line-height: 1.75;
-            }
-
-            .bee-image {
-                width: 85px;
-                top: -52px;
-            }
-
-            /* Interactive Content Section */
-            .interactive-content-wrapper {
-                gap: 52px;
-                max-width: 1200px;
-                margin: 0 auto 70px;
-                margin-bottom: -28px;
-            }
-
-            .content-text-section {
-                padding-right: 35px;
-            }
-
-            .content-heading {
-                font-size: 23px;
-                margin-bottom: 28px;
-            }
-
-            .content-description {
-                font-size: 11px;
-                line-height: 1.95;
-                margin-bottom: 18px;
-            }
-
-            .interactive-cards-section {
-                height: 460px;
-            }
-
-            .interactive-card {
-                width: 450px;
-                height: 300px;
-                border-width: 9px;
-            }
-
-            .card-edition-label {
-                font-size: 15px;
-                padding: 10px 32px;
-                top: -46px;
-            }
-
-            /* Prizes Section */
-            .prizes {
-                gap: 55px;
-                padding: 35px 18px;
-            }
-
-            .prize-row {
-                gap: 55px;
-                margin-top: -46px;
-                margin-bottom: -28px;
-            }
-
-            .prize-card {
-                min-width: 138px;
-            }
-
-            .prize-card-elevated {
-                margin-bottom: 35px;
-            }
-
-            .chest-wrapper {
-                width: 190px;
-                height: 190px;
-                margin-bottom: 23px;
-            }
-
-            .chest-wrapper::before {
-                width: 280px;
-                height: 280px;
-            }
-
-            .prize-label {
-                font-size: 17px;
-                margin-bottom: 11px;
-            }
-
-            .prize-amount {
-                font-size: 18.5px;
-                min-width: 190px;
-                letter-spacing: 1.8px;
-            }
-
-            .prize-left-image,
-            .prize-right-image {
-                flex: 0 0 190px;
-            }
-
-            .prize-left-image img {
-                max-width: 360px;
-                height: 330px;
-                margin-left: -65px;
-            }
-
-            .prize-right-image img {
-                max-width: 360px;
-                height: 330px;
-            }
-
-            .prize-chests-center {
-                max-width: 750px;
-            }
-
-            /* Sponsors Section */
-            .sponsor-tier {
-                margin-bottom: 55px;
-            }
-
-            .tier-title {
-                font-size: 24px;
-                margin-bottom: 18px;
-                margin-top: 48px;
-            }
-
-            .section-tier-title {
-                font-size: 24px;
-                margin-top: 55px;
-                margin-bottom: 38px;
-            }
-
-            .main-partners .sponsor-row,
-            .secondary-partners .sponsor-row,
-            .support-partners .sponsor-row,
-            .inkind-sponsors .sponsor-row {
-                gap: 28px;
-            }
-
-            .main-partners .sponsor-row {
-                max-width: 1350px;
-            }
-
-            .secondary-partners .sponsor-row {
-                max-width: 850px;
-            }
-
-            .support-partners .sponsor-row {
-                max-width: 480px;
-            }
-
-            .inkind-sponsors .sponsor-row {
-                max-width: 1150px;
-            }
-
-            .sponsor-card {
-                min-height: 240px;
-                min-width: 230px;
-                padding: 27px 18px;
-                border-width: 5.3px;
-                gap: 14px;
-            }
-
-            .sponsor-logo {
-                width: 115px;
-                height: 115px;
-                margin-bottom: 4px;
-            }
-
-            .sponsor-name {
-                font-size: 14px;
-                line-height: 1.25;
-            }
-
-            .sponsor-cta {
-                margin-top: 75px;
-                padding: 38px 18px;
-            }
-
-            .sponsor-cta-text {
-                font-size: 23px;
-                margin-bottom: 38px;
-                line-height: 1.35;
-            }
-
-            .sponsor-cta-image {
-                max-width: 850px;
-                margin: 28px auto;
-            }
-
-            /* FAQ Section */
-            .faq-container {
-                max-width: 900px;
-                margin-bottom: 55px;
-            }
-
-            .faq-item {
-                margin-bottom: 18px;
-                border-width: 1.8px;
-            }
-
-            .faq-question {
-                font-size: 12px;
-                padding: 18px 23px;
-            }
-
-            .faq-answer {
-                font-size: 9px;
-                line-height: 1.75;
-                padding: 0 23px;
-            }
-
-            .faq-item.active .faq-answer {
-                max-height: 480px;
-                padding: 0 23px 18px 23px;
-            }
-
-            .faq-icon {
-                font-size: 22px;
-            }
-
-            .faq-cta {
-                margin-top: 38px;
-            }
-
-            /* Footer */
-            .lava-border {
-                height: 92px;
-            }
-
-            .footer-main {
-                height: 230px;
-                padding: 42px 18px 46px;
-            }
-
-            .footer-content {
-                max-width: 1550px;
-                gap: 23px;
-            }
-
-            .logo-section {
-                flex: 1 1 290px;
-                max-width: 370px;
-            }
-
-            .acehack-logo {
-                width: 300px;
-                margin-top: -27px;
-            }
-
-            .follow-us {
-                font-size: 12px;
-                margin-top: 9px;
-            }
-
-            .socials {
-                gap: 11px;
-                margin-top: 18px;
-            }
-
-            .social-icon {
-                width: 33px;
-                height: 33px;
-            }
-
-            .links-section {
-                flex: 1 1 155px;
-                min-width: 135px;
-            }
-
-            .links-section h3 {
-                font-size: 14px;
-                margin-bottom: 11px;
-            }
-
-            .links-section a {
-                font-size: 10px;
-                margin-bottom: 7px;
-            }
-
-            .contact-section {
-                flex: 1 1 245px;
-                min-width: 175px;
-            }
-
-            .contact-section h3 {
-                font-size: 14px;
-                margin-bottom: 11px;
-            }
-
-            .contact-info {
-                font-size: 10px;
-                line-height: 1.75;
-            }
-
-            .location-section {
-                flex: 1 1 270px;
-                min-width: 250px;
-            }
-
-            .location-section h3 {
-                font-size: 14px;
-                margin-bottom: 11px;
-            }
-
-            .map-overlay {
-                width: 275px;
-                height: 275px;
-                top: 62px;
-                right: 13px;
-                border-radius: 13px;
-            }
-
-            .map-overlay::before {
-                top: -14px;
-                left: -14px;
-                right: -14px;
-                bottom: -14px;
-            }
-
-            .footer-separator {
-                height: 4.5px;
-            }
-
-            .copyright {
-                font-size: 12.5px;
-                padding: 18px 0;
-            }
-
-            .footer-pill-button {
-                gap: 11px;
-                padding: 10px 28px;
-                margin-top: 18px;
-                margin-left: -58px;
-            }
-
-            .footer-pill-button img {
-                width: 58px;
-                height: 58px;
-                margin-top: -23px;
-                margin-bottom: -21px;
-                margin-left: -9px;
-            }
-
-            .footer-pill-button span {
-                font-size: 21px;
-            }
-
-            /* Section Subheadings */
-            .section-subheading {
-                font-size: 1.45rem;
-                margin: 2.9rem 0 1.9rem 0;
-                margin-left: 115px;
-                margin-bottom: -4px;
-            }
-
-            /* Decoration Links */
-            .tracks-decoration-link,
-            .why-attend-decoration-link,
-            .prizes-decoration-link,
-            .sponsors-decoration-link {
-                top: auto;
-                left: 285px;
-            }
-
-            .tracks-decoration-link {
-                top: 1364px;
-            }
-
-            .why-attend-decoration-link {
-                top: 1054px;
-            }
-
-            .prizes-decoration-link {
-                top: 962px;
-            }
-
-            .sponsors-decoration-link {
-                top: 3798px;
-            }
-
-            .tracks-decoration-link img,
-            .why-attend-decoration-link img,
-            .prizes-decoration-link img,
-            .sponsors-decoration-link img {
-                width: 850px;
-                height: 145px;
-            }
-
-            /* Section Separators */
-            #tracks::after {
-                top: 1364px;
-                height: 6.5px;
-            }
-
-            #why-attend::after {
-                top: 1145px;
-                height: 6.5px;
-            }
-
-            #prizes::after {
-                top: 1049px;
-                height: 6.5px;
-            }
-
-            #sponsors::after {
-                top: 3798px;
-                height: 6.5px;
-            }
-
-            /* Music Toggle Button */
-            .music-toggle-button {
-                width: 38px;
-                height: 38px;
-                bottom: 1.9rem;
-                right: 1.9rem;
-                font-size: 1.55rem;
-            }
-
-            /* Creeper Chatbox */
-            .creeper-chatbox {
-                bottom: 11px;
-                left: 18px;
-                gap: 14px;
-            }
-
-            .creeper-image {
-                width: 72px;
-                height: 135px;
-            }
-
-            .chat-bubble {
-                padding: 14px 19px;
-                max-width: 250px;
-                margin-bottom: 9px;
-            }
-
-            .chat-bubble p {
-                font-size: 10.5px;
-                line-height: 1.58;
-            }
-
-            /* Timeline Badge */
-            .nav-sign-container:nth-child(6) .nav-sign::after {
-                width: 34px;
-                height: 34px;
-                top: 48px;
-                right: -13px;
-            }
-        }
-
-        /* ============================================
-        COMMON OPTIMIZATIONS FOR BOTH BREAKPOINTS
-        ============================================ */
-        @media (min-width: 1201px) and (max-width: 1600px) {
-            /* Smooth font rendering */
-            body {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-
-            /* Optimize animations */
-            * {
-                will-change: auto;
-            }
-
-            .minecart-card,
-            .card-wrapper,
-            .prize-card,
-            .interactive-card {
-                will-change: transform, opacity;
-            }
-
-            /* Hero Marquee */
-            .hero-marquee {
-                padding: 11px 0;
-            }
-
-            .marquee-content span {
-                font-size: 14.5px;
-                padding-right: 48px;
-            }
-
-            /* Hero Cloud Link */
-            .hero-cloud-link {
-                margin-top: 0;
-            }
-
-            .cloud-img {
-                width: 115px;
-                height: 185px;
-            }
-
-            .cloud-text {
-                font-size: 13.5px;
-            }
-
-            /* Ensure proper z-indexing */
-            .nav-links {
-                z-index: 1000;
-            }
-
-            .hamburger-menu {
-                display: none;
-            }
-
-            .mobile-nav-overlay,
-            .nav-backdrop {
-                display: none;
-            }
-
-            /* Optimize particle effects */
-            .particle {
-                width: 9px;
-                height: 9px;
-            }
-
-            .particle-fall {
-                width: 9px;
-                height: 9px;
-            }
-
-            /* Mouse trail optimization */
-            .mouse-trail {
-                width: 18px;
-                height: 18px;
-            }
-
-            /* Flying entity */
-            .flying-entity {
-                width: 380px;
-                height: 380px;
-            }
-
-            /* End sky elements */
-            .star {
-                width: 3px;
-                height: 3px;
-            }
-
-            .purple-glow {
-                width: 380px;
-                height: 380px;
-            }
-
-            .end-cloud {
-                min-width: 75px;
-                min-height: 32px;
-            }
-
-            /* Toast notification */
-            .mc-toast {
-                bottom: 380px;
-                font-size: 21px;
-                padding: 13px 21px;
-            }
-        }
-
-        /* ============================================
-        HOVER STATES & TRANSITIONS
-        ============================================ */
-        @media (min-width: 1201px) and (max-width: 1600px) {
-            .stone-btn:hover {
-                transform: translateY(-5.5px) scale(1.038);
-            }
-
-            .sponsor-card:hover {
-                transform: translateY(-9.5px) scale(1.048);
-            }
-
-            .minecart-body:hover {
-                transform: translateY(-9.5px) scale(1.048);
-            }
-
-            .stat-box:hover {
-                transform: translateY(-9.5px) scale(1.048);
-            }
-
-            .interactive-card[data-position="front"]:hover {
-                box-shadow: 0 19px 48px rgba(80, 43, 139, 0.88);
-            }
-
-            .chest-wrapper:hover .chest-hover {
-                transform: scale(1.23);
-            }
-
-            .faq-question:hover {
-                background: rgba(0, 0, 0, 0.1);
-            }
-        }
-
-        /* ============================================
-        PRINT STYLES (OPTIONAL)
-        ============================================ */
-        @media print {
-            .hamburger-menu,
-            .mobile-nav-overlay,
-            .nav-backdrop,
-            .music-toggle-button,
-            .creeper-chatbox,
-            .mouse-trail,
-            .end-sky,
-            .flying-entity {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-
-            .stone-btn,
-            .sponsor-card,
-            .nav-sign {
-                border: 1px solid black;
-            }
-        }
     </style>
     </head>
     <body>
@@ -7444,14 +6393,14 @@
             
             <div class="stone-buttons">
                 <div class="stone-btn-wrapper">
-                <div 
-                    class="apply-button" 
-                    data-hackathon-slug="acehack5" 
-                    data-button-theme="light"
-                    style="height: 44px; width: 312px; z-index: 10000;"
-                ></div>
+                    <div 
+                        class="apply-button" 
+                        data-hackathon-slug="acehack5" 
+                        data-button-theme="light"
+                        style="height: 44px; width: 312px; z-index: 10000;"
+                    ></div>
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Diamond" class="popup-image">
-            </div>
+                </div>
                 <div class="stone-btn-wrapper">
                     <a href="https://linktr.ee/acehack5" class="stone-btn">Join The Community</a>
                     <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" alt="Golden Apple" class="popup-image">
@@ -7833,8 +6782,8 @@
                                         alt="Special Prize Hover" 
                                         class="chest-img chest-hover">
                                 </div>
-                                <div class="prize-label">Special<br> Prize</div>
-                                <div class="prize-amount">₹XX,XXX</div>
+                                <div class="prize-label">Top 10<br>Teams</div>
+                                <div class="prize-amount">Swag Box</div>
                             </div>
                         </div>
                     </div>
@@ -7867,21 +6816,73 @@
             </div>
         </section>
 
+        <!-- Sponsors Benefit Section -->
+        <section id="benefits" class="section-bg" style="padding: 80px 20px;">
+             <a href="#home" class="benefits-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2 data-corner-text="Get the Best!!">SPONSOR BENEFITS</h2>
+                
+                <div class="sponsor-benefits-grid">
+                    <!-- Benefit Card 1 -->
+                    <div class="sponsor-benefit-card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczOheQb0S9f8_5Cx-YTm1nuLQ2MvDDEiyeISBUctjATrwrTxguhxdjTAPMGI4U59TVD84jTAF_rLtMrAuYkTLOGjyeQlau7Z-fxfJVRnK9m02KK8UbFg5dWJnJ3ajwZbda9x7Q-9uXacQLbFrvrFHuR2=w343-h343-s-no-gm?authuser=0" 
+                            alt="Brand Visibility" 
+                            class="benefit-logo">
+                        <h3 class="spn-name">Open Router</h3>
+                        <h3 class="benefit-name">$10 Credit Offerings</h3>
+                        <p class="benefit-description">OpenRouter is offering $10 in free API credits to all hackathon participants to help you start building and experimenting right away. Use the credits to access powerful AI models and accelerate your project development without upfront costs.</p>
+                    </div>
+
+                    <!-- Benefit Card 2 -->
+                    <div class="sponsor-benefit-card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczPwbNsnTXe4X9p6p5LVytT5ipumTXB49x6BsxgF8TvjAl6EDgrJxHT9MCtyDlQW_GcLObbbfPcDLFyB8gingbLSl3Wy6QmqA_esaIETzzPHm7RgdtljSeTjYe2lOxiv5ErMTiWfu1pvChifjuBCizc8=w369-h369-s-no-gm?authuser=0" 
+                            alt="Talent Access" 
+                            class="benefit-logo">
+                        <h3 class="spn-name">Gemini</h3>
+                        <h3 class="benefit-name">API Prize Category</h3>
+                        <p class="benefit-description">The Google Gemini API helps developers build AI apps that understand language, analyze complex information, and generate creative content. It’s ideal for creating chatbots, research summarizers, and innovative hackathon projects.</p>
+                    </div>
+
+                    <!-- Benefit Card 3 -->
+                    <div class="sponsor-benefit-card">
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMqJ9vRoeycCtLwj6R5B7hDynS9B6syTqNw2TSRZHig28VR181t7qAswAIjlmIFqG4kaRXUsPvt0qSevqfAiid7RaKzQSfRYwL-N9qLZLoiyAnvKUi6XcLUqwwV_ZCSNjNO9zgdlRY3tv6McOQMwB0Y=w325-h325-s-no-gm?authuser=0" 
+                            alt="Innovation Showcase" 
+                            class="benefit-logo">
+                        <h3 class="spn-name">ElevenLabs</h3>
+                        <h3 class="benefit-name">$10 Credit Offerings</h3>
+                        <p class="benefit-description">ElevenLabs lets you create realistic, emotionally expressive AI-generated voices for apps, stories, and interactive experiences without complex audio production. Integrate autonomous audio into your project and get a chance to win wireless earbuds.</p>
+                    </div>
+                </div>
+                <div class="sponsor-cta">
+                    <div class="stone-btn-wrapper" style="top:-60px;">
+                        <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view" class="stone-btn sponsor-btn">Know More</a>
+                        <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" 
+                            alt="Diamond" 
+                            class="popup-image">
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
         <!-- Sponsors Section -->
         <section id="sponsors" class="section-bg">
             <a href="#home" class="sponsors-decoration-link">
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto;">
-                <h2 data-corner-text="The MVP group" style="margin-top: -22px;">OUR SPONSORS</h2>
                 
+                <h2 data-corner-text="The MVP group" style="margin-top: -22px;">OUR SPONSORS</h2>
+                <br>
                 <!-- Tier 0: Organizing Partners -->
                 <div class="sponsor-tier support-partners">
                     <h3 class="tier-title section-tier-title">ORGANIZED BY</h3>
                     <div class="sponsor-row">
                         <!-- GitHub -->
                         <a href="https://uem.edu.in/uem-jaipur/" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMTxC5vjY70jB1GFM6BMlKGldoz075dtwnvxuu1EBlzDJzh_CGQ-ek-Ag8GkBzjjoB3KHc56TOsNmPTAmFFS25ncy2KyHJQI6KuJKdgzCangCBet3owSdQqb3ZVjxocxGIu60xOcl3A3Gz9Y-dEbvOv=w422-h422-s-no-gm?authuser=0" 
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczN4f3CE9sG6CcfyWfepWZwKbDZd8AgMyaDK45swhqMwD6IoYhnTYApA89CJ1RdIojw7hN8KHlDJfLmJHo9gfESEW5rl-kHAJuU0Zrw4fk54Q2h_nEyYjlC4KJz8H4zqiROcr9rmd6Y6rgxG3iKnfbyM=w323-h323-s-no-gm?authuser=0" 
                                 alt="GitHub" 
                                 class="sponsor-logo">
                             <p class="sponsor-name">UEMJ</p>
@@ -7922,17 +6923,6 @@
                             </a>
                         </div>
 
-                        <!-- Track Sponsor -->
-                        <div class="sponsor-wrapper">
-                            <h3 class="tier-title">TRACK<br>SPONSOR</h3>
-                            <a href="https://ethindia.co/" target="_blank" class="sponsor-card">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPCFrW6ib3dQcb36A2FG6trIqazn8HIFlfQjd-jMctRRPOuyL8E5pg7alFPlQ76GeUQ_XU_PqcaceMzwja8wozElKEFqHGp-S7azyivXBcQlYeknKpjGo13iuX9fSW5RadPiULkAzRK26Xp8j2MvODQ=w407-h407-s-no-gm?authuser=0" 
-                                    alt="ETH India" 
-                                    class="sponsor-logo">
-                                <p class="sponsor-name">ETH India</p>
-                            </a>
-                        </div>
-
                         <!-- Travel Partner -->
                         <div class="sponsor-wrapper">
                             <h3 class="tier-title">TRAVEL<br>PARTNER</h3>
@@ -7952,6 +6942,16 @@
                                     alt="Threeway" 
                                     class="sponsor-logo">
                                 <p class="sponsor-name">Threeway</p>
+                            </a>
+                        </div>
+
+                        <div class="sponsor-wrapper">
+                            <h3 class="tier-title">KNOWLEDGE<br>PARTNER</h3>
+                            <a href="https://mastra.ai/" target="_blank" class="sponsor-card">
+                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPba-3ywKjHzdcAFlGU9Ix8YFJH8RviBl98gIS9XvM_BjAE6hheySO_gQ0mQY8RR-Y-VWwumCkiUrPg42du7o0tfMB6II3svLL9Xuw4C4qa9sEta5qtwt7nwQDA4gd0MirweBGJ4TMfb0cbmwrH6UBg=w195-h194-s-no-gm?authuser=0" 
+                                    alt="Mastra AI" 
+                                    class="sponsor-logo">
+                                <p class="sponsor-name">Mastra AI</p>
                             </a>
                         </div>
                     </div>
@@ -7981,23 +6981,62 @@
                                 <p class="sponsor-name">The Global<br>Hues</p>
                             </a>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Knowledge Sponsor -->
-                        <div class="sponsor-wrapper">
-                            <h3 class="tier-title">KNOWLEDGE<br>PARTNER</h3>
-                            <a href="https://mastra.ai/" target="_blank" class="sponsor-card">
-                                <img src="https://lh3.googleusercontent.com/pw/AP1GczPba-3ywKjHzdcAFlGU9Ix8YFJH8RviBl98gIS9XvM_BjAE6hheySO_gQ0mQY8RR-Y-VWwumCkiUrPg42du7o0tfMB6II3svLL9Xuw4C4qa9sEta5qtwt7nwQDA4gd0MirweBGJ4TMfb0cbmwrH6UBg=w195-h194-s-no-gm?authuser=0" 
-                                    alt="Mastra AI" 
-                                    class="sponsor-logo">
-                                <p class="sponsor-name">Mastra AI</p>
-                            </a>
-                        </div>
+                <!-- Tier 2.6: Support Partners -->
+                <div class="sponsor-tier track-partners">
+                    <h3 class="tier-title section-tier-title">TRACK PARTNER</h3>
+                    <div class="sponsor-row">
+                        <!-- GitHub -->
+                        <a href="https://ethindia.co/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPCFrW6ib3dQcb36A2FG6trIqazn8HIFlfQjd-jMctRRPOuyL8E5pg7alFPlQ76GeUQ_XU_PqcaceMzwja8wozElKEFqHGp-S7azyivXBcQlYeknKpjGo13iuX9fSW5RadPiULkAzRK26Xp8j2MvODQ=w407-h407-s-no-gm?authuser=0" 
+                                alt="GitHub" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">ETH India</p>
+                        </a>
+
+                        <!-- Pure Buttons -->
+                        <a href="https://gemini.google.com/app?hl=en-IN" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczPwbNsnTXe4X9p6p5LVytT5ipumTXB49x6BsxgF8TvjAl6EDgrJxHT9MCtyDlQW_GcLObbbfPcDLFyB8gingbLSl3Wy6QmqA_esaIETzzPHm7RgdtljSeTjYe2lOxiv5ErMTiWfu1pvChifjuBCizc8=w369-h369-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Gemini</p>
+                        </a>
+
+                        <a href="https://elevenlabs.io/brand" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMqJ9vRoeycCtLwj6R5B7hDynS9B6syTqNw2TSRZHig28VR181t7qAswAIjlmIFqG4kaRXUsPvt0qSevqfAiid7RaKzQSfRYwL-N9qLZLoiyAnvKUi6XcLUqwwV_ZCSNjNO9zgdlRY3tv6McOQMwB0Y=w325-h325-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">ElevenLabs</p>
+                        </a>
+
+                        <a href="https://www.vultr.com/?gad_campaignid=23534804580" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczP3L_RmfRGY16HvwFbhz3asUdJnM30WQuuHzbqdH0OGbS3Toj8Hh17A31cuWiLmK2efO8NuGLJu_jQY8-hWCplw2caolaj0ijLZV2Gi8K-E9npIj_dJX0q2NqfFEsLWkdbimOUDmqO13DNHcwpXGYdt=w711-h711-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Vultr</p>
+                        </a>
+
+                        <a href="https://solana.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczP5ovcSPQKw5J_uqvMolKbOeejMIPjof68buR0yXJZOkuCuxep1sAomUESE4rvgjpeXj6JOAaowZCoHATndznC-2TrgrJNcoGjX-jLl7wyJFryDG2fQKm6GmGqQMdU354OfanT3ABuPVBznJv57saLo=w335-h335-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Solana</p>
+                        </a>
+
+                        <a href="https://auth0.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOmSaxkp1NwlP59ExE_I7pWhkOT9ZUprPL7zy_rVD8l49TLmbstytiQSS20MTFJt8KC5aTphM-r00K1DsapZzz7icUz20vczRjRkeXMA3ZIEIUk2j6NMT2k4UHRj9igTDj_jh1ft2ZsQA9cCdHCDzEj=w354-h354-s-no-gm?authuser=0" 
+                                alt="Pure Buttons" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Auth0</p>
+                        </a>
                     </div>
                 </div>
 
                 <!-- Tier 3: Support Partners -->
                 <div class="sponsor-tier support-partners">
-                    <h3 class="tier-title section-tier-title">SUPPORT PARTNER</h3>
+                    <h3 class="tier-title section-tier-title">TRACK PRIZES</h3>
                     <div class="sponsor-row">
                         <!-- GitHub -->
                         <a href="https://github.com/" target="_blank" class="sponsor-card">
@@ -8098,6 +7137,34 @@
                                 class="sponsor-logo">
                             <p class="sponsor-name">AoPS</p>
                         </a>
+
+                         <a href="https://reskilll.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczM7tcVI2t64bVZUVuHqTGl_7f5VVsBMqK8mONOhpgRYaZV_V5ponZRhmd9WH0r2hHn_EFBIWwXVa-CDF9HrnpKYT5UiuLg7i5gaZnXF6ra56t3WpddNAVE-8-xL_FPI1UqoeV0jjgiBlsyKpOdlRJSG=w291-h291-s-no-gm?authuser=0" 
+                                alt=".xyz" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Reskill</p>
+                        </a>
+
+                        <a href="https://azure.microsoft.com/en-us" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMfHZLxyi5fr-BZG2QLrTjq_wPBgNlqHRlufJF7KOI3rek5XUdqELkUg8tYnuKsu0K4gqwHTIKK_a1fvaJT5LPGubn5xoj71LdBdLn7VGmtmhj1KBbEtp-6HB-kxFm8PviRhPC2XPJJy27yHVpl8zky=w251-h250-s-no-gm?authuser=0" 
+                                alt="Mobbin" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Microsoft Azure</p>
+                        </a>
+
+                        <a href="https://azdev.reskilll.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMvXh7PdShxcSeg5JGBpFcdX2fgwmGuzlizgY99S8ofu_nwRk-jF7g1AlieasL63BB5B0Vve4upf9cvpIG-RmZkehzItk1HsM35kuHUcP4_bL-B7gFf3FKldCKHTtokAoZ1dOkJ_9fb676YrCTakFag=w251-h250-s-no-gm?authuser=0" 
+                                alt="AoPS" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Azure Dev Community</p>
+                        </a>
+
+                        <a href="https://www.securewithtechies.com/" target="_blank" class="sponsor-card">
+                            <img src="https://lh3.googleusercontent.com/pw/AP1GczOIZRzJANSjLFsCIBCNQqZe0n6M-XnST9jJjC2xJhpj8rfeAirCh0CQAnabX2jkH1jf3Ff-cDWEsgrGlfD3vRq45TU8HnUekXpD0erMgJVpRajJodM0WWgmWkuHT94GoJbZ_2Pzh85zT5OM-D0GhEPG=w363-h363-s-no-gm?authuser=0" 
+                                alt="AoPS" 
+                                class="sponsor-logo">
+                            <p class="sponsor-name">Secure with Techies</p>
+                        </a>
                     </div>
                 </div>
 
@@ -8108,7 +7175,7 @@
                         alt="Sponsor CTA" 
                         class="sponsor-cta-image">
                     <div class="stone-btn-wrapper">
-                        <a href="mailto:acehack@uem.edu.in" class="stone-btn sponsor-btn">Become a Sponsor</a>
+                        <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view" class="stone-btn sponsor-btn">Become a Sponsor</a>
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" 
                             alt="Diamond" 
                             class="popup-image">
@@ -8542,33 +7609,89 @@
                 }
             }
 
-            /* ======================================================
-            PRIZE SCRAMBLE (OPTIMIZED)
+           /* ======================================================
+            PRIZE AMOUNT ANIMATION - COUNT UP ON SCROLL
             ====================================================== */
-            document.querySelectorAll('.prize-card').forEach(card => {
-                const el = card.querySelector('.prize-amount');
-                const real = card.dataset.amount;
-                let id;
-
-                const scramble = () => {
-                    el.textContent = real
-                        .split('')
-                        .map(c => (c === '₹' || c === ',' ? c : Math.floor(Math.random() * 9)))
-                        .join('');
-                };
-
-                id = setInterval(scramble, 120);
-
-                card.addEventListener('mouseenter', () => {
-                    clearInterval(id);
-                    el.textContent = real;
+            (function initPrizeCountUp() {
+                const prizeCards = document.querySelectorAll('.prize-card');
+                const animatedCards = new Set();
+                
+                prizeCards.forEach(card => {
+                    const el = card.querySelector('.prize-amount');
+                    const real = card.dataset.amount;
+                    
+                    // Extract numeric value from prize amount (e.g., "₹25,000" -> 25000)
+                    const targetValue = parseInt(real.replace(/[₹,]/g, ''));
+                    
+                    // Function to format number with commas and rupee symbol
+                    function formatAmount(num) {
+                        if (real.includes('Swag') || real.includes('Box')) {
+                            return real; // Return original if it's not a number
+                        }
+                        return '₹' + num.toLocaleString('en-IN');
+                    }
+                    
+                    // Function to animate count up
+                    function animateCountUp() {
+                        if (animatedCards.has(card) || isNaN(targetValue)) return;
+                        animatedCards.add(card);
+                        
+                        const duration = 2000; // 2 seconds
+                        const startTime = performance.now();
+                        const startValue = 0;
+                        
+                        function update(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Easing function (ease-out cubic)
+                            const easeProgress = 1 - Math.pow(1 - progress, 3);
+                            
+                            const currentValue = Math.floor(startValue + (targetValue * easeProgress));
+                            el.textContent = formatAmount(currentValue);
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(update);
+                            } else {
+                                el.textContent = real; // Ensure final value is exact
+                            }
+                        }
+                        
+                        requestAnimationFrame(update);
+                    }
+                    
+                    // Initialize with "₹XX,XXX" format
+                    if (!isNaN(targetValue)) {
+                        el.textContent = real.replace(/\d/g, 'X');
+                    }
+                    
+                    // Store the animation function on the card element
+                    card.animateCountUp = animateCountUp;
                 });
-
-                card.addEventListener('mouseleave', () => {
-                    clearInterval(id);
-                    id = setInterval(scramble, 120);
-                });
-            });
+                
+                // Create Intersection Observer for prize cards
+                const prizeObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && entry.target.animateCountUp) {
+                                // Delay animation slightly after card appears
+                                setTimeout(() => {
+                                    entry.target.animateCountUp();
+                                }, 800); // Wait 800ms after card is visible
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.3, // Trigger when 30% of card is visible
+                        rootMargin: '0px'
+                    }
+                );
+                
+                // Observe all prize cards
+                prizeCards.forEach(card => prizeObserver.observe(card));
+                
+                console.log('✓ Prize count-up on scroll initialized');
+            })();
 
             /* ======================================================
             COMING SOON TOAST
@@ -9072,6 +8195,7 @@
                     'tracks': "Choose your track and start building!",
                     'why-attend': "Network, learn, and grow with us! Be a part of History!!",
                     'prizes': "Tap the chests to unlock prizes worth ₹1 Lakh!!",
+                    'benefits': "Grab amazing benefits and perks!",
                     'sponsors': "Thanks to our amazing sponsors!",
                     'faq-preview': "Got questions? We've got answers!"
                 };
