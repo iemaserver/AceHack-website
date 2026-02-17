@@ -21,10 +21,12 @@
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@400;700;900&display=swap"
         rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+            
 
             * {
                 margin: 0;
@@ -1380,7 +1382,7 @@
             .benefits-decoration-link {
                 position: absolute;
                 z-index: 100;
-                top: 1020px;
+                top: 102w0px;
                 left: 300px;
                 display: block;
                 cursor: pointer;
@@ -1490,6 +1492,7 @@
                 #tracks::after,
                 #why-attend::after,
                 #prizes::after,
+                #benefits::after,
                 #sponsors::after {
                     height: 4px;
                     display: none;
@@ -1501,6 +1504,7 @@
                 #tracks::after,
                 #why-attend::after,
                 #prizes::after,
+                #benefits::after,
                 #sponsors::after {
                     height: 3px;
                     display: none;
@@ -1553,6 +1557,7 @@
             #faq-preview::before,
             #why-attend::before,
             #prizes::before,
+            #benefits::before,
             #sponsors::before {
                 content: "";
                 position: absolute;
@@ -1571,6 +1576,7 @@
                 #faq-preview::before,
                 #why-attend::before,
                 #prizes::before,
+                #benefits::before,
                 #sponsors::before {
                     display: block;
                     height: 5px;
@@ -1583,12 +1589,18 @@
                 #faq-preview::before,
                 #why-attend::before,
                 #prizes::before,
+                #benefits::before,
                 #sponsors::before {
                     height: 4px;
                 }
                 #sponsors {
-                    height: 2420px;
+                    height: 2920px;
                 }
+                #benefits {
+                    height: 1760px;
+                }
+                
+                
             }
 
             /* Very small screens (≤400px) */
@@ -1596,12 +1608,17 @@
                 #faq-preview::before,
                 #tracks::before,
                 #why-attend::before,
+                #benefits::before,
                 #prizes::before,
                 #sponsors::before {
                     height: 3px;
                 }
+
                 #sponsors {
-                    height: 2050px;
+                    height: 2700px;
+                }
+                #benefits {
+                    height: 1560px;
                 }
             }
 
@@ -3421,8 +3438,8 @@
             }
 
             .footer-pill-button span {
-                font-family: 'Agency FB', sans-serif;
-                font-size: 22px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 20px;
                 color: #ffffff;
                 white-space: nowrap;
                 text-shadow: none;
@@ -3915,7 +3932,7 @@
                 }
                 
                 .sponsor-benefit-card {
-                    min-height: 300px;
+                    min-height: 250px;
                     padding: 30px 20px;
                 }
                 
@@ -3942,16 +3959,16 @@
                 }
                 
                 .benefit-logo {
-                    width: 80px;
-                    height: 80px;
+                    width: 110px;
+                    height: 110px;
                 }
                 
                 .benefit-name {
-                    font-size: 16px;
+                    font-size: 10px;
                 }
                 
                 .benefit-description {
-                    font-size: 10px;
+                    font-size: 9px;
                 }
             }
 
@@ -3963,16 +3980,16 @@
                 }
                 
                 .benefit-logo {
-                    width: 70px;
-                    height: 70px;
+                    width: 100px;
+                    height: 100px;
                 }
                 
                 .benefit-name {
-                    font-size: 14px;
+                    font-size: 8px;
                 }
                 
                 .benefit-description {
-                    font-size: 9px;
+                    font-size: 7.9px;
                 }
             }
 
@@ -4242,7 +4259,7 @@
                 }
                 
                 .tier-title {
-                    margin-top: 30px;
+                    margin-top: 40px;
                     font-size: 11px;
                     margin-bottom: 12px;
                     letter-spacing: 1px;
@@ -4285,6 +4302,13 @@
                     grid-template-columns: repeat(3, 1fr);
                     gap: 10px;
                     padding: 0 8px;
+                }
+
+                .track-partners .sponsor-row {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                    padding: 0 8px;
+                    margin-bottom:-30px;
                 }
                 
                 .sponsor-card {
@@ -4346,10 +4370,11 @@
             @media (max-width: 400px) {
                 .sponsor-tier {
                     margin-bottom: 30px;
+                    margin-top: 50px;
                 }
                 
                 .tier-title {
-                    margin-top: 9.4px;
+                    margin-top: 20.4px;
                     font-size: 9.5px;
                     margin-bottom: 12px;
                     letter-spacing: 1px;
@@ -4364,7 +4389,7 @@
                 /* Main & Secondary Partners - 2 per row */
                 .main-partners .sponsor-row{
                     grid-template-columns: repeat(3, 1fr);
-                    margin-top: 50px;
+                    margin-top: 10px;
                     gap: 8px;
                     padding: 0 0px;
                     justify-content: center;
@@ -4372,6 +4397,7 @@
                 .secondary-partners .sponsor-row {
                     grid-template-columns: repeat(3, 1fr);
                     margin-top: 50px;
+                    margin-bottom:10px;
                     gap: 15px;
                     padding: 0 10px;
                     justify-content: center;
@@ -4384,6 +4410,7 @@
                     padding: 0px 10px;
                     justify-content: center;
                     margin-top: 0px;
+                    margin-bottom: 5px;
                 }
 
                 /* In-Kind Sponsors - 3 per row */
@@ -6851,13 +6878,13 @@
                             alt="Innovation Showcase" 
                             class="benefit-logo">
                         <h3 class="spn-name">ElevenLabs</h3>
-                        <h3 class="benefit-name">$10 Credit Offerings</h3>
+                        <h3 class="benefit-name">Assorted Gifts</h3>
                         <p class="benefit-description">ElevenLabs lets you create realistic, emotionally expressive AI-generated voices for apps, stories, and interactive experiences without complex audio production. Integrate autonomous audio into your project and get a chance to win wireless earbuds.</p>
                     </div>
                 </div>
                 <div class="sponsor-cta">
                     <div class="stone-btn-wrapper" style="top:-60px;">
-                        <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view" class="stone-btn sponsor-btn">Know More</a>
+                        <a href="https://drive.google.com/file/d/1thZZ9LluUTOqWVE0CzORUJYkEzWPyHSp/view" class="stone-btn sponsor-btn" data-soon="true">Know More</a>
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" 
                             alt="Diamond" 
                             class="popup-image">
