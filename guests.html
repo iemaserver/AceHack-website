@@ -3,269 +3,927 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guests - Hackathon</title>
-    <link rel="stylesheet" href="assests.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>AceHack 5.0 | Guests</title>
+    <link rel="icon" href="https://lh3.googleusercontent.com/pw/AP1GczO1t0jxmklXeu6NqXcHVBo1c93VptbcWTrP9PQ8ljiF0-VeUfWmOp9VUfzB_LH3wjN0iWHooGAUdijyRyt7jEfopelqpw-OQrHBFxMJfWKfNsXskDZGPTfgs3Xv67IEgp24zx45HpjHe8zDfVGwzA_H=w995-h995-s-no-gm?authuser=0" type="image/svg+xml"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body {
+            font-family:'Press Start 2P',cursive;
+            background:#1a1a1a;
+            color:#FFFFFF;
+            overflow-x:hidden;
+            position:relative;
+        }
+
+        /* ===================== END SKY ===================== */
+        .end-sky {
+            position:fixed; top:0; left:0; width:100%; height:100%;
+            z-index:-1;
+            background:repeating-linear-gradient(to bottom,#0a0014 0%,#1a0b2e 50%,#2d1b4e 100%);
+            pointer-events:none;
+        }
+        .star {
+            position:absolute; background:white; border-radius:50%;
+            animation:twinkle linear infinite;
+            box-shadow:0 0 4px rgba(255,255,255,0.8);
+        }
+        @keyframes twinkle {
+            0%,100%{opacity:.3;transform:scale(1);}
+            50%{opacity:1;transform:scale(1.5);}
+        }
+        .flying-entity {
+            position:absolute; top:20%; right:-300px;
+            width:500px; height:500px; z-index:0;
+            animation:fly-across 10s ease-in-out infinite;
+            filter:drop-shadow(0 0 20px rgba(139,92,246,0.6));
+        }
+        @keyframes fly-across {
+            0%{right:-300px;top:25%;transform:rotate(-8deg) scale(.85);opacity:0;}
+            10%{opacity:1;}
+            20%{top:15%;transform:rotate(6deg) scale(.95);}
+            35%{top:40%;transform:rotate(-4deg) scale(1);}
+            50%{top:5%;transform:rotate(8deg) scale(1.05);}
+            65%{top:30%;transform:rotate(-6deg) scale(1);}
+            80%{top:22%;transform:rotate(4deg) scale(.95);}
+            90%{opacity:1;}
+            100%{right:calc(100% + 320px);top:98%;transform:rotate(0) scale(.85);opacity:0;}
+        }
+
+        /* ===================== NAVBAR ===================== */
+        nav {
+            position:sticky; top:0; width:100%;
+            background:transparent; z-index:1000;
+        }
+        .nav-texture-bar {
+            width:100%; height:14px;
+            background-image:url("https://lh3.googleusercontent.com/pw/AP1GczPSZFithNMgw3p0NfejCpVSDTcs4uBveqBbFIQhIYpNpQmHtH3hdvbLKfEVlYf08kgjmMfhrvW6q5gTzl0wiluQnke2OSErtyz9RDP-R6-5-4TiPN9xICRt3IDNc5uoaUlRfsRDFyLXIzQh5_3BlLUQ=w16-h16-s-no-gm?authuser=0");
+            background-repeat:repeat-x; background-size:auto 100%;
+            background-position:center;
+            box-shadow:inset 0 -4px 6px rgba(0,0,0,0.5);
+        }
+        .nav-container {
+            max-width:100%; margin:0 auto;
+            display:flex; align-items:flex-start; justify-content:space-between;
+            padding:0 40px; position:relative; gap:0;
+        }
+        .lantern-container {
+            width:60px; transform-origin:top center;
+            animation:pendulum-swing 4s ease-in-out infinite; margin-top:-14px;
+        }
+        @keyframes pendulum-swing {0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+        .chain {
+            width:4px; height:60px; margin:0 auto;
+            background:repeating-linear-gradient(0deg,#5C4033 0,#5C4033 8px,#3E2723 8px,#3E2723 16px);
+            border-radius:2px;
+        }
+        .lantern {
+            width:50px; height:70px; margin:0 auto;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczMrCQFimH3j3lxIZcDMrVxnltCaoA8N2NwFkSExiErTZWS96phflkq5neL_d0qyMPDNTQtGEK2FLwPAguLXhlCvHCDQ4yoh-ZiWiR8jXZmJ05wnbtna_D_Jc9l7iOUpcpA-a7hvyHyg2iFNQsD7-s9A=w178-h268-s-no-gm?authuser=0');
+            background-size:contain; background-repeat:no-repeat; background-position:center;
+            animation:glow 2s ease-in-out infinite; z-index:1000; margin-bottom:100px;
+        }
+        @keyframes glow {
+            0%,100%{filter:brightness(1) drop-shadow(0 0 5px #a3e2ff);}
+            50%{filter:brightness(1.3) drop-shadow(0 0 10px #13d0ff);}
+        }
+        .nav-links {
+            display:flex; gap:20px; overflow-x:auto; scrollbar-width:none;
+            padding-bottom:80px; position:absolute; left:50%; transform:translateX(-50%);
+        }
+        .nav-links::-webkit-scrollbar{display:none;}
+        .nav-sign-container {position:relative; min-width:140px; margin-top:-14px;}
+        .sign-chain {width:4px; height:30px; background:transparent; margin:0 auto; border-radius:2px; position:relative;}
+        .sign-chain::before,.sign-chain::after {
+            content:''; position:absolute; width:4px; height:35.5px;
+            background:repeating-linear-gradient(0deg,#5C4033 0,#5C4033 6px,#3E2723 6px,#3E2723 12px);
+            border-radius:2px; top:0;
+        }
+        .sign-chain::before{left:-39px;} .sign-chain::after{right:-39px;}
+        .nav-sign {
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+            background-size:cover; border:0.1px solid #3b1b00;
+            padding:12px 15px; text-decoration:none; color:#FFF; font-size:13.4px;
+            text-shadow:2px 2px #6f00ff; white-space:nowrap; display:block;
+            text-align:center; transition:transform .3s;
+            box-shadow:0 0 10px rgba(119,0,255,0.6); z-index:1000;
+        }
+
+        /* ===================== HERO ===================== */
+        .guests-hero {
+            margin-top:-240px; padding:200px 20px 60px;
+            text-align:center;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczOnmdJI8iAsh8dhlFKJq2lf_SJScGw7PI0EVoOqhaPVOwQDEj0qdquliRyLXjHYMcLUe4x7cVKz4HnEkmWzuGrx0dpAJCqWvzIbRWlkql6vL2eaDlWKOyoB0yXksLPWhDSJSr4eil0BwmrulSOl5f5b=w800-h450-s-no-gm?authuser=0');
+            background-size:cover; background-position:center; background-attachment:fixed;
+            min-height:50vh; display:flex; flex-direction:column; justify-content:center; position:relative;
+        }
+        .guests-hero::before {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background:linear-gradient(to bottom,rgba(0,0,0,.69) 0%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.3) 90%,rgba(0,0,0,1) 100%);
+            z-index:0;
+        }
+        .guests-hero>*{position:relative;z-index:1;}
+        .guests-hero h1 {
+            font-size:48px; margin-bottom:20px; color:#ffffff;
+            text-shadow:5px 5px 0 #6200ff;
+            animation:heroFloat 6s ease-in-out infinite;
+        }
+        @keyframes heroFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+        .guests-hero p {
+            font-size:13px; max-width:750px; margin:0 auto 20px;
+            line-height:2.1; text-shadow:3px 3px 0 #000;
+        }
+
+        /* ===================== GUESTS SECTION ===================== */
+        .guests-section {padding:60px 30px 120px; max-width:1800px; margin:0 auto;}
+        .section-title {
+            text-align:center; font-size:20px; color:#fff;
+            text-shadow:4px 4px 0 #7700ff; margin-bottom:50px; letter-spacing:2px;
+        }
+
+        /* 5 per row */
+        .guests-grid {display:grid; grid-template-columns:repeat(5,1fr); gap:22px;}
+
+        /* ===================== CARD ===================== */
+        .guest-card {
+            position:relative; border:2px solid #3b2f4a; overflow:hidden;
+            transition:all .3s; box-shadow:0 5px 20px rgba(0,0,0,.8);
+            display:flex; flex-direction:column;
+        }
+        .guest-card::before {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczNnRMyOqLqz8uhsHKe1iXkI88f3bHaszEoNhw7jmQozRTa0ZTD7oWwhwvp95nkASVLX2PlfeAvch9nvN6va5j2kNr0QP70GWxapOg4B8MIiwkeDFDOtSuV8jWXc9jCjBREupS3MZdE0muy7tkghxgPr=w1199-h198-s-no-gm?authuser=0');
+            background-size:cover; opacity:.1; z-index:0;
+        }
+        .guest-card::after {
+            content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+            background:rgba(0,0,0,.8); z-index:0;
+        }
+        .guest-card>*{position:relative;z-index:1;}
+        .guest-card:hover {transform:translateY(-8px); box-shadow:0 12px 30px rgba(174,0,255,.45); border-color:#ae00ff;}
+
+        /* ── Image flip ── */
+        .card-image-wrap {width:100%; aspect-ratio:1/1; position:relative; overflow:hidden; flex-shrink:0;}
+        .card-img {position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; transition:opacity .12s ease;}
+        .card-img.mc   {opacity:1; image-rendering:pixelated;}
+        .card-img.real {opacity:0;}
+        .card-image-wrap.show-real .card-img.real{opacity:1;}
+        .card-image-wrap.show-real .card-img.mc  {opacity:0;}
+
+        /* ── Tags ── */
+        .card-tags {display:flex; gap:6px; padding:10px 12px 0; flex-wrap:wrap;}
+        .tag {font-size:7px; padding:4px 8px; text-transform:uppercase; letter-spacing:.5px;}
+        .tag-judge   {background:#7700ff; color:#fff; box-shadow:0 0 8px rgba(119,0,255,.6);}
+        .tag-mentor  {background:#00a86b; color:#fff; box-shadow:0 0 8px rgba(0,168,107,.5);}
+        .tag-speaker {background:#ff6b00; color:#fff; box-shadow:0 0 8px rgba(255,107,0,.5);}
+
+        /* ── Card body ── */
+        .card-body {padding:10px 13px 13px; flex:1; display:flex; flex-direction:column; gap:7px;}
+        .card-name {font-size:9.5px; color:#fff; text-shadow:2px 2px #7700ff; line-height:1.5;}
+        .card-role {font-size:7.5px; color:#bb86fc; line-height:1.5;}
+        .card-desc {font-size:7px; color:#ccc; line-height:1.85; flex:1;}
+
+        /* ── Social icons ── */
+        .card-socials {display:flex; gap:8px; padding-top:8px; border-top:1px solid rgba(119,0,255,.3); margin-top:auto;}
+        .social-link {
+            width:26px; height:26px; display:flex; align-items:center; justify-content:center;
+            background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15);
+            border-radius:3px; transition:all .25s; text-decoration:none;
+        }
+        .social-link:hover {background:rgba(119,0,255,.35); border-color:#ae00ff; transform:translateY(-2px); box-shadow:0 4px 10px rgba(174,0,255,.4);}
+        .social-link img {width:14px; height:14px; filter:brightness(0) invert(1);}
+
+        /* ===================== FOOTER ===================== */
+        footer#contact {width:100%; font-family:'Press Start 2P',cursive; color:#FFFFFF; image-rendering:pixelated; margin:0; padding:0; position:relative;}
+        .lava-border {
+            width:100%; height:100px;
+            background:url('https://lh3.googleusercontent.com/pw/AP1GczOpKupD-NQ9wTr938W7FxmG4dzMvMiYMQiVIQY0I6cfBdLiGNE89uoTAzmgILfwq65J147SdiuT7H080mAQ0FE49TPlLOTRVzIkLwBvANqC9aHw3YBicXPjoSjO7SjZNEVHcvck4epE2TjtBJjiwsYt=w1876-h426-s-no-gm?authuser=0') repeat-x top center;
+            background-size:auto 100%; image-rendering:pixelated;
+            animation:lavaFlow 40s linear infinite; z-index:10; position:relative;
+        }
+        @keyframes lavaFlow{0%{background-position:0 0;}100%{background-position:100% 0;}}
+        .map-overlay {
+            position:absolute; right:15px; top:65px; transform:translateY(-50%);
+            width:clamp(220px,22vw,300px); height:clamp(220px,22vw,300px);
+            border-radius:12px; overflow:visible; z-index:35;
+        }
+        .map-overlay::before {
+            content:''; position:absolute; top:-15px; left:-15px; right:-15px; bottom:-15px;
+            background:url('https://lh3.googleusercontent.com/pw/AP1GczP0t11eo5OQsh2_4WgaM7RDy5sext5zZMpTgYKx43V0JkLwNlOqCm5ZlU1YSBF6y0d5ieWk_yrkh_6Do92ePQdTlM4Ap15oTNimvkWnCfF2TIZBM-gLKtFG2BgE136cQ6rzkcBBCABLj-XYlyKYEBvu=w392-h393-s-no-gm?authuser=0') repeat;
+            background-size:100px 100px; image-rendering:pixelated; z-index:25;
+        }
+        .map-overlay iframe {width:100%; height:100%; border:0; position:relative; z-index:25;}
+        .footer-main {
+            height:240px; width:100%;
+            background:url('https://lh3.googleusercontent.com/pw/AP1GczP0t11eo5OQsh2_4WgaM7RDy5sext5zZMpTgYKx43V0JkLwNlOqCm5ZlU1YSBF6y0d5ieWk_yrkh_6Do92ePQdTlM4Ap15oTNimvkWnCfF2TIZBM-gLKtFG2BgE136cQ6rzkcBBCABLj-XYlyKYEBvu=w392-h393-s-no-gm?authuser=0') repeat;
+            background-size:100px 100px; image-rendering:pixelated;
+            padding:45px 20px 50px; margin-top:-50px; box-sizing:border-box; position:relative; z-index:15;
+        }
+        .footer-content {max-width:1600px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-start; gap:25px; z-index:25;}
+        .logo-section {flex:1 1 300px; min-width:240px; max-width:380px; text-align:center;}
+        .logo-bg {padding:8px; border-radius:1px; display:inline-flex; width:fit-content;}
+        .acehack-logo {margin-top:-30px; width:320px; max-width:320px; height:auto; display:block; image-rendering:pixelated; align-content:center;}
+        .follow-us {font-size:13px; font-weight:bold; margin-top:10px; color:#ffffff; letter-spacing:1px;}
+        .socials {display:flex; gap:clamp(8px,1.5vw,12px); margin-top:20px; justify-content:center; flex-wrap:wrap;}
+        .social-icon {width:clamp(30px,3vw,35px); height:clamp(30px,3vw,35px); background:transparent; overflow:hidden; display:flex; align-items:center; justify-content:center; transition:transform .2s;}
+        .social-icon:hover{transform:scale(1.1);}
+        .social-icon img{width:100%; height:100%; object-fit:contain;}
+        .links-section {flex:1 1 160px; min-width:140px;}
+        .links-section h3 {color:#ffffff; font-size:clamp(11px,1.8vw,15px); margin-bottom:12px; text-shadow:3px 3px hsl(281,100%,50%); white-space:nowrap;}
+        .links-section a {display:block; color:#FFFFFF; font-size:clamp(9px,1.5vw,11px); margin-bottom:8px; text-shadow:1px 1px 2px #000; white-space:nowrap; text-decoration:none;}
+        .contact-section {flex:1 1 250px; min-width:180px;}
+        .contact-section h3 {color:#ffffff; font-size:clamp(11px,1.8vw,15px); margin-bottom:12px; text-shadow:3px 3px #b700ff; white-space:nowrap;}
+        .contact-info {font-size:clamp(9px,1.5vw,11px); line-height:1.8; color:#FFFFFF; text-shadow:1px 1px 2px #000; margin:0;}
+        .location-section {flex:1 1 280px; min-width:260px; text-align:left;}
+        .footer-separator {height:5px; background-image:url('https://lh3.googleusercontent.com/pw/AP1GczMJLO4QxuMypYpHFbsxpGiAs1u51MK4EyEI40Yj0M630JhLIz5XEZo43k6deeFcnpR1imTJPxsRSn7UQ7yJ3CTq9qBY0PeGah2Qt4xeihP-Vk-zxR3p8uQC5-z0GXja6g3fjK5Dpq-NUR0teUGsDPO1=w160-h67-s-no-gm?authuser=0'); image-rendering:pixelated; background-size:80px 80px;}
+        .copyright {background:#000000; text-align:center; padding:20px 0; font-size:clamp(11px,.4vw,13px); text-shadow:1px 1px 2px #000;}
+        .mc-toast {position:fixed; bottom:390px; left:50%; transform:translateX(-50%) scale(.8); background:#2b2b2b; color:#FFD700; border:3px solid #fff700; padding:14px 22px; font-size:22px; text-shadow:2px 2px 0 #000; opacity:0; pointer-events:none; z-index:9999; transition:all .3s ease; box-shadow:0 8px 20px rgba(0,0,0,.8);}
+        .mc-toast.show{opacity:1; transform:translateX(-50%) scale(1);}
+        .footer-pill-button {display:inline-flex; align-items:center; gap:12px; background:#000000; border:3px solid #ffffff; border-radius:50px; padding:11px 30px; text-decoration:none; transition:all .3s ease; cursor:pointer; margin-top:20px; margin-left:-60px;}
+        .footer-pill-button:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(153,0,255,.6); background:#6c09ff;}
+        .footer-pill-button img{width:60px; height:60px; margin-top:-24px; margin-bottom:-22px; margin-left:-10px; object-fit:contain; image-rendering:auto;}
+        .footer-pill-button span{font-family:'Oswald',sans-serif; font-size:20px; color:#ffffff; white-space:nowrap; text-shadow:none;}
+
+        /* ===================== HAMBURGER ===================== */
+        .hamburger-menu {
+            display:none; position:fixed; top:20px; left:20px; z-index:2000;
+            background:rgba(26,11,46,.95); border:2px solid #8b5a2b; border-radius:8px;
+            padding:12px; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.8);
+            flex-direction:column; align-items:center; justify-content:center; width:50px; height:50px;
+        }
+        .hamburger-menu span{display:block; width:28px; height:3px; background:#FFD700; margin:4px 0; transition:all .3s ease; box-shadow:0 0 8px rgba(255,215,0,.6);}
+        .hamburger-menu.active span:nth-child(1){transform:rotate(45deg) translate(7px,7px);}
+        .hamburger-menu.active span:nth-child(2){opacity:0;}
+        .hamburger-menu.active span:nth-child(3){transform:rotate(-45deg) translate(8px,-8px);}
+        .mobile-nav-overlay {
+            display:none; position:fixed; top:0; left:-100%; width:280px; height:100vh;
+            background:linear-gradient(to bottom,#1a0b2e 0%,#2d1b4e 100%);
+            z-index:5999; transition:left .4s ease; overflow-y:auto;
+            box-shadow:5px 0 30px rgba(0,0,0,.9); flex-direction:column;
+        }
+        .mobile-nav-overlay.active{left:0;}
+        .mobile-nav-content{padding:80px 20px 30px; display:flex; flex-direction:column; gap:0; flex:1;}
+        .mobile-nav-item{margin-bottom:5px;}
+        .mobile-nav-link {
+            display:block;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+            background-size:cover; border:3px solid #2c231b; padding:15px 20px;
+            text-decoration:none; color:#FFF; text-shadow:2px 2px #6f00ff; font-size:11px;
+            text-align:center; transition:all .3s; box-shadow:0 4px 10px rgba(0,0,0,.6);
+        }
+        .mobile-nav-link:hover,.mobile-nav-link:active{transform:translateX(8px); box-shadow:0 6px 15px rgba(139,90,43,.8); border-color:#8b5a2b;}
+        .nav-backdrop {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.7); z-index:5998; opacity:0; transition:opacity .4s ease; pointer-events:none;}
+        .nav-backdrop.active{opacity:1; pointer-events:auto;}
+        .mobile-nav-logo{margin-top:auto; padding:20px; text-align:center; border-top:2px solid rgba(157,0,255,.3); margin-bottom:-80px;}
+        .mobile-nav-logo img{width:200px; max-width:100%; height:auto; image-rendering:pixelated;}
+
+        /* DG Swags badge — 5th nav item */
+        .nav-sign-container:nth-child(5){position:relative;}
+        .nav-sign-container:nth-child(5) .nav-sign::after {
+            content:''; position:absolute; top:50px; right:-14px; width:35px; height:35px;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczOXGkE64SfWlX-_ms-OgFccOKJF2lzGLf2IP9HMvZG1QA-0LlWslZG8aKYixhaQd5w6WaTMDmN-M54TlECR0V_ITm38UyS-7ICp6bGpoIR7Uscz5Xi9-ffvIz9BHkVmgqydf4aT_614XjwHbA3gUisy=w513-h513-s-no-gm?authuser=0');
+            background-size:contain; background-repeat:no-repeat; background-position:center;
+            image-rendering:pixelated; z-index:10; animation:redPulse .5s ease-in-out infinite;
+        }
+        .mobile-nav-item:nth-child(5){position:relative;}
+        .mobile-nav-item:nth-child(5) .mobile-nav-link::after {
+            content:''; position:absolute; top:18px; right:-8px; width:30px; height:30px;
+            background-image:url('https://lh3.googleusercontent.com/pw/AP1GczOXGkE64SfWlX-_ms-OgFccOKJF2lzGLf2IP9HMvZG1QA-0LlWslZG8aKYixhaQd5w6WaTMDmN-M54TlECR0V_ITm38UyS-7ICp6bGpoIR7Uscz5Xi9-ffvIz9BHkVmgqydf4aT_614XjwHbA3gUisy=w513-h513-s-no-gm?authuser=0');
+            background-size:contain; background-repeat:no-repeat; background-position:center;
+            image-rendering:pixelated; z-index:10; animation:redPulse .4s ease-in-out infinite;
+        }
+        @keyframes redPulse {
+            0%,100%{filter:drop-shadow(0 0 3px rgba(255,0,0,1)) drop-shadow(0 0 6px rgba(255,0,0,.8)) brightness(.9);}
+            50%{filter:drop-shadow(0 0 5px rgba(255,0,0,.5)) drop-shadow(0 0 10px rgba(255,0,0,1)) brightness(1.2);}
+        }
+
+        nav,.guests-hero,section,.end-sky{contain:layout style paint;}
+    </style>
+
+    <!-- ==============================
+         RESPONSIVE — exact from faq.html
+    ============================== -->
+    <style>
+        @media (max-width:768px) {
+            *{max-width:100%;}
+            body{overflow-x:hidden;}
+            .hamburger-menu{display:flex;}
+            .mobile-nav-overlay{display:block; z-index:1000;}
+            .nav-backdrop{display:block; z-index:1000;}
+            .lantern-container{display:none;}
+            .hamburger-menu.active span:nth-child(1){transform:rotate(45deg) translate(7px,7px);}
+            .hamburger-menu.active span:nth-child(2){opacity:0;}
+            .hamburger-menu.active span:nth-child(3){transform:rotate(-45deg) translate(8px,-8px);}
+
+            /* Hero */
+            .guests-hero{background-attachment:scroll; margin-top:-80px; padding:140px 20px 40px; min-height:45vh;}
+            .guests-hero h1{font-size:28px; margin-bottom:20px;}
+            .guests-hero p{font-size:11px; line-height:1.8; max-width:90%;}
+
+            /* Grid */
+            .guests-grid{grid-template-columns:repeat(2,1fr); gap:14px;}
+            .guests-section{padding:40px 12px 80px;}
+            .section-title{font-size:16px; margin-bottom:30px;}
+            .guest-card:hover{transform:none;}
+            .card-name{font-size:9px;}
+            .card-role{font-size:7px;}
+            .card-desc{font-size:7px; line-height:1.7;}
+            .tag{font-size:6px; padding:3px 7px;}
+
+            /* Footer */
+            .lava-border{height:80px; background-size:auto 100%; animation:lavaFlow 40s linear infinite;}
+            .footer-main{padding:30px 16px 20px; height:780px; background-size:48px 48px;}
+            .footer-content{display:flex; flex-direction:column; align-items:center; gap:20px; max-width:360px; margin:0 auto; text-align:center;}
+            .logo-section{flex:none; min-width:unset; max-width:unset;}
+            .acehack-logo{width:290px; height:auto; margin:0 auto;}
+            .follow-us{font-size:10px; margin-top:8px;}
+            .socials{justify-content:center; gap:10px; margin-top:10px;}
+            .social-icon{width:22px; height:22px;}
+            .links-section{flex:none; min-width:unset; align-items:center;}
+            .links-section h3{font-size:12px; margin-bottom:8px;}
+            .links-section a{font-size:11px; margin-bottom:6px;}
+            .contact-section{flex:none; min-width:unset;}
+            .contact-section h3{font-size:12px; margin-bottom:8px;}
+            .contact-info{font-size:11px; line-height:1.6;}
+            .location-section{flex:none; min-width:unset; width:100%; position:relative;}
+            .map-overlay{position:relative; top:0; right:0; width:100%; height:180px; margin-top:90px; border-radius:14px; overflow:hidden;}
+            .map-overlay::before{top:-6px; left:-6px; right:-6px; bottom:-6px; background-size:40px 40px; margin-bottom:-60px;}
+            .footer-separator{height:4px; margin-top:0;}
+            .copyright{font-size:8.5px; padding:12px 8px; text-align:center;}
+
+            .hamburger-menu{
+                display:flex; position:fixed; top:20px; left:5px; z-index:6000;
+                background:rgba(26,11,46,.95); border:2px solid #9900ff; border-radius:8px;
+                padding:10px; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.8);
+                flex-direction:column; align-items:center; justify-content:center;
+                width:42px; height:42px; gap:3px;
+            }
+            .hamburger-menu span{display:block; width:22px; height:3px; background:#ffffff; margin:0; transition:all .3s ease; box-shadow:0 0 8px rgba(255,215,0,.6);}
+            .nav-sign-container:nth-child(5) .nav-sign::after{width:38px; height:38px; top:-7px; right:-6px;}
+        }
+
+        @media (max-width:480px) {
+            .guests-hero{background-attachment:scroll; margin-top:-50px; padding:120px 10px 30px; min-height:40vh;}
+            .guests-hero h1{font-size:22px; margin-bottom:18px;}
+            .guests-hero p{font-size:9px; line-height:1.7; max-width:95%; margin-bottom:30px; text-shadow:2px 2px 0 #000;}
+            .guests-grid{grid-template-columns:repeat(2,1fr); gap:10px;}
+            .guests-section{padding:35px 8px 70px;}
+            .section-title{font-size:13px;}
+            .card-name{font-size:8px;}
+            .card-role{font-size:6.5px;}
+            .card-desc{font-size:6.5px;}
+            .tag{font-size:5.5px; padding:3px 6px;}
+            .social-link{width:22px; height:22px;}
+            .social-link img{width:12px; height:12px;}
+
+            .lava-border{margin-top:-150px; height:70px; background-size:auto 100%; animation-duration:60s;}
+            .footer-main{padding:24px 12px 16px; height:710px; background-size:40px 40px; margin-top:-32px;}
+            .footer-content{max-width:320px; gap:16px; padding:0; flex-direction:column; align-items:center; margin-bottom:-100px;}
+            .logo-section{width:100%; max-width:none; min-width:unset;}
+            .logo-bg{width:100%; display:flex; justify-content:center;}
+            .acehack-logo{width:220px !important; max-width:none !important; height:auto; margin-top:0;}
+            .follow-us{font-size:11px; margin-top:6px;}
+            .socials{gap:8px; margin-top:8px;}
+            .social-icon{width:20px; height:20px;}
+            .links-section h3,.contact-section h3,.location-section h3{font-size:11px; margin-bottom:6px;}
+            .links-section a{font-size:10px; margin-bottom:5px;}
+            .contact-info{font-size:9.5px; line-height:1.5;}
+            .map-overlay{margin-top:80px; margin-bottom:95px; height:150px; width:auto; border-radius:12px;}
+            .map-overlay::before{background-size:32px 32px;}
+            .footer-separator{height:3px; margin-top:0;}
+            .copyright{font-size:6.5px; line-height:1.5;}
+            .footer-pill-button{padding:8px 18px; gap:8px; margin-top:15px; margin-left:-10px;}
+            .footer-pill-button img{display:none;}
+            .footer-pill-button span{font-size:15px;}
+
+            .hamburger-menu{
+                display:flex; position:fixed; top:20px; left:5px; z-index:2000;
+                background:rgba(26,11,46,.95); border:2px solid #9900ff; border-radius:8px;
+                padding:10px; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.8);
+                flex-direction:column; align-items:center; justify-content:center;
+                width:42px; height:42px; gap:3px;
+            }
+            .hamburger-menu span{display:block; width:22px; height:3px; background:#ffffff; margin:0; transition:all .3s ease; box-shadow:0 0 8px rgba(255,215,0,.6);}
+            .mobile-nav-item:nth-child(5) .mobile-nav-link::after{width:32px; height:32px; top:10px; right:-16px;}
+        }
+
+        @media (max-width:400px) {
+            .guests-hero h1{font-size:18px; margin-bottom:15px;}
+            .guests-hero p{font-size:8px; line-height:1.6;}
+            .guests-grid{grid-template-columns:repeat(2,1fr); gap:8px;}
+            .card-name{font-size:7.5px;}
+            .card-desc{font-size:6px;}
+            .tag{font-size:5px; padding:2px 5px;}
+
+            .lava-border{height:50px; animation-duration:60s;}
+            .footer-main{margin-top:-23px; padding:24px 12px 16px; background-size:40px 40px;}
+            .footer-content{max-width:320px; gap:16px; padding:0; flex-direction:column; align-items:center; margin-bottom:-100px;}
+            .logo-section{width:100%; max-width:none; min-width:unset;}
+            .logo-bg{width:100%; display:flex; justify-content:center;}
+            .acehack-logo{width:220px !important; max-width:none !important; height:auto; margin-top:0;}
+            .follow-us{font-size:11px; margin-top:6px;}
+            .socials{gap:8px; margin-top:8px;}
+            .social-icon{width:20px; height:20px;}
+            .links-section h3,.contact-section h3,.location-section h3{font-size:11px; margin-bottom:6px;}
+            .links-section a{font-size:10px; margin-bottom:5px;}
+            .contact-info{font-size:9.5px; line-height:1.5;}
+            .map-overlay{margin-top:80px; margin-bottom:95px; height:150px; width:auto; border-radius:12px;}
+            .map-overlay::before{background-size:32px 32px;}
+            .footer-separator{height:3px; margin-top:0;}
+            .copyright{font-size:6.5px; line-height:1.5;}
+
+            .hamburger-menu{
+                display:flex; position:fixed; top:20px; left:5px; z-index:2000;
+                background:rgba(26,11,46,.95); border:2px solid #9900ff; border-radius:8px;
+                padding:10px; cursor:pointer; box-shadow:0 5px 20px rgba(0,0,0,.8);
+                flex-direction:column; align-items:center; justify-content:center;
+                width:42px; height:42px; gap:3px;
+            }
+            .hamburger-menu span{display:block; width:22px; height:3px; background:#ffffff; margin:0; transition:all .3s ease; box-shadow:0 0 8px rgba(255,215,0,.6);}
+            .mobile-nav-item:nth-child(5) .mobile-nav-link::after{width:30px; height:30px; top:8px; right:-12px;}
+        }
+    </style>
 </head>
 <body>
-    <div class="minecraft-world">
-        <!-- Header Section -->
-        <header class="page-header">
-            <h1 class="page-title">GUESTS</h1>
-            <div class="wooden-plank-header">
-                <span>Mentors, Judges & More</span>
+
+<div class="end-sky" id="endSky"></div>
+
+<!-- NAV — exact copy from faq.html -->
+<nav>
+    <div class="nav-texture-bar"></div>
+    <div class="nav-container">
+        <div class="lantern-container">
+            <div class="chain"></div>
+            <div class="lantern"></div>
+        </div>
+        <div class="nav-links">
+            <div class="nav-sign-container" style="--index:0">
+                <div class="sign-chain"></div>
+                <a href="index.html" class="nav-sign">Home</a>
             </div>
-        </header>
-
-        <!-- Unified Guests Section -->
-        <section class="guests-section">
-            <div class="section-header">
-                <h2 class="section-title">GUESTS</h2>
+            <div class="nav-sign-container" style="--index:1">
+                <div class="sign-chain"></div>
+                <a href="#timeline" class="nav-sign" data-soon="true">Timeline</a>
             </div>
-            
-            <div class="guests-grid">
-                <!-- Guest Card 1 - Mentor -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <!-- Minecraft Avatar Layer -->
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Steve" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            
-                            <!-- Real Photo Layer -->
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/2C3E50/FFFFFF?text=Mentor+1" alt="Alex Johnson" class="real-photo">
-                            </div>
-                            
-                            <!-- Info Overlay -->
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Alex Johnson</h3>
-                                    <span class="role-badge mentor-badge">MENTOR</span>
-                                    <p class="guest-designation">Senior Software Engineer</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 2 - Mentor -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Alex" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/34495E/FFFFFF?text=Mentor+2" alt="Sarah Mitchell" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Sarah Mitchell</h3>
-                                    <span class="role-badge mentor-badge">MENTOR</span>
-                                    <p class="guest-designation">Tech Lead at StartupXYZ</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 3 - Judge -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Enderman" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/9B59B6/FFFFFF?text=Judge+1" alt="Dr. James Walker" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Dr. James Walker</h3>
-                                    <span class="role-badge judge-badge">JUDGE</span>
-                                    <p class="guest-designation">Professor of CS</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 4 - Mentor -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Creeper" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/1ABC9C/FFFFFF?text=Mentor+3" alt="Marcus Chen" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Marcus Chen</h3>
-                                    <span class="role-badge mentor-badge">MENTOR</span>
-                                    <p class="guest-designation">Full Stack Developer</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 5 - Judge -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Skeleton" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/3498DB/FFFFFF?text=Judge+2" alt="Priya Sharma" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Priya Sharma</h3>
-                                    <span class="role-badge judge-badge">JUDGE</span>
-                                    <p class="guest-designation">CTO at TechCorp</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 6 - Mentor & Judge -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Zombie" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/E74C3C/FFFFFF?text=Mentor+4" alt="Emily Rodriguez" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Emily Rodriguez</h3>
-                                    <span class="role-badge mentor-badge">MENTOR • JUDGE</span>
-                                    <p class="guest-designation">ML Engineer</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 7 - Judge -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Witch" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/F39C12/FFFFFF?text=Judge+3" alt="David Kim" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">David Kim</h3>
-                                    <span class="role-badge judge-badge">JUDGE</span>
-                                    <p class="guest-designation">VC Partner</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Guest Card 8 - Investor -->
-                <div class="guest-card">
-                    <div class="card-container">
-                        <div class="card-content">
-                            <div class="minecraft-layer">
-                                <div class="minecraft-background"></div>
-                                <div class="pixel-avatar-container">
-                                    <img src="https://via.placeholder.com/180x180/8B4513/FFFFFF?text=Villager" alt="Minecraft Avatar" class="pixel-avatar">
-                                </div>
-                            </div>
-                            <div class="photo-layer">
-                                <img src="https://via.placeholder.com/300x300/16A085/FFFFFF?text=Investor+1" alt="Rachel Green" class="real-photo">
-                            </div>
-                            <div class="info-overlay">
-                                <div class="wooden-sign-box">
-                                    <h3 class="guest-name">Rachel Green</h3>
-                                    <span class="role-badge investor-badge">INVESTOR</span>
-                                    <p class="guest-designation">Angel Investor</p>
-                                    <div class="social-icons">
-                                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-                                        <a href="#" class="social-link" aria-label="GitHub">gh</a>
-                                        <a href="#" class="social-link" aria-label="Twitter">tw</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="nav-sign-container" style="--index:2">
+                <div class="sign-chain"></div>
+                <a href="guests.html" class="nav-sign">Guests</a>
             </div>
-        </section>
+            <div class="nav-sign-container" style="--index:3">
+                <div class="sign-chain"></div>
+                <a href="index.html#tracks" class="nav-sign">Tracks</a>
+            </div>
+            <div class="nav-sign-container" style="--index:4">
+                <div class="sign-chain"></div>
+                <a href="https://ace-hack-hacker-swags-inky.vercel.app/" class="nav-sign">DG Swags</a>
+            </div>
+            <div class="nav-sign-container" style="--index:5">
+                <div class="sign-chain"></div>
+                <a href="faq.html" class="nav-sign">FAQs</a>
+            </div>
+            <div class="nav-sign-container" style="--index:6">
+                <div class="sign-chain"></div>
+                <a href="#contact" class="nav-sign">Contact</a>
+            </div>
+        </div>
+        <div class="lantern-container">
+            <div class="chain"></div>
+            <div class="lantern"></div>
+        </div>
     </div>
+</nav>
 
-    <script src="assests.js"></script>
+<!-- HERO -->
+<section class="guests-hero">
+    <h1>Guests &amp; Mentors</h1>
+    <p>Meet the brilliant minds joining AceHack 5.0 — industry pioneers, seasoned mentors and visionary judges all here to inspire your creations.</p>
+</section>
+
+<!-- GUESTS GRID -->
+<section class="guests-section">
+    <p class="section-title">⛏ The Legends ⛏</p>
+    <div class="guests-grid">
+
+        <!-- Card 1 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=1" alt="Arjun Sharma">
+            </div>
+            <div class="card-tags"><span class="tag tag-judge">Judge</span><span class="tag tag-mentor">Mentor</span></div>
+            <div class="card-body">
+                <p class="card-name">Arjun Sharma</p>
+                <p class="card-role">CTO @ TechNova | AI Researcher</p>
+                <p class="card-desc">10+ years building scalable AI systems. Passionate about open-source and making tech accessible to all.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=5" alt="Priya Menon">
+            </div>
+            <div class="card-tags"><span class="tag tag-mentor">Mentor</span></div>
+            <div class="card-body">
+                <p class="card-name">Priya Menon</p>
+                <p class="card-role">Sr. Engineer @ Google | Web3</p>
+                <p class="card-desc">Blockchain architect & full-stack enthusiast. Loves hackathons and mentoring the next gen of builders.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=8" alt="Ravi Gupta">
+            </div>
+            <div class="card-tags"><span class="tag tag-judge">Judge</span></div>
+            <div class="card-body">
+                <p class="card-name">Ravi Gupta</p>
+                <p class="card-role">Founder @ StartupX | VC Investor</p>
+                <p class="card-desc">Serial entrepreneur with 3 successful exits. Evaluates ideas based on real-world impact and execution quality.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=12" alt="Ananya Bose">
+            </div>
+            <div class="card-tags"><span class="tag tag-mentor">Mentor</span><span class="tag tag-speaker">Speaker</span></div>
+            <div class="card-body">
+                <p class="card-name">Ananya Bose</p>
+                <p class="card-role">DevRel @ AWS | Cloud Architect</p>
+                <p class="card-desc">Speaker at 50+ global conferences on cloud-native architecture. Helping developers build at scale.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=15" alt="Vikram Singh">
+            </div>
+            <div class="card-tags"><span class="tag tag-judge">Judge</span><span class="tag tag-speaker">Speaker</span></div>
+            <div class="card-body">
+                <p class="card-name">Vikram Singh</p>
+                <p class="card-role">ML Lead @ Microsoft | PhD IIT</p>
+                <p class="card-desc">Generative AI & computer vision specialist. Believes every student can build world-changing tech.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=20" alt="Nisha Patel">
+            </div>
+            <div class="card-tags"><span class="tag tag-mentor">Mentor</span></div>
+            <div class="card-body">
+                <p class="card-name">Nisha Patel</p>
+                <p class="card-role">Security Engineer @ Razorpay</p>
+                <p class="card-desc">Ethical hacker & CTF champion. Brings real-world security know-how to help teams build safer apps.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=25" alt="Kunal Mehta">
+            </div>
+            <div class="card-tags"><span class="tag tag-judge">Judge</span></div>
+            <div class="card-body">
+                <p class="card-name">Kunal Mehta</p>
+                <p class="card-role">Product Lead @ Flipkart | Ex-Ola</p>
+                <p class="card-desc">Obsessed with user-centric design. Has shipped products used by millions across India.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=30" alt="Deepa Krishnan">
+            </div>
+            <div class="card-tags"><span class="tag tag-mentor">Mentor</span><span class="tag tag-speaker">Speaker</span></div>
+            <div class="card-body">
+                <p class="card-name">Deepa Krishnan</p>
+                <p class="card-role">Indie Game Dev | Unity Expert</p>
+                <p class="card-desc">Built award-winning indie games played by 2M+ worldwide. Specialises in immersive AR/VR experiences.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=35" alt="Saurabh Jain">
+            </div>
+            <div class="card-tags"><span class="tag tag-judge">Judge</span><span class="tag tag-mentor">Mentor</span></div>
+            <div class="card-body">
+                <p class="card-name">Saurabh Jain</p>
+                <p class="card-role">Chief Scientist @ ZS Associates</p>
+                <p class="card-desc">Data science veteran in health-tech & fintech. Mentored 200+ students at hackathons nationwide.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="guest-card">
+            <div class="card-image-wrap">
+                <img class="card-img mc"   src="https://lh3.googleusercontent.com/pw/AP1GczNEoBzBhYzzk9Irk6UdqAfA4CgvNBE0ewV05fQKUjgIdIe2A6Yy2vkr8ieY6KX0x-tU0ZfC00wMH6GSL-5VdaLxLGcB9W48VTI5dqV1OIN_lanCo8N9ZVBTDDl9SqxlSY4PxfNHAXV___InDebJDfjO=w160-h160-s-no-gm?authuser=0" alt="MC">
+                <img class="card-img real" src="https://i.pravatar.cc/300?img=40" alt="Meera Iyer">
+            </div>
+            <div class="card-tags"><span class="tag tag-speaker">Speaker</span><span class="tag tag-mentor">Mentor</span></div>
+            <div class="card-body">
+                <p class="card-name">Meera Iyer</p>
+                <p class="card-role">Head of IoT @ Bosch India</p>
+                <p class="card-desc">IoT visionary bridging physical & digital worlds. Passionate about sustainability through smart tech.</p>
+                <div class="card-socials">
+                    <a href="#" class="social-link" title="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="#" class="social-link" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#" class="social-link" title="X"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER — exact copy from faq.html -->
+<footer id="contact">
+    <div class="lava-border"></div>
+    <div class="footer-main">
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <div class="logo-bg">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0" alt="AceHack Logo" class="acehack-logo">
+                </div>
+                <p class="follow-us">Follow us</p>
+                <div class="socials">
+                    <a href="https://chat.whatsapp.com/FC9DCKKTe61DD3SERneNV0" class="social-icon whatsapp" aria-label="WhatsApp"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+                    <a href="https://www.instagram.com/acehack__" class="social-icon instagram" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/acehack-5-0" class="social-icon linkedin" aria-label="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+                    <a href="https://x.com/AceHack_uemj" class="social-icon x-twitter" aria-label="X (Twitter)"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"></a>
+                    <a href="https://t.me/acehack2" class="social-icon telegram" aria-label="Telegram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram"></a>
+                    <a href="https://discord.com/invite/yBDmQqYDMK" class="social-icon discord" aria-label="Discord"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord"></a>
+                    <a href="https://www.youtube.com/@Acehack-hackathon" class="social-icon youtube" aria-label="YouTube"><img src="https://lh3.googleusercontent.com/pw/AP1GczMqs3zqbyvwcx128i-6pRgrMselFGbr9n3QHZAgl-Tc_8hNbR-5JYsePjBljeuR0Bxp15UB_5qum6YKi6VFMwvIIeHpTWh2GLi5sx2sN42ADUJffUS9Us5xTfx_59tg4oe0s1K-VnuSTN6lbmM9WaF7=w128-h128-s-no-gm?authuser=0" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-section links-section">
+                <h3>Quick Links</h3>
+                <a href="index.html#home">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#tracks">Tracks</a>
+                <a href="index.html#prizes">Prizes</a>
+                <a href="faq.html">FAQs</a>
+            </div>
+            <div class="footer-section contact-section">
+                <h3>Contact Us</h3>
+                <p class="contact-info">
+                    <b style="color:#ffffff;text-shadow:1.5px 1.5px #9900ff;">Email</b>: acehack@uem.edu.in<br>
+                    <b style="color:#ffffff;text-shadow:1.5px 1.5px #9900ff;">Phone</b>: +91 9887103068<br>
+                    <b style="color:#ffffff;text-shadow:1.5px 1.5px #9900ff;">Address</b>: UEM Jaipur<br>
+                    Gurukul Campus, Sikar Road<br>
+                    Rajasthan - 303807
+                </p>
+            </div>
+            <div class="footer-section links-section" style="margin-left:30px;">
+                <h3>Archives</h3>
+                <a href="https://dark-97o.github.io/AceHack4.0/">AceHack 4.0</a>
+                <a href="https://acehack3-0.vercel.app/">AceHack 3.0</a>
+                <a href="https://acehack2-0.vercel.app/">AceHack 2.0</a>
+                <a href="https://sahityaroy.github.io/ace-hack-uemj/">AceHack 1.0</a>
+                <a href="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md" target="_blank" class="footer-pill-button">
+                    <img src="https://static.mlh.io/brand-assets/logo/official/mlh-logo-white.png" alt="Icon">
+                    <span><b>CODE OF CONDUCT</b></span>
+                </a>
+            </div>
+            <div class="footer-section location-section">
+                <div class="map-overlay">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.512!2d75.7002425!3d27.2124649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5f1e3b7b5b5%3A0xb78e5c340c935a95!2sUniversity%20of%20Engineering%20%26%20Management%20(UEM)%2C%20Jaipur!5e0!3m2!1sen!2sin!4v1739999999999"
+                        width="100%" height="100%" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-separator"></div>
+    <div class="copyright">© 2026 AceHack - University of Engineering and Management Jaipur. All Rights Reserved.</div>
+</footer>
+
+<div id="toast" class="mc-toast">Coming Soon!</div>
+
+<script>
+    /* ── End sky stars + dragon ── */
+    (function(){
+        const sky=document.getElementById('endSky');
+        for(let i=0;i<120;i++){
+            const s=document.createElement('div');
+            s.className='star';
+            const sz=Math.random()*3+1;
+            s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-duration:${2+Math.random()*4}s;animation-delay:${Math.random()*4}s`;
+            sky.appendChild(s);
+        }
+        const entity=document.createElement('img');
+        entity.className='flying-entity';
+        entity.src='https://lh3.googleusercontent.com/pw/AP1GczPV701QojlTPppKTU5fRn4pSw94_Yh_U6spxRgmq1I1WtR7nQjxEpirl4UNy4I53aLpKYZqULLRuoWkL58Ew3xOBkzT6XA0vjYm9GzfXZ9s7xwY_KDb3XJPUWc6S8NaByK1CEI9VvQz6aeQnSg8bEam=w1126-h938-s-no-gm?authuser=0';
+        entity.alt='Flying Entity';
+        sky.appendChild(entity);
+    })();
+
+    /* ── Image flip every 1 second ── */
+    (function(){
+        const wraps=document.querySelectorAll('.card-image-wrap');
+        let showReal=false;
+        setInterval(()=>{
+            showReal=!showReal;
+            wraps.forEach(w=>showReal?w.classList.add('show-real'):w.classList.remove('show-real'));
+        },1000);
+    })();
+
+    /* ── Toast — Coming Soon ── */
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.addEventListener('click',(e)=>{
+            const link=e.target.closest('a[data-soon="true"]');
+            if(!link)return;
+            e.preventDefault();
+            const toast=document.getElementById('toast');
+            toast.textContent=link.textContent+' Coming Soon!';
+            toast.classList.add('show');
+            setTimeout(()=>toast.classList.remove('show'),2000);
+        });
+    });
+
+    /* ── Hamburger Mobile Menu — exact logic from faq.html ── */
+    (function initMobileMenu(){
+        const hamburger=document.createElement('div');
+        hamburger.className='hamburger-menu';
+        hamburger.innerHTML='<span></span><span></span><span></span>';
+
+        const backdrop=document.createElement('div');
+        backdrop.className='nav-backdrop';
+
+        const mobileNav=document.createElement('div');
+        mobileNav.className='mobile-nav-overlay';
+
+        const navContent=document.createElement('div');
+        navContent.className='mobile-nav-content';
+
+        const navLinks=[
+            {href:'index.html#home',text:'Home'},
+            {href:'#timeline',text:'Timeline',soon:true},
+            {href:'#guests',text:'Guests',soon:true},
+            {href:'index.html#tracks',text:'Tracks'},
+            {href:'https://ace-hack-hacker-swags-inky.vercel.app/',text:'DG Swags'},
+            {href:'faq.html',text:'FAQs'},
+            {href:'index.html#contact',text:'Contact'}
+        ];
+
+        navLinks.forEach(link=>{
+            const item=document.createElement('div');
+            item.className='mobile-nav-item';
+            const anchor=document.createElement('a');
+            anchor.href=link.href;
+            anchor.className='mobile-nav-link';
+            anchor.textContent=link.text;
+            if(link.soon)anchor.dataset.soon='true';
+            item.appendChild(anchor);
+            navContent.appendChild(item);
+        });
+
+        const logoSection=document.createElement('div');
+        logoSection.className='mobile-nav-logo';
+        const logoImg=document.createElement('img');
+        logoImg.src='https://lh3.googleusercontent.com/pw/AP1GczNcsBYJRrDQF5xc-IOD9E_9tAf-KWM-rpVcJYXr7EzNU94-PQCOFTBnrTo2AVnYqDfkW-wroeaoN8hMMf_B0vW-mqVewR_bhtGTWzxJSby3AyqlRiJmtvTrrhH1Wi6sWxqgW2K27xgdVhvhdnUMZu0q=w950-h316-s-no-gm?authuser=0';
+        logoImg.alt='AceHack Logo';
+        logoSection.appendChild(logoImg);
+        mobileNav.appendChild(logoSection);
+        mobileNav.appendChild(navContent);
+
+        document.body.appendChild(hamburger);
+        document.body.appendChild(backdrop);
+        document.body.appendChild(mobileNav);
+
+        function toggleMenu(){
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            backdrop.classList.toggle('active');
+            document.body.style.overflow=mobileNav.classList.contains('active')?'hidden':'';
+        }
+        function closeMenu(){
+            hamburger.classList.remove('active');
+            mobileNav.classList.remove('active');
+            backdrop.classList.remove('active');
+            document.body.style.overflow='';
+        }
+
+        hamburger.addEventListener('click',(e)=>{e.stopPropagation();toggleMenu();});
+        backdrop.addEventListener('click',closeMenu);
+
+        navContent.querySelectorAll('.mobile-nav-link').forEach(link=>{
+            link.addEventListener('click',(e)=>{
+                if(link.dataset.soon){
+                    e.preventDefault();
+                    const toast=document.getElementById('toast');
+                    if(toast){
+                        toast.textContent=link.textContent+' Coming Soon!';
+                        toast.classList.add('show');
+                        setTimeout(()=>toast.classList.remove('show'),2000);
+                    }
+                }
+                closeMenu();
+            });
+        });
+
+        console.log('✓ Hamburger menu initialized');
+    })();
+
+    /* ── Smooth Scroll — exact copy from faq.html ── */
+    let currentScroll=window.scrollY;
+    let targetScroll=currentScroll;
+    let ease=0.08;
+    let isUserScrolling=false;
+
+    window.addEventListener("wheel",e=>{
+        e.preventDefault();
+        targetScroll+=e.deltaY;
+        targetScroll=Math.max(0,Math.min(targetScroll,document.body.scrollHeight-window.innerHeight));
+        isUserScrolling=true;
+    },{passive:false});
+
+    function smoothScroll(){
+        if(isUserScrolling){
+            currentScroll+=(targetScroll-currentScroll)*ease;
+            window.scrollTo(0,currentScroll);
+            if(Math.abs(targetScroll-currentScroll)<0.5)isUserScrolling=false;
+        }
+        requestAnimationFrame(smoothScroll);
+    }
+    smoothScroll();
+
+    document.querySelectorAll('a[href^="#"]:not(#mlh-trust-badge)').forEach(a=>{
+        a.addEventListener('click',e=>{
+            const targetId=a.getAttribute('href');
+            const targetElement=document.querySelector(targetId);
+            if(!targetElement)return;
+            e.preventDefault();
+            const targetPosition=targetElement.offsetTop-100;
+            targetScroll=targetPosition;
+            currentScroll=targetPosition;
+            window.scrollTo(0,targetPosition);
+            history.pushState(null,null,targetId);
+        });
+    });
+</script>
 </body>
 </html>

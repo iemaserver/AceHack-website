@@ -1196,9 +1196,9 @@
                 background-image:
                     linear-gradient(
                         to bottom,
-                        rgb(24, 16, 39) 0%,
+                        rgb(15, 11, 24) 0%,
                         rgba(20, 10, 36, 0.8) 30%,
-                        rgba(0, 0, 0, 0.8) 55%,
+                       rgba(0, 0, 0, 0.8) 55%,
                         rgba(0, 0, 0, 0.7) 70%,
                         rgb(0, 0, 0, 0.9 ) 100%
                     ),
@@ -1398,9 +1398,8 @@
                 height: 150px;
                 object-fit: contain;
                 image-rendering: pixelated;
-            }
+            } 
 
-            
             #sponsors {
                 background-image:
                     linear-gradient(
@@ -1447,6 +1446,58 @@
             }
 
             .sponsors-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
+            }
+            
+            #guests {
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.6) 30%,
+                        rgba(0, 0, 0, 0.75) 55%,
+                        rgba(0, 0, 0, 0.7) 70%,
+                        rgba(0, 0, 0, 0.8) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczPgLKZ0PL-a_Mjvzylkvl-S0ApRCUG_aE-fIU0Y1okCvvqYZ1vL8yx5SXNmjgNfIR5Klv-cC6FADA7C6py-ZXAieoSLYMQHsEVcG95yTkBXtrB20ansUWNn2gf7Ri7HcWlDy8nvoeMl_EuTIPS8vI2R=w1634-h919-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #guests::after {
+                content: "";
+                position: absolute;
+                top: 902px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .guests-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 810px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .guests-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .guests-decoration-link img {
                 width: 885px;
                 height: 150px;
                 object-fit: contain;
@@ -3066,6 +3117,240 @@
                     flex: 1 1 100%;
                     margin-left: 55px;
                 }
+            }
+
+            /* ============================================
+            GUESTS CAROUSEL SECTION
+            ============================================ */
+
+            .guests-carousel-wrapper {
+                overflow: hidden;
+                position: relative;
+                max-width: 100%;
+                margin: 0 auto;
+                /* Fade edges left and right */
+                -webkit-mask-image: linear-gradient(
+                    to right,
+                    transparent 0%,
+                    black 8%,
+                    black 92%,
+                    transparent 100%
+                );
+                mask-image: linear-gradient(
+                    to right,
+                    transparent 0%,
+                    black 8%,
+                    black 92%,
+                    transparent 100%
+                );
+            }
+
+            .guests-carousel-track {
+                display: flex;
+                gap: 25px;
+                animation: guestsScroll 70s linear infinite;
+                width: max-content;
+                padding: 20px 0 40px;
+            }
+
+            .guests-carousel-wrapper:hover .guests-carousel-track {
+                animation-play-state: paused;
+            }
+
+            @keyframes guestsScroll {
+                0%   { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+
+            /* ============================================
+            GUEST CARD
+            ============================================ */
+            .guest-card {
+                flex: 0 0 210px;
+                text-align: center;
+                cursor: pointer;
+                background-image: url('https://lh3.googleusercontent.com/pw/AP1GczM_K6POKMRfjRwlMsq8bLETu21MXNZX2yRp6ek411_rFlzE5b-FuuiyAR84YQHDWto1qtSd4Z138h8YtdhwMp_9hKNkLT8Gf-fPHcRzHcpDXCb-hs71NI0CPBjw_go8N-3_Bb1_XZtic8bK4y50NoyV=w392-h392-s-no-gm?authuser=0');
+                background-size: cover;
+                border: 4px solid transparent;
+                border-image: repeating-linear-gradient(
+                    90deg,
+                    #8b5a2b 0px,
+                    #8b5a2b 6px,
+                    #7a4a1f 6px,
+                    #7a4a1f 12px,
+                    #9c6b3d 12px,
+                    #9c6b3d 18px
+                ) 4;
+                padding: 20px 15px 18px;
+                position: relative;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .guest-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.55);
+                z-index: 0;
+            }
+
+            .guest-card > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .guest-card:hover {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 15px 35px rgba(141, 0, 235, 0.5);
+            }
+
+            /* ============================================
+            GUEST CARD IMAGE WRAPPER
+            ============================================ */
+            .guest-card-img-wrapper {
+                width: 160px;
+                height: 190px;
+                position: relative;
+                margin: 0 auto 14px;
+                border: 4px solid #8d00eb;
+                box-shadow:
+                    0 0 10px rgba(141, 0, 235, 0.6),
+                    0 0 25px rgba(141, 0, 235, 0.3);
+                overflow: hidden;
+            }
+
+            .guest-judge-img,
+            .guest-mc-img {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%;
+                height: 10 0%;
+                object-fit: cover;
+                transition: opacity 0.5s ease;
+                image-rendering: pixelated;
+            }
+
+            /* Default state: show minecraft skin */
+            .guest-judge-img { opacity: 0; }
+            .guest-mc-img    { opacity: 1; }
+
+            /* JS toggled: show judge */
+            .guest-card-img-wrapper.show-judge .guest-judge-img { opacity: 1; }
+            .guest-card-img-wrapper.show-judge .guest-mc-img    { opacity: 0; }
+
+            /* Hover always wins: show judge */
+            .guest-card:hover .guest-judge-img { opacity: 1 !important; }
+            .guest-card:hover .guest-mc-img    { opacity: 0 !important; }
+
+            /* ============================================
+            GUEST CARD TEXT
+            ============================================ */
+            .guest-name {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 12px;
+                color: #ffffff;
+                text-shadow: 2px 2px 0 #8d00eb;
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+
+            .guest-tag {
+                display: inline-block;
+                font-family: 'Press Start 2P', cursive;
+                font-size: 8px;
+                color: #000000;
+                padding: 4px 10px;
+                margin-bottom: 10px;
+                text-shadow: none;
+                letter-spacing: 1px;
+                border: 2px solid rgba(255,255,255,0.4);
+            }
+
+            .guest-tag.judge   { background: #b026ff; color: #fff; }
+            .guest-tag.mentor  { background: #ff8c00; color: #fff; }
+            .guest-tag.speaker { background: #00aaff; color: #fff; }
+
+            .guest-description {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 8.5px;
+                color: #cccccc;
+                text-shadow: 1px 1px 0 #000;
+                line-height: 1.9;
+                margin-bottom: 12px;
+                padding: 0 4px;
+            }
+
+            /* ============================================
+            GUEST SOCIAL ICONS
+            ============================================ */
+            .guest-socials {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin-top: 6px;
+            }
+
+            .guest-socials a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 28px;
+                background: rgba(255,255,255,0.1);
+                border: 2px solid rgba(255,255,255,0.25);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .guest-socials a:hover {
+                transform: scale(1.25);
+                box-shadow: 0 0 10px rgba(176, 38, 255, 0.8);
+                border-color: #b026ff;
+            }
+
+            .guest-social-icon {
+                width: 16px;
+                height: 16px;
+                object-fit: contain;
+                display: block;
+            }
+
+            /* ============================================
+            RESPONSIVE
+            ============================================ */
+            @media (max-width: 768px) {
+                .guest-card {
+                    flex: 0 0 170px;
+                    padding: 15px 10px 14px;
+                }
+                .guest-card-img-wrapper {
+                    width: 130px;
+                    height: 130px;
+                }
+                .guest-name        { font-size: 8px; }
+                .guest-description { font-size: 6px; }
+                .guest-tag         { font-size: 5.5px; }
+                .guests-carousel-track { gap: 25px; }
+            }
+
+            @media (max-width: 480px) {
+                .guest-card {
+                    flex: 0 0 140px;
+                    padding: 12px 8px 12px;
+                }
+                .guest-card-img-wrapper {
+                    width: 110px;
+                    height: 110px;
+                }
+                .guest-name        { font-size: 7px; }
+                .guest-description { font-size: 5.5px; }
+                .guests-carousel-track { gap: 18px; animation-duration: 50s; }
+            }
+
+            @media (max-width: 400px) {
+                .guest-card        { flex: 0 0 125px; }
+                .guest-card-img-wrapper { width: 95px; height: 95px; }
+                .guest-name        { font-size: 6.5px; }
+                .guest-description { font-size: 5px; }
             }
 
             /* FAQ Container */
@@ -6360,7 +6645,7 @@
 
                 <div class="nav-sign-container" style="--index: 2">
                     <div class="sign-chain"></div>
-                    <a href="#guests" class="nav-sign" data-soon="true">Guests</a>
+                    <a href="#guests" class="nav-sign">Guests</a>
                 </div>
 
                 <!-- NEW TRACKS BUTTON -->
@@ -6843,9 +7128,343 @@
             </div>
         </section>
 
+        <section id="guests" class="section-bg">
+            <a href="#home" class="guests-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2 data-corner-text="Meet the Legends">GUESTS & JUDGES</h2>
+
+                <div class="guests-carousel-wrapper">
+                    <div class="guests-carousel-track" id="guestsTrack">
+
+                        <!-- Card 1 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPOmPnWdDIDpg5UHZAWloZYoxeiGP9E2zq7CjG_bv51vKvJBP8pSdsn7mkUnmCNsASEFjkmDF7MEQ0ZWhnyu0Th7ibMxApz9OpSMzHCgh5tBFkPJHUT1TDOHcVOAlm7THB_r2BT9E_04MUgBR-fsdvQ=w750-h938-s-no-gm?authuser=0" alt="Judge 1">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMtvAH4QtvDJSD_UNwnGCGhQ8B4VGdycvRHQNHumQ91Ad2zXF2thfdEHALBbyNyosjf1-UxnbAq0EB1TYvIfdkSt_F1U42T53hejP13iAx3kcNWeI_et5LB0KGdxPcMwQyFuvjHV37R9ujyXBei-GM9=w750-h938-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Sparsh Sharma</p>
+                            <span class="guest-tag judge">Mentor | Judge</span>
+                            <p class="guest-description">Software Developer at Thumbpin | Founder of Backternity.dev </p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/sparshdev/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNKMQ8neF6PdEs9jBpwmb4P01WpDmFefXt24ywNgo2Nk8uxaOypKiY2F1-yKnH4rtwv76W2SJ4x-dIhUW8z-2wZ9lMPsyhl62V4RBOSEMQ3VEZrovALeF6RfySlGxdfXID071pNaE5GGyJU2i8jMjmy=w519-h648-s-no-gm?authuser=0" alt="Judge 2">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczOsMhQqzzreQSb83VE2RhOE0oHVmoo9Pf3SCO3FpRdx_PG0lc7U_TYmMqU0AuVYKYTYEH1gZAodWWb7bpIr-edtmzS4Ru4LWFxWAGQD2AwABR9Q53RnleaGqocjj44dqT42J2vdRT2_k48PkhQatIxf=w666-h832-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Yash Chatrath</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Associate Data & Audit Analyst at Sony | Judge & Mentor at 75+ Global Hackathons | Open-Source Contribution Mentor</p>
+                            <div class="guest-socials">
+                                <a href="http://linkedin.com/in/chatrath-yash ;;; https://www.instagram.com/techxyash?igsh=MWdxOThib3M0ZmVsaw==" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPr-mxBMCKL4e3vh5F3gQ0s5NxCGsWK2HjekYu5LUXl-Nh6lIpKQG_I1n766cSDRrxC9AuYAzB4cvW45dLQR5lQxBHzAm6wSgzbHoRGpVOf8JfbK7We-rB1i4E7UjxooYY7LTgrmjiAz28-0lV1WhiL=w735-h919-s-no-gm?authuser=0" alt="Judge 3">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczPHl9Y8_ORiuPGxRad3E7gfwSJclqqfHZCApJPI9e_1VFl5Fn6YxP01YiOyXOi5DmQy0uS7b-1so8bTOGYPfascv0g_r5uIVRh9LfaSUqBVa34MGb4T86cAXq1shKHd1iTGWKTK404uzo7hTn7iDSh0=w691-h864-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Karman Arora</p>
+                            <span class="guest-tag speaker">Mentor | Judge</span>
+                            <p class="guest-description">Associate Consultant (Cybersecurity) at CyberCube Services | Mentor & Judge at 5+ National Hackathons</p>
+                            <div class="guest-socials">
+                                <a href="https://in.linkedin.com/in/karman-arora" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNfd_B__L3Hv6ZKjQl0yrNbrt9Xl0AP3AcuA40vEByqZtFaP-UF5nAMSgrU_DTPesCmSeDH9AMU4DGfGVgTszXBmMeNGmYkeTSILbeQGSkcNsDzB_sDl0Yu5lX9yUAOqbMAqKusOm-nn4-sNRecVRdy=w319-h400-s-no-gm?authuser=0" alt="Judge 4">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNy8zsq0Ewn6OQSiDRZeZ321SKJ1FhO_gyLolDbQOC20gzlLD4clyNAOuXduIDw2eGx0rCpDf_JKp99DDzziWwEFe8Sa7s_aDxjmkQjrG3qb_5FrwBtZv7gvo2dQGNxWkcd0Il9DW2uuxYOL2uqJLvR=w666-h833-s-no-gm?authuser=0">
+                            </div>
+                            <p class="guest-name">Ekta Arora</p>
+                            <span class="guest-tag judge">Mentor | Judge</span>
+                            <p class="guest-description">Developer at Volvo Eicher Commercial Ltd | Speaker at Microsoft Azure Community </p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/ektaarora01/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczN607Tgg5pm2JSnH_ZzKB9IsTIiNpZ0PDyJTMerHlp3YJNeHQMRRf00P5aFl6GFur87zPB4kn-IpbGw3eS2Oqk5h7TXU8dQOVpXxIyNmL4pwKKg2ZhZFuUDUAEG2aGaGCeOiMtyeR8YzGDvQjzy3PZn=w735-h919-s-no-gm?authuser=0" alt="Judge 5">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMGFJUpW-woRPC-hTJ7ixcRp8aaD4dsqzQ_YkdIdFazffrkKlBD6wWTxEJL4rn1xzk3ctZvj7f-DmvMFgKXiAh82MFnbTAr2xuPmERviFtDVeAafralD6Vb2HOTa_0ALeKuTY0CkrwCDLHUue8vcNju=w619-h773-s-no-gm?authuser=0">
+                            </div>
+                            <p class="guest-name">Maninder Singh</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Software Engineer at Swiggy | Judge at 130+ Hackathons</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/manindersinghh" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczOcBLwbT94JaVUEK9LwObZG8IzuPIyGCSOYeqo7JPd8JKJ1uBw3rn455wsYWqKWfL1ur7Gh9iA6Z9dqKwIymUvPb6AyjRB6xS8cNo2Pf4_pnOLw2froNCAiQH6oI250TXuDKY8YBQLL1BV_MTlJ9jND=w734-h919-s-no-gm?authuser=0" alt="Judge 6">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMTCBhUEHQQKQWcVdAaY-CqK8QvtKhboWalSnRIQDbXUAclOYj36vGz3_xu6-jDW8eOari5Hu0575zlgBPHUVWbV91Lh9JRccrKkwLzBWG4elBJYJ8M1RPwvkAMID1aeyVAy_s3klC7Pb9z2i9nqkpq=w715-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Monika Rajput</p>
+                            <span class="guest-tag speaker">Mentor | Judge</span>
+                            <p class="guest-description">Senior Technical Consultant | Judged 200+ Projects at Bennett University | Evaluated 20+ Startup Pitches at MSIT College</p>
+                            <div class="guest-socials">
+                                <a href="https://www.monicarajput.com/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/5339/5339181.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczO3bEKYNCJvak8KFv8ZEhDt2iQOR-gy-rxdnbMQ0B_WM9OWfU8VvopmhuhDiSAHLbih4d_BllqIX_TzlKI40dQxx_kjnRHIVaJi4gWJdpnftJyNt4eDEh-ZvWtQNOPAIjHgNnXtQMBrubVHQWzt48ch=w735-h919-s-no-gm?authuser=0" alt="Judge 7">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczOxKFCXZfAzKq7NHj3sZf5HoBUDcSFoU-5zSq1QdNYUWUJCkl666_huBVsJQXL8c0v5YatlluR8lYBCKsbhV4pWmUuVuU49P2eYk1fR_nI2Riok7Y8ibUSxdN_A7fxO6JHOyDkEBBapIojKc58RnsPp=w636-h795-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Shivam Goyal</p>
+                            <span class="guest-tag judge">Mentor | Judge</span>
+                            <p class="guest-description">Senior Developer at Lenskart | Ex-Junglee Games</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/shivamgoyall?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNCfvc_0iZUu0ldLUON9qpfvN00XDtnvp76AVctl61wSHbgJ65fhZfWp-UngHO6sf0cvHa5nnjWyQE04Bl7aGFqhQQhHxuISWo7DuAvhkEo5NuUu1_XNLw5jL-vosEr4cl2GWGKmc-fdMsepCQmyebX=w735-h919-s-no-gm?authuser=0" alt="Judge 8">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMRPGDwQ2hYKJeha39vFnaYpjB57LGh0x5rdecM4sR8WhcKBQrGiHKFKhjTCyIZSuTc5IpSXtVV29Lr5ixtSdoOHeDuR-LOCrrywMkF5BhoYPv6eiXxH_m7eftcuyPuSn1laTJHziwJtwHaHI4g85pW=w735-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Tushika Rawat</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Founder, 15forteen | Judged 10+ Hackathons | Mentored 25+ Across Colleges and MNCs</p>
+                            <div class="guest-socials">
+                                <a href="http://www.instagram.com/tushika_rawat" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 9 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczMH2SUkEO-2LNiTycOI-QwHPwSYTOFauvdA5koL1Qen1BfmCnxjc8wEjB0gVQnMd-Rp51TgSLuLFL18qXi1dE-W4-dhP8MIcl4K90qlA-janT9Aw4WxfWSsCNMshWSjgVlupUUdoe30LnJ52takkWbS=w689-h919-s-no-gm?authuser=0" alt="Judge 9">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczODuJiGWNMZ3kA2yt_SOkocDVqSQmkW5kJyJaxpVed9Kf9ZVSC-JLNWFhzIX6ufAwW7GahZY9QG-OVjsyg_krRQAN45iuBaG1Dx_VWp-oZC2T_I8KFLSTmk3QforX8N5M-PylomnOREUBpRt_qDz99P=w732-h916-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Vansh Wadhwa</p>
+                            <span class="guest-tag speaker">Mentor | Judge</span>
+                            <p class="guest-description">INDmoney | Mentored & Judged 10+ Hackathons</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/vansh-wadhwa" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 10 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNH9dcpPmG7lTz--w0iJpFGjFx9n03Lhtpwep47dcp7ySmkI_yoYzYFMG3qJxQKd5GRM5H-aJZZ7Tf359KSpkRmbYpgsTkyz_KzqXtqjIqESP46yO6VBpW2xbNCvJlG6CIBgCryYKJ0AME50QmnGSoC=w858-h919-s-no-gm?authuser=0" alt="Judge 10">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczN4v0onhZI6Iln23tjIEije0mWM8IS8__SfnOc3w-S30ZRBbZGOBsms6gp-vrxOepztCcXpM0orOedPOBYRIvvXdtM4x1OdHk7jDXrpfrVdtwMqjoc7fos8dc-0KUJa9qOzn2h2nDoL4RKDltumeI_n=w635-h793-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Kamal Kashyap</p>
+                            <span class="guest-tag judge">Mentor | Judge</span>
+                            <p class="guest-description">Blockchain Developer in Hygge Energy</p>
+                            <div class="guest-socials">
+                                <a href="https://linktr.ee/Kamal.Kashyap" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/8013/8013540.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 11 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNFffWOm4Ysl-RxGpBnkkE_5GazETjiZju0k2m-Z8keWgL1sCTb7fL-l-FIkrTZuGmK2q5Wkxqtfe9xJVZx4xyf8E03IAMMqDL8CMuM1QkLDhOMVuMtJAw6uZu2KwLoJdeurFfiH8kjVSU5k369mo1k=w388-h486-s-no-gm?authuser=0" alt="Judge 11">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNGBo-QcZbtbaoae4WGLYXttiNmurHwwxGjRjz67rLP8FokZM6CC1aHuMwdizBkukf4B7rV8SHx1DkEiFoaEYIObx1s2vV4wrjFok9z8vsnAy3baMx2oZN4FOSwsZzO8o_MKHLQxMByf1YRZhPUDc33=w640-h800-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Ishpreet Singh</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Snapchat AR Developer</p>
+                            <div class="guest-socials">
+                                <a href="https://www.instagram.com/ishpreet_singhg_10?igsh=cG41ZXRtdDQ5OXB2" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 12 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczMZ2p48Q_4lNf_4y96kyZzZOsoJxvFWynhto3J0AM7pGft8tlKI08bFk5BAvc9xcNcSS6XdV1uKC90H_jIbZQLzTyhSKeiiqXK7LLvPjt5ntYwd5i6iLuijv9IJQ4Olwzu-3V4uT3kWhpdPF7fw2PpZ=w734-h919-s-no-gm?authuser=0" alt="Judge 12">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczPYWvtfp-qQUPS4vD82a7Mm9aRB_ggC2HN25qmmQFmSx4FcNOfuAy9kM1ip6Y7pGFYmcsWVX5iQrgPQHF-F5AstdhsuSD6iHpfvJQLE779dDqE6xkkdabKBmQW6A0lae5_fa_1WzlYGwSaJmjLrm33b=w608-h760-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Sudhanshu Kumar Jha</p>
+                            <span class="guest-tag speaker">Mentor | Judge</span>
+                            <p class="guest-description">Founder, Gridixa Solutions Organized 700+ Tech Events | Former Azure Developer Community Leader</p>
+                            <div class="guest-socials">
+                                <a href="https://linkedin.com/in/imskumarj" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 13 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczOLnbig4_i4qO0aTa0W19XPibISSnMMZ7D7LfTkbHMtozu1uyzCPY0KIb61lKAldGkyP4WdBbycsxMlE1BBLQ9zL1dhAh9bbNBWrvFs6HfcW4-Fe1rX6sUw4BskAkPK33KQcoULAwhvH3Iw9mKDbvOO=w665-h832-s-no-gm?authuser=0" alt="Judge 13">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNGXb64fwK6sfOWjP48je0ptwo0H23RPEj8HDs0Uv0WdI0IIYmRY3eJQf7ohUaMnlscaiI4ZETLjiErgqlQ8wle6HG9U6pcXHljiGNT8FtdvlmRa2yUq_MP9MfI6D1sG_x57moSn_Rw-APiHSnxDAxJ=w614-h768-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Pawan Singhla</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">SDE-II at ZIGRAM | Judge at 6+ National Hackathons | Evaluator at Smart India Hackathon 2024 & 2025</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/pawansinghla300/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 14 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczMgH8w45avurx4u5NT0st9DKvCZIGNPZHaHO9z9kBGAcV6cRzawIL5ndb6qKiTiGo-4vhNNPDEfvBjIjYbfvV6P50b04fDgv1mXiNOdbaZtHosdEY-fqGAn2lsa86lFlQhVjgPIakS3ap6XP9R6NU7d=w481-h602-s-no-gm?authuser=0" alt="Judge 14">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMzZoCypinqOEgE0e3U8sEOWSg1kdAHYez2CTmL_wmwnH6SzHJEV9bEzM1ZLxw47uqLjcTZ3s1vJsSX7bFV999x4wipig2BnLuqy4fT4fWqzTQyTO96jeIDwEhEStIV73LnCkKcOXNIhCBgeIjfC575=w383-h479-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Abhishek Kushwaha</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">CTO at Prepverse | Full-Stack Developer & System Design Enthusiast | GitHub Campus Expert</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/abbhiishek/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 15 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczOUi_5XKvh9rjAfNXvVNGHg2kmrk7lzsWNW62HU4psEIAfpiESt7tCYFJrOcsR6FkDXoiZNDtnrWRoX1jXKGZVOQ790k6cbtuLS3DARhuLXSxIrljRyi-B9JU-MxumRPP-1Ppw12bUbMAI23fgldLMt=w735-h919-s-no-gm?authuser=0" alt="Judge 15">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNjuwS_IqVP2gUnQ3Fjj9Hu1i76bj9tJ5k2EOECsupSoi7z_g6n09SgkOXcTCvMseMVifdoix4sW48bgMv1-cpi5ifPred6ER4ut-7pMI7V5w4B9IxSALK0wxIHGewaCBakHSuwSxa0QmOTVBDRJ4wd=w735-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Shiti Sharma</p>
+                            <span class="guest-tag speaker">Mentor | Judge</span>
+                            <p class="guest-description">AI/ML Developer at TechAhead | Mentor & Judge at 5+ National Hackathons | Guiding AI/ML-Driven Problem Solving & Scalable Prototypes</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/shitisharma" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 16 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczM2QZKbosipqs_S8fXkAcQLCGpQ9bGwx7pD7_4XE9M5G_oBq8iOOIoElDgs0p_smKD_jiN99y_bXjHGVoxeRNc_q6CgWhnFVfh43PLDwNK2GXlNGOvM5QopYYVYu6UNI_bIAP69jq16UFpt-f4Zxyhv=w735-h919-s-no-gm?authuser=0" alt="Judge 16">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNRNQ45qyWhDZpOl1FOlsRuOouIWc2bTwgO_SIyeQWj1795B_A8yqxMEC9H4wuZfXEyXdGi0HwMqO_DTHMI31HF9EG6LJK4gmrCcD0RtxU6fRyv5h6qzgWcPJS9a8rll9ZuY_IM-W5nFKAHUgw5andM=w735-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Sarthak Goel</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Full Stack Developer at Deloitte | Judge & Mentor at 15+ National Hackathons</p>
+                            <div class="guest-socials">
+                                <a href="https://linkedin.com/in/sarty-definite" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 17 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPgHoIDWnWGlmctfaJISetgFEfqJCImV54gPeZtSpkL4CNxJnavr4x4bEqF9MJ1H4iXHi74No5oOs5fEqIZ5WkJoHWUdbRJfsYTnGyEeG5DDmVoEiFl8kTKlqtrPZtH-5ecY0yY8LIF9zzkHMtxDEj5=w754-h919-s-no-gm?authuser=0" alt="Judge 17">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczMfSK8ImqWgrW1k58jDlgApEuUMOvkZPh-yofjbu377atX6P6kMtPebNUULDZWiXcLhuZb832haAOvKNIMgP3R0Dzy3VoY2hzMwvrDTY-tpHNZ8xcrpQmSoinAQXpK6Fp9NELGIbGPLVdWM5BTSrOT2=w480-h601-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Sachin Jha</p>
+                            <span class="guest-tag mentor">Mentor | Judge</span>
+                            <p class="guest-description">Co Founder @StarkSeekIndia | Organizer @Hack4bihar| SDE @Adobe</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/sachin-jha-" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 18 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczM-CZW3dL9Exh8HGMkxUlHaKur4HqnOMSAdFYj8Hadlw1wZMg4vWt-MSupRPA2TMjMUBX7SUGAAQV5xToUHbEnvTepej1I3tOWOYYKFV1sJ6k7fq4Xo0qWW6mcJU-UcvenjEr_D-nNUxg1OSyRhUdlD=w735-h919-s-no-gm?authuser=0" alt="Judge 18">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczOApCnipzAJXpKxUfVONODplWkL8foXX-sBX4FgwIx3Nvr9wBMS8En1OhKenaV0RO_Jgk1DqRbq0oT6OR8icd2cVm59sUQ1r-JS9FijXOZ-Yg0oEQIVdCVeXEUpxFNA33kdryj8hd5ZoA6q3bEJkqZG=w735-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Harshavardhan Bajoria</p>
+                            <span class="guest-tag mentor">Mentor | Judgez</span>
+                            <p class="guest-description">Associate Product Manager – AI | Judge & Mentor at 100+ Hackathons</p>
+                            <div class="guest-socials">
+                                <a href="https://www.linkedin.com/in/harshavardhan-bajoria/" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 19 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczOkQ4TDezHRDlss4mw2PWAwf1GiNJffynNKCPQNhkx7dOWMCtlXgi9sdPnlCaEr6rSBnkSkpdssYIH_O7P0nbjlRFjYpXo6AMxk6WdvzCEUrqY7bA3eaLynu2mt3ZnCEYGIAvEUV06JSYvtyXgTdc2q=w670-h919-s-no-gm?authuser=0" alt="Judge 18">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNT6hYutqwpkDSe5VWAXYtSwKZ1aZ_iHn8Nw01vrFQGOsMf0a_470Dr9_Bmdig2C-fGeGIJjYQgYbigJ8ndBwY7zolciIaKz_sO30QxpVXNRhRKmM-HOULVzuMR3NKZnYf_8q2vmCjXcASw7al91FoL=w670-h919-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Umesh Kataria</p>
+                            <span class="guest-tag mentor">Mentor | Judgez</span>
+                            <p class="guest-description">Ambassador , Stellar India</p>
+                            <div class="guest-socials">
+                                <a href="http://linkedin.com/in/umeshxkataria" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card 20 -->
+                        <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                                <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPePKtt3kj3fRskES0Dv3yvcqEy0f9Cc8iVMVdXrzkiiFBC3G85nD5RFN7ZJUicN6GwyZxnMnzZPRMQ_1ZUbTaQ8SI0uMKksuCzsFDtvdlmNnYf2tnEMrNmHQIuWdifQvVdSkre0EFJlj76gsB-gT1G=w296-h370-s-no-gm?authuser=0" alt="Judge 18">
+                                <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNg58KFIMNslTpZQmFdhBKMLtiNJi9aDEY8bqCZA5ytousYn5uUlto_Wgmia2PlN9LICKn4igAzksKQdi09Ix70q45hRI5UZjTMOUj3dF-wp4nBq_d9URryZHc4XU5mSEJZvLAFigyyZJub0I5ZjhAZ=w699-h874-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Abhimanyu Shekhawat</p>
+                            <span class="guest-tag mentor">Mentor | Judgez</span>
+                            <p class="guest-description">Co-Founder at 0xepochprotocol & walletslick | Genesis Contributor at KERNEL0x</p>
+                            <div class="guest-socials">
+                                <a href="https://x.com/sokkkkaaa" target="_blank">
+                                    <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Sponsors Benefit Section -->
         <section id="benefits" class="section-bg" style="padding: 80px 20px;">
-             <a href="#home" class="benefits-decoration-link">
+            <a href="#home" class="benefits-decoration-link">
                 <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
             </a>
             <div style="max-width: 1400px; margin: 0 auto;">
@@ -7756,7 +8375,7 @@
                 const navLinks = [
                     { href: '#home', text: 'Home' },
                     { href: '#timeline', text: 'Timeline', soon: true },
-                    { href: '#guests', text: 'Guests', soon: true },
+                    { href: '#guests', text: 'Guests' },
                     { href: '#tracks', text: 'Tracks' },
                     { href: 'https://ace-hack-hacker-swags-inky.vercel.app/', text: 'DG Swags' },
                     { href: '#faq-preview', text: 'FAQs'},
@@ -8222,6 +8841,7 @@
                     'tracks': "Choose your track and start building!",
                     'why-attend': "Network, learn, and grow with us! Be a part of History!!",
                     'prizes': "Tap the chests to unlock prizes worth ₹1 Lakh!!",
+                    'guests': "Its On!! Meet the Legends!",
                     'benefits': "Grab amazing benefits and perks!",
                     'sponsors': "Thanks to our amazing sponsors!",
                     'faq-preview': "Got questions? We've got answers!"
@@ -8343,6 +8963,49 @@
                 checkSections();
                 
                 console.log('✅ Creeper chatbox fully initialized');
+            })();
+
+            /* ======================================================
+            GUESTS CAROUSEL — INFINITE DUPLICATE + MC TOGGLE
+            ====================================================== */
+            (function initGuestsCarousel() {
+                const track = document.getElementById('guestsTrack');
+                if (!track) return;
+
+                // Duplicate all cards for seamless infinite loop
+                const original = track.innerHTML;
+                track.innerHTML = original + original;
+
+                // Re-query all wrappers after duplication
+                const wrappers = Array.from(
+                    track.querySelectorAll('.guest-card-img-wrapper')
+                );
+
+                // Track which wrappers are currently hovered
+                wrappers.forEach(wrapper => {
+                    const card = wrapper.closest('.guest-card');
+                    card.addEventListener('mouseenter', () => {
+                        card.dataset.hovered = 'true';
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        delete card.dataset.hovered;
+                    });
+                });
+
+                // Toggle between minecraft skin and judge photo every 1.5s
+                // Stagger each card slightly so they don't all flip at once
+                wrappers.forEach((wrapper, i) => {
+                    setTimeout(() => {
+                        setInterval(() => {
+                            const card = wrapper.closest('.guest-card');
+                            // Skip if hovered — hover CSS handles it
+                            if (card.dataset.hovered) return;
+                            wrapper.classList.toggle('show-judge');
+                        }, 1500);
+                    }, (i % 18) * 83); // stagger by ~83ms per unique card
+                });
+
+                console.log('✓ Guests carousel initialized with', wrappers.length / 2, 'cards');
             })();
 
         </script>
