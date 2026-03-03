@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -1244,6 +1244,58 @@
                 image-rendering: pixelated;
             }
 
+            #timeline {
+                background-image:
+                    linear-gradient(
+                        to bottom,
+                        rgb(26, 13, 48) 0%,
+                        rgba(20, 10, 36, 0.3) 30%,
+                        rgba(0, 0, 0, 0.3) 55%,
+                        rgba(0, 0, 0, 0.5) 70%,
+                        rgba(0, 0, 0, 0.7) 100%
+                    ),
+                    url('https://lh3.googleusercontent.com/pw/AP1GczMJvZYw4WuktwqRkq3C0mFeMiWPzeLAg0VP1NvQ8yoM2Bv4MWo519q7tVMK-nmspUQlm782zkSVrdWr1sDS-qH_uLL2aopJGY-WgsQaEoRFhVVLGdLWr4QDHO1VkxdAVTXp9ivsJgSlheNpapVDCtp1=w1666-h938-s-no-gm?authuser=0');
+
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            #timeline::after {
+                content: "";
+                position: absolute;
+                top: 1286.2px;
+                left: 0;
+
+                width: 100%;
+                height: 7px; /* adjust bar height */
+
+                z-index: 2;
+
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .timeline-decoration-link {
+                position: absolute;
+                z-index: 100;
+                top: 1186px;
+                left: 300px;
+                display: block;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+
+            .timeline-decoration-link:hover {
+                transform: scale(1.05);
+            }
+
+            .timeline-decoration-link img {
+                width: 885px;
+                height: 150px;
+                object-fit: contain;
+                image-rendering: pixelated;
+            } 
+
             #why-attend {
                 background-image:
                     linear-gradient(
@@ -1544,6 +1596,8 @@
                 #why-attend::after,
                 #prizes::after,
                 #benefits::after,
+                #guests::after,
+                #timeline::after,
                 #sponsors::after {
                     height: 4px;
                     display: none;
@@ -1556,6 +1610,8 @@
                 #why-attend::after,
                 #prizes::after,
                 #benefits::after,
+                #guests::after,
+                #timeline::after,
                 #sponsors::after {
                     height: 3px;
                     display: none;
@@ -6571,11 +6627,11 @@
         ============================================ */
 
         /* Target Timeline button specifically (2nd nav item, index 1) */
-        .nav-sign-container:nth-child(5) {
+        .nav-sign-container:nth-child(2) {
             position: relative;
         }
 
-        .nav-sign-container:nth-child(5) .nav-sign::after {
+        .nav-sign-container:nth-child(2) .nav-sign::after {
             content: '';
             position: absolute;
             top: 50px;
@@ -6610,11 +6666,11 @@
         ============================================ */
 
         /* Target Timeline in mobile nav (2nd item) */
-        .mobile-nav-item:nth-child(5) {
+        .mobile-nav-item:nth-child(2) {
             position: relative;
         }
 
-        .mobile-nav-item:nth-child(5) .mobile-nav-link::after {
+        .mobile-nav-item:nth-child(2) .mobile-nav-link::after {
             content: '';
             position: absolute;
             top: 18px;
@@ -6631,12 +6687,12 @@
         }
 
         /* Apply to Timeline badge */
-        .nav-sign-container:nth-child(5) .nav-sign::after {
+        .nav-sign-container:nth-child(2) .nav-sign::after {
             /* ... existing styles ... */
             animation: redPulse 0.4s ease-in-out infinite;
         }
 
-        .mobile-nav-item:nth-child(5) .mobile-nav-link::after {
+        .mobile-nav-item:nth-child(2) .mobile-nav-link::after {
             /* ... existing styles ... */
             animation: redPulse 0.4s ease-in-out infinite;
         }
@@ -6647,7 +6703,7 @@
 
         /* Tablets (≤768px) */
         @media (max-width: 768px) {
-            .nav-sign-container:nth-child(6) .nav-sign::after {
+            .nav-sign-container:nth-child(2) .nav-sign::after {
                 width: 38px;
                 height: 38px;
                 top: -7px;
@@ -6657,7 +6713,7 @@
 
         /* Mobile phones (≤480px) */
         @media (max-width: 480px) {
-            .mobile-nav-item:nth-child(6) .mobile-nav-link::after {
+            .mobile-nav-item:nth-child(2) .mobile-nav-link::after {
                 width: 32px;
                 height: 32px;
                 top: 10px;
@@ -6667,11 +6723,380 @@
 
         /* Very small screens (≤400px) */
         @media (max-width: 400px) {
-            .mobile-nav-item:nth-child(6) .mobile-nav-link::after {
+            .mobile-nav-item:nth-child(2) .mobile-nav-link::after {
                 width: 30px;
                 height: 30px;
                 top: 8px;
                 right: -12px;
+            }
+        }
+
+        #timeline {
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    rgb(15, 8, 28) 0%,
+                    rgba(20, 10, 36, 0.9) 30%,
+                    rgba(10, 5, 20, 0.95) 60%,
+                    rgb(10, 5, 20) 100%
+                ),
+                url('https://lh3.googleusercontent.com/pw/AP1GczM-_Fp_VMrcuBVnv8TEFyV7m-gXgckXBkIDPa3GFChTtJ9qBbFOkilx-wYUTYBGK8_KLYGx0QUFOG4huL0zWP6mNjdf6tcwERqCVMSm_4ZMV7sFaMGpJ7TvNegMP6-CG2nrXuuQk4rmas2t-T3WnYps=w1666-h938-s-no-gm?authuser=0');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 20px 120px;
+            position: relative;
+        }
+
+        #timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 10;
+        }
+
+        .timeline-wrapper {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Two-column grid */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            position: relative;
+            margin-top: -20px;
+        }
+
+        /* Central spine */
+        .timeline-grid::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            transform: translateX(-50%);
+            background: repeating-linear-gradient(
+                180deg,
+                #9900ff 0px,
+                #9900ff 10px,
+                #4a0080 10px,
+                #4a0080 20px
+            );
+            image-rendering: pixelated;
+            z-index: 1;
+            box-shadow: 0 0 12px rgba(153, 0, 255, 0.7), 0 0 25px rgba(153, 0, 255, 0.4);
+        }
+
+        /* Individual event item */
+        .tl-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 12px 28px 12px 12px;
+            position: relative;
+            opacity: 0;
+            transition: none;
+        }
+
+        /* Left column items */
+        .tl-item.tl-left {
+            flex-direction: row-reverse;
+            padding: 12px 12px 12px 28px;
+            text-align: right;
+        }
+
+        /* Dot on the spine */
+        .tl-item::after {
+            content: '';
+            position: absolute;
+            top: 18px;
+            width: 14px;
+            height: 14px;
+            background: #ff00ff;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 8px rgba(255, 0, 255, 0.9), 0 0 16px rgba(153, 0, 255, 0.6);
+            z-index: 2;
+            image-rendering: pixelated;
+        }
+
+        .tl-item.tl-right::after {
+            left: -7px;
+        }
+
+        .tl-item.tl-left::after {
+            right: -7px;
+        }
+
+        /* Connector line from item to dot */
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            height: 3px;
+            background: repeating-linear-gradient(
+                90deg,
+                #9900ff 0px,
+                #9900ff 6px,
+                #4a0080 6px,
+                #4a0080 12px
+            );
+            width: 20px;
+            z-index: 2;
+        }
+
+        .tl-item.tl-right::before {
+            left: -20px;
+        }
+
+        .tl-item.tl-left::before {
+            right: -20px;
+        }
+
+        /* Icon block */
+        .tl-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #3a0060, #7700cc);
+            border: 3px solid #cc00ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 10px rgba(153, 0, 255, 0.5);
+            image-rendering: pixelated;
+            position: relative;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        /* Content block */
+        .tl-content {
+            background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMxkXqlZpEAGsqwkmKuJT0ceVu9_CuV2rmiFt8xlvW9X30dcur-795F1dwSkhe9je8mMAqhnPsQMVd2q7GwOeP257Kx6k7NqVyA0w-G6l1Tq17S6upayDwz3JdLd3AQ0vM2zUx4vqhdtbQlNkFFf1aq=w1163-h400-s-no-gm?authuser=0');
+            background-size: cover;
+            border: 2px solid #6600bb;
+            padding: 9px 14px;
+            min-width: 0;
+            flex: 1;
+            position: relative;
+            z-index: 3;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tl-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(153, 0, 255, 0.5);
+            border-color: #aa00ff;
+        }
+
+        .tl-content::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.72);
+            z-index: 0;
+        }
+
+        .tl-content > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tl-time {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 8px;
+            color: #cc88ff;
+            text-shadow: 1px 1px 0 #000;
+            margin-bottom: 4px;
+            display: block;
+            white-space: nowrap;
+        }
+
+        .tl-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 9.5px;
+            color: #ffffff;
+            text-shadow: 2px 2px 0 #6600bb;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .tl-day-header {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            color: #ffffff;
+            text-shadow: 3px 3px 0 #9900ff;
+            padding: 22px 0 10px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .tl-day-header span {
+            background: linear-gradient(135deg, #2a0045, #5500aa);
+            border: 3px solid #aa00ff;
+            padding: 8px 24px;
+            box-shadow: 0 0 15px rgba(153, 0, 255, 0.6);
+            display: inline-block;
+        }
+
+        /* Slide in animations */
+        .tl-item.tl-right.tl-visible {
+            animation: tlSlideRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .tl-item.tl-left.tl-visible {
+            animation: tlSlideLeft 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes tlSlideRight {
+            0% { opacity: 0; transform: translateX(40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes tlSlideLeft {
+            0% { opacity: 0; transform: translateX(-40px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ============================================
+        TIMELINE RESPONSIVE - 480px
+        ============================================ */
+        @media (max-width: 480px) {
+            #timeline {
+                padding: 80px 10px 100px;
+            }
+
+            .timeline-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .timeline-grid::before {
+                left: 18px;
+                top: 0;
+                bottom: 0;
+            }
+
+            .tl-day-header {
+                grid-column: 1;
+                text-align: left;
+                padding-left: 44px;
+                font-size: 11px;
+            }
+
+            .tl-day-header span {
+                padding: 6px 14px;
+                font-size: 10px;
+            }
+
+            .tl-item,
+            .tl-item.tl-left {
+                flex-direction: row;
+                text-align: left;
+                padding: 8px 8px 8px 44px;
+            }
+
+            .tl-item::after,
+            .tl-item.tl-left::after {
+                left: 11px;
+                right: auto;
+                top: 16px;
+                width: 12px;
+                height: 12px;
+            }
+
+            .tl-item::before,
+            .tl-item.tl-left::before {
+                left: 23px;
+                right: auto;
+                top: 21px;
+                width: 14px;
+            }
+
+            .tl-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .tl-time {
+                font-size: 7px;
+            }
+
+            .tl-title {
+                font-size: 8px;
+            }
+
+            .tl-item.tl-left.tl-visible {
+                animation: tlSlideRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            }
+        }
+
+        /* ============================================
+        TIMELINE RESPONSIVE - 400px
+        ============================================ */
+        @media (max-width: 400px) {
+            #timeline {
+                padding: 70px 6px 90px;
+            }
+
+            .timeline-grid::before {
+                left: 15px;
+            }
+
+            .tl-day-header {
+                padding-left: 38px;
+                font-size: 9px;
+            }
+
+            .tl-day-header span {
+                padding: 5px 10px;
+                font-size: 8.5px;
+                border-width: 2px;
+            }
+
+            .tl-item,
+            .tl-item.tl-left {
+                padding: 6px 6px 6px 36px;
+            }
+
+            .tl-item::after,
+            .tl-item.tl-left::after {
+                left: 8px;
+                top: 14px;
+                width: 10px;
+                height: 10px;
+            }
+
+            .tl-item::before,
+            .tl-item.tl-left::before {
+                left: 18px;
+                top: 18px;
+                width: 12px;
+            }
+
+            .tl-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 13px;
+                border-width: 2px;
+            }
+
+            .tl-time {
+                font-size: 6.5px;
+            }
+
+            .tl-title {
+                font-size: 7.5px;
             }
         }
     </style>
@@ -6741,7 +7166,7 @@
 
                 <div class="nav-sign-container" style="--index: 1">
                     <div class="sign-chain"></div>
-                    <a href="#timeline" class="nav-sign" data-soon="true">Timeline</a>
+                    <a href="#timeline" class="nav-sign">Timeline</a>
                 </div>
 
                 <div class="nav-sign-container" style="--index: 2">
@@ -6992,6 +7417,214 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="timeline" class="section-bg">
+             <a href="#home" class="timeline-decoration-link">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOzO6DSU7gKtIzYnhQavNRsN1RJwRCXo8sZbRnb41kS_Iw16VGpnz2TqdNhxQYrmxExCtTe9qI5I8ul5e9PdpfsySO_i6bEWSpiiFDki8KUw7ALel21hUubxo7o5ww91Gn_-Vu9XKcnM4Mle7u-wUbP=w885-h938-s-no-gm?authuser=0" alt="Decoration">
+            </a>
+            <div class="timeline-wrapper">
+                <h2 data-corner-text="Tick Tock Hack!!" style="margin-top: -20px;">TIMELINE</h2>
+
+                <div class="timeline-grid" id="timelineGrid">
+
+                    <!-- DAY 1: March 7 -->
+                    <div class="tl-day-header">
+                        <span>Day 1 — March 7, 2026</span>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🚌</div>
+                        <div class="tl-content">
+                            <span class="tl-time">09:00 AM</span>
+                            <p class="tl-title">Check-in & Participant Reporting Starts</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🎤</div>
+                        <div class="tl-content">
+                            <span class="tl-time">10:30 AM</span>
+                            <p class="tl-title">Opening Ceremony</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🤖</div>
+                        <div class="tl-content">
+                            <span class="tl-time">11:30 AM</span>
+                            <p class="tl-title">MLH Gemini Session</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🏁</div>
+                        <div class="tl-content">
+                            <span class="tl-time">12:00 PM</span>
+                            <p class="tl-title">Hackathon Officially Starts</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">💻</div>
+                        <div class="tl-content">
+                            <span class="tl-time">12:30 PM</span>
+                            <p class="tl-title">GitHub Copilot Session</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🍽️</div>
+                        <div class="tl-content">
+                            <span class="tl-time">01:30 PM</span>
+                            <p class="tl-title">Lunch Break</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🧠</div>
+                        <div class="tl-content">
+                            <span class="tl-time">03:00 PM</span>
+                            <p class="tl-title">Google AI Session</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🎯</div>
+                        <div class="tl-content">
+                            <span class="tl-time">04:30 PM</span>
+                            <p class="tl-title">Mentoring Round 1</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">☕</div>
+                        <div class="tl-content">
+                            <span class="tl-time">05:30 PM</span>
+                            <p class="tl-title">Evening Tea & Snacks</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🍴</div>
+                        <div class="tl-content">
+                            <span class="tl-time">07:30 PM</span>
+                            <p class="tl-title">Dinner & AceHack Unplugged</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🎧</div>
+                        <div class="tl-content">
+                            <span class="tl-time">10:00 PM</span>
+                            <p class="tl-title">DJ Night</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🧑‍🏫</div>
+                        <div class="tl-content">
+                            <span class="tl-time">11:30 PM</span>
+                            <p class="tl-title">Mentoring Round 2</p>
+                        </div>
+                    </div>
+
+                    <!-- DAY 2: March 8 -->
+                    <div class="tl-day-header">
+                        <span> Day 2 — March 8, 2026</span>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🍫</div>
+                        <div class="tl-content">
+                            <span class="tl-time">01:00 AM</span>
+                            <p class="tl-title">Midnight Snacks</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🎮</div>
+                        <div class="tl-content">
+                            <span class="tl-time">01:30 AM</span>
+                            <p class="tl-title">Midnight Games</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🍳</div>
+                        <div class="tl-content">
+                            <span class="tl-time">08:30 AM</span>
+                            <p class="tl-title">Breakfast</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🧠</div>
+                        <div class="tl-content">
+                            <span class="tl-time">09:30 AM</span>
+                            <p class="tl-title">Final Mentoring Round</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">📦</div>
+                        <div class="tl-content">
+                            <span class="tl-time">10:00 AM</span>
+                            <p class="tl-title">Project Submission Opens (Devfolio)</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🛑</div>
+                        <div class="tl-content">
+                            <span class="tl-time">12:30 PM</span>
+                            <p class="tl-title">Hackathon & Submissions End</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🍱</div>
+                        <div class="tl-content">
+                            <span class="tl-time">01:00 PM</span>
+                            <p class="tl-title">Lunch Ends</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">⚖️</div>
+                        <div class="tl-content">
+                            <span class="tl-time">02:00 PM</span>
+                            <p class="tl-title">Judging Begins</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🎁</div>
+                        <div class="tl-content">
+                            <span class="tl-time">04:30 PM</span>
+                            <p class="tl-title">Swags Distribution</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-left">
+                        <div class="tl-icon">🏆</div>
+                        <div class="tl-content">
+                            <span class="tl-time">05:30 PM</span>
+                            <p class="tl-title">Closing Ceremony</p>
+                        </div>
+                    </div>
+
+                    <div class="tl-item tl-right">
+                        <div class="tl-icon">🚌</div>
+                        <div class="tl-content">
+                            <span class="tl-time">07:30 PM</span>
+                            <p class="tl-title">Bus Departure</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -7631,7 +8264,7 @@
                 </div>
                 <div class="sponsor-cta">
                     <div class="stone-btn-wrapper" style="top:-60px;">
-                        <a href="benefit.html" class="stone-btn sponsor-btn" data-soon="true">Know More</a>
+                        <a href="benefit.html" class="stone-btn sponsor-btn" >Know More</a>
                         <img src="https://lh3.googleusercontent.com/pw/AP1GczMeqenNSDCEYEvZ8vPHzJRrkSk9UoakdEVllKTU-kgOC1Un8F6jjOyTdJNAtB9Wp2Q3VnTpijka2PbFKWGw_1kF1nSr65_fyrqLXAG_E5RhhCxrJpnMrqWb3CZ0aDYblwLMbcQ2GBFD96rifvy11Vp3=w158-h158-s-no-gm?authuser=0" 
                             alt="Diamond" 
                             class="popup-image">
@@ -8532,7 +9165,7 @@
                 // Nav links
                 const navLinks = [
                     { href: '#home', text: 'Home' },
-                    { href: '#timeline', text: 'Timeline', soon: true },
+                    { href: '#timeline', text: 'Timeline',},
                     { href: '#guests', text: 'Guests' },
                     { href: '#tracks', text: 'Tracks' },
                     { href: 'https://ace-hack-hacker-swags-inky.vercel.app/', text: 'DG Swags' },
@@ -8997,6 +9630,7 @@
                     'home': "Welcome to AceHack 5.0! Registrations Closed!",
                     'about': "36 hours of pure innovation awaits!",
                     'tracks': "Choose your track and start building!",
+                    'timeline': "Mark your calendars for an unforgettable experience!",
                     'why-attend': "Network, learn, and grow with us! Be a part of History!!",
                     'prizes': "Tap the chests to unlock prizes worth ₹1 Lakh!!",
                     'guests': "Its On!! Meet the Legends!",
@@ -9263,6 +9897,24 @@
                         console.log('✓ Guests carousel running —', halfCount, 'cards, halfWidth:', halfWidth.toFixed(0), 'px');
                     });
                 });
+            })();
+
+            (function initTimelineObserver() {
+                const items = document.querySelectorAll('.tl-item');
+                if (!items.length) return;
+
+                const tlObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) return;
+                        const el = entry.target;
+                        const delay = parseInt(el.dataset.delay) || 0;
+                        setTimeout(() => el.classList.add('tl-visible'), delay);
+                        tlObserver.unobserve(el);
+                    });
+                }, { threshold: 0.1, rootMargin: '50px' });
+
+                items.forEach(item => tlObserver.observe(item));
+                console.log('✓ Timeline observer initialized');
             })();
         </script>
 
