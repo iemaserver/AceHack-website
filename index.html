@@ -7102,6 +7102,19 @@
     </style>
     </head>
     <body>
+        <!-- BOOTUP SCREEN -->
+        <div id="bootup-screen" style="
+        position:fixed;top:0;left:0;width:100%;height:100%;
+        background:#000;z-index:999999;display:flex;
+        align-items:center;justify-content:center;overflow:hidden;
+        ">
+        <video id="bootup-video" playsinline muted autoplay
+            style="width:100%;height:100%;object-fit:contain;display:block;">
+            <source src="assets/vid/bootup.mov" type="video/mp4">
+        </video>
+        <!-- Skip button -->
+        
+        </div>
 
         <audio id="background-music" loop>
             <source
@@ -8189,7 +8202,7 @@
                             <p class="guest-description"> Hackathon Mentor & Judge | 6x Hackathon Winner | The Kailshians Web Services</p>
                             <div class="guest-socials">
                             <a href="https://www.linkedin.com/in/keshav-bhatt-281ab0288/" target="_blank">
-                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="Instagram">
                             </a>
                             </div>
                             </div>
@@ -8205,13 +8218,73 @@
                             <p class="guest-description">Software Engineer @ SITA | Tech Speaker 10 X| Ex-GeeksforGeeks</p>
                             <div class="guest-socials">
                             <a href="https://www.linkedin.com/in/tanisha-bansal-702852288/" target="_blank">
-                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="Instagram">
                             </a>
                             </div>
                             </div>
 
+                             <!-- Card 20 -->
+                            <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                            <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczOz-gaNZgnQsak4_CEvErM2LT0qnSlzbjGNao8COagXoxlgaeeVj7y3P70u3gw0A7JqX1T3sYY9vKaviEw6Y_DbPF_nyeQ6OgnANDscdPXM6OJ25xpdRW8MV1bECdmNt_wyjfH8h8UbcI6FZEAJkrfv=w750-h938-s-no-gm?authuser=0" alt="Judge 18">
+                            <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNSdpsQco5rP7IHJcjUsh43Ge4rf5I2rgfGW7a7LY0reSlDcY_qyP4OhLtukbLroA2GVY05UfroTtFUndvQ_qpMVi82sayxXI-vXy9QeaR5kHWC2307j-Jwjh3CufM4vE7P8wnuEKTU1uyTHiEEKVV4=w750-h938-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Harshil Srivastav</p>
+                            <span class="guest-tag judge">Mentor | Judge</span>
+                            <p class="guest-description">S4x Hackathon Judged | 45+ Hackathon Organized | Founder & CEO @Genesis</p>
+                            <div class="guest-socials">
+                            <a href="https://www.linkedin.com/in/harshil-srivastav/" target="_blank">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="Instagram">
+                            </a>
+                            </div>
+                            </div>
 
+                             <!-- Card 20 -->
+                            <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                            <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPsXpX7YY7v41J3-XxxpCsihzGK3zJLYyri5t_V_0Cf4qotj_HTHrpwcgyqa6xiqYeXKqLqxs06Qw_EmsCy1CjKbfMTaLXUxfyTZyJ4q_ds5M1i7SsttFtR2vF9OQvH3xCx8SmLnk_eGHXnz3H18-FF=w750-h938-s-no-gm?authuser=0" alt="Judge 18">
+                            <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczNGvAcY381P5PZnbS_DqcbHqtliKuILC8wiwVU15o5T8cqLqpQOr2DsNKbwIBAsVyDRfE_lvdjZmKOP1UDEv-BX47Axfx7e1NflWzpWmS3fR0eo64AnEpNbtOlYub8ntu4BJHTb7R_ItMMSzTO651mD=w750-h938-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Khushi Mahawar</p>
+                            <span class="guest-tag mentor">MLH Coach</span>
+                            <p class="guest-description">SDE @ Springworks | Frontend & Full-Stack Engineer | MLH Coach</p>
+                            <div class="guest-socials">
+                            <a href="https://www.linkedin.com/in/khushi-mahawar/" target="_blank">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                            </a>
+                            </div>
+                            </div>
 
+                             <!-- Card 20 -->
+                            <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                            <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczPIWjdIqV_POE1KbSeSvU5NV2erU8VOxBYmw2H2WKsDHeu0vDigBzushXUnpCzCVH-rVjil09Uo49hB0YwA1K6YXcAA0O9kzw5tDu_sEuAEIeaDGP-AZkFsmkMZX424_K_Q2HpGeAwcZ1RtuG91KyGy=w750-h938-s-no-gm?authuser=0" alt="Judge 18">
+                            <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczPFCQJv_HaLep2yvvs9PZabDPNxYZXnxxl6cg4M7xEC8ChqueTpx3PYUKHlr2_bKz1m-_Fi_wRVuQrYIbQV4Jec3VMsosD_9_WmHlZ1Ur4JlnfLgiVVjJmFr0erhmCERKX8DyIGOvhZvsoIjhjslj9t=w750-h938-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Romanch Roshan Singh</p>
+                            <span class="guest-tag mentor">MLH Coach</span>
+                            <p class="guest-description">Full-Stack Developer | President @NAMESPACE BPIT | 4x Hackathon Winner | Coach @MLH</p>
+                            <div class="guest-socials">
+                            <a href="https://www.linkedin.com/in/romanch11/" target="_blank">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                            </a>
+                            </div>
+                            </div>
+
+                            <div class="guest-card">
+                            <div class="guest-card-img-wrapper">
+                            <img class="guest-judge-img" src="https://lh3.googleusercontent.com/pw/AP1GczNBfKiUKkxTBVAVO0hw-Eo1WUwsHIKouGmxVMAtSA0kC31DXPQeyIwnmLpNs-erUIkX0uLPS9Oa9g7E1yD8x3t838pCGosMfsnTp0fxH6LiJw-F_nU6VGWTAA0g6K1UDHx2AuUz_hbCTlOx6-Lptnzu=w750-h938-s-no-gm?authuser=0" alt="Judge 18">
+                            <img class="guest-mc-img" src="https://lh3.googleusercontent.com/pw/AP1GczM1DfvrQc27Q_lNdFNMnrqRyKtqd66zOjo6T6AOX5A6x7pHdcwLsYyJ00iORX_I6-KSQedFVEzrUdbmZIrQqa6MS_jnEcpAtd5NPt-nxgGDJOwMA57cVmSU5436hj8fLNDdHHw9C2BOTa7XQ2HdWdN8=w750-h938-s-no-gm?authuser=0" alt="Minecraft Character">
+                            </div>
+                            <p class="guest-name">Utkarsh Shrivastava</p>
+                            <span class="guest-tag judge">Mwntor | Judge</span>
+                            <p class="guest-description">Prev: @Polygon | Building roots for Web3 @Threeway Studio | @Web3 Carnival | @DeGen Summit</p>
+                            <div class="guest-socials">
+                            <a href="https://www.linkedin.com/in/utkarsh-shrivastava7/" target="_blank">
+                            <img class="guest-social-icon" src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn">
+                            </a>
+                            </div>
+                            </div>
                         </div>
                     </div>
 
@@ -8517,7 +8590,7 @@
                 </div>
 
                 <div class="sponsor-tier support-partners">
-                    <h3 class="tier-title section-tier-title"></h3>SUPPORT PARTNERS</h3>
+                    <h3 class="tier-title section-tier-title">MEDIA PARTNERS</h3>
                     <div class="sponsor-row">
                         <!-- GitHub -->
                         <a href="https://theglobalhues.com/" target="_blank" class="sponsor-card">
@@ -8595,13 +8668,6 @@
                                 alt="Mobbin" 
                                 class="sponsor-logo">
                             <p class="sponsor-name">Mobbin</p>
-                        </a>
-
-                        <a href="https://artofproblemsolving.com/" target="_blank" class="sponsor-card">
-                            <img src="https://lh3.googleusercontent.com/pw/AP1GczMKVkq3Cid9lpXY5CsobUz4bzy-j5g_rMTbOauslvHQvWbSgE-jcW_Ck0VWn8Krbp0LXDNiJPluLWpQaQ4lYtIuNQGMipw1twQxEqPkWr4ZDXGTdjbmPruz79wX4BMPPtdKRRYvz0D2yyWaax76SfTo=w390-h390-s-no-gm?authuser=0" 
-                                alt="AoPS" 
-                                class="sponsor-logo">
-                            <p class="sponsor-name">AoPS</p>
                         </a>
 
                          <a href="https://reskilll.com/" target="_blank" class="sponsor-card">
@@ -9972,6 +10038,52 @@
 
                 items.forEach(item => tlObserver.observe(item));
                 console.log('✓ Timeline observer initialized');
+            })();
+
+            /* ======================================================
+            BOOTUP SCREEN — plays once per session
+            ====================================================== */
+            (function initBootupScreen() {
+            const screen = document.getElementById('bootup-screen');
+            const video  = document.getElementById('bootup-video');
+            const skip   = document.getElementById('bootup-skip');
+            if (!screen || !video) return;
+
+            // Prevent body scroll while booting
+            document.body.style.overflow = 'hidden';
+
+            function dismissBootup() {
+                screen.style.transition = 'opacity 0.6s ease';
+                screen.style.opacity = '0';
+                setTimeout(() => {
+                screen.remove();
+                document.body.style.overflow = '';
+                }, 650);
+            }
+
+            // Auto-dismiss when video ends
+            video.addEventListener('ended', dismissBootup);
+
+            // Skip button
+            skip.addEventListener('click', dismissBootup);
+
+            // Fallback: dismiss after 10s if video fails
+            setTimeout(dismissBootup, 10000);
+
+            // iOS / mobile autoplay fix — unmute & play on first touch
+            function tryPlay() {
+                video.muted = true;
+                video.play().catch(() => {});
+                document.removeEventListener('touchstart', tryPlay);
+                document.removeEventListener('click', tryPlay);
+            }
+            document.addEventListener('touchstart', tryPlay, { once: true });
+            document.addEventListener('click', tryPlay, { once: true });
+
+            // Try immediate play
+            video.play().catch(() => {});
+
+            console.log('✓ Bootup screen initialized');
             })();
         </script>
 
